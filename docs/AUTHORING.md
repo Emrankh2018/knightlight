@@ -140,6 +140,7 @@ The student must find the move. The first move in the game is the answer. If you
 
 ```
 [Lesson "weak-f7"]
+[LessonTitle "Attacking f7"]
 [Step "find-move"]
 [FEN "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4"]
 [Hint "Use your queen."]
@@ -176,6 +177,7 @@ A multiple-choice question about the position at the end of the moves (or the st
 
 ```
 [Lesson "knight-fork"]
+[LessonTitle "The knight fork"]
 [Step "quiz"]
 [Question "Which side moves next?"]
 [Choices "White | Black"]

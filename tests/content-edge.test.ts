@@ -47,7 +47,7 @@ describe('line endings and BOM', () => {
 
   it('ignores a UTF-8 BOM at the start of the file', () => {
     const lf = parseChapter('c.pgn', sample);
-    const bom = parseChapter('c.pgn', `﻿${sample}`);
+    const bom = parseChapter('c.pgn', `\uFEFF${sample}`);
     expect(bom.issues).toEqual([]);
     expect(bom.chapter).toEqual(lf.chapter);
     const [g] = parsePgnGames('﻿[Lesson "l"]\n\n*');
@@ -56,7 +56,7 @@ describe('line endings and BOM', () => {
 
   it('handles BOM and CRLF together', () => {
     const lf = parseChapter('c.pgn', sample);
-    const both = parseChapter('c.pgn', `﻿${sample.replace(/\n/g, '\r\n')}`);
+    const both = parseChapter('c.pgn', `\uFEFF${sample.replace(/\n/g, '\r\n')}`);
     expect(both.issues).toEqual([]);
     expect(both.chapter).toEqual(lf.chapter);
   });
