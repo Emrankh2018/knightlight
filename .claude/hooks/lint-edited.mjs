@@ -25,7 +25,7 @@ const rel = path.relative(root, abs).replace(/\\/g, '/');
 
 if (!/\.tsx?$/.test(rel) || !DIRS.some((d) => rel.startsWith(d)) || !existsSync(abs)) process.exit(0);
 
-const res = spawnSync('npx', ['eslint', `"${rel}"`], { cwd: root, shell: true, encoding: 'utf8' });
+const res = spawnSync(`npx eslint "${rel}"`, { cwd: root, shell: true, encoding: 'utf8' });
 if (res.status !== 0) {
   process.stderr.write(`eslint failed for ${rel}:\n${res.stdout ?? ''}${res.stderr ?? ''}`);
   process.exit(2);

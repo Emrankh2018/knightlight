@@ -17,10 +17,11 @@ function lastLine(text) {
 
 function npmGate(name, script) {
   process.stdout.write(`running ${name}...\n`);
-  const res = spawnSync('npm', ['run', script], { cwd: root, shell: true, encoding: 'utf8' });
+  const res = spawnSync(`npm run ${script}`, { cwd: root, shell: true, encoding: 'utf8' });
   const out = `${res.stdout ?? ''}${res.stderr ?? ''}`;
   if (res.status !== 0) process.stdout.write(out);
-  results.push({ name, status: res.status === 0 ? 'PASS' : 'FAIL', detail: lastLine(out).slice(0, 90) });
+  const detail = out.match(/^\s*Tests\s+.*$/m)?.[0].trim() ?? lastLine(out);
+  results.push({ name, status: res.status === 0 ? 'PASS' : 'FAIL', detail: detail.slice(0, 90) });
 }
 
 function dirSize(dir) {
