@@ -35,6 +35,10 @@
   color-scheme: dark;
 }
 
+html { font-size: 16px; }
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
+}
 html, body, #root { height: 100%; }
 body {
   margin: 0;

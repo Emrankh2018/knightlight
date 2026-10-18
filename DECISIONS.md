@@ -12,3 +12,7 @@ Dated log (Asia/Qatar). Newest last.
 - **Content format: one PGN game = one step.** Consecutive games sharing `[Lesson]` form a lesson. This keeps the files standard PGN. See docs/AUTHORING.md.
 - **Agent setup partly blocked.** The Claude Code permission classifier denied writing four agent definition files: `~/.claude/agents/debugger.md`, `~/.claude/agents/release-engineer.md`, `.claude/agents/chess-content-author.md` and `.claude/agents/chess-fact-checker.md`. `implementer`, `test-engineer` and `code-reviewer` were written. Custom agents also don't load mid-session. All seven bodies are kept in `docs/agent-prompts/` and run as general-purpose subagents with that body as the prompt, per plan amendment Step E.
 - **esbuild install script approved** (`npm install-scripts approve esbuild`). tsx and Vite need its native binary.
+- **XP values beyond the plan:** puzzle with hint 10, line with mistakes 15, lesson bonus 25, streak bonus 5. XP is awarded only the first time a step, puzzle or lesson is completed, so repeats can't farm it.
+- **Level curve:** `xpForLevel(n) = 100·n·(n−1)/2`, so level 1 starts at 0 XP, level 2 at 100 and level 3 at 300. This is the plan's formula shifted by one, so that new players start at level 1.
+- **Puzzle buckets:** a puzzle appears in every main-theme bucket it is tagged with, plus mixed. "Main theme" means a curated list of 14 themes, not one primary theme per puzzle.
+- **Puzzle levels are inclusive integer ranges:** 0–999, 1000–1399, 1400–1799, 1800–2199, 2200+. The sampling seed is 20261018.

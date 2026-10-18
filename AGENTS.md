@@ -5,7 +5,7 @@ Knightlight is a static chess-teaching PWA for a coach (projected in class) and 
 ## Stack and commands
 | What | Tool / command |
 |---|---|
-| App | Vite + React 18 + TypeScript (strict) + Tailwind 3; HashRouter; zustand |
+| App | Vite 8 + React 19 + TypeScript 6 (strict) + Tailwind 4; HashRouter; zustand 5 |
 | Rules / board | chess.js (BSD-2) / react-chessboard (MIT) |
 | Offline | vite-plugin-pwa |
 | Dev server | `npm run dev` |
