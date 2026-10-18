@@ -16,6 +16,7 @@ Knightlight is a static chess-teaching PWA for a coach (projected in class) and 
 | Content validator | `npm run validate:content` |
 | Data build | `npm run data:openings`, `npm run data:puzzles` (downloads to `.cache/`) |
 | Production build | `npm run build` then `npm run preview` |
+| All gates | `node scripts/gates.mjs` (or `/gates`) |
 
 ## Hard rules
 - No GPL/AGPL code: no chessground, no Stockfish. Use permissive licenses only.
@@ -32,14 +33,33 @@ Agent definitions live in `~/.claude/agents/` (generic) and `.claude/agents/` (p
 - `implementer`: builds one scoped task
 - `test-engineer`: writes tests only; proves bugs with failing tests
 - `code-reviewer`: read-only review and ship verdict
-- `debugger`: root-causes failures, minimal fix and regression test
+- `debugger`: diagnose-only; reproduces failures, proves the root cause, returns a HANDOFF block per root cause
 - `release-engineer`: commits, CI, deploy verification
 - `chess-content-author`: writes one course as annotated PGN
 - `chess-fact-checker`: read-only chess verification of a course
+- `classroom-ui-reviewer`: read-only projector/tablet UI review (contrast, board size, keyboard, touch targets, reduced motion, i18n strings, RTL-readiness)
 
 ## Delegation rules
 - Building → `implementer`. After each milestone, `test-engineer` runs first, then `code-reviewer`.
-- Bugs → `debugger`.
+- UI milestones: `classroom-ui-reviewer` after `code-reviewer`.
+- Before writing e2e tests, exercise the UI with Playwright MCP.
+- Use context7 for current docs on Vite 8, React 19, Tailwind 4, Vitest 5 and react-chessboard 5 before writing against their APIs.
 - Course content → `chess-content-author` (one course per call), then `chess-fact-checker`. Fix every "wrong" or "fix first" item before committing.
 - Commits, CI and deploy → `release-engineer`.
 - The main session orchestrates, makes small edits itself, and re-runs the key checks before accepting any agent's report.
+
+## Bugs: debugger → owner handoff
+The `debugger` diagnoses and returns HANDOFF blocks; it never edits. Route each handoff by owner:
+
+| Problem | Owner |
+|---|---|
+| Production code, data scripts (fix the script and regenerate with the `npm run data:*` script; never hand-edit `public/data`), lint errors in `src/`, UI/a11y/i18n violations, build/config | `implementer` |
+| Test bug, flaky test, missing regression test, lint errors in `tests/` | `test-engineer` |
+| Course content or PGN errors | `chess-content-author`, then `chess-fact-checker` |
+| CI, git, deploy, Pages | `release-engineer` |
+
+Dispatch rules:
+- The main session reads each HANDOFF, sanity-checks any "the test is wrong" claim itself before dispatching, and resolves anything below high confidence first.
+- It then dispatches each handoff to its owner with the block as the spec. Handoffs touching disjoint files may run in parallel; otherwise in order.
+- After each fix: `test-engineer` confirms the regression test fails before and passes after (skip if `test-engineer` was the owner), `code-reviewer` reviews any non-trivial diff, then the gates run (`node scripts/gates.mjs`).
+- Never skip, delete or loosen a test, and never add `eslint-disable` or relax a rule, to get green.
