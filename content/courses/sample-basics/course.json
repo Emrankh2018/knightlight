@@ -1,0 +1,9 @@
+{
+  "title": "Sample: Attacking f7",
+  "kind": "skills",
+  "level": "beginner",
+  "description": "A tiny sample course showing every kind of step. It is used to test the app and is not real teaching material.",
+  "tags": ["sample", "tactics"],
+  "reviewed": false,
+  "chapters": [{ "file": "01-weak-f7.pgn", "title": "The weak f7 square" }]
+}

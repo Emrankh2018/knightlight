@@ -1,0 +1,42 @@
+[Event "Sample basics"]
+[Lesson "weak-f7"]
+[LessonTitle "The weak f7 square"]
+[Step "explain"]
+[TeacherNotes "At the start, f7 is guarded only by the king | Two attackers on f7 can win quickly"]
+[Mistakes "Moving the queen out too early without a plan"]
+[ClassQuestions "Which black piece guards f7 at the start?"]
+
+{Watch how White aims two pieces at the f7 pawn. [%csl Rf7] [%cal Gd1h5,Gf1c4]}
+1. e4 e5 2. Qh5 {The queen eyes f7 and the e5 pawn. [%cal Gh5f7]} 2... Nc6
+3. Bc4 {Now the bishop and queen both attack f7. [%cal Gc4f7,Gh5f7]} 3... Nf6?
+4. Qxf7# {The queen takes f7 and the king has no escape. [%csl Rf7,Re8]} 1-0
+
+[Event "Sample basics"]
+[Lesson "weak-f7"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4"]
+[Hint "Use your queen."]
+[Hint "Look at the f7 square."]
+
+{White to move. Find the strongest move.}
+4. Qxf7# {Checkmate.} 1-0
+
+[Event "Sample basics"]
+[Lesson "weak-f7"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Develop the queen toward the f7 pawn."]
+
+{Play the quick attack as White.}
+1. e4 e5 2. Qh5 Nc6 3. Bc4 Nf6 4. Qxf7# *
+
+[Event "Sample basics"]
+[Lesson "weak-f7"]
+[Step "quiz"]
+[Question "Which black pawn is attacked twice and guarded only by the king?"]
+[Choices "The pawn on f7 | The pawn on e5 | The pawn on a7"]
+[Answer "1"]
+[Explanation "The queen and the bishop both attack f7, and only the king guards it."]
+
+{Look at the final position.}
+1. e4 e5 2. Qh5 Nc6 3. Bc4 Nf6 *
