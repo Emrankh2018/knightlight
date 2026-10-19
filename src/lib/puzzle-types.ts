@@ -44,6 +44,12 @@ export interface PuzzleIndex {
     minPopularity: number;
     minNbPlays: number;
     maxRatingDeviation: number;
+    /** Effective looser filters used for the beginner level only. */
+    beginner: {
+      minPopularity: number;
+      minNbPlays: number;
+      maxRatingDeviation: number;
+    };
     perThemeLevel: number;
     perMixedLevel: number;
     seed: number;

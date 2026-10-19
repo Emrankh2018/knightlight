@@ -6,7 +6,23 @@ import type { Puzzle, PuzzleIndex } from '../src/lib/puzzle-types';
 
 const dir = 'public/data/puzzles';
 const index = JSON.parse(readFileSync(`${dir}/index.json`, 'utf8')) as PuzzleIndex;
-const MATE_THEMES = ['mateIn1', 'mateIn2', 'mateIn3', 'mate'];
+const MAIN_THEMES = [
+  'mateIn1',
+  'mateIn2',
+  'mateIn3',
+  'fork',
+  'pin',
+  'skewer',
+  'hangingPiece',
+  'discoveredAttack',
+  'deflection',
+  'attraction',
+  'backRankMate',
+  'endgame',
+  'sacrifice',
+  'trappedPiece',
+];
+const MATE_THEMES =['mateIn1', 'mateIn2', 'mateIn3', 'mate'];
 
 function readBucket(file: string): Puzzle[] {
   return JSON.parse(readFileSync(join(dir, file), 'utf8')) as Puzzle[];
@@ -25,6 +41,39 @@ describe('puzzle index', () => {
     expect(index.generated).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(index.levels.map((l) => l.id)).toEqual(['beginner', 'intermediate', 'mid-advanced', 'advanced', 'master']);
     for (const level of index.levels) expect(level.buckets.length).toBeGreaterThan(0);
+  });
+
+  it('uses the kid-friendly rating bands', () => {
+    expect(index.levels.map((l) => [l.min, l.max])).toEqual([
+      [0, 699],
+      [700, 1199],
+      [1200, 1599],
+      [1600, 1999],
+      [2000, 4000],
+    ]);
+  });
+
+  it('gives every beginner theme at least 40 puzzles', () => {
+    const beginner = index.levels.find((l) => l.id === 'beginner');
+    expect(beginner?.buckets.length).toBeGreaterThanOrEqual(15);
+    for (const b of beginner?.buckets ?? []) expect(b.count, b.file).toBeGreaterThanOrEqual(40);
+  });
+
+  it.each(index.levels.map((l) => l.id))('%s mixed bucket is varied and large enough', (id) => {
+    const bucket = index.levels.find((l) => l.id === id)?.buckets.find((b) => b.theme === 'mixed');
+    expect(bucket, `${id} has a mixed bucket`).toBeDefined();
+    const puzzles = readBucket(`${id}/mixed.json`);
+    expect(puzzles.length).toBeGreaterThanOrEqual(250);
+    for (const theme of MAIN_THEMES) {
+      const share = puzzles.filter((p) => p.themes.includes(theme)).length / puzzles.length;
+      expect(share, `${id} mixed: ${theme}`).toBeLessThanOrEqual(0.4);
+    }
+  });
+
+  it('records the effective beginner filters', () => {
+    expect(index.filters.beginner.minPopularity).toBeLessThan(index.filters.minPopularity);
+    expect(index.filters.beginner.minNbPlays).toBeLessThan(index.filters.minNbPlays);
+    expect(index.filters.beginner.maxRatingDeviation).toBeGreaterThan(index.filters.maxRatingDeviation);
   });
 
   it('total shipped size is under 25 MB', () => {

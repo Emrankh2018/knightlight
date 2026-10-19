@@ -15,8 +15,17 @@ const SEED = 20261018;
 const MIN_POPULARITY = 90;
 const MIN_NB_PLAYS = 500;
 const MAX_RATING_DEVIATION = 90;
+/** Beginner (kids) level uses looser quality filters: low-rated themes like deflection are rare. */
+const BEGINNER_MIN_POPULARITY = 60;
+const BEGINNER_MIN_NB_PLAYS = 100;
+const BEGINNER_MAX_RATING_DEVIATION = 110;
 const PER_THEME_LEVEL = 150;
 const PER_MIXED_LEVEL = 300;
+/** No single main theme (or the "other" group) may fill more than this share of a mixed bucket. */
+const MIXED_THEME_SHARE = 0.25;
+/** Puzzles carry several tags (e.g. endgame + mateIn2), so the total tag count per theme is capped too. */
+const MIXED_TAG_SHARE = 0.35;
+const PER_MIXED_CATEGORY = Math.floor(PER_MIXED_LEVEL * MIXED_THEME_SHARE);
 
 const REQUIRED = ['PuzzleId', 'FEN', 'Moves', 'Rating', 'RatingDeviation', 'Popularity', 'NbPlays', 'Themes', 'GameUrl'] as const;
 const THEMES = [
@@ -38,11 +47,11 @@ const THEMES = [
 const MATE_THEMES = new Set(['mateIn1', 'mateIn2', 'mateIn3', 'mate']);
 
 const LEVELS = [
-  { id: 'beginner', min: 0, max: 999 },
-  { id: 'intermediate', min: 1000, max: 1399 },
-  { id: 'mid-advanced', min: 1400, max: 1799 },
-  { id: 'advanced', min: 1800, max: 2199 },
-  { id: 'master', min: 2200, max: 4000 },
+  { id: 'beginner', min: 0, max: 699 },
+  { id: 'intermediate', min: 700, max: 1199 },
+  { id: 'mid-advanced', min: 1200, max: 1599 },
+  { id: 'advanced', min: 1600, max: 1999 },
+  { id: 'master', min: 2000, max: 4000 },
 ] as const;
 
 /** Deterministic PRNG. */
@@ -107,6 +116,30 @@ function levelOf(rating: number): (typeof LEVELS)[number] | undefined {
   return LEVELS.find((l) => rating >= l.min && rating <= l.max);
 }
 
+/** Round-robin across the per-theme mixed reservoirs until PER_MIXED_LEVEL puzzles are taken. */
+function interleaveMixed(levelId: string, reservoirs: Map<string, Reservoir>): Puzzle[] {
+  const pools = [...THEMES, 'other'].map((c) => [...(reservoirs.get(`${levelId}/mixed/${c}`)?.items ?? [])]);
+  const out: Puzzle[] = [];
+  const seen = new Set<string>();
+  const tagCounts = new Map<string, number>();
+  const tagCap = Math.floor(PER_MIXED_LEVEL * MIXED_TAG_SHARE);
+  const overCap = (p: Puzzle): boolean => THEMES.some((t) => p.themes.includes(t) && (tagCounts.get(t) ?? 0) >= tagCap);
+  for (let round = 0; out.length < PER_MIXED_LEVEL; round++) {
+    let any = false;
+    for (const pool of pools) {
+      const p = pool[round];
+      if (!p) continue;
+      any = true;
+      if (seen.has(p.id) || out.length >= PER_MIXED_LEVEL || overCap(p)) continue;
+      seen.add(p.id);
+      for (const t of THEMES) if (p.themes.includes(t)) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+      out.push(p);
+    }
+    if (!any) break;
+  }
+  return out;
+}
+
 async function main(): Promise<void> {
   await downloadToFile(SOURCE_URL, CACHE_FILE, MIN_ARCHIVE_BYTES);
   const archiveBytes = await fileSize(CACHE_FILE);
@@ -147,22 +180,39 @@ async function main(): Promise<void> {
       malformedRows++;
       return;
     }
-    if (popularity < MIN_POPULARITY || plays < MIN_NB_PLAYS || deviation > MAX_RATING_DEVIATION) return;
     const level = levelOf(rating);
     if (!level) {
       malformedRows++;
       return;
     }
+    const beginner = level.id === 'beginner';
+    const minPopularity = beginner ? BEGINNER_MIN_POPULARITY : MIN_POPULARITY;
+    const minPlays = beginner ? BEGINNER_MIN_NB_PLAYS : MIN_NB_PLAYS;
+    const maxDeviation = beginner ? BEGINNER_MAX_RATING_DEVIATION : MAX_RATING_DEVIATION;
+    if (popularity < minPopularity || plays < minPlays || deviation > maxDeviation) return;
     filteredRows++;
 
     const themes = get('Themes').split(' ').filter((t) => t !== '');
-    const keys = [`${level.id}/mixed`];
+    const keys: string[] = [];
     for (const t of THEMES) if (themes.includes(t)) keys.push(`${level.id}/${t}`);
+    // The mixed pool is split into one reservoir per main theme; each puzzle joins the
+    // least-filled matching one (or "other"), so the buckets can later be interleaved.
+    const matching = THEMES.filter((t) => themes.includes(t));
+    let category = 'other';
+    let fewest = Infinity;
+    for (const t of matching) {
+      const seen = reservoirs.get(`${level.id}/mixed/${t}`)?.seen ?? 0;
+      if (seen < fewest) {
+        fewest = seen;
+        category = t;
+      }
+    }
+    keys.push(`${level.id}/mixed/${category}`);
 
     let puzzle: Puzzle | undefined;
     let valid: boolean | undefined;
     for (const key of keys) {
-      const cap = key.endsWith('/mixed') ? PER_MIXED_LEVEL : PER_THEME_LEVEL;
+      const cap = key.includes('/mixed/') ? PER_MIXED_CATEGORY : PER_THEME_LEVEL;
       const r = reservoirFor(key);
       r.seen++;
       let slot = -1;
@@ -230,7 +280,7 @@ async function main(): Promise<void> {
     const buckets: PuzzleLevel['buckets'] = [];
     await mkdir(`${OUT_DIR}/${level.id}`, { recursive: true });
     for (const theme of [...THEMES, 'mixed']) {
-      const items = reservoirs.get(`${level.id}/${theme}`)?.items ?? [];
+      const items = theme === 'mixed' ? interleaveMixed(level.id, reservoirs) : (reservoirs.get(`${level.id}/${theme}`)?.items ?? []);
       if (items.length === 0) continue;
       items.sort((a, b) => a.rating - b.rating || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
       const json = JSON.stringify(items);
@@ -250,6 +300,11 @@ async function main(): Promise<void> {
       minPopularity: MIN_POPULARITY,
       minNbPlays: MIN_NB_PLAYS,
       maxRatingDeviation: MAX_RATING_DEVIATION,
+      beginner: {
+        minPopularity: BEGINNER_MIN_POPULARITY,
+        minNbPlays: BEGINNER_MIN_NB_PLAYS,
+        maxRatingDeviation: BEGINNER_MAX_RATING_DEVIATION,
+      },
       perThemeLevel: PER_THEME_LEVEL,
       perMixedLevel: PER_MIXED_LEVEL,
       seed: SEED,
