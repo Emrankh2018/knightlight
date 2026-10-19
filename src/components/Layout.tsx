@@ -12,7 +12,6 @@ const allLinks = [
   { to: '/', label: () => m().nav.home, end: true },
   { to: '/courses', label: () => m().nav.library, end: false },
   { to: '/puzzles', label: () => m().nav.puzzles, end: false },
-  { to: '/tactics', label: () => m().nav.tactics, end: false },
   { to: '/teacher', label: () => m().nav.teacher, end: false },
   { to: '/openings', label: () => m().nav.explorer, end: false },
   { to: '/play', label: () => m().nav.play, end: false },
@@ -40,10 +39,10 @@ export default function Layout() {
         {m().app.skipToContent}
       </button>
       <header className="kl-chrome relative bg-ink text-cream">
-        <nav aria-label={m().nav.mainNav} className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-2">
-          <NavLink to="/" className="me-2 flex min-h-11 items-center gap-2 text-xl font-extrabold">
+        <nav aria-label={m().nav.mainNav} className="mx-auto flex min-w-0 max-w-7xl items-center gap-1 px-2 py-2 sm:gap-2 sm:px-4">
+          <NavLink to="/" aria-label={m().app.name} className="me-1 flex min-h-11 shrink-0 items-center gap-2 text-xl font-extrabold sm:me-2">
             <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width={32} height={32} />
-            {m().app.name}
+            <span className="hidden sm:inline">{m().app.name}</span>
           </NavLink>
           <ul className="hidden flex-1 items-center gap-1 xl:flex">
             {links.map((l) => (
@@ -54,8 +53,10 @@ export default function Layout() {
               </li>
             ))}
           </ul>
-          <div className="ms-auto flex items-center gap-1 xl:ms-0">
-            <SearchSlot />
+          <div className="ms-auto flex min-w-0 items-center gap-0.5 sm:gap-1 xl:ms-0">
+            <span className="hidden sm:contents">
+              <SearchSlot />
+            </span>
             <SoundToggle />
             <ThemeToggle />
             <ProfileSwitcher />
@@ -64,10 +65,10 @@ export default function Layout() {
               aria-expanded={menuOpen}
               aria-controls={MENU_ID}
               onClick={() => setMenuOpen((o) => !o)}
-              className="flex min-h-11 items-center gap-2 rounded-lg px-3 font-bold hover:bg-ink-soft xl:hidden"
+              className="flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-2 rounded-lg px-2 text-xl font-bold hover:bg-ink-soft sm:px-3 sm:text-base xl:hidden"
             >
               <span aria-hidden="true">{menuOpen ? '✕' : '☰'}</span>
-              {menuOpen ? m().nav.closeMenu : m().nav.openMenu}
+              <span className="sr-only sm:not-sr-only">{menuOpen ? m().nav.closeMenu : m().nav.openMenu}</span>
             </button>
           </div>
         </nav>

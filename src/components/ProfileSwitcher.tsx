@@ -42,11 +42,11 @@ export default function ProfileSwitcher() {
         className="flex min-h-11 items-center gap-2 rounded-lg px-2 hover:bg-ink-soft"
       >
         <span className="text-2xl" aria-hidden="true">{active.avatar}</span>
-        <span className="hidden max-w-32 truncate font-bold sm:inline" aria-hidden="true">{active.name}</span>
-        <span className="rounded-full bg-amber px-2 text-sm font-extrabold text-ink" aria-hidden="true">{fmt(m().profile.level, { level })}</span>
+        <span className="hidden max-w-[9rem] truncate font-bold sm:inline" title={active.name} aria-hidden="true">{active.name}</span>
+        <span className="whitespace-nowrap rounded-full bg-amber px-2 text-sm font-extrabold text-ink" aria-hidden="true">{fmt(m().profile.level, { level })}</span>
       </button>
       {open ? (
-        <div id={menuId} className="absolute end-0 z-40 mt-2 w-64 rounded-xl border-2 border-line bg-surface p-2 text-fg shadow-xl">
+        <div id={menuId} className="absolute end-0 z-40 mt-2 w-64 max-w-[calc(100vw-1rem)] rounded-xl border-2 border-line bg-surface p-2 text-fg shadow-xl">
           <p className="px-2 py-1 text-sm font-bold text-muted">{m().profile.switcher}</p>
           <ul>
             {profiles.map((p) => (
