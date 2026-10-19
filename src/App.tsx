@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { m } from './i18n';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
@@ -9,7 +9,6 @@ const Courses = lazy(() => import('./routes/Courses'));
 const Course = lazy(() => import('./routes/Course'));
 const Lesson = lazy(() => import('./routes/Lesson'));
 const Puzzles = lazy(() => import('./routes/Puzzles'));
-const Tactics = lazy(() => import('./routes/Tactics'));
 const Teacher = lazy(() => import('./routes/Teacher'));
 const Openings = lazy(() => import('./routes/Openings'));
 const Play = lazy(() => import('./routes/Play'));
@@ -28,7 +27,7 @@ export default function App() {
           <Route path="courses/:slug" element={<Course />} />
           <Route path="learn/:slug/:lessonId" element={<Lesson />} />
           <Route path="puzzles" element={<Puzzles />} />
-          <Route path="tactics" element={<Tactics />} />
+          <Route path="tactics" element={<Navigate to="/puzzles" replace />} />
           <Route path="teacher" element={<Teacher />} />
           <Route path="openings" element={<Openings />} />
           <Route path="play" element={<Play />} />
