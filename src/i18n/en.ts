@@ -26,7 +26,6 @@ export const en = {
     menu: 'Menu',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
-    searchShortcut: 'Search (Ctrl+K)',
   },
   routes: {
     courses: 'Courses',

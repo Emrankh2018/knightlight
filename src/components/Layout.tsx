@@ -3,7 +3,6 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { m } from '../i18n';
 import { isReady } from '../lib/ready-routes';
 import ProfileSwitcher from './ProfileSwitcher';
-import SearchSlot from './SearchSlot';
 import SoundToggle from './SoundToggle';
 import ThemeToggle from './ThemeToggle';
 import Toasts from './Toasts';
@@ -54,9 +53,6 @@ export default function Layout() {
             ))}
           </ul>
           <div className="ms-auto flex min-w-0 items-center gap-0.5 sm:gap-1 xl:ms-0">
-            <span className="hidden sm:contents">
-              <SearchSlot />
-            </span>
             <SoundToggle />
             <ThemeToggle />
             <ProfileSwitcher />
