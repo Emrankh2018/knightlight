@@ -1,0 +1,72 @@
+[Event "Ruy Lopez for White"]
+[Lesson "spanish-idea"]
+[LessonTitle "The idea of the Ruy Lopez"]
+[Step "explain"]
+[TeacherNotes "The Ruy Lopez is also called the Spanish Game | The bishop does not win a pawn at once. It adds slow pressure | The knight on c6 guards the e5 pawn, so pressure on c6 is pressure on e5 | Ask: what could White do on e5 if the c6 knight went away?"]
+[Mistakes "Thinking Bb5 threatens to win the knight right now. It does not, because the knight is defended | Trading on c6 without a plan | Forgetting to castle after the bishop move"]
+[ClassQuestions "Which black piece does the bishop on b5 point at? | Which black pawn does that knight protect? | Why is slow pressure still useful?"]
+
+{The idea in one sentence: the bishop pressures the knight on c6, which guards the e5 pawn. [%cal Gb5c6,Yc6e5] [%csl Rc6,Ye5]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 {Now the knight on c6 is under pressure. For now it is safe, but White plays for the long game. [%cal Gb5c6]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "spanish-idea"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"]
+[Hint "Use your bishop on f1."]
+[Hint "Move it to b5, so it points at the knight on c6."]
+
+{White to move. Start the Ruy Lopez: put the bishop on the square that pressures the c6 knight.}
+3. Bb5 {The Ruy Lopez. [%cal Gb5c6]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "spanish-idea"]
+[Step "quiz"]
+[Question "After 3. Bb5, which black piece is the bishop pointing at?"]
+[Choices "The knight on c6 | The queen on d8 | The pawn on f7"]
+[Answer "1"]
+[Explanation "The bishop on b5 looks along a diagonal at the knight on c6. That knight guards the e5 pawn."]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 *
+
+[Event "Ruy Lopez for White"]
+[Lesson "morphy-defence"]
+[LessonTitle "Morphy Defence: 3...a6"]
+[Step "explain"]
+[TeacherNotes "3...a6 is the most common reply. It is called the Morphy Defence | Black asks the bishop what it wants to do | Retreating to a4 keeps the pressure on c6 | After 5.O-O White is ready; the e4 pawn is not a worry yet"]
+[Mistakes "4.Bxc6 is the Exchange Variation, a different plan; 4.Ba4 keeps the tension. | Moving the bishop to c4 and losing the pressure on c6 | Leaving the king in the middle"]
+[ClassQuestions "What is the little pawn on a6 asking the bishop? | Why is a4 a good retreat? | Why do we castle on move five?"]
+
+{Black asks the bishop a question with 3...a6. White's answer is to keep the bishop on the same diagonal. [%cal Ra6b5,Gb5a4]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 {The Morphy Defence.} 4. Ba4 {The bishop retreats but still points at c6. [%cal Ga4c6]} 4... Nf6 {Black attacks the e4 pawn. [%cal Rf6e4]} 5. O-O {White castles and gets the king safe. [%cal Ge1g1]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "morphy-defence"]
+[Step "find-move"]
+[FEN "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"]
+[Hint "Use your bishop."]
+[Hint "Move it one square along the same diagonal, to a4."]
+
+{White to move. The pawn on a6 attacks your bishop. Retreat it one square along the same diagonal, so it still points at the c6 knight.}
+4. Ba4 {The bishop is safe and keeps the pressure. [%cal Ga4c6]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "morphy-defence"]
+[Step "find-move"]
+[FEN "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5"]
+[Hint "Use your king."]
+[Hint "Castle on the short side, so the king goes to g1."]
+
+{White to move. Get your king safe by castling.}
+5. O-O {The king is safe and the rook comes to the middle. [%cal Ge1g1,Gh1f1]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "morphy-defence"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Open with the king's pawn, then the knight, then the bishop to b5."]
+[Hint "When the a-pawn asks, retreat the bishop to a4."]
+[Hint "Finish by castling."]
+
+{Play the Morphy Defence line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O *

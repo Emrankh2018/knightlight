@@ -13,7 +13,7 @@ import FindMoveView from './FindMoveView';
 import LineDrillView from './LineDrillView';
 import QuizView from './QuizView';
 import TeacherPanel from './TeacherPanel';
-import { bigButton, isButtonTarget, PresentShell, SidePanel, useKeys, ARIA_OFF, type StepControls } from './shared';
+import { bigButton, isButtonTarget, PresentShell, SidePanel, usePresentEffects, useKeys, ARIA_OFF, type StepControls } from './shared';
 
 interface Props {
   course: Course;
@@ -21,19 +21,6 @@ interface Props {
   next: FlatLesson | null;
   /** Arrived through a Continue button, so pick up at the saved step. */
   resume: boolean;
-}
-
-/** Present mode hides the site chrome and keeps toasts from covering the board. */
-function usePresentEffects(on: boolean): void {
-  useEffect(() => {
-    if (!on) return;
-    document.documentElement.dataset.classMode = '';
-    useUi.getState().setSuppressToasts(true);
-    return () => {
-      delete document.documentElement.dataset.classMode;
-      useUi.getState().setSuppressToasts(false);
-    };
-  }, [on]);
 }
 
 export default function LessonPlayer({ course, current, next, resume }: Props) {

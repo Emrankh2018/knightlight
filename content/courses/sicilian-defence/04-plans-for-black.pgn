@@ -1,0 +1,117 @@
+[Event "Sicilian Defence for Black"]
+[Lesson "d5-break"]
+[LessonTitle "Plan one: the ...d5 break"]
+[Step "explain"]
+[TeacherNotes "A pawn break means pushing a pawn to challenge the enemy pawns | In many Sicilian set-ups Black waits until the pieces are ready, then plays ...d5 to free the game | Against the Alapin 2.c3, Black can do it at once with 2...d5 because White's pawn on c3 means a knight cannot go to c3 and hit the queen after ...Qxd5 | Do not push ...d5 only because you can: check that the pieces are developed and the king is safe | Which pieces defend d5 changes in each line, so the coach should show it on the board"]
+[Mistakes "Pushing d5 before the pieces are developed | Forgetting that the pawn must be protected after it moves | Pushing d5 when the king is still in the center"]
+[ClassQuestions "Why does Black like to break with d5? | What should be ready before the break? | How can White respond to the pawn on d5?"]
+
+{A pawn break is a push that challenges the other side's pawns. In the Sicilian, ...d5 is a key break. It fights for the center and gives the pieces room. Usually Black first develops the pieces. Against 2.c3 the early ...d5 is the exception: White's c3 pawn takes the c3 square from the knight, so the knight cannot hit the queen. [%cal Gd7d5,Gd5e4] [%csl Gd5]}
+1. e4 c5 2. c3 d5 {The break comes at once. The pawn attacks e4.} 3. exd5 {White takes.} 3... Qxd5 {Black takes back and the center is open for development. [%cal Gd8d5]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "d5-break"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp2pppp/8/2pP4/8/2P5/PP1P1PPP/RNBQKBNR b KQkq - 0 3"]
+[Hint "Use your queen."]
+[Hint "Take the pawn on d5 with the queen from d8."]
+
+{White has taken on d5. Black to move. Win the pawn back by capturing on d5 with the queen.}
+3... Qxd5 {The pawn is regained. [%cal Gd8d5]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "d5-break"]
+[Step "quiz"]
+[Question "Before you push ...d5, what is a good thing to check first?"]
+[Choices "That your pieces are developed and your king is safe | That you have not castled yet | That your queen is on d8"]
+[Answer "1"]
+[Explanation "A break works best when your pieces are ready to help. If the king is still in the center, the open lines can be dangerous."]
+
+{Think about readiness before a break.}
+1. e4 c5 2. c3 d5 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "c-file-plan"]
+[LessonTitle "Plan two: use the c-file"]
+[Step "explain"]
+[TeacherNotes "After ...cxd4 Black has no c-pawn, so the c-file is half-open for a black rook | In the Dragon with long castling by White, the king lives on the c-file side, so this file may matter later | Black's rook, bishop on g7 and knights work together against the white king | The line shown reaches Black's rook move ...Rc8 | Lichess knows the line to 10...Rc8 as the Old Line of the Yugoslav Attack | Do not claim this line wins: it is a plan, not a trick"]
+[Mistakes "Leaving the rooks on the back rank and never using the half-open file | Forgetting to trade White's attacking knight on d4 | Starting a pawn storm without any support"]
+[ClassQuestions "Why is the c-file half-open for Black? | Where does White's king stand after long castling? | Which black piece moves to the c-file?"]
+
+{Black traded the c-pawn early, so the c-file is half-open. The rook joins the half-open c-file, the file where White's king now lives. It is ready for when that file opens up. Look at the line. [%csl Rc1]}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3 Bg7 7. f3 O-O 8. Qd2 Nc6 9. Bc4 Bd7 10. O-O-O {White puts the king on c1. [%csl Rc1]} 10... Rc8 {The rook joins the half-open c-file, the file where White's king now lives. It is ready for when that file opens up. [%csl Rc1]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "c-file-plan"]
+[Step "find-move"]
+[FEN "r2q1rk1/pp1bppbp/2np1np1/8/2BNP3/2N1BP2/PPPQ2PP/2KR3R b - - 6 10"]
+[Hint "Use a rook."]
+[Hint "Use the rook on a8 and move it to c8."]
+
+{White has castled long. Black to move. Put the a8 rook on the half-open c-file.}
+10... Rc8 {The rook joins the half-open c-file. [%cal Gc8c7] [%csl Rc1]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "c-file-plan"]
+[Step "quiz"]
+[Question "Why does Black have a half-open c-file in the Open Sicilian?"]
+[Choices "Black traded the c-pawn on d4 | Black never played a c-pawn move | White castled first"]
+[Answer "1"]
+[Explanation "The pawn on c5 took on d4 and was traded off. With no black pawn on the c-file, a black rook has a half-open file to use."]
+
+{The c-pawn is gone.}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "habits"]
+[LessonTitle "Good habits and common mistakes"]
+[Step "explain"]
+[TeacherNotes "Keep this lesson practical | In the Dragon line shown, Black attacks White's d4 knight with ...Nc6 after castling | Make students list what is developed: Nf6, Bg7, and the king is castled | Warn that the Sicilian is sharp: both kings can be in danger and one tempo can matter | Qb6 ideas and pawn grabs are left out here because they need exact theory the coach should choose"]
+[Mistakes "Moving the same piece twice while the king is still in the center | Grabbing pawns with the queen and falling behind in development | Playing a line from memory without asking what White threatens | Copying a plan from one setup into a different one"]
+[ClassQuestions "Which black pieces are already developed here? | What does ...Nc6 attack? | What is the first question to ask when the opponent leaves the book?"]
+
+{Here is a healthy Black setup. The knight and bishop are out, and the king is castled. Now the b8 knight attacks the white knight on d4. [%cal Gb8c6,Gc6d4] [%csl Gd4]}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3 Bg7 7. f3 O-O 8. Qd2 Nc6 {Black develops with a threat against the knight on d4. [%cal Gc6d4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "habits"]
+[Step "find-move"]
+[FEN "rnbq1rk1/pp2ppbp/3p1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 2 8"]
+[Hint "Use a knight."]
+[Hint "Move the knight on b8 to c6."]
+
+{White has played 8.Qd2. Black to move. Develop the b8 knight so that it attacks the white knight on d4.}
+8... Nc6 {The knight is developed and attacks the knight on d4. [%cal Gc6d4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "habits"]
+[Step "quiz"]
+[Question "Which is a good habit in the opening?"]
+[Choices "Develop pieces and castle before starting big plans | Move one piece many times | Take every pawn with the queen"]
+[Answer "1"]
+[Explanation "Developed pieces and a safe king come first. Plans work best when all your pieces can help."]
+
+{Think about the basic opening rules.}
+1. e4 c5 2. Nf3 d6 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "when-to-play-sicilian"]
+[LessonTitle "When to choose the Sicilian"]
+[Step "explain"]
+[TeacherNotes "The Sicilian suits players who want a fight and are ready to learn plans | It is not a good choice if you do not want to study at all | You can start with a small setup, such as 2...Nc6 or 2...e6, and learn more later | Compare with 1...e5: that move is also good, just a different type of game | The coach decides the right time for each student"]
+[Mistakes "Picking the Sicilian only because strong players do | Memorizing long lines and forgetting the plans | Being afraid of White's attacks and not castling"]
+[ClassQuestions "Why might you choose the Sicilian? | What do you need to learn first? | Which second move gives you a simple start?"]
+
+{Choose the Sicilian when you want an unbalanced game and are willing to learn plans. Start simple: answer 1.e4 with ...c5, develop your pieces and castle. [%cal Gc7c5,Gb8c6,Gg8f6] [%csl Gc5]}
+1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 {A simple start: take the center pawn and develop.} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "when-to-play-sicilian"]
+[Step "quiz"]
+[Question "What is a good first step if you want to learn the Sicilian?"]
+[Choices "Learn one simple setup and its plans | Memorize every line to move 20 | Never castle"]
+[Answer "1"]
+[Explanation "A small setup you understand is better than long lines you only half remember."]
+
+{Pick a simple setup.}
+1. e4 c5 *

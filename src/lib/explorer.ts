@@ -1,5 +1,5 @@
 import { Chess } from 'chess.js';
-import type { Opening } from './openings';
+import type { LookupResult, Opening, OpeningIndex } from './openings';
 
 /** Most moves that go into the link (and are read back from one). The board itself has no limit. */
 export const MAX_PLIES = 80;
@@ -166,4 +166,48 @@ export function filterByName(openings: readonly Opening[], filter: string): Open
     const eco = o.eco.toLowerCase();
     return words.every((w) => name.includes(w) || eco.startsWith(w));
   });
+}
+
+/** A line on the board: where it starts, the moves, and how many of them are shown. */
+export interface LineState {
+  startFen: string;
+  sans: string[];
+  /** Number of moves currently shown on the board. */
+  cursor: number;
+}
+
+export type MoveInput = string | { from: string; to: string; promotion?: string };
+
+/**
+ * Plays `move` at the cursor of `line`. Playing the move that is already next keeps the
+ * rest of the line (so Redo still works); any other move cuts the line there.
+ * Returns null when the move is illegal.
+ */
+export function playOnLine(line: LineState, fen: string, move: MoveInput): { line: LineState; san: string } | null {
+  let san: string;
+  try {
+    san = new Chess(fen).move(move).san;
+  } catch {
+    return null;
+  }
+  const upcoming = line.sans[line.cursor];
+  const sans = upcoming !== undefined && stripCheck(upcoming) === stripCheck(san) ? line.sans : [...line.sans.slice(0, line.cursor), san];
+  return { line: { ...line, sans, cursor: line.cursor + 1 }, san };
+}
+
+/** The named opening for the shown position. `ply` is the move at which the name was last given. */
+export function findOpening(
+  index: OpeningIndex,
+  line: LineState,
+  shown: readonly Ply[],
+  fen: string,
+): LookupResult {
+  if (line.startFen === START_FEN) return index.lookup(shown.map((p) => p.uci));
+  return { opening: index.lookupFen(fen), ply: line.cursor };
+}
+
+/** True when keyboard shortcuts must not fire: typing in a field, or focus is on the board. */
+export function isTypingTarget(t: EventTarget | null): boolean {
+  if (!(t instanceof HTMLElement)) return false;
+  return t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName) || t.closest('[role="application"]') !== null;
 }

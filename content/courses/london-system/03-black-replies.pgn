@@ -1,0 +1,83 @@
+[Event "London System for White"]
+[Lesson "reply-c5"]
+[LessonTitle "When Black plays ...c5"]
+[Step "explain"]
+[TeacherNotes "The pawn on c5 attacks d4 | Guard d4 with e3, Nf3 and later c3 | Do not panic: we do not have to take on c5 | The knight on d2 is better than the one on c3 here"]
+[Mistakes "Taking on c5 without a reason | Forgetting to protect d4 | Moving the bishop away and leaving d4 weak"]
+[ClassQuestions "Which black pawn attacks d4? | Which of our pieces guard d4? | Which pawn move adds one more guard?"]
+
+{Black plays ...c5 to attack the d4 pawn. White keeps calm and adds guards: e3, the knight and c3. [%cal Rc5d4,Ge3d4,Gf3d4] [%csl Gd4]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 {The black pawn hits d4. [%cal Rc5d4]} 4. e3 {The e-pawn guards d4. [%cal Ge3d4]} 4... Nc6 5. Nbd2 {The second knight comes out. Next comes c3. [%cal Gb1d2]} *
+
+[Event "London System for White"]
+[Lesson "reply-c5"]
+[Step "find-move"]
+[FEN "rnbqkb1r/pp2pppp/5n2/2pp4/3P1B2/5N2/PPP1PPPP/RN1QKB1R w KQkq - 0 4"]
+[Hint "Use a pawn."]
+[Hint "Move the pawn from e2 to e3."]
+
+{White to move. The black pawn attacks d4. Guard d4 and the bishop with a pawn move.}
+4. e3 {The pawn guards d4 and the bishop on f4. [%cal Ge3d4,Ge3f4]} *
+
+[Event "London System for White"]
+[Lesson "reply-bishop"]
+[LessonTitle "When Black plays ...Bf5 or ...Bd6"]
+[Step "explain"]
+[TeacherNotes "If Black copies you with ...Bf5, just keep developing | A bishop trade on d3 is fine: recapture and keep going | If Black's bishop goes to d6 it attacks our bishop: trading is fine, so is retreating to g3 | Do not worry about copying moves"]
+[Mistakes "Rushing an attack because the bishops face each other | Forgetting to recapture after a trade | Letting the queen go out early"]
+[ClassQuestions "What happens if both bishops are traded on d3? | Which two pieces can take back on d3? | Why can we trade bishops without worry?"]
+
+{Black may bring the other bishop out too. That is fine. White keeps building: e3, then Bd3. [%cal Gc8f5,Ge2e3,Gf1d3]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 Bf5 {Black copies the bishop move.} 4. e3 {The same move as always. [%cal Ge2e3]} 4... e6 5. Bd3 {If Black trades bishops, White simply recaptures.} 5... Bxd3 6. cxd3 {White can take back with the c-pawn or the queen; both are fine.} *
+
+[Event "London System for White"]
+[Lesson "reply-bishop"]
+[Step "find-move"]
+[FEN "rn1qkb1r/ppp2ppp/4pn2/3p1b2/3P1B2/4PN2/PPP2PPP/RN1QKB1R w KQkq - 0 5"]
+[Hint "Use your light-squared bishop."]
+[Hint "Move the bishop from f1 to d3."]
+
+{White to move. Develop the bishop and face Black's bishop.}
+5. Bd3 {The bishop comes out. [%cal Gf1d3]} *
+
+[Event "London System for White"]
+[Lesson "reply-bishop"]
+[Step "find-move"]
+[FEN "rnbqk2r/ppp2ppp/3bpn2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R w KQkq - 1 5"]
+[Hint "Use your bishop on f4."]
+[Hint "Capture the black bishop on d6."]
+
+{White to move. Black's bishop on d6 attacks your bishop. Trade bishops by taking it.}
+5. Bxd6 {An even trade. Black will take back. [%cal Gf4d6]} *
+
+[Event "London System for White"]
+[Lesson "qb6-b2"]
+[LessonTitle "Watch out: the b2 pawn"]
+[Step "explain"]
+[TeacherNotes "When the c1 bishop leaves, the b2 pawn has no guard | A black queen on b6 attacks b2 | One safe fix is queen to c1. Another named line is 5.Nc3, the Poisoned Pawn Variation; this lesson shows one safe fix | Always ask: what did Black's last move attack?"]
+[Mistakes "Not seeing the queen attack on b2 | Forgetting that b2 lost its guard when the bishop moved | Ignoring the threat and hoping Black does not see it"]
+[ClassQuestions "Why is b2 not guarded after Bf4? | Which black piece attacks b2? | How can we guard b2 with the queen?"]
+
+{When the bishop leaves c1, the b2 pawn loses its guard. Black's queen on b6 attacks it. [%cal Rb6b2] [%csl Rb2]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 4. e3 Qb6 {Now b2 is attacked and nothing guards it. [%cal Rb6b2] [%csl Rb2]} 5. Qc1 {The queen steps back and guards b2. If the black queen takes on b2, White takes the queen. [%cal Gc1b2] [%csl Gb2]} *
+
+[Event "London System for White"]
+[Lesson "qb6-b2"]
+[Step "find-move"]
+[FEN "rnb1kb1r/pp2pppp/1q3n2/2pp4/3P1B2/4PN2/PPP2PPP/RN1QKB1R w KQkq - 1 5"]
+[Hint "Use your queen."]
+[Hint "Move the queen from d1 to c1."]
+
+{White to move. The black queen attacks b2. Guard b2 with your queen.}
+5. Qc1 {Now ...Qxb2 would lose the queen to Qxb2. [%cal Gc1b2] [%csl Gb2]} *
+
+[Event "London System for White"]
+[Lesson "qb6-b2"]
+[Step "quiz"]
+[Question "Why was the b2 pawn left unguarded when Black's queen went to b6?"]
+[Choices "The bishop left c1 so nothing guards b2 | The knight on f3 left b2 | The pawn on b2 is too small"]
+[Answer "1"]
+[Explanation "The c1 bishop used to guard b2. When it went to f4, the pawn lost its guard."]
+
+{Think about which piece used to guard b2.}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 4. e3 Qb6 *

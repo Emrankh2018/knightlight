@@ -214,13 +214,21 @@ function shippedCourses(): Course[] {
     .map((f) => JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as Course);
 }
 
+const KNOWN_LISTED = ['checkmate-patterns', 'tactics-basics', 'italian-game', 'queens-gambit', 'london-system', 'ruy-lopez', 'sicilian-defence'];
+
 describe('course navigation helpers', () => {
   const courses = shippedCourses();
   const italian = courses.find((c) => c.slug === 'italian-game');
 
   it('hides the sample course from the library only', () => {
-    expect(courses.filter((c) => !isListed(c)).map((c) => c.slug)).toEqual(['sample-basics']);
-    expect(courses.filter(isListed).length).toBe(3);
+    const hidden = courses.filter((c) => !isListed(c));
+    expect(hidden.length).toBeGreaterThan(0);
+    expect(hidden.every((c) => c.tags.includes('sample'))).toBe(true);
+    expect(hidden.map((c) => c.slug)).toContain('sample-basics');
+    const listed = courses.filter(isListed);
+    expect(listed.every((c) => !c.tags.includes('sample'))).toBe(true);
+    expect(listed.length + hidden.length).toBe(courses.length);
+    for (const slug of KNOWN_LISTED) expect(listed.map((c) => c.slug)).toContain(slug);
   });
 
   it('finds lessons, the next lesson and the first unfinished lesson', () => {
@@ -245,7 +253,13 @@ describe('every shipped course is solvable by its own solution', () => {
   const courses = shippedCourses();
 
   it('ships the courses this test expects', () => {
-    expect(courses.map((c) => c.slug).sort()).toEqual(['checkmate-patterns', 'italian-game', 'sample-basics', 'tactics-basics']);
+    const slugs = courses.map((c) => c.slug);
+    for (const slug of [...KNOWN_LISTED, 'sample-basics']) expect(slugs).toContain(slug);
+    // Every authored course folder ships, and nothing ships without a source folder.
+    const authored = readdirSync('content/courses', { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
+    expect([...slugs].sort()).toEqual([...authored].sort());
+    const catalog = (JSON.parse(readFileSync('public/data/courses/index.json', 'utf8')) as { slug: string }[]).map((c) => c.slug);
+    expect([...catalog].sort()).toEqual([...slugs].sort());
   });
 
   it('completes every step through the player machines', () => {

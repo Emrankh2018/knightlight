@@ -1,0 +1,85 @@
+[Event "London System for White"]
+[Lesson "e4-break"]
+[LessonTitle "Plan one: push e4"]
+[Step "explain"]
+[TeacherNotes "A pawn break means pushing a pawn to challenge the enemy pawns | Push e4 only when your pieces are ready to recapture | After the pawn trade, lines open for the bishops and knights | This is a plan, not a rule: sometimes it is better to wait"]
+[Mistakes "Pushing e4 before the knights and bishop are developed | Pushing e4 when it only loses the pawn"]
+[ClassQuestions "Which of our pieces guard the e4 square? | What happens to the lines when pawns are traded?"]
+
+{When the setup is ready, White can push the e-pawn. It challenges Black's d5 pawn and opens lines for the pieces. [%cal Ge3e4,Gd3e4,Gd2e4,Gf3e5] [%csl Ge4]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. Nbd2 O-O 6. Bd3 c5 7. c3 Nc6 8. e4 {The pawn steps forward. The bishop and the knight on d2 both guard e4. [%cal Ge3e4,Gd3e4,Gd2e4]} 8... dxe4 9. Nxe4 {A knight recaptures.} 9... Nxe4 10. Bxe4 {The pieces are active and the lines are open. [%cal Ge4h7]} *
+
+[Event "London System for White"]
+[Lesson "e4-break"]
+[Step "find-move"]
+[FEN "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P1B2/2PBPN2/PP1N1PPP/R2QK2R w KQ - 1 8"]
+[Hint "Use a pawn."]
+[Hint "Move the pawn from e3 to e4."]
+
+{White to move. Push the e-pawn break: e3 to e4.}
+8. e4 {The pawn challenges d5. [%cal Ge3e4]} *
+
+[Event "London System for White"]
+[Lesson "e4-break"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Start with the queen's pawn, then the knight, then the bishop."]
+[Hint "After e3, bring the other knight and the other bishop."]
+[Hint "Push the pawn on e3 to e4 when everything is ready."]
+
+{Play the setup and the e4 break as White.}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. Nbd2 O-O 6. Bd3 c5 7. c3 Nc6 8. e4 *
+
+[Event "London System for White"]
+[Lesson "ne5-outpost"]
+[LessonTitle "Plan two: the knight to e5"]
+[Step "explain"]
+[TeacherNotes "e5 is a strong square for the knight: the d4 pawn and the f4 bishop both guard it | From e5 the knight points at f7, d7 and c6 | Black can trade it off, and that is okay | Check that the knight cannot be taken for free before you jump"]
+[Mistakes "Jumping to e5 when a black piece can capture it for free | Forgetting to guard the knight | Moving the knight again and again with no plan"]
+[ClassQuestions "Which of our pieces guard e5? | Can any black piece take the knight on e5 right now? | What squares does the knight attack from e5?"]
+
+{The knight on f3 can jump to e5. The d4 pawn and the bishop on f4 both guard it, so it is safe. [%cal Gf3e5,Gd4e5,Gf4e5] [%csl Ge5]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. Nbd2 O-O 6. Bd3 c5 7. Ne5 {The knight lands on a strong square. [%cal Ge5d7,Ge5f7,Ge5c6] [%csl Ge5]} 7... Nc6 {Black attacks the knight, but it is still safe. It is guarded twice, by the d4 pawn and the bishop on f4.} *
+
+[Event "London System for White"]
+[Lesson "ne5-outpost"]
+[Step "find-move"]
+[FEN "rnbq1rk1/pp2bppp/4pn2/2pp4/3P1B2/3BPN2/PPPN1PPP/R2QK2R w KQ - 0 7"]
+[Hint "Use the knight on f3."]
+[Hint "Jump the knight from f3 to e5."]
+
+{White to move. The e5 square is safe and strong. Put the knight there.}
+7. Ne5 {The knight is guarded twice, by d4 and by the bishop on f4. [%cal Gd4e5,Gf4e5]} *
+
+[Event "London System for White"]
+[Lesson "when-to-play"]
+[LessonTitle "When to play the London"]
+[Step "explain"]
+[TeacherNotes "Good for players who want a plan they can remember | It is solid and quiet, so you must still look for tactics | Not a magic trick: other openings are fine too | Ask the student how they feel about quiet positions"]
+[Mistakes "Playing the moves from memory without looking at Black's last move | Never castling | Avoiding all trades and all plans"]
+[ClassQuestions "Why might a beginner like a simple setup? | What do we check before every move? | What are your two plans after the setup?"]
+
+{Play the London when you want a calm, solid game with a clear setup. Still check every Black move for threats. Your plans: push e4, or send the knight to e5. [%cal Ge3e4,Gf3e5]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. Nbd2 O-O 6. Bd3 *
+
+[Event "London System for White"]
+[Lesson "when-to-play"]
+[Step "quiz"]
+[Question "You play 1.d4 and Black replies 1...d5. Which is a London System move?"]
+[Choices "2.Bf4 | 2.h4 | 2.a4"]
+[Answer "1"]
+[Explanation "2.Bf4 brings out the London bishop before e3."]
+
+{Think about the London bishop.}
+1. d4 d5 *
+
+[Event "London System for White"]
+[Lesson "when-to-play"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Pawn, knight, bishop."]
+[Hint "Then e3, the other knight, the other bishop."]
+[Hint "Then c3 and castle."]
+
+{Play the whole London setup, castling at the end.}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. Nbd2 O-O 6. Bd3 c5 7. c3 Nc6 8. O-O *

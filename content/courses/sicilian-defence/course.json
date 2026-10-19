@@ -1,0 +1,15 @@
+{
+  "title": "Sicilian Defence for Black",
+  "kind": "opening",
+  "side": "black",
+  "level": "intermediate",
+  "description": "Meet 1.e4 with 1...c5. Learn why Black plays the Sicilian, the Open Sicilian main line, a short look at the Najdorf and the Dragon, what to expect after 2.c3 and 2.Nc3, and clear plans for Black.",
+  "tags": ["opening", "sicilian", "e4", "c5", "black", "najdorf", "dragon"],
+  "reviewed": false,
+  "chapters": [
+    { "file": "01-why-the-sicilian.pgn", "title": "Why play the Sicilian?" },
+    { "file": "02-open-sicilian.pgn", "title": "The Open Sicilian" },
+    { "file": "03-other-second-moves.pgn", "title": "Other second moves" },
+    { "file": "04-plans-for-black.pgn", "title": "Plans and habits for Black" }
+  ]
+}

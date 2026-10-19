@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import { LEVEL_IDS, type BotLevelId } from '../engine/levels';
+import { LEVEL_IDS, type BotLevelId } from '../engine/level-ids';
 import { fmt, m } from '../i18n';
 import { evaluateAchievements, type Stats } from '../lib/achievements';
-import { todayLocal } from '../lib/date';
+import { isRealDay, todayLocal } from '../lib/date';
 import { newItem, review, type SrsGrade, type SrsItem, type SrsKind } from '../lib/srs';
-import { updateStreak, xpFor, type StreakState, type XpEvent } from '../lib/xp';
+import { updateStreak, xpFor, type GameResult, type StreakState, type XpEvent } from '../lib/xp';
 import { useProfiles } from './profiles';
 import { useUi } from './ui';
 import { DAY_RE, isBool, isCount, isNum, isRecord, isSafeKey, isStr, KEYS, parseJson, readRaw, writeRaw } from './storage';
@@ -60,14 +60,14 @@ function parseSrs(v: unknown): SrsItem | null {
   if (!isRecord(v)) return null;
   if (!isStr(v.id) || !isStr(v.ref) || !isStr(v.kind) || !SRS_KINDS.includes(v.kind)) return null;
   if (!isNum(v.ease) || !isCount(v.interval) || !isCount(v.reps) || !isCount(v.lapses)) return null;
-  if (!isStr(v.due) || !DAY_RE.test(v.due)) return null;
+  if (!isStr(v.due) || !DAY_RE.test(v.due) || !isRealDay(v.due)) return null;
   return { id: v.id, kind: v.kind as SrsKind, ref: v.ref, ease: v.ease, interval: v.interval, reps: v.reps, due: v.due, lapses: v.lapses };
 }
 
 function parseStreak(v: unknown): StreakState | null {
   if (!isRecord(v) || !isCount(v.current) || !isCount(v.best)) return null;
   if (v.lastDay === undefined) return { current: v.current, best: v.best };
-  if (!isStr(v.lastDay) || !DAY_RE.test(v.lastDay)) return null;
+  if (!isStr(v.lastDay) || !DAY_RE.test(v.lastDay) || !isRealDay(v.lastDay)) return null;
   return { current: v.current, best: v.best, lastDay: v.lastDay };
 }
 
@@ -149,6 +149,8 @@ interface ProgressState {
   recordPuzzle: (id: string, level: string, solved: boolean, hint: boolean) => void;
   recordLine: (ref: string, clean: boolean) => void;
   recordBotWin: (levelId: BotLevelId) => void;
+  /** Records one finished game against the bot: XP for the result, plus a win tally on a win. */
+  recordBotGame: (levelId: BotLevelId, result: GameResult) => void;
   addSrs: (id: string, kind: SrsKind, ref: string) => void;
   reviewSrs: (id: string, grade: SrsGrade) => void;
   removeSrs: (id: string) => void;
@@ -217,6 +219,11 @@ export const useProgress = create<ProgressState>()((set, get) => {
     recordBotWin: (levelId) =>
       commit((d) => {
         d.botWins[levelId] = (d.botWins[levelId] ?? 0) + 1;
+      }),
+    recordBotGame: (levelId, result) =>
+      commit((d) => {
+        if (result === 'win') d.botWins[levelId] = (d.botWins[levelId] ?? 0) + 1;
+        return [{ type: 'game', result }];
       }),
     addSrs: (id, kind, ref) =>
       commit((d) => {

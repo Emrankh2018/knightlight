@@ -1,0 +1,94 @@
+[Event "Sicilian Defence for Black"]
+[Lesson "nc6-and-e6"]
+[LessonTitle "Two other ways: 2...Nc6 and 2...e6"]
+[Step "explain"]
+[TeacherNotes "After 2.Nf3 Black does not have to play 2...d6 | 2...Nc6 develops a piece at once and eyes the d4 square; Lichess calls it the Old Sicilian | 2...e6 is solid: it opens the f8 bishop and keeps a flexible pawn setup | Both moves are good choices when you want to learn plans instead of long lines | Show that the same ideas come back: take on d4, develop, castle, then use the c-file"]
+[Mistakes "Moving the knight to c6 and then moving it again for no reason | Playing ...e6 and then forgetting to develop the bishop on f8 | Mixing move orders without knowing what White can do"]
+[ClassQuestions "Which square does a knight on c6 watch? | Which bishop does ...e6 free? | Which of the two moves puts a piece out first?"]
+
+{After 2.Nf3 Black has choices. The move 2...Nc6 puts a knight out and watches d4. The move 2...e6 opens the road for the f8 bishop. Here we show 2...Nc6. [%cal Gb8c6,Gc6d4] [%csl Gd4]}
+1. e4 c5 2. Nf3 Nc6 {The Old Sicilian. The knight is developed and watches d4. [%cal Gc6d4]} 3. d4 cxd4 {Black takes the pawn.} 4. Nxd4 {White recaptures. Black will attack this knight again with pieces. [%csl Gd4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "nc6-and-e6"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"]
+[Hint "Use a knight."]
+[Hint "Move the knight on b8 to c6."]
+
+{White has played 2.Nf3. Black to move. Develop the queenside knight to c6.}
+2... Nc6 {The knight comes out and watches d4. [%cal Gc6d4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "nc6-and-e6"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"]
+[Hint "Use a pawn."]
+[Hint "It is the pawn in front of the king. Push it one square to e6."]
+
+{Same position. This time Black wants a solid setup that frees the f8 bishop. Push the e-pawn one square.}
+2... e6 {The pawn opens the diagonal for the f8 bishop. [%cal Gf8e7,Ge7e6]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "alapin"]
+[LessonTitle "What to expect: the Alapin 2.c3"]
+[Step "explain"]
+[TeacherNotes "White avoids the Open Sicilian with 2.c3 and wants to play d4 with a pawn on c3 as support | Lichess calls it the Alapin Variation | Two good replies are 2...d5 and 2...Nf6 | After 2...d5 3.exd5 Qxd5 4.d4 the queen is out early but is safe if Black develops with care | Stay calm: Black strikes at the center at once | Only the idea is taught here, not a long line"]
+[Mistakes "Playing 2...d6, which gives White an easy d4; this course recommends 2...d5 or 2...Nf6 | Moving the queen again and again after ...Qxd5 | Forgetting to answer d4 with a developing move"]
+[ClassQuestions "Which pawn does 2...d5 attack? | What does c3 prepare for White? | Why do we not want to let White have both pawns on c3 and d4 for free?"]
+
+{With 2.c3 White prepares to play d4 with a pawn behind it. Black answers at once with 2...d5, hitting the e4 pawn. [%cal Gc2c3,Gd2d4,Gd7d5,Gd5e4] [%csl Ge4]}
+1. e4 c5 2. c3 {The Alapin.} 2... d5 {Black strikes at the center and attacks e4.} 3. exd5 Qxd5 {The queen takes back. [%cal Gd8d5]} 4. d4 Nf6 {Black develops a knight. [%cal Gg8f6]} 5. Nf3 {A normal move. Black goes on to develop, for example with Bg4.} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "alapin"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/2P5/PP1P1PPP/RNBQKBNR b KQkq - 0 2"]
+[Hint "Use a pawn."]
+[Hint "It is the d-pawn. Push it two squares to d5."]
+
+{White has played 2.c3. Black to move. Attack the pawn on e4 with your d-pawn: push it two squares.}
+2... d5 {Black hits the center at once. [%cal Gd5e4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "alapin"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Answer 1.e4 with a c-pawn move, then hit the center with a d-pawn move."]
+[Hint "Take back on d5 with the queen."]
+[Hint "After d4, develop the g8 knight."]
+
+{Play the Alapin line as Black.}
+1. e4 c5 2. c3 d5 3. exd5 Qxd5 4. d4 Nf6 5. Nf3 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "closed-sicilian"]
+[LessonTitle "What to expect: the Closed 2.Nc3"]
+[Step "explain"]
+[TeacherNotes "White develops the knight and usually avoids an early d4 | Lichess calls it the Closed Sicilian | A common set-up for White is g3, Bg2 and d3, a quiet plan | Black can answer with a solid set-up of Nc6, g6, Bg7 and d6 | It starts quietly, but White often attacks on the kingside later; the pieces matter more than the memory | Name the idea: both sides develop and castle before the middlegame fights"]
+[Mistakes "Rushing to open the center when you are not ready | Forgetting to castle because the position looks quiet | Copying White's moves without checking threats"]
+[ClassQuestions "Why is this game called closed? | Which squares does White's bishop on g2 watch? | Which black pieces are developed in the setup?"]
+
+{After 2.Nc3 White does not rush to open the center. Black can build a solid setup: knight to c6, pawn to g6, bishop to g7 and a pawn to d6. [%cal Gb8c6,Gg7g6,Gf8g7,Gd7d6]}
+1. e4 c5 2. Nc3 {The Closed Sicilian.} 2... Nc6 {Black develops a knight.} 3. g3 {White prepares to fianchetto the bishop.} 3... g6 {Black does the same. [%cal Gg7g6]} 4. Bg2 Bg7 {Both bishops sit on long diagonals. [%cal Gg2a8,Gg7a1]} 5. d3 d6 {A quiet, balanced position. Both sides will develop the rest of their pieces and castle.} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "closed-sicilian"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2"]
+[Hint "Use a knight."]
+[Hint "Move the knight on b8 to c6."]
+
+{White has played 2.Nc3. Black to move. Develop the queenside knight to c6.}
+2... Nc6 {A natural developing move. [%cal Gb8c6]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "closed-sicilian"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Answer 1.e4 with a c-pawn move, then bring out the b8 knight."]
+[Hint "Prepare a fianchetto with a g-pawn move and the f8 bishop."]
+[Hint "Finish with a pawn move one square on the d-file."]
+
+{Play the Closed Sicilian setup as Black.}
+1. e4 c5 2. Nc3 Nc6 3. g3 g6 4. Bg2 Bg7 5. d3 d6 *

@@ -5,13 +5,12 @@
 export const READY_ROUTES: Readonly<Record<string, boolean>> = {
   '/courses': true,
   '/puzzles': true,
-  '/tactics': true,
-  '/teacher': false,
+  '/teacher': true,
   '/openings': true,
-  '/play': false,
+  '/play': true,
   '/review': true,
-  '/students': false,
-  '/assign': false,
+  '/students': true,
+  '/assign': true,
 };
 
 export function isReady(path: string): boolean {

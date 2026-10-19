@@ -1,0 +1,65 @@
+[Event "Queen's Gambit for White"]
+[Lesson "qga-nf3"]
+[LessonTitle "Black takes the pawn: win it back"]
+[Step "explain"]
+[TeacherNotes "Black's 2...dxc4 is called the Queen's Gambit Accepted | Black cannot keep the extra pawn easily, so White just develops and takes it back | After 3.Nf3 Nf6 4.e3 e6 5.Bxc4 the pawn is back and White has a free game | Do not rush: development first, pawn second"]
+[Mistakes "Trying to win the pawn back with the queen too soon | Pushing the e-pawn to e4 without a plan | Forgetting that the bishop on f1 is the piece that takes on c4"]
+[ClassQuestions "Why is it hard for Black to keep the extra pawn? | Which White pawn move opens the bishop? | Which piece takes on c4?"]
+
+{Black takes the pawn on c4. [%cal Rd5c4]}
+1. d4 d5 2. c4 dxc4 {This is the Queen's Gambit Accepted. Black is a pawn up for now. [%csl Rc4]} 3. Nf3 {Develop the knight first. [%cal Gg1f3]} 3... Nf6 4. e3 {This opens the bishop on f1 so it can reach c4. [%cal Ge2e3,Gf1c4]} 4... e6 5. Bxc4 {The pawn is won back, and the bishop sits on a fine diagonal. [%cal Gf1c4] [%csl Gc4]} 5... c5 6. O-O {Castle. The king is safe and White is ready to play.} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qga-nf3"]
+[Step "find-move"]
+[FEN "rnbqkb1r/ppp2ppp/4pn2/8/2pP4/4PN2/PP3PPP/RNBQKB1R w KQkq - 0 5"]
+[Hint "Use a bishop."]
+[Hint "Use the bishop on f1."]
+[Hint "Take the pawn on c4."]
+
+{White to move. Win back the pawn by capturing on c4 with a bishop.}
+5. Bxc4 {The pawn is back. [%cal Gf1c4]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qga-nf3"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Develop the g1 knight, then open the f1 bishop with a pawn."]
+[Hint "Capture on c4 with the bishop."]
+[Hint "Finish by castling."]
+
+{Play the Accepted line as White.}
+1. d4 d5 2. c4 dxc4 3. Nf3 Nf6 4. e3 e6 5. Bxc4 c5 6. O-O *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qga-e3"]
+[LessonTitle "The quick 3.e3 way"]
+[Step "explain"]
+[TeacherNotes "3.e3 is an even simpler way to get the pawn back | This is listed as the Old Variation of the Queen's Gambit Accepted | If Black tries to keep the pawn with ...b5, White plays a4 and gets material back. Leave this for later. | The d4 pawn stays protected by the queen after exd4 exd4"]
+[Mistakes "Forgetting to recapture on d4 with the e-pawn | Bringing the queen out early when it is not needed. | Moving the bishop twice before developing the knights"]
+[ClassQuestions "What does 3.e3 open? | Why is the pawn on d4 safe after exd4 exd4? | Which pieces should come out next?"]
+
+{Another way: play e3 at once. The bishop on f1 now sees the pawn on c4. [%cal Ge2e3,Gf1c4]}
+1. d4 d5 2. c4 dxc4 3. e3 {Simple and solid.} 3... e5 {Black hits the d4 pawn.} 4. Bxc4 {The pawn is back. [%cal Gf1c4]} 4... exd4 5. exd4 {Recapture with the pawn. White has a pawn on d4 again. [%csl Gd4]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qga-e3"]
+[Step "find-move"]
+[FEN "rnbqkbnr/ppp2ppp/8/4p3/2pP4/4P3/PP3PPP/RNBQKBNR w KQkq - 0 4"]
+[Hint "Use a bishop."]
+[Hint "Use the bishop on f1."]
+[Hint "Take the pawn on c4."]
+
+{White to move. Win the pawn back by capturing on c4 with the bishop.}
+4. Bxc4 {Pawn back. The bishop also looks at f7. [%cal Gc4f7]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qga-e3"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Open the bishop with a pawn move."]
+[Hint "Take on c4 with the bishop."]
+[Hint "After Black takes on d4, recapture with the e-pawn."]
+
+{Play the 3.e3 line as White.}
+1. d4 d5 2. c4 dxc4 3. e3 e5 4. Bxc4 exd4 5. exd4 *

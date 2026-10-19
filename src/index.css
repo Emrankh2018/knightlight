@@ -13,6 +13,10 @@
   --color-fg: var(--kl-fg);
   --color-muted: var(--kl-muted);
   --color-line: var(--kl-line);
+  --color-error: var(--kl-error);
+  --color-ok-text: var(--kl-ok);
+  --color-edge: var(--kl-edge);
+  --color-danger: #C2410C;
   --font-sans: "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
 }
 
@@ -24,6 +28,9 @@
   --kl-fg: #102A2B;
   --kl-muted: #4A6162;
   --kl-line: #E3D9C6;
+  --kl-error: #B8391A;
+  --kl-ok: #1E7A4B;
+  --kl-edge: #8A8070;
   color-scheme: light;
 }
 :root.dark {
@@ -32,6 +39,9 @@
   --kl-fg: #F4EEE2;
   --kl-muted: #B5C7C4;
   --kl-line: #255253;
+  --kl-error: #FF8A66;
+  --kl-ok: #3BB273;
+  --kl-edge: #4F8082;
   color-scheme: dark;
 }
 
@@ -63,6 +73,15 @@ body {
 :root { --kl-class-board: min(100dvh - 2rem, 60vw); }
 @media (orientation: portrait) {
   :root { --kl-class-board: min(100vw - 2rem, 55dvh); }
+}
+
+/* Teacher analysis Present: like Class Mode, but portrait leaves room for the controls under the board. */
+:root { --kl-teacher-board: min(100dvh - 2rem, 60vw); }
+@media (max-width: 1279px) {
+  :root { --kl-teacher-board: min(100dvh - 2rem, 56vw); }
+}
+@media (orientation: portrait) {
+  :root { --kl-teacher-board: min(100vw - 2rem, 52dvh); }
 }
 
 /* Class Mode (projector layout) hides the site chrome. */

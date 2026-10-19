@@ -1,0 +1,64 @@
+[Event "Queen's Gambit for White"]
+[Lesson "gambit-idea"]
+[LessonTitle "Offering a pawn for the centre"]
+[Step "explain"]
+[TeacherNotes "A gambit means giving a pawn on purpose to get something good | The c-pawn is the one on offer; the prize is control of the centre | White usually can win the pawn back, so it is not a real sacrifice | Name: this is called the Queen's Gambit"]
+[Mistakes "Thinking White is losing a pawn for nothing | Forgetting that the d5 pawn is the target | Playing c4 and then moving the same pieces again and again"]
+[ClassQuestions "What is a gambit? | Which black pawn does the c4 pawn attack? | Why do we want pawns in the middle of the board?"]
+
+{First White pushes the d-pawn to take space in the middle. [%cal Gd2d4]}
+1. d4 d5 {Black copies and puts a pawn in the middle too. [%csl Gd5]} 2. c4 {This is the Queen's Gambit. The c-pawn attacks the pawn on d5. [%cal Gc4d5] [%csl Rd5]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "gambit-idea"]
+[Step "find-move"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"]
+[Hint "Use a pawn."]
+[Hint "Use the pawn on c2."]
+[Hint "Move it two squares to c4."]
+
+{White to move. Play the Queen's Gambit by pushing one pawn.}
+2. c4 {The gambit pawn attacks d5. [%cal Gc4d5]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "gambit-idea"]
+[Step "quiz"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"]
+[Question "After 2. c4, which black pawn does the c4 pawn attack?"]
+[Choices "The pawn on d5 | The pawn on e7 | The pawn on c7"]
+[Answer "1"]
+[Explanation "A pawn attacks one square diagonally forward. From c4 that is d5 (and b5)."]
+
+2. c4 {Look at where the c4 pawn points. [%cal Gc4d5]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "gambit-idea"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Start with the pawn in front of your queen."]
+[Hint "Then play the pawn next to it, two squares forward."]
+
+{Play the first two moves of the Queen's Gambit as White.}
+1. d4 d5 2. c4 *
+
+[Event "Queen's Gambit for White"]
+[Lesson "centre-plan"]
+[LessonTitle "What White wants"]
+[Step "explain"]
+[TeacherNotes "Three jobs: fight for the centre, bring out the knights and bishops, castle | If Black takes c4, White wins the pawn back with a piece | If Black keeps the pawn on d5 with e6, White just develops | The knight on c3 adds pressure on d5"]
+[Mistakes "Moving the queen out early | Grabbing a wing pawn and ignoring development | Forgetting to castle"]
+[ClassQuestions "Which White pieces point at d5? | What is the first job of a knight in the opening? | When should we castle?"]
+
+{White's plan is simple: develop the knights, control the centre and castle. Look at how White's pieces point at d5. [%cal Gc4d5,Gc3d5] [%csl Rd5]}
+1. d4 d5 2. c4 e6 {Black protects d5 with the e-pawn. This is the Declined line.} 3. Nc3 {The knight comes out and attacks d5 a second time. [%cal Gc3d5]} 3... Nf6 {Black adds a defender too.} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "centre-plan"]
+[Step "find-move"]
+[FEN "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"]
+[Hint "Use a knight."]
+[Hint "Use the knight on b1."]
+[Hint "Move it to c3, where it attacks d5."]
+
+{White to move. Develop the knight from b1 so it attacks the d5 pawn.}
+3. Nc3 {A developing move that adds pressure. [%cal Gc3d5]} *

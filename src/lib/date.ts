@@ -37,3 +37,22 @@ export function addDays(day: string, n: number): string {
 export function diffDays(a: string, b: string): number {
   return Math.round((parseDay(a).getTime() - parseDay(b).getTime()) / MS_PER_DAY);
 }
+
+/** True when `day` is a real calendar date written as YYYY-MM-DD (rejects "2026-13-45" and "2026-02-30"). */
+export function isRealDay(day: string): boolean {
+  try {
+    parseDay(day);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Like diffDays, but returns null instead of throwing when either day is not a real date. */
+export function safeDiffDays(a: string, b: string): number | null {
+  try {
+    return diffDays(a, b);
+  } catch {
+    return null;
+  }
+}

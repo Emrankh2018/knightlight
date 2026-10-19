@@ -52,3 +52,19 @@ Next (user priorities: puzzles, tactics, openings first; courses later):
 4. Then Courses/Lesson pages, then intermediate courses (author -> fact-check -> fix; reviewed:false).
 5. /graphify was requested by the user: run when idle (graphify-out/ is gitignored).
 Known: reload mid-set restarts the set; Review page is a placeholder; sound untested on real speakers/iPad.
+
+## Status (2026-10-19 audit checkpoint; user requested stop)
+
+- Audit findings and resume backlog saved in `AUDIT_REPORT.md`; permanent evidence in `docs/audits/2026-10-19/evidence/`. This is the latest audit snapshot; older implementation/deployment statements above are historical.
+- Verified in this session: typecheck PASS; lint FAIL (one `no-control-regex` at `tests/students-hardening.test.ts:115`); 542/542 unit tests PASS; validator 8 courses/30 chapters/82 lessons/246 steps/0 issues; puzzles 2.80 MiB; 0/8 courses reviewed. Full gates exit 1.
+- Production build PASS. Existing E2E: 46 passed/12 failed; 11 stale UI expectations and one reproduced Teacher Present geometry defect. Independent current-control production checks passed bot play, student reset/avatar, invalid import rejection and assignment navigation.
+- Native production Worker and service worker exercised in Chromium; all 75 puzzle buckets available offline after initial precache, visited lesson reload works. Physical iPad/projector/audio and two-version SW updates remain unverified.
+- Two P1 findings: quota-failed backup import can lose the original roster; accepted huge XP can hang the UI. Additional data integrity/parser/UI/accessibility/pipeline/test findings have stable IDs and owner/acceptance specs in the report. No fixes applied.
+- User asked for a checkpoint and stop, then explicitly requested a shared Obsidian handoff for Claude. Saved one-time handoff in `AI-Shared-Brain/Handoffs/2026-10-19-codex-knightlight-audit-checkpoint.md`; no automatic sync or message to another chat.
+- Existing dirty source/content/tests preserved; no staging, commit, push or deployment. Gates were not rerun after the stop request; completed evidence is retained. Work stopped.
+
+## Next (audit handoff; only after the user resumes)
+
+1. Read `AUDIT_REPORT.md`, current instructions and the source fingerprint before selecting work. Reproduce AUD-01/AUD-02 and fix via the owner/test/review workflow.
+2. Follow the report's prioritized backlog; preserve generated-data and coach-review rules. Resolve the Play credit contract before changing assertions.
+3. Run complete gates/build/E2E and affected production checks after repairs. A future release needs authorization and separate live-artifact verification.

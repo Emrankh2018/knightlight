@@ -1,17 +1,21 @@
-import { diffDays } from './date.ts';
+import { safeDiffDays } from './date.ts';
 
 export const XP_RULES = {
   step: { clean: 10, hint: 5 },
   puzzle: { clean: 20, hint: 10 },
   line: { clean: 30, mistakes: 15 },
+  game: { win: 20, draw: 10, loss: 5 },
   lessonBonus: 25,
   streakBonus: 5,
 } as const;
+
+export type GameResult = 'win' | 'draw' | 'loss';
 
 export type XpEvent =
   | { type: 'step'; hint: boolean }
   | { type: 'puzzle'; hint: boolean }
   | { type: 'line'; clean: boolean }
+  | { type: 'game'; result: GameResult }
   | { type: 'lesson' }
   | { type: 'streak' };
 
@@ -23,6 +27,8 @@ export function xpFor(event: XpEvent): number {
       return event.hint ? XP_RULES.puzzle.hint : XP_RULES.puzzle.clean;
     case 'line':
       return event.clean ? XP_RULES.line.clean : XP_RULES.line.mistakes;
+    case 'game':
+      return XP_RULES.game[event.result];
     case 'lesson':
       return XP_RULES.lessonBonus;
     case 'streak':
@@ -61,10 +67,11 @@ export interface StreakState {
 
 /** Records activity on `today`. Same day: unchanged. Next day: +1. Longer gap (or first ever): 1. */
 export function updateStreak(state: StreakState, today: string): StreakState {
-  if (state.lastDay === undefined) {
+  const gap = state.lastDay === undefined ? null : safeDiffDays(today, state.lastDay);
+  if (gap === null) {
+    // No previous day, or a damaged one: start counting again from today.
     return { current: 1, best: Math.max(state.best, 1), lastDay: today };
   }
-  const gap = diffDays(today, state.lastDay);
   if (gap <= 0) return { ...state }; // same day (or clock moved backwards): unchanged
   const current = gap === 1 ? state.current + 1 : 1;
   return { current, best: Math.max(state.best, current), lastDay: today };

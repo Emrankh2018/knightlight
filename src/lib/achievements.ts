@@ -1,4 +1,4 @@
-import type { BotLevelId } from '../engine/levels.ts';
+import type { BotLevelId } from '../engine/level-ids.ts';
 
 export interface Stats {
   lessonsCompleted: number;

@@ -1,0 +1,74 @@
+[Event "Ruy Lopez for White"]
+[Lesson "berlin-wall"]
+[LessonTitle "The Berlin Defence"]
+[Step "explain"]
+[TeacherNotes "Black plays 3...Nf6 at once and offers to trade pawns | After 4.O-O Nxe4 5.d4 Nd6 6.Bxc6 dxc6 7.dxe5 Nf5 8.Qxd8+ Kxd8 the queens are gone | This endgame has a nickname: the Berlin Wall | Black cannot castle but the king is usually safe in an endgame | White can also try the quiet 4.d3, called the Anti-Berlin in the openings list | Keep this chapter short; it is a first look only"]
+[Mistakes "Panicking when the queens come off | Forgetting that the king can be an active piece in an endgame | Rushing to attack when the position is quiet"]
+[ClassQuestions "Why can the king be safe when queens are gone? | What does it mean that Black cannot castle? | Which side has the two bishops?"]
+
+{The Berlin Defence: Black develops the knight and takes on e4. White opens the center and the queens come off. [%cal Gd1d8,Rf6e4]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 {The Berlin Defence.} 4. O-O Nxe4 {Black takes the pawn.} 5. d4 {White opens the center. [%cal Gd2d4]} 5... Nd6 6. Bxc6 dxc6 7. dxe5 {White wins the pawn back and attacks the knight on d6. [%cal Gd4e5]} 7... Nf5 8. Qxd8+ {The queens trade with check. [%cal Gd1d8]} 8... Kxd8 {Black's king cannot castle now, but there are no queens to attack it.} 9. Nc3 Bd7 *
+
+[Event "Ruy Lopez for White"]
+[Lesson "berlin-wall"]
+[Step "find-move"]
+[FEN "r1bqkb1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNBQ1RK1 w kq - 1 8"]
+[Hint "Use your queen."]
+[Hint "Capture on d8 with check."]
+
+{White to move. Trade queens by taking Black's queen with check.}
+8. Qxd8+ {A check, and the queens leave the board. [%cal Gd1d8]} 8... Kxd8 9. Nc3 *
+
+[Event "Ruy Lopez for White"]
+[Lesson "berlin-wall"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Castle on move four."]
+[Hint "Push the d-pawn two squares to open the center."]
+[Hint "Take on c6 with the bishop, then take on e5 with the pawn."]
+
+{Play the Berlin Wall line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Nxe4 5. d4 Nd6 6. Bxc6 dxc6 7. dxe5 Nf5 8. Qxd8+ Kxd8 9. Nc3 *
+
+[Event "Ruy Lopez for White"]
+[Lesson "open-spanish"]
+[LessonTitle "The Open Spanish: 5...Nxe4"]
+[Step "explain"]
+[TeacherNotes "Black takes the e4 pawn at once instead of playing ...Be7 | White opens the center with d4 and plays for fast piece play | After 8.dxe5 Be6 9.c3 White usually has a space edge and active pieces | Names from the openings list: Ruy Lopez: Open | This is only a first look. Deep theory can wait"]
+[Mistakes "Trying to win the e4 knight at once | Forgetting to retreat the bishop to b3 | Moving the king into danger"]
+[ClassQuestions "Why does White play d4 here? | Where does the bishop go when the b-pawn attacks it? | What does the c3 pawn do in this line?"]
+
+{In the Open Spanish, Black grabs the e4 pawn right away. White answers by opening the center. [%cal Rf6e4,Gd2d4]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Nxe4 {Black takes the pawn.} 6. d4 {White strikes in the center. [%cal Gd2d4]} 6... b5 7. Bb3 {The bishop steps back. [%cal Ga4b3]} 7... d5 8. dxe5 {White wins the pawn back and gains space.} 8... Be6 9. c3 {A solid support for the d4 square. [%cal Gc3d4]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "open-spanish"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "After Black takes e4, push the d-pawn two squares."]
+[Hint "When b5 attacks the bishop, go to b3."]
+[Hint "Take on e5 with the d-pawn, then play c3."]
+
+{Play the Open Spanish line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Nxe4 6. d4 b5 7. Bb3 d5 8. dxe5 Be6 9. c3 *
+
+[Event "Ruy Lopez for White"]
+[Lesson "noahs-ark"]
+[LessonTitle "A trap to avoid: Noah's Ark"]
+[Step "explain"]
+[TeacherNotes "This trap is against White: it is a lesson in what not to do | White pushes d4 early (a riskier move order), trades pieces, and the white bishop on b3 is shut in by Black's pawns | The openings list names it Ruy Lopez: Noah's Ark Trap | Safer for White: play c3 first, so the bishop has c2 to go to"]
+[Mistakes "Pushing d4 before c3 is a riskier move order when the bishop is on b3 | Forgetting to check where the bishop can escape | Taking back on d4 with the queen when ...c5 and ...c4 can trap your bishop"]
+[ClassQuestions "Which black pawns box in the bishop? | Which square would be free if White had played c3 first? | Before we push a pawn, what should we ask about our bishop?"]
+
+{The Noah's Ark Trap. White's bishop on b3 gets locked in by pawns on b5 and c4. [%csl Rb3,Rb5,Rc4]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 d6 6. d4 Nxd4 7. Nxd4 exd4 8. Qxd4 {This recapture is the real error; it lets ...c5 and ...c4 trap the bishop.} 8... c5 {The pawn attacks the queen. [%cal Rc5d4]} 9. Qd5 Be6 10. Qc6+ Bd7 11. Qd5 c4 {The pawn attacks the bishop. It has no safe way out. [%cal Rc4b3]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "noahs-ark"]
+[Step "quiz"]
+[Question "In this position, where can the white bishop on b3 go to be safe?"]
+[Choices "To a4 | Taking on c4 | To c2 | Nowhere safe"]
+[Answer "4"]
+[Explanation "The a4 square is guarded by the b5 pawn. The c4 pawn is guarded by the b5 pawn. The c2 square holds a white pawn. So the bishop is lost for a pawn or two. Playing c3 first would have given it room."]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 d6 6. d4 Nxd4 7. Nxd4 exd4 8. Qxd4 c5 9. Qd5 Be6 10. Qc6+ Bd7 11. Qd5 c4 *

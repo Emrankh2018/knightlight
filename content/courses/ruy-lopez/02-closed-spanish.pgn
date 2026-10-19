@@ -1,0 +1,75 @@
+[Event "Ruy Lopez for White"]
+[Lesson "closed-main-line"]
+[LessonTitle "The Closed Spanish main line"]
+[Step "explain"]
+[TeacherNotes "This is the classic main line. Both sides build slowly | Black plays ...Be7 and ...O-O; White plays Re1, Bb3, c3 and h3 | Each move has a job: Re1 backs up e4, Bb3 saves the bishop, c3 prepares d4, h3 stops a pin | Names from the openings list: Ruy Lopez: Closed"]
+[Mistakes "Skipping Re1 and leaving e4 weak | Forgetting to retreat the bishop to b3 after ...b5 | Playing d4 before c3 is ready"]
+[ClassQuestions "Why does White play Re1? | Where does the bishop go when b5 attacks it? | What does the c3 pawn prepare?"]
+
+{The Closed Spanish. White builds step by step. Watch the job of each move. [%cal Gf1e1,Gb3a4]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 {Black develops the bishop and prepares to castle.} 6. Re1 {The rook backs up the e4 pawn. [%cal Ge1e4]} 6... b5 {Black attacks the bishop. [%cal Rb5a4]} 7. Bb3 {The bishop steps back to a safe square. [%cal Ga4b3]} 7... d6 8. c3 {This prepares the central push d4. [%cal Gc3d4,Gd2d4]} 8... O-O 9. h3 {A small pawn move that takes g4 away from Black's bishop. [%cal Gh3g4]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "closed-main-line"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "After castling, put a rook on e1."]
+[Hint "When the b-pawn attacks the bishop, go to b3."]
+[Hint "Then play the pawn moves c3 and h3."]
+
+{Play the Closed Spanish main plan as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 *
+
+[Event "Ruy Lopez for White"]
+[Lesson "closed-moves-why"]
+[LessonTitle "Why these moves?"]
+[Step "explain"]
+[FEN "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9"]
+[TeacherNotes "Ask students to say the job of each move out loud | Re1: guard e4 | Bb3: keep the bishop alive | c3: make room for d4 | h3: stop a pin on the f3 knight | A move with a job beats a random move"]
+[Mistakes "Moving pieces without a plan | Forgetting that a pin on f3 makes the d4 push harder | Leaving the bishop on a4 after b5"]
+[ClassQuestions "What would a black bishop on g4 do to the f3 knight? | What does the rook on e1 look at? | Why do we want the pawn on d4 later?"]
+
+{Four moves, four jobs. The rook on e1 guards e4. The bishop on b3 is safe. The c3 pawn prepares d4. The next move, h3, will stop ...Bg4. [%cal Ge1e4,Gc3d4,Gh2h3] [%csl Gb3]}
+*
+
+[Event "Ruy Lopez for White"]
+[Lesson "closed-moves-why"]
+[Step "find-move"]
+[FEN "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6"]
+[Hint "Use a rook."]
+[Hint "Move the f1 rook to e1."]
+
+{White to move. Back up the e4 pawn with a rook move.}
+6. Re1 {The rook looks at e4 and stays in the middle. [%cal Ge1e4]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "closed-moves-why"]
+[Step "find-move"]
+[FEN "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9"]
+[Hint "Use a pawn on the kingside."]
+[Hint "Move the h-pawn from h2 to h3."]
+
+{White to move. Stop ...Bg4, which would pin your knight, with one kingside pawn move.}
+9. h3 {Now ...Bg4 would just lose the bishop to hxg4. [%cal Gh3g4]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "closed-plans"]
+[LessonTitle "Plans for both sides"]
+[Step "explain"]
+[FEN "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9"]
+[TeacherNotes "White plan: play d4 at the right moment, bring the b1 knight round to g3 through d2 and f1, and keep a safe king | Black plan: attack the white bishop with ...b5, then play ...Na5 or ...Bb7 and push ...c5 | The center is not open yet, so slow plans matter more than quick tactics | Do not worry about long theory; know the ideas"]
+[Mistakes "Rushing d4 before c3 | Moving the same piece twice for no reason | Forgetting that the game is long and slow"]
+[ClassQuestions "Why is it fine to move slowly here? | What would the knight on g3 look at? | What does Black want to do with the pawn on c5?"]
+
+{A common White plan: push d4 when ready, then bring the b1 knight to d2, f1 and g3. [%cal Gd2d4,Gb1d2,Gd2f1,Gf1g3]}
+*
+
+[Event "Ruy Lopez for White"]
+[Lesson "closed-plans"]
+[Step "quiz"]
+[Question "In the Closed Spanish, what is the job of the pawn move c3?"]
+[Choices "It prepares the push d4 | It attacks the black queen | It wins the e5 pawn"]
+[Answer "1"]
+[Explanation "The c3 pawn supports a later d4. It also gives the bishop room to retreat."]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 *

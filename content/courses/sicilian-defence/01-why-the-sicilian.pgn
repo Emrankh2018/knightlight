@@ -1,0 +1,63 @@
+[Event "Sicilian Defence for Black"]
+[Lesson "why-sicilian"]
+[LessonTitle "Why Black plays 1...c5"]
+[Step "explain"]
+[TeacherNotes "Against 1.e4 many players copy with 1...e5, which is solid and balanced | 1...c5 makes the position unbalanced on purpose, so both sides play for a win | Lichess lists this as the Sicilian Defense | The pawn on c5 watches d4, so White cannot easily build a big center with d4 | Say that sharp does not mean bad: Black must know the plans, not only the moves"]
+[Mistakes "Thinking 1...c5 is a sleepy move | Copying White's moves instead of making a plan | Forgetting that the c-pawn guards the d4 square"]
+[ClassQuestions "Which square does the pawn on c5 watch? | How is this different from 1...e5? | Why might a player want an unbalanced game?"]
+
+{After 1.e4, Black answers with the c-pawn, not the e-pawn. The pawn on c5 keeps an eye on d4. [%cal Gc7c5,Gc5d4] [%csl Gd4]}
+1. e4 c5 {The Sicilian Defence. The two sides now have different pawn plans, so the game is often sharp and decisive results are more common.} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "why-sicilian"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"]
+[Hint "Use a pawn."]
+[Hint "It is the pawn on c7. Push it two squares to c5."]
+
+{White has played 1.e4. Black to move. Play the Sicilian: push the c-pawn two squares.}
+1... c5 {The Sicilian Defence. [%cal Gc7c5]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "why-sicilian"]
+[Step "quiz"]
+[Question "Which square does the black pawn on c5 watch?"]
+[Choices "d4 | e5 | f4"]
+[Answer "1"]
+[Explanation "A black pawn on c5 attacks the squares b4 and d4. It stops White from simply putting a pawn on d4."]
+
+{Look at the black pawn on c5. [%csl Gd4]}
+1. e4 c5 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "c-vs-e-pawn"]
+[LessonTitle "The c-pawn for the d-pawn trade"]
+[Step "explain"]
+[TeacherNotes "In the main line White gives up the d-pawn and Black gives up the c-pawn | White is left with a pawn on e4 in the center; Black has a pawn on d6 and a half-open c-file | Black keeps two center pawns (d6, e7) against White's one (e4). | Black's trade: White has more space, Black has a half-open file and good piece play | Use the board: count pawns on each side of the center | Keep it simple: this is why both sides have chances"]
+[Mistakes "Saying the half-open file is only good for White | Forgetting that after cxd4 Black can still attack the knight with pieces | Thinking the trade of pawns makes the game equal and boring"]
+[ClassQuestions "Which black pawn disappears from the board? | Which white pawn disappears? | On which file does Black now have a half-open file?"]
+
+{Watch the pawns. White pushes d4. Black takes it with the c-pawn. White takes back with a knight. Now the c-pawn is gone, so Black has a half-open c-file for a rook. [%cal Gc5d4] [%csl Gc8,Gc7]}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 {Black trades the c-pawn for White's d-pawn. [%cal Rc5d4]} 4. Nxd4 {Now the c-file is half-open for Black: there is no black pawn on it. White still has the e4 pawn in the center. [%cal Gc8c3] [%csl Ge4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "c-vs-e-pawn"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3"]
+[Hint "Use a pawn."]
+[Hint "Take the pawn on d4 with the pawn on c5."]
+
+{White has pushed d4. Black to move. Capture the pawn on d4 with your c-pawn.}
+3... cxd4 {Black trades the c-pawn for White's d-pawn. [%cal Gc5d4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "c-vs-e-pawn"]
+[Step "quiz"]
+[Question "After 4.Nxd4, which file is half-open for Black (no black pawn on it)?"]
+[Choices "The c-file | The e-file | The h-file"]
+[Answer "1"]
+[Explanation "The black c-pawn was traded on d4. Black has no c-pawn, so a black rook on the c-file can look down the file as far as White's pawn on c2."]
+
+{Black has traded the c-pawn. Which file is half-open now?}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 *

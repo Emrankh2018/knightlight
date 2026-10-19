@@ -6,7 +6,7 @@ import { fmt, m } from '../i18n';
 import { ButtonLink } from '../components/Button';
 import Ring from '../components/Ring';
 import { isReady } from '../lib/ready-routes';
-import { diffDays, todayLocal } from '../lib/date';
+import { safeDiffDays, todayLocal } from '../lib/date';
 import { reviewQueue } from '../lib/review';
 import { levelFor } from '../lib/xp';
 import { useActiveProfile } from '../store/profiles';
@@ -51,7 +51,8 @@ export default function Home() {
   const last = data.lastLesson;
   // A streak only counts while the last active day is today or yesterday.
   const lastDay = data.streak.lastDay;
-  const streak = lastDay !== undefined && diffDays(todayLocal(), lastDay) > 1 ? 0 : data.streak.current;
+  const gap = lastDay === undefined ? null : safeDiffDays(todayLocal(), lastDay);
+  const streak = lastDay !== undefined && (gap === null || gap > 1) ? 0 : data.streak.current;
 
   return (
     <div className="space-y-6">

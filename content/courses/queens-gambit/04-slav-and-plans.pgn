@@ -1,0 +1,54 @@
+[Event "Queen's Gambit for White"]
+[Lesson "slav-c6"]
+[LessonTitle "The Slav: Black plays 2...c6"]
+[Step "explain"]
+[TeacherNotes "Black protects d5 with the c-pawn, which keeps the c8 bishop free | After 2...c6 3.Nf3 Nf6 4.Nc3 dxc4 White can play 5.a4 to stop ...b5 | The a-pawn stops Black from holding the extra pawn with b5 | White then plays e3 and takes back on c4 | This is the Slav Defense. Keep it light for beginners"]
+[Mistakes "Forgetting 5.a4 and letting Black hold the pawn with b5 | Rushing e4 before development | Moving the same piece again and again"]
+[ClassQuestions "What pawn protects d5 in the Slav? | Why does a4 stop ...b5? | Which White piece will take back on c4?"]
+
+{In the Slav, Black protects d5 with the c-pawn instead of the e-pawn. [%cal Gc7c6,Gc6d5] [%csl Gd5]}
+1. d4 d5 2. c4 c6 {This is the Slav Defense.} 3. Nf3 Nf6 4. Nc3 dxc4 {Black takes the pawn this time. [%csl Rc4]} 5. a4 {A small pawn move that stops Black from defending c4 with ...b5. [%cal Ga2a4,Rc4b5] [%csl Rb5]} 5... Bf5 6. e3 {Now the bishop on f1 is free to take on c4 next. [%cal Gf1c4]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "slav-c6"]
+[Step "find-move"]
+[FEN "rnbqkb1r/pp2pppp/2p2n2/8/2pP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5"]
+[Hint "Use a pawn on the side of the board."]
+[Hint "Use the pawn on a2."]
+[Hint "Move it two squares to a4."]
+
+{White to move. Stop Black from supporting the c4 pawn with ...b5.}
+5. a4 {The a-pawn controls b5. [%cal Ga4b5]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "slav-c6"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Develop the knights first."]
+[Hint "Use a rook-side pawn to stop ...b5."]
+[Hint "Open the f1 bishop with a centre pawn."]
+
+{Play the Slav line as White.}
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 5. a4 Bf5 6. e3 *
+
+[Event "Queen's Gambit for White"]
+[Lesson "when-to-play"]
+[LessonTitle "When to play it and what to avoid"]
+[Step "explain"]
+[TeacherNotes "Good for players who like solid, calm games and a big centre | Black's three common answers: take on c4, play e6, or play c6 | In every case the plan is the same: knights, bishops, castle | Common beginner mistakes: grabbing pawns and neglecting development; moving the queen early; forgetting that White can win the pawn back"]
+[Mistakes "Playing the queen out early to win back c4 | Panicking when Black takes c4 | Trading the c-pawn for no reason | Not castling"]
+[ClassQuestions "What are Black's three common answers to 2.c4? | What is the plan against all three? | Why is it fine to play a gambit that gives a pawn?"]
+
+{Black has three common answers to 2.c4. If Black takes: win the pawn back. If Black plays e6 or c6: develop and castle. [%cal Gc4d5] [%csl Gc4,Ge6,Gc6]}
+1. d4 d5 2. c4 *
+
+[Event "Queen's Gambit for White"]
+[Lesson "when-to-play"]
+[Step "quiz"]
+[FEN "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"]
+[Question "Black has taken on c4. What is a good plan for White?"]
+[Choices "Develop a knight and win the pawn back with the bishop | Bring the queen out and chase the pawn | Move the same pawn again"]
+[Answer "1"]
+[Explanation "Develop first. The bishop on f1 can take the pawn back on c4 soon."]
+
+*

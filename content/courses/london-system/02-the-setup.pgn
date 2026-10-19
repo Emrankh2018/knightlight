@@ -1,0 +1,83 @@
+[Event "London System for White"]
+[Lesson "setup-pieces"]
+[LessonTitle "The usual setup"]
+[Step "explain"]
+[TeacherNotes "Count the setup pieces: pawns d4, e3, c3, knights f3 and d2, bishops f4 and d3 | The pawns on c3 and e3 guard d4 | Every piece has a job: say it out loud | Black's replies may change the order, but the pieces stay the same"]
+[Mistakes "Playing c3 and e3 and forgetting to develop the knights | Putting the b1 knight on c3, which blocks the c-pawn | Moving the queen out early"]
+[ClassQuestions "Which pawns guard the pawn on d4? | Why does the knight go to d2 and not c3? | Which pieces are still at home?"]
+
+{Here is the London setup. Pawns on d4, e3 and c3 make a solid wall. The knights are on f3 and d2. The bishop is on f4. [%csl Gd4,Ge3,Gc3,Gf3,Gd2,Gf4]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 4. e3 {The pawn guards d4 and the bishop. [%cal Ge3d4,Ge3f4]} 4... Nc6 5. Nbd2 {This knight guards the center and leaves c3 free for a pawn. [%cal Gb1d2]} 5... e6 6. c3 {The pawn on c3 gives d4 a second guard. [%cal Gc3d4]} *
+
+[Event "London System for White"]
+[Lesson "setup-pieces"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pp3ppp/2n1pn2/2pp4/3P1B2/4PN2/PPPN1PPP/R2QKB1R w KQkq - 0 6"]
+[Hint "Use a pawn."]
+[Hint "Move the pawn from c2 to c3."]
+
+{White to move. Give the d4 pawn more help with a pawn move.}
+6. c3 {Now d4 is guarded by the pawns on c3 and e3. [%cal Gc3d4,Ge3d4]} *
+
+[Event "London System for White"]
+[Lesson "setup-pieces"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Pawn, knight, bishop to start."]
+[Hint "Then the e-pawn, then the second knight."]
+[Hint "Finish with the c-pawn."]
+
+{Play the whole setup as White.}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 4. e3 Nc6 5. Nbd2 e6 6. c3 *
+
+[Event "London System for White"]
+[Lesson "bishop-and-castle"]
+[LessonTitle "Bishop d3 and castling"]
+[Step "explain"]
+[TeacherNotes "The bishop on d3 points at the black kingside | Castling puts the king behind pawns and wakes up the rook | Do both before you start any attack | Keep the setup calm: do not rush"]
+[Mistakes "Forgetting to castle | Moving the king one square at a time instead of castling. | Putting the bishop on e2 is fine, but on d3 it aims at h7."]
+[ClassQuestions "Why do we castle before attacking? | Which diagonal does the bishop on d3 use? | Which rook comes to the center after castling?"]
+
+{Two more jobs: bring the light bishop to d3 and castle. [%cal Gf1d3,Ge1g1]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. Bd3 {The bishop looks along the diagonal toward h7. [%cal Gd3h7]} 5... O-O 6. O-O {White castles. The king is safe and the rook comes in. [%cal Ge1g1,Gh1f1]} *
+
+[Event "London System for White"]
+[Lesson "bishop-and-castle"]
+[Step "find-move"]
+[FEN "rnbqk2r/ppp1bppp/4pn2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R w KQkq - 1 5"]
+[Hint "Use your light-squared bishop on f1."]
+[Hint "Move the bishop from f1 to d3."]
+
+{White to move. Bring out the last bishop to d3, aiming at h7.}
+5. Bd3 {The bishop aims along the diagonal at h7. [%cal Gd3h7]} *
+
+[Event "London System for White"]
+[Lesson "bishop-and-castle"]
+[Step "find-move"]
+[FEN "rnbq1rk1/ppp1bppp/4pn2/3p4/3P1B2/3BPN2/PPP2PPP/RN1QK2R w KQ - 3 6"]
+[Hint "Use your king."]
+[Hint "Castle on the kingside: the king goes to g1."]
+
+{White to move. Make your king safe.}
+6. O-O {Castled. The king is tucked away. [%cal Ge1g1,Gh1f1]} *
+
+[Event "London System for White"]
+[Lesson "h3-retreat"]
+[LessonTitle "The h3 pawn move"]
+[Step "explain"]
+[TeacherNotes "h3 is a quiet move with a job: it gives the bishop the h2 square | Black's knight can jump to h5 and attack the bishop | Pawn moves have a price: only play h3 when it has a reason | Without h3, Bg3 lets the knight take the bishop. That is why h3 first is the tidy way."]
+[Mistakes "Retreating the bishop to a square where it is still attacked | Playing h3 on move two just because | Giving the bishop up for nothing"]
+[ClassQuestions "Which black piece attacks the bishop on f4? | Where can the bishop go to be safe? | What square does h3 give the bishop?"]
+
+{Black's knight can jump to h5 and attack the bishop. A pawn on h3 gives the bishop a safe home on h2. [%cal Rh5f4,Gf4h2] [%csl Gh2]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 e6 4. e3 Be7 5. h3 {A small move. It makes room for the bishop. [%cal Gh2h3] [%csl Gh2]} 5... Nh5 {The knight attacks the bishop. [%cal Rh5f4]} 6. Bh2 {The bishop is safe, and it still looks along the h2-b8 diagonal. [%cal Gh2b8]} *
+
+[Event "London System for White"]
+[Lesson "h3-retreat"]
+[Step "find-move"]
+[FEN "rnbqk2r/ppp1bppp/4p3/3p3n/3P1B2/4PN1P/PPP2PP1/RN1QKB1R w KQkq - 1 6"]
+[Hint "Your bishop on f4 is attacked. Move it."]
+[Hint "Retreat the bishop to h2."]
+
+{White to move. Your bishop is attacked by the knight on h5. Put the bishop on h2.}
+6. Bh2 {Safe, and it keeps the h2-b8 diagonal. [%cal Gh2b8]} *

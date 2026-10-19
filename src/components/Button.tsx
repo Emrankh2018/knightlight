@@ -8,9 +8,9 @@ const BASE =
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: 'bg-amber text-ink hover:brightness-95',
-  secondary: 'border-2 border-ink bg-surface text-ink hover:bg-ink hover:text-cream dark:border-amber dark:text-amber dark:hover:bg-amber dark:hover:text-ink',
+  secondary: 'border-2 border-ink bg-surface text-ink hover:bg-ink hover:text-cream aria-pressed:bg-ink aria-pressed:text-cream dark:border-amber dark:text-amber dark:hover:bg-amber dark:hover:text-ink dark:aria-pressed:bg-amber dark:aria-pressed:text-ink',
   ghost: 'text-fg hover:bg-line/60',
-  danger: 'bg-coral text-white hover:brightness-95',
+  danger: 'bg-danger text-white hover:brightness-95',
 };
 
 export const buttonClass = (variant: ButtonVariant = 'primary', extra = ''): string => `${BASE} ${VARIANTS[variant]} ${extra}`.trim();

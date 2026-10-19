@@ -1,0 +1,98 @@
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-main"]
+[LessonTitle "Black says no thanks"]
+[Step "explain"]
+[TeacherNotes "2...e6 is the Queen's Gambit Declined: Black keeps the d5 pawn instead of taking | White has no pawn to win back, so the game is about development and the centre | Main idea: knights out, bishop out, castle | Black's c8 bishop is shut in by the e6 pawn, which is Black's main problem"]
+[Mistakes "Taking on d5 with the knight when it can be taken back. | Forgetting to castle | Playing e4 too soon without enough support"]
+[ClassQuestions "Which black pawn protects d5 now? | Which black bishop has trouble getting out? | What are White's three jobs?"]
+
+{Black keeps the pawn and protects d5 with the e-pawn. White just builds up. [%cal Ge7e6,Gd8d5] [%csl Gd5]}
+1. d4 d5 2. c4 e6 {Black declines the gambit.} 3. Nc3 {Knight out, pressure on d5. [%cal Gc3d5]} 3... Nf6 4. Bg5 {The bishop comes out and pins the knight. [%cal Gg5f6]} 4... Be7 5. e3 {Solid. White supports the d4 pawn and opens the f1 bishop. [%cal Ge2e3]} 5... O-O 6. Nf3 {Now the other knight comes out.} 6... Nbd7 *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-main"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Knight from b1 first, then the bishop from c1."]
+[Hint "Support d4 with the e-pawn."]
+[Hint "Finish with the g1 knight."]
+
+{Play the main Declined line as White.}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. e3 O-O 6. Nf3 Nbd7 *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-pin"]
+[LessonTitle "The pin on the f6 knight"]
+[Step "explain"]
+[TeacherNotes "A pin means a piece should not move, because it would expose something more valuable behind it | Here the f6 knight is in front of the queen on d8 | This is a pin with the queen behind, not the king. The knight is allowed to move, but usually it should not, because Bxd8 would win the queen. Sometimes moving it wins something even bigger (see the next lesson). | Black usually answers with Be7, which blocks the line and breaks the pin | The bishop can retreat if it is attacked"]
+[Mistakes "Thinking the pin wins a piece by force. It does not, Black can play Be7 | Forgetting to look at what stands behind the pinned piece | Giving the bishop away for the knight too early"]
+[ClassQuestions "What is behind the knight on f6? | What happens if the knight leaves f6? | How can Black break the pin?"]
+
+{The bishop on g5 attacks the knight on f6. Behind the knight is the queen on d8. This is a pin. [%cal Rg5f6,Rf6d8] [%csl Rf6,Gd8]}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 {The knight usually should not move, or the bishop could take the queen. [%cal Gg5f6]} 4... Be7 {Black blocks the line with the bishop. The pin is over. [%csl Ge7]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-pin"]
+[Step "find-move"]
+[FEN "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4"]
+[Hint "Use a bishop."]
+[Hint "Use the bishop on c1."]
+[Hint "Move it to g5 to pin the knight on f6."]
+
+{White to move. Pin the knight on f6 with your dark-squared bishop.}
+4. Bg5 {The pin on f6. [%cal Gg5f6,Gf6d8]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-pin"]
+[Step "quiz"]
+[FEN "rnbqkb1r/ppp2ppp/4pn2/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR b KQkq - 3 4"]
+[Question "Which piece is pinned in this position?"]
+[Choices "The knight on f6 | The pawn on d5 | The pawn on e6"]
+[Answer "1"]
+[Explanation "The bishop on g5 attacks the knight on f6, and the queen on d8 stands behind it."]
+
+*
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-pawns"]
+[LessonTitle "Pawns and plans in the Declined line"]
+[Step "explain"]
+[TeacherNotes "White pawns on d4 and e3 form a solid wall; the c4 pawn presses on d5 | Black pawns on d5 and e6 do the same job | White plan: castle, rook to c1 or Qc2, play with pieces | Black plan: free the c8 bishop, often with ...c5, or with ...b6 and ...Bb7. | Beginners: do not worry about the deeper plans, just develop and castle"]
+[Mistakes "Moving the pawns in front of the king after castling for no reason | Trading all the minor pieces without a plan | Ignoring what Black threatens"]
+[ClassQuestions "Which pawns make White's wall? | Which black bishop is hard to develop? | What should we do before attacking?"]
+
+{Look at the pawns. White has pawns on c4, d4 and e3. Black has pawns on d5 and e6. [%csl Gc4,Gd4,Ge3,Rd5,Re6]}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. e3 O-O 6. Nf3 Nbd7 {Both sides are nearly developed. White should now finish development and make a sensible plan. [%cal Gf1e2,Gd1c2]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-pawns"]
+[Step "find-move"]
+[FEN "r1bq1rk1/pppnbppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 3 7"]
+[Hint "Use a bishop."]
+[Hint "Use the bishop on f1."]
+[Hint "Move it one step to e2, so you can castle next."]
+
+{White to move. Clear the way for castling by moving your f1 bishop to e2.}
+7. Be2 {Now White can castle next move. [%cal Gf1e2,Ge1g1]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-d5-warning"]
+[LessonTitle "Warning: do not grab the d5 pawn with your knight"]
+[Step "explain"]
+[TeacherNotes "This is a trap for WHITE, shown so players avoid it | The line comes from 4...Nbd7, a different move than Be7 | After 5.cxd5 exd5 the pawn on d5 looks loose, but taking it loses material | Always check what a capture opens up for the opponent | A pin with the queen behind is not a full pin. The pinned knight moved anyway, because ...Bb4+ won the queen back."]
+[Mistakes "Taking a pawn because it looks free without checking replies | Forgetting that Black's bishop can check on b4 | Counting only the pieces you win and not the pieces you lose"]
+[ClassQuestions "Why does Black recapture with the knight? | What check does Black make? | What would you play instead of Nxd5?"]
+
+{Here is a mistake to avoid. After 4...Nbd7 5.cxd5 exd5, the pawn on d5 looks tempting. [%csl Rd5]}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 6. Nxd5 {Do not do this! [%cal Rc3d5]} 6... Nxd5 {The knight takes back. White's bishop now attacks the queen.} 7. Bxd8 {White takes the queen...} 7... Bb4+ {...but Black checks first. [%cal Rf8b4]} 8. Qd2 Bxd2+ 9. Kxd2 Kxd8 {In this line White ends up a whole piece down for one pawn. [%csl Rd8]} *
+
+[Event "Queen's Gambit for White"]
+[Lesson "qgd-d5-warning"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppn1ppp/5n2/3p2B1/3P4/2N5/PP2PPPP/R2QKBNR w KQkq - 0 6"]
+[Hint "Do not take the pawn. Develop a knight."]
+[Hint "Use the knight on g1."]
+[Hint "Move it to f3."]
+
+{White to move. Do not grab the d5 pawn with your knight. Develop your last knight instead.}
+6. Nf3 {A safe, sensible move. The knight comes out and White keeps a calm game. [%cal Gg1f3]} *

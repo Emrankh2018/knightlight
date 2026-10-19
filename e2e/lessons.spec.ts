@@ -1,4 +1,10 @@
+import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
+
+type CatalogEntry = { slug: string; title: string; kind: string; tags: string[] };
+const catalog = JSON.parse(readFileSync('public/data/courses/index.json', 'utf8')) as CatalogEntry[];
+const listed = catalog.filter((c) => !c.tags.includes('sample'));
+const hidden = catalog.filter((c) => c.tags.includes('sample'));
 
 const LESSON = '#/learn/italian-game/first-moves';
 
@@ -26,16 +32,22 @@ async function play(page: Page, from: string, to: string): Promise<void> {
 }
 
 test('Courses library hides the sample course and shows the friendly review badge', async ({ page }) => {
+  expect(hidden.length).toBeGreaterThan(0);
   await page.goto('#/courses');
-  await expect(page.getByRole('heading', { level: 2 })).toHaveCount(3);
+  const cards = page.getByRole('heading', { level: 2 });
+  await expect(cards).toHaveCount(listed.length);
+  for (const c of listed) await expect(page.getByRole('heading', { level: 2, name: c.title })).toBeVisible();
+  for (const c of hidden) await expect(page.getByText(c.title)).toHaveCount(0);
   await expect(page.getByText('Sample: Attacking f7')).toHaveCount(0);
-  await expect(page.getByText('Coach is still checking this course')).toHaveCount(3);
+  await expect(page.getByText('Coach is still checking this course')).toHaveCount(listed.filter((c) => !(c as CatalogEntry & { reviewed?: boolean }).reviewed).length);
   await expect(page.getByText('Not yet reviewed by the coach')).toHaveCount(0);
+  const openings = listed.filter((c) => c.kind === 'opening');
+  const skills = listed.filter((c) => c.kind === 'skills');
   await page.getByRole('button', { name: 'Openings', exact: true }).click();
-  await expect(page.getByRole('heading', { level: 2 })).toHaveCount(1);
+  await expect(cards).toHaveCount(openings.length);
   await expect(page.getByRole('heading', { level: 2, name: 'Italian Game for White' })).toBeVisible();
   await page.getByRole('button', { name: 'Skills', exact: true }).click();
-  await expect(page.getByRole('heading', { level: 2 })).toHaveCount(2);
+  await expect(cards).toHaveCount(skills.length);
   await expect(page.getByText('Italian Game for White')).toHaveCount(0);
 });
 

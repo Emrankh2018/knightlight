@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { Chess } from 'chess.js';
 import Board, { type PromotionPiece } from '../components/Board';
 import Button from '../components/Button';
+import LoadBox from '../components/LoadBox';
+import MoveList from '../components/MoveList';
 import { useLoad } from '../hooks/useLoad';
 import { fmt, m } from '../i18n';
 import { getOpeningIndex } from '../lib/data';
@@ -10,8 +12,12 @@ import {
   buildPgn,
   buildSearchIndex,
   filterByName,
+  findOpening,
+  isTypingTarget,
+  type LineState,
   MAX_PLIES,
-  parseLoadInput,
+  type MoveInput,
+  playOnLine,
   replay,
   sanitizeMoves,
   sansOfPgn,
@@ -27,23 +33,11 @@ const BOARD_WIDTH = 'max(16rem, min(100%, calc(100dvh - 11rem)))';
 const PAGE = 40;
 const ECO_LETTERS = ['A', 'B', 'C', 'D', 'E'] as const;
 
-interface LineState {
-  startFen: string;
-  sans: string[];
-  /** Number of moves currently shown on the board. */
-  cursor: number;
-}
-
 export default function Openings() {
   const data = useLoad(getOpeningIndex);
   if (data.status === 'loading') return <p className="text-xl text-muted">{m().common.loading}</p>;
   if (data.status === 'error') return <p role="alert" className="text-xl font-bold text-coral">{m().openings.loadError}</p>;
   return <Explorer index={data.data} />;
-}
-
-function isTypingTarget(t: EventTarget | null): boolean {
-  if (!(t instanceof HTMLElement)) return false;
-  return t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName) || t.closest('[role="application"]') !== null;
 }
 
 function Explorer({ index }: { index: OpeningIndex }) {
@@ -76,11 +70,7 @@ function Explorer({ index }: { index: OpeningIndex }) {
   const fen = last ? last.fen : line.startFen;
   const standard = line.startFen === START_FEN;
 
-  const found = useMemo(() => {
-    if (standard) return index.lookup(shown.map((p) => p.uci));
-    const opening = index.lookupFen(fen);
-    return { opening, ply: line.cursor };
-  }, [index, standard, shown, line.cursor, fen]);
+  const found = useMemo(() => findOpening(index, line, shown, fen), [index, line, shown, fen]);
   const continuations = useMemo(() => index.continuations(fen), [index, fen]);
   const searchIndex = useMemo(() => buildSearchIndex(index.openings), [index]);
 
@@ -100,17 +90,11 @@ function Explorer({ index }: { index: OpeningIndex }) {
     [params, setParams],
   );
 
-  const playMove = (move: string | { from: string; to: string; promotion?: string }): boolean => {
-    let san: string;
-    try {
-      san = new Chess(fen).move(move).san;
-    } catch {
-      return false;
-    }
-    const upcoming = line.sans[line.cursor];
-    const sans = upcoming !== undefined && stripCheck(upcoming) === stripCheck(san) ? line.sans : [...line.sans.slice(0, line.cursor), san];
-    commit({ ...line, sans, cursor: line.cursor + 1 });
-    playMoveSound(san);
+  const playMove = (move: MoveInput): boolean => {
+    const res = playOnLine(line, fen, move);
+    if (!res) return false;
+    commit(res.line);
+    playMoveSound(res.san);
     return true;
   };
 
@@ -253,94 +237,6 @@ function Explorer({ index }: { index: OpeningIndex }) {
         <FindSection searchIndex={searchIndex} onPick={(o) => loadSans(sansOfPgn(o.pgn))} />
       </div>
     </div>
-  );
-}
-
-function MoveList({ plies, cursor, onJump }: { plies: { san: string }[]; cursor: number; onJump: (cursor: number) => void }) {
-  const t = m().openings;
-  const rows: number[] = [];
-  for (let i = 0; i < plies.length; i += 2) rows.push(i);
-  const current = 'rounded-lg bg-amber px-2 text-ink';
-  const idle = 'rounded-lg px-2 hover:bg-line/70';
-  const cell = (i: number) => {
-    const p = plies[i];
-    if (!p) return null;
-    return (
-      <button
-        type="button"
-        aria-label={fmt(t.moveLabel, { n: i + 1, san: p.san })}
-        aria-current={cursor === i + 1 ? 'step' : undefined}
-        onClick={() => onJump(i + 1)}
-        className={`min-h-11 min-w-11 text-xl font-bold ${cursor === i + 1 ? current : idle}`}
-      >
-        {p.san}
-      </button>
-    );
-  };
-  return (
-    <div className="mt-2">
-      <button
-        type="button"
-        aria-current={cursor === 0 ? 'step' : undefined}
-        onClick={() => onJump(0)}
-        className={`min-h-11 text-lg font-bold ${cursor === 0 ? current : idle}`}
-      >
-        {t.movesStart}
-      </button>
-      {plies.length === 0 ? (
-        <p className="text-lg text-muted">{t.noMoves}</p>
-      ) : (
-        <ol className="mt-1 flex max-h-32 flex-wrap gap-x-3 gap-y-1 overflow-y-auto pe-1">
-          {rows.map((i) => (
-            <li key={i} className="flex items-center gap-1">
-              <span className="text-lg text-muted">{i / 2 + 1}.</span>
-              {cell(i)}
-              {cell(i + 1)}
-            </li>
-          ))}
-        </ol>
-      )}
-    </div>
-  );
-}
-
-function LoadBox({ onLoad }: { onLoad: (startFen: string, sans: string[]) => void }) {
-  const t = m().openings;
-  const [text, setText] = useState('');
-  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
-  const submit = (): void => {
-    const res = parseLoadInput(text);
-    if (res.ok) {
-      onLoad(res.startFen, res.sans);
-      setText('');
-      setMessage({ ok: true, text: t.loaded });
-    } else {
-      setMessage({ ok: false, text: t.loadErrors[res.reason] });
-    }
-  };
-  return (
-    <details className="rounded-xl border-2 border-line px-3 py-2">
-      <summary className="min-h-12 cursor-pointer py-3 text-lg font-bold">{t.loadTitle}</summary>
-      <div className="space-y-2 pt-2">
-        <p className="text-base text-muted">{t.loadNotShared}</p>
-        <label htmlFor="op-load" className="block text-base font-bold">{t.loadLabel}</label>
-        <textarea
-          id="op-load"
-          value={text}
-          rows={3}
-          spellCheck={false}
-          onChange={(e) => {
-            setText(e.target.value);
-            setMessage(null);
-          }}
-          className="w-full rounded-lg border-2 border-line bg-bg p-2 font-mono text-base"
-        />
-        <Button variant="secondary" onClick={submit}>{t.loadButton}</Button>
-        {message ? (
-          <p role={message.ok ? 'status' : 'alert'} className={`text-base font-bold ${message.ok ? 'text-leaf' : 'text-coral'}`}>{message.text}</p>
-        ) : null}
-      </div>
-    </details>
   );
 }
 

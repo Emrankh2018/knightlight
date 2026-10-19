@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { fmt, m } from '../i18n';
+import { clampName } from '../lib/students';
 import { isRecord, isStr, isNum, KEYS, parseJson, readRaw, removeRaw, writeRaw } from './storage';
 
 export const AVATARS = ['🦊', '🐼', '🦁', '🐯', '🐸', '🐙', '🦄', '🐢', '🦉', '🐧', '🐬', '🦋', '🚀', '⭐', '🎲', '👑'] as const;
@@ -17,7 +18,8 @@ export interface ProfilesData {
   activeId: string;
 }
 
-export const MAX_NAME_LENGTH = 30;
+/** Most students one device holds; keeps a class list and an import a sane size. */
+export const MAX_STUDENTS = 200;
 
 function isProfile(v: unknown): v is Profile {
   return (
@@ -26,8 +28,6 @@ function isProfile(v: unknown): v is Profile {
     v.id.length > 0 &&
     /^[A-Za-z0-9_-]+$/.test(v.id) &&
     isStr(v.name) &&
-    v.name.length > 0 &&
-    v.name.length <= 100 &&
     isStr(v.avatar) &&
     (AVATARS as readonly string[]).includes(v.avatar) &&
     isNum(v.createdAt)
@@ -37,10 +37,13 @@ function isProfile(v: unknown): v is Profile {
 /** Strict structural check; returns null when the value is not valid profile data. */
 export function validateProfiles(v: unknown): ProfilesData | null {
   if (!isRecord(v) || v.version !== 1 || !Array.isArray(v.profiles) || !isStr(v.activeId)) return null;
+  if (v.profiles.length > MAX_STUDENTS) return null;
   const profiles: Profile[] = [];
   for (const p of v.profiles as unknown[]) {
     if (!isProfile(p)) return null;
-    profiles.push({ id: p.id, name: p.name, avatar: p.avatar, createdAt: p.createdAt });
+    const name = clampName(p.name);
+    if (name.length === 0) return null;
+    profiles.push({ id: p.id, name, avatar: p.avatar, createdAt: p.createdAt });
   }
   if (profiles.length === 0) return null;
   if (new Set(profiles.map((p) => p.id)).size !== profiles.length) return null;
@@ -74,7 +77,8 @@ export function readProfiles(): ProfilesData {
 }
 
 interface ProfilesState extends ProfilesData {
-  add: (name: string, avatar?: string) => string;
+  /** Returns the new id, or null (and does nothing) when MAX_STUDENTS is reached. */
+  add: (name: string, avatar?: string) => string | null;
   rename: (id: string, name: string) => void;
   setAvatar: (id: string, avatar: string) => void;
   /** Returns false (and does nothing) when it is the last profile or the id is unknown. */
@@ -84,7 +88,7 @@ interface ProfilesState extends ProfilesData {
   reload: () => void;
 }
 
-const cleanName = (name: string): string => name.trim().slice(0, MAX_NAME_LENGTH);
+const cleanName = clampName;
 
 export const useProfiles = create<ProfilesState>()((set, get) => {
   const persist = (): void => {
@@ -95,6 +99,7 @@ export const useProfiles = create<ProfilesState>()((set, get) => {
     ...readProfiles(),
     add: (name, avatar) => {
       const { profiles } = get();
+      if (profiles.length >= MAX_STUDENTS) return null;
       const id = newId();
       const profile: Profile = {
         id,

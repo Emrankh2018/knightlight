@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type Ref } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type MouseEvent, type Ref } from 'react';
 import { Chess, type Move, type PieceSymbol } from 'chess.js';
 import { Chessboard, type Arrow as BoardArrow, type PieceDropHandlerArgs, type SquareHandlerArgs } from 'react-chessboard';
 import { fmt, m } from '../i18n';
+import { toneOfModifiers } from '../lib/annotations';
 import { describePosition } from '../lib/describe';
 import type { Arrow, Highlight } from '../lib/content/types';
 import { BOARD_THEMES, useSettings } from '../store/settings';
@@ -37,6 +38,14 @@ function removeInnerTabStops(root: HTMLElement): void {
   }
 }
 
+/** Coach drawing tools: right-drag draws an arrow, right-click marks a square; in marking mode the left button does the same. Keys: H marks the cursor square, A starts and finishes an arrow. */
+export interface BoardAnnotate {
+  /** Marking mode: clicks and drags mark the board instead of moving pieces. */
+  marking: boolean;
+  onArrow: (from: string, to: string, tone: Tone) => void;
+  onSquare: (square: string, tone: Tone) => void;
+}
+
 export interface BoardProps {
   fen: string;
   orientation?: 'white' | 'black';
@@ -51,6 +60,7 @@ export interface BoardProps {
   highlights?: readonly Highlight[];
   lastMove?: { from: string; to: string; san?: string };
   interactive?: boolean;
+  annotate?: BoardAnnotate;
   /** Board width: a number of px (capped by the container) or a CSS length such as `min(100%, calc(100dvh - 8rem))`. Default: fills the container (max about 85vh). */
   size?: number | string;
   /** Ref to the focusable board element, so callers can move focus to it. */
@@ -81,6 +91,7 @@ export default function Board({
   highlights = [],
   lastMove,
   interactive = false,
+  annotate,
   size,
   ref,
   ariaLabel,
@@ -91,6 +102,10 @@ export default function Board({
   const chess = useMemo(() => safeChess(fen), [fen]);
   const [sel, setSel] = useState<{ fen: string; square: string } | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
+  const [arrowFrom, setArrowFrom] = useState<string | null>(null);
+  const drag = useRef<{ square: string; button: number } | null>(null);
+  /** Pieces can be moved unless the board is in marking mode. */
+  const canMove = interactive && !annotate?.marking;
   /** Where the keyboard cursor starts: the first piece of the side to move, scanning from the player's own back rank. */
   const startSquare = useMemo(() => {
     if (!chess) return 'e2';
@@ -124,7 +139,7 @@ export default function Board({
   };
 
   const clickSquare = (square: string, hasOwnPiece: boolean): void => {
-    if (!interactive || !chess) return;
+    if (!canMove || !chess) return;
     if (selected && targets.some((t) => t.to === square)) {
       tryMove(selected, square);
       setSel(null);
@@ -147,7 +162,7 @@ export default function Board({
 
   const onPieceDrop = ({ sourceSquare, targetSquare }: PieceDropHandlerArgs): boolean => {
     setSel(null);
-    if (!interactive || !targetSquare || targetSquare === sourceSquare) return false;
+    if (!canMove || !targetSquare || targetSquare === sourceSquare) return false;
     return tryMove(sourceSquare, targetSquare);
   };
 
@@ -173,10 +188,30 @@ export default function Board({
       case ' ':
         e.preventDefault();
         setCursor(here);
-        clickSquare(here, ownPieceAt(here));
+        if (annotate?.marking) annotate.onSquare(here, 'G');
+        else clickSquare(here, ownPieceAt(here));
+        return;
+      case 'h':
+      case 'H':
+        if (!annotate || e.ctrlKey || e.metaKey || e.altKey) return;
+        e.preventDefault();
+        setCursor(here);
+        annotate.onSquare(here, e.shiftKey ? 'R' : 'G');
+        return;
+      case 'a':
+      case 'A':
+        if (!annotate || e.ctrlKey || e.metaKey || e.altKey) return;
+        e.preventDefault();
+        setCursor(here);
+        if (arrowFrom === null) setArrowFrom(here);
+        else {
+          if (arrowFrom !== here) annotate.onArrow(arrowFrom, here, e.shiftKey ? 'R' : 'G');
+          setArrowFrom(null);
+        }
         return;
       case 'Escape':
         setSel(null);
+        setArrowFrom(null);
         return;
       default:
         return;
@@ -206,9 +241,23 @@ export default function Board({
     for (const h of highlights) add(h.square, { backgroundColor: FILL[h.color] });
     if (selected) add(selected, { backgroundColor: SELECTED_FILL });
     for (const t of targets) add(t.to, { backgroundImage: t.captured ? RING : DOT });
+    if (arrowFrom) add(arrowFrom, { boxShadow: 'inset 0 0 0 4px #3BB273' });
     if (cursor && interactive) add(cursor, { boxShadow: 'inset 0 0 0 3px #0F3D3E, inset 0 0 0 6px #FFFFFF' });
     return out;
-  }, [lastMove, highlights, selected, targets, cursor, interactive]);
+  }, [lastMove, highlights, selected, targets, cursor, interactive, arrowFrom]);
+
+  const onSquareMouseDown = ({ square }: SquareHandlerArgs, e: MouseEvent): void => {
+    drag.current = annotate && (e.button === 2 || (annotate.marking && e.button === 0)) ? { square, button: e.button } : null;
+  };
+
+  const onSquareMouseUp = ({ square }: SquareHandlerArgs, e: MouseEvent): void => {
+    const start = drag.current;
+    drag.current = null;
+    if (!annotate || !start || start.button !== e.button) return;
+    const tone = toneOfModifiers(e);
+    if (start.square === square) annotate.onSquare(square, tone);
+    else annotate.onArrow(start.square, square, tone);
+  };
 
   const boardArrows: BoardArrow[] = arrows.map((a) => ({ startSquare: a.from, endSquare: a.to, color: TONES[a.color] }));
   const summary = useMemo(() => describePosition(fen), [fen]);
@@ -222,7 +271,11 @@ export default function Board({
       aria-label={`${ariaLabel}. ${summary}`}
       tabIndex={interactive ? 0 : -1}
       onKeyDown={onKeyDown}
-      onBlur={() => setCursor(null)}
+      onBlur={() => {
+        setCursor(null);
+        setArrowFrom(null);
+      }}
+      onContextMenu={annotate ? (e) => e.preventDefault() : undefined}
       className="mx-auto rounded-md focus-visible:outline-offset-4"
       style={{ width: typeof size === 'string' ? size : `min(100%, ${size ? `${size}px` : '85vh'})` }}
     >
@@ -232,7 +285,7 @@ export default function Board({
           id: 'kl-board',
           position: fen,
           boardOrientation: orientation,
-          allowDragging: interactive,
+          allowDragging: canMove,
           allowDrawingArrows: false,
           showAnimations: !reduceMotion,
           animationDurationInMs: 200,
@@ -244,12 +297,14 @@ export default function Board({
           darkSquareNotationStyle: NOTATION,
           alphaNotationStyle: NOTATION,
           numericNotationStyle: NOTATION,
-          canDragPiece: ({ piece }) => interactive && chess !== null && piece.pieceType.startsWith(chess.turn()),
+          canDragPiece: ({ piece }) => canMove && chess !== null && piece.pieceType.startsWith(chess.turn()),
           onPieceDrag: ({ square }) => {
-            if (interactive && square) setSel({ fen, square });
+            if (canMove && square) setSel({ fen, square });
           },
           onPieceDrop,
           onSquareClick,
+          onSquareMouseDown,
+          onSquareMouseUp,
         }}
       />
       </div>

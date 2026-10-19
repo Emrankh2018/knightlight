@@ -5,6 +5,7 @@
  * chess.js is only used up front to validate the FEN and at the end to format SAN.
  */
 import { Chess } from 'chess.js';
+import { positionKey } from './position-key.ts';
 import {
   BISHOP,
   Board,
@@ -34,6 +35,10 @@ export interface SearchOptions {
   rng: () => number;
   /** Node limit across the whole search (default 2,000,000). */
   maxNodes?: number;
+  /** Position keys (see `positionKey`) already seen in the game. Used with `avoidRepeats`. */
+  history?: readonly string[];
+  /** When clearly winning, prefer a move that does not repeat a position in `history`. */
+  avoidRepeats?: boolean;
 }
 
 export interface SearchResult {
@@ -49,6 +54,10 @@ export const MATE = 30000;
 const MATE_BOUND = MATE - 200;
 const INF = 32000;
 const MAX_PLY = 64;
+const MAX_DEPTH = 10;
+/** Centipawns from which the mover counts as clearly winning (and so should not shuffle). */
+const WINNING = 200;
+const DEFAULT_TIME_MS = 1000;
 
 export const PIECE_VALUES = [0, 100, 320, 330, 500, 900, 0] as const;
 
@@ -273,6 +282,14 @@ function toSan(fen: string, m: Move): string {
   return result.san;
 }
 
+/** Position key reached by playing `m` in `fen`. */
+function keyAfter(fen: string, m: Move): string {
+  const chess = new Chess(fen);
+  const uci = moveToUci(m);
+  chess.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), ...(movePromo(m) ? { promotion: uci.slice(4) } : {}) });
+  return positionKey(chess.fen());
+}
+
 function isMateIn1(board: Board, m: Move): boolean {
   if (!board.makeMove(m)) return false;
   const mate = board.inCheck() && !board.hasLegalMove();
@@ -324,37 +341,56 @@ export function findBestMove(fen: string, opts: SearchOptions): SearchResult | n
     return finish(m, score, 0);
   }
 
-  const searcher = new Searcher(board, opts.timeMs, opts.maxNodes ?? 2_000_000);
-  const window = Math.max(0, Math.min(1, opts.randomness)) * 100;
-  let rootMoves = legal.slice();
-  searcher.orderMoves(rootMoves, 0, 0);
-  let result: { move: Move; score: number }[] = [];
-  let reached = 0;
-  const maxDepth = Math.max(1, Math.floor(opts.depth));
-  for (let d = 1; d <= maxDepth; d++) {
-    const scored = searcher.searchRoot(rootMoves, d, window);
-    if (scored === null) {
-      if (d === 1) {
-        // Time ran out before depth 1 finished: fall back to the best-ordered move.
-        result = [{ move: rootMoves[0] as Move, score: 0 }];
-        reached = 0;
-      }
-      break;
-    }
-    result = scored;
-    reached = d;
-    const top = scored.reduce((a, e) => (e.score > a.score ? e : a), scored[0] as { move: Move; score: number });
-    // Search the previous best first next iteration.
-    rootMoves = [top.move, ...rootMoves.filter((m) => m !== top.move)];
-    if (Math.abs(top.score) >= MATE_BOUND) break; // forced mate found, deeper search can't improve it
-  }
+  const maxDepth = Number.isFinite(opts.depth) ? Math.min(MAX_DEPTH, Math.max(1, Math.floor(opts.depth))) : opts.depth > 0 ? MAX_DEPTH : 1;
+  const timeMs = Number.isNaN(opts.timeMs) ? DEFAULT_TIME_MS : Math.max(0, opts.timeMs);
+  const window = (Number.isFinite(opts.randomness) ? Math.max(0, Math.min(1, opts.randomness)) : 0) * 100;
+  const rng = opts.rng;
 
-  const best = result.reduce((a, e) => (e.score > a.score ? e : a), result[0] as { move: Move; score: number });
-  // Never trade a won/lost mate score for a "nearby" alternative.
-  const pool = Math.abs(best.score) >= MATE_BOUND ? [best] : result;
-  const chosen = pool[Math.min(pool.length - 1, Math.floor(opts.rng() * pool.length))] as {
-    move: Move;
-    score: number;
+  const run = (candidates: Move[]): { chosen: { move: Move; score: number }; reached: number } => {
+    const searcher = new Searcher(board, timeMs, opts.maxNodes ?? 2_000_000);
+    let rootMoves = candidates.slice();
+    searcher.orderMoves(rootMoves, 0, 0);
+    let result: { move: Move; score: number }[] = [];
+    let reached = 0;
+    for (let d = 1; d <= maxDepth; d++) {
+      const scored = searcher.searchRoot(rootMoves, d, window);
+      if (scored === null) {
+        if (d === 1) {
+          // Time ran out before depth 1 finished: fall back to the best-ordered move.
+          result = [{ move: rootMoves[0] as Move, score: 0 }];
+          reached = 0;
+        }
+        break;
+      }
+      result = scored;
+      reached = d;
+      const top = scored.reduce((a, e) => (e.score > a.score ? e : a), scored[0] as { move: Move; score: number });
+      // Search the previous best first next iteration.
+      rootMoves = [top.move, ...rootMoves.filter((m) => m !== top.move)];
+      if (Math.abs(top.score) >= MATE_BOUND) break; // forced mate found, deeper search can't improve it
+    }
+    const best = result.reduce((a, e) => (e.score > a.score ? e : a), result[0] as { move: Move; score: number });
+    // Never trade a won/lost mate score for a "nearby" alternative.
+    const pool = Math.abs(best.score) >= MATE_BOUND ? [best] : result;
+    return { chosen: pool[Math.min(pool.length - 1, Math.floor(rng() * pool.length))] as { move: Move; score: number }, reached };
   };
+
+  let { chosen, reached } = run(legal);
+
+  if (opts.avoidRepeats && opts.history && opts.history.length > 0 && chosen.score >= WINNING && chosen.score < MATE_BOUND) {
+    const seen = new Set(opts.history);
+    const repeats = (m: Move): boolean => seen.has(keyAfter(fen, m));
+    if (repeats(chosen.move)) {
+      const fresh = legal.filter((m) => !repeats(m));
+      if (fresh.length > 0) {
+        const alt = run(fresh);
+        // Keep the winning edge: only switch if the alternative is still clearly better for us.
+        if (alt.chosen.score >= WINNING / 2) {
+          chosen = alt.chosen;
+          reached = alt.reached;
+        }
+      }
+    }
+  }
   return finish(chosen.move, chosen.score, reached);
 }

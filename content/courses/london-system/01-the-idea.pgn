@@ -1,0 +1,93 @@
+[Event "London System for White"]
+[Lesson "london-idea"]
+[LessonTitle "The London idea"]
+[Step "explain"]
+[TeacherNotes "The idea in one line: build a simple, solid setup that you can use against many replies | Name the pieces as you go: pawn d4, knight f3, bishop f4 | You learn one plan well instead of many lines badly | People say the name comes from a chess event held in London long ago."]
+[Mistakes "Thinking you can play the same moves with your eyes closed: always check what Black just did | Moving the same piece twice | Forgetting that Black also makes threats"]
+[ClassQuestions "Which pieces have we moved after three moves? | Why is a simple setup helpful for a beginner? | Where does the bishop on f4 point?"]
+
+{The idea: build a simple, solid setup with the same few moves every game. The star is the bishop on f4. [%cal Gd2d4,Gg1f3,Gc1f4]}
+1. d4 {The pawn takes space in the center. [%cal Gd2d4]} 1... d5
+2. Nf3 {The knight comes out and guards d4 and e5. [%cal Gg1f3]} 2... Nf6
+3. Bf4 {This is the London System. The bishop is out, and it is outside the pawn chain. [%cal Gc1f4] [%csl Gf4]} *
+
+[Event "London System for White"]
+[Lesson "london-idea"]
+[Step "find-move"]
+[FEN "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 2 3"]
+[Hint "Use the bishop that starts on c1."]
+[Hint "Move the bishop from c1 to f4."]
+
+{White to move. Bring out the London bishop.}
+3. Bf4 {The bishop steps out to f4, where it has lots of room. [%cal Gc1f4]} *
+
+[Event "London System for White"]
+[Lesson "london-idea"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Start with the queen's pawn."]
+[Hint "Then the knight to f3."]
+[Hint "Last, the bishop from c1 comes out."]
+
+{Play the first three moves of the London System as White.}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 *
+
+[Event "London System for White"]
+[Lesson "bishop-first"]
+[LessonTitle "Why the bishop goes first"]
+[Step "explain"]
+[TeacherNotes "A pawn on e3 closes the diagonal for the c1 bishop | Bishop first, then the pawn: the bishop gets out before the door shuts | Walk a student up to the board and show the locked bishop with their arm | This idea works for the c8 bishop too"]
+[Mistakes "Playing e3 on move two and trapping the bishop behind it | Playing the bishop out and then forgetting the e3 pawn | Leaving the bishop on f4 unprotected"]
+[ClassQuestions "What does the pawn on e3 do to the bishop on c1? | Why do we play e3 after the bishop is out? | Which pawn will protect the bishop on f4 later?"]
+
+{Look what happens if White plays e3 too soon. The pawn blocks the bishop on c1. The bishop can only step to d2. [%cal Re2e3,Rc1f4] [%csl Rc1]}
+1. d4 d5 2. e3 {The pawn on e3 shuts the diagonal. [%csl Rc1,Re3]} 2... Nf6 *
+
+[Event "London System for White"]
+[Lesson "bishop-first"]
+[Step "explain"]
+
+{Now the right order. First the bishop goes out. Then the pawn goes to e3 and guards the bishop. [%cal Gc1f4,Ge2e3,Ge3f4]}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 {Bishop first.} 3... e6 4. e3 {Now the pawn shuts the door behind the bishop and guards it. [%cal Ge3f4] [%csl Gf4]} *
+
+[Event "London System for White"]
+[Lesson "bishop-first"]
+[Step "find-move"]
+[FEN "rnbqkb1r/pppp1ppp/4pn2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 0 3"]
+[Hint "Use the bishop that starts on c1."]
+[Hint "Move it to f4, before you play e3."]
+
+{White to move. Get the bishop out before the e-pawn moves.}
+3. Bf4 {Bishop first. The e-pawn can move next. [%cal Gc1f4]} *
+
+[Event "London System for White"]
+[Lesson "bishop-first"]
+[Step "quiz"]
+[Question "Which order is better for the London System?"]
+[Choices "Pawn to e3, then bishop to f4 | Bishop to f4, then pawn to e3"]
+[Answer "2"]
+[Explanation "After e3 the c1 bishop cannot reach f4. So the bishop goes first."]
+
+{Think about the bishop on c1.}
+1. d4 d5 2. Nf3 Nf6 3. Bf4 *
+
+[Event "London System for White"]
+[Lesson "bishop-early"]
+[LessonTitle "The quick version: 2.Bf4"]
+[Step "explain"]
+[TeacherNotes "Some players put the bishop out on move two, before the knight | This is the same plan with a different move order | The opening has its own name in the index: Accelerated London System | The knight on f3 can still come next"]
+[Mistakes "Forgetting that Black may reply differently, for example with a pawn to c5 | Not developing the knight after the bishop is out"]
+[ClassQuestions "What is different about this move order? | Which piece should come out next? | Why can the bishop come out so early?"]
+
+{You can also bring the bishop out right away. The pieces are the same, only the order changes. [%cal Gc1f4] [%csl Gf4]}
+1. d4 d5 2. Bf4 {The bishop comes out on move two. [%cal Gc1f4]} 2... Nf6 3. Nf3 {The knight follows. Now it is the same setup as before. [%cal Gg1f3]} *
+
+[Event "London System for White"]
+[Lesson "bishop-early"]
+[Step "find-move"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"]
+[Hint "Use the bishop that starts on c1."]
+[Hint "Move the bishop from c1 to f4."]
+
+{White to move. Play the London bishop right now.}
+2. Bf4 {The bishop is out on move two. [%cal Gc1f4]} *

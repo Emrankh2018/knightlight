@@ -4,8 +4,22 @@ import type { Side } from '../../lib/content/types';
 import type { HintView } from '../../lib/lesson/hints';
 import { pieceOnFrom } from '../../lib/lesson/position';
 import type { StepResult } from '../../lib/lesson/scoring';
+import { useUi } from '../../store/ui';
 
 export type { StepResult };
+
+/** Present mode hides the site chrome and keeps toasts from covering the board. */
+export function usePresentEffects(on: boolean): void {
+  useEffect(() => {
+    if (!on) return;
+    document.documentElement.dataset.classMode = '';
+    useUi.getState().setSuppressToasts(true);
+    return () => {
+      delete document.documentElement.dataset.classMode;
+      useUi.getState().setSuppressToasts(false);
+    };
+  }, [on]);
+}
 
 /** Board widths. Both are CSS variables from index.css: Present is as tall as the screen allows (portrait: leaves room for the controls); normal fits the viewport below the site header. */
 export const CLASS_BOARD = 'var(--kl-lesson-board)';

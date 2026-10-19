@@ -1,0 +1,114 @@
+[Event "Sicilian Defence for Black"]
+[Lesson "open-main-line"]
+[LessonTitle "The main line after 2.Nf3 and 3.d4"]
+[Step "explain"]
+[TeacherNotes "Players call lines with 2.Nf3 and 3.d4 the Open Sicilian; Lichess names the position after 4...Nf6 Sicilian Defense: Modern Variations, Main Line (B54) | White opens the center with d4 and the d-pawn is traded | The order matters: ...d6 first guards e5 and keeps the c8 bishop free, then ...cxd4, then ...Nf6 hits e4 | 5.Nc3 defends e4, so Black does not win a pawn | After 5.Nc3 Black chooses a setup: Najdorf with ...a6, Dragon with ...g6, and others | Lichess groups the move order with d6 under Modern Variations of the Sicilian"]
+[Mistakes "Playing ...cxd4 before ...d6 is not wrong, but can allow other ideas for White | Forgetting that ...Nf6 attacks the e4 pawn so White must react | Moving the c8 bishop too early with ...Bg4 (in the Open Sicilian) or ...Bd7 and wasting time | Starting an attack before castling"]
+[ClassQuestions "Which black pawn move guards e5? | Which black piece attacks the pawn on e4 after ...Nf6? | How does White defend the e4 pawn?"]
+
+{This is a very popular road, often called the Open Sicilian. White plays Nf3 and d4. Black plays ...d6, takes on d4, then develops the knight to attack e4. White answers with Nc3. [%cal Gd7d6,Gc5d4,Gg8f6,Gb1c3]}
+1. e4 c5 2. Nf3 {White develops and prepares d4.} 2... d6 {The pawn guards e5 and opens the road for the bishop on c8. [%cal Gd7d6,Gd6e5]} 3. d4 cxd4 {Black takes the center pawn.} 4. Nxd4 {White recaptures with the knight. [%csl Gd4]} 4... Nf6 {The knight attacks the e4 pawn. [%cal Gf6e4]} 5. Nc3 {White defends e4 and develops. Now Black picks a setup. [%cal Gc3e4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "open-main-line"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"]
+[Hint "Use a pawn."]
+[Hint "It is the pawn in front of the bishop on c8. Push it one square to d6."]
+
+{White has played 2.Nf3. Black to move. Guard the e5 square with a pawn: push the d-pawn one square.}
+2... d6 {The pawn guards e5 and opens a diagonal for the bishop on c8. [%cal Gd6e5,Gc8h3]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "open-main-line"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4"]
+[Hint "Use a knight."]
+[Hint "Move the knight on g8 to f6. It will attack the pawn on e4."]
+
+{White has put a knight on d4. Black to move. Develop the knight from g8 to a square where it attacks e4.}
+4... Nf6 {Develops a piece and attacks the e4 pawn. [%cal Gf6e4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "open-main-line"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Answer 1.e4 with a pawn move on the c-file."]
+[Hint "Then play d6, take on d4, and put the g8 knight on f6."]
+
+{Play the Open Sicilian main line as Black.}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "najdorf-intro"]
+[LessonTitle "The Najdorf in short"]
+[Step "explain"]
+[TeacherNotes "This is only a first look: the Najdorf is one of the most heavily studied lines, so do not try to teach it all | Lichess calls it the Najdorf Variation | The idea of 5...a6: the pawn controls b5, so White's knight or bishop cannot go there safely | The pawn also prepares ...b5 and ...e5 later | Tell students that strong players spend years on this line, and that is fine"]
+[Mistakes "Playing ...a6 without knowing why | Thinking a rook-pawn move is always a waste of time | Memorizing long lines before learning the plans"]
+[ClassQuestions "Which square does the pawn on a6 control? | Which white pieces want to use b5? | Which two pawn pushes does ...a6 prepare?"]
+
+{In the Najdorf Black plays the quiet-looking 5...a6. The pawn takes away the b5 square from White's knight and bishop. [%cal Ga6b5,Rc3b5,Rd4b5] [%csl Rb5]}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 {The Najdorf Variation. Black keeps the options ...e5 and ...b5 for later. [%cal Ga6b5]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "najdorf-intro"]
+[Step "find-move"]
+[FEN "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5"]
+[Hint "Use a pawn."]
+[Hint "It is the pawn on the a-file. Push it one square to a6."]
+
+{White has played 5.Nc3. Black to move. Play the Najdorf move: push the a-pawn one square.}
+5... a6 {The Najdorf Variation. The pawn controls b5. [%cal Ga6b5] [%csl Rb5]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "najdorf-intro"]
+[Step "quiz"]
+[Question "What is the main idea of 5...a6 in the Najdorf?"]
+[Choices "To win the e4 pawn at once | To control the b5 square | To castle faster"]
+[Answer "2"]
+[Explanation "The pawn on a6 attacks b5, so White cannot easily put a knight or a bishop there. It also prepares later pawn pushes."]
+
+{Think about which square the pawn on a6 attacks. [%csl Gb5]}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "dragon-intro"]
+[LessonTitle "The Dragon in short"]
+[Step "explain"]
+[TeacherNotes "A first look only: the Dragon is sharp and White often attacks the king | Lichess calls it the Dragon Variation; the pawn shape on d6, e7, f7, g6, h7 is said to look like a dragon | The idea: after ...g6 the bishop goes to g7 and looks down the long diagonal | A common White plan is the Yugoslav Attack: Be3, f3, Qd2 and long castling, then pushing the h-pawn | Black counters with piece play on the c-file | Do not promise students that the Dragon is easy: it needs care"]
+[Mistakes "Forgetting to castle quickly | Opening the h-file for White's rook without a plan | Playing the Dragon without knowing that White can attack the king | Moving the same piece twice in the opening"]
+[ClassQuestions "Where does the bishop go after ...g6? | Which long diagonal does it use? | Why is it important for Black to castle early in this line?"]
+
+{In the Dragon Black plays 5...g6 and puts the bishop on g7. From g7 it looks along a long diagonal. White often replies with Be3, f3 and Qd2, and plans to castle long. [%cal Gg7a1,Gf8g7,Gg7c3]}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 {The Dragon Variation. [%cal Gg7g6]} 6. Be3 {White develops the bishop.} 6... Bg7 {The dragon bishop arrives. [%cal Gf8g7]} 7. f3 {This pawn guards e4 and keeps Black's knight out of g4, so the bishop on e3 is safe.} 7... O-O {Black castles first. [%cal Ge8g8,Gh8f8]} 8. Qd2 Nc6 {Black attacks the knight on d4. [%cal Gc6d4]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "dragon-intro"]
+[Step "find-move"]
+[FEN "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5"]
+[Hint "Use a pawn."]
+[Hint "It is the pawn on the g-file. Push it one square to g6."]
+
+{White has played 5.Nc3. Black to move. Prepare the dragon bishop by pushing the g-pawn one square.}
+5... g6 {The Dragon. Next the bishop goes to g7. [%cal Gf8g7]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "dragon-intro"]
+[Step "find-move"]
+[FEN "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq - 0 7"]
+[Hint "Use your king."]
+[Hint "Castle on the kingside: the king goes to g8."]
+
+{White has played 7.f3. Black to move. Make your king safe by castling.}
+7... O-O {Castled. The king is safe and the rook comes to f8. [%cal Ge8g8,Gh8f8]} *
+
+[Event "Sicilian Defence for Black"]
+[Lesson "dragon-intro"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "The first move is a pawn on the c-file."]
+[Hint "After the knight takes on d4, play Nf6, then the Dragon pawn to g6."]
+[Hint "Bishop to g7, castle, then attack the knight on d4 with a knight."]
+
+{Play the Dragon line as Black.}
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3 Bg7 7. f3 O-O 8. Qd2 Nc6 *

@@ -76,6 +76,123 @@
     }
   },
   {
+    "slug": "london-system",
+    "title": "London System for White",
+    "kind": "opening",
+    "level": "beginner",
+    "description": "A simple, solid setup for White. Learn the London System moves, why the bishop comes out before e3, how to meet Black's common replies, and two easy plans.",
+    "tags": [
+      "opening",
+      "london-system",
+      "d4",
+      "white",
+      "queens-pawn"
+    ],
+    "reviewed": false,
+    "chapters": [
+      {
+        "file": "01-the-idea.pgn",
+        "title": "The London idea"
+      },
+      {
+        "file": "02-the-setup.pgn",
+        "title": "The usual setup"
+      },
+      {
+        "file": "03-black-replies.pgn",
+        "title": "Black's common replies"
+      },
+      {
+        "file": "04-plans.pgn",
+        "title": "Plans and when to play it"
+      }
+    ],
+    "side": "white",
+    "counts": {
+      "chapters": 4,
+      "lessons": 12,
+      "steps": 33
+    }
+  },
+  {
+    "slug": "queens-gambit",
+    "title": "Queen's Gambit for White",
+    "kind": "opening",
+    "level": "beginner",
+    "description": "Learn the Queen's Gambit with the white pieces: why White offers a pawn, how to win it back if Black takes it, the calm Declined line with the pin on f6, and a short look at the Slav.",
+    "tags": [
+      "opening",
+      "queens-gambit",
+      "d4",
+      "gambit",
+      "white"
+    ],
+    "reviewed": false,
+    "chapters": [
+      {
+        "file": "01-the-idea.pgn",
+        "title": "The big idea"
+      },
+      {
+        "file": "02-accepted.pgn",
+        "title": "Queen's Gambit Accepted"
+      },
+      {
+        "file": "03-declined.pgn",
+        "title": "Queen's Gambit Declined"
+      },
+      {
+        "file": "04-slav-and-plans.pgn",
+        "title": "The Slav and your plans"
+      }
+    ],
+    "side": "white",
+    "counts": {
+      "chapters": 4,
+      "lessons": 10,
+      "steps": 26
+    }
+  },
+  {
+    "slug": "ruy-lopez",
+    "title": "Ruy Lopez for White",
+    "kind": "opening",
+    "level": "intermediate",
+    "description": "Learn the Ruy Lopez with the white pieces: the idea of the bishop on b5, the Morphy Defence, the Closed plan, the Exchange Variation, a short look at the Berlin and Open lines, and one trap to avoid.",
+    "tags": [
+      "opening",
+      "ruy-lopez",
+      "spanish",
+      "e4",
+      "white"
+    ],
+    "reviewed": false,
+    "chapters": [
+      {
+        "file": "01-the-idea.pgn",
+        "title": "The Ruy Lopez idea"
+      },
+      {
+        "file": "02-closed-spanish.pgn",
+        "title": "The Closed Spanish plan"
+      },
+      {
+        "file": "03-exchange.pgn",
+        "title": "The Exchange Variation"
+      },
+      {
+        "file": "04-berlin-open-trap.pgn",
+        "title": "Berlin, Open Spanish and a trap"
+      }
+    ],
+    "side": "white",
+    "counts": {
+      "chapters": 4,
+      "lessons": 11,
+      "steps": 28
+    }
+  },
+  {
     "slug": "sample-basics",
     "title": "Sample: Attacking f7",
     "kind": "skills",
@@ -96,6 +213,47 @@
       "chapters": 1,
       "lessons": 1,
       "steps": 4
+    }
+  },
+  {
+    "slug": "sicilian-defence",
+    "title": "Sicilian Defence for Black",
+    "kind": "opening",
+    "level": "intermediate",
+    "description": "Meet 1.e4 with 1...c5. Learn why Black plays the Sicilian, the Open Sicilian main line, a short look at the Najdorf and the Dragon, what to expect after 2.c3 and 2.Nc3, and clear plans for Black.",
+    "tags": [
+      "opening",
+      "sicilian",
+      "e4",
+      "c5",
+      "black",
+      "najdorf",
+      "dragon"
+    ],
+    "reviewed": false,
+    "chapters": [
+      {
+        "file": "01-why-the-sicilian.pgn",
+        "title": "Why play the Sicilian?"
+      },
+      {
+        "file": "02-open-sicilian.pgn",
+        "title": "The Open Sicilian"
+      },
+      {
+        "file": "03-other-second-moves.pgn",
+        "title": "Other second moves"
+      },
+      {
+        "file": "04-plans-for-black.pgn",
+        "title": "Plans and habits for Black"
+      }
+    ],
+    "side": "black",
+    "counts": {
+      "chapters": 4,
+      "lessons": 12,
+      "steps": 37
     }
   },
   {

@@ -1,0 +1,74 @@
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-idea"]
+[LessonTitle "The Exchange Variation"]
+[Step "explain"]
+[TeacherNotes "White gives the bishop for the knight and doubles Black's c-pawns | Black gets two bishops, but White gets a healthier pawn structure | Later, White often plays d4 to trade pawns and head for a simple, clear game | Names from the openings list: Ruy Lopez: Exchange Variation, Normal Variation"]
+[Mistakes "Grabbing the e5 pawn at once with the knight | Forgetting to castle | Thinking a trade of bishop for knight loses material. It is an even trade"]
+[ClassQuestions "Why are two pawns on the c-file a weakness? | Who has the two bishops after the trade? | Why is a simple plan good for White here?"]
+
+{The idea: trade the bishop for the knight. Black's pawns become doubled on the c-file. [%cal Gb5c6,Rd7c6] [%csl Rc7,Rc6]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 {The bishop takes the knight. [%cal Gb5c6]} 4... dxc6 {Black retakes with the d-pawn. Now Black has two pawns on the c-file.} 5. O-O {White castles and keeps a calm, healthy position. [%cal Ge1g1]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-idea"]
+[Step "find-move"]
+[FEN "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"]
+[Hint "Use your bishop."]
+[Hint "Capture the knight on c6."]
+
+{White to move. Play the Exchange Variation: take the knight on c6 with your bishop.}
+4. Bxc6 {Black will have doubled pawns on the c-file. [%cal Gb5c6]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-idea"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Develop the knight, then the bishop to b5."]
+[Hint "When Black plays ...a6, take the knight on c6."]
+[Hint "Finish by castling."]
+
+{Play the Exchange Variation as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. O-O *
+
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-structure"]
+[LessonTitle "Plans and pawn structure"]
+[Step "explain"]
+[FEN "r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 1 5"]
+[TeacherNotes "Black's doubled c-pawns are a long-term weakness | Black has two bishops, so open lines are Black's friend; White tries not to give Black easy play | White's plan: put pieces on good squares, then play d4 to open the center | After d4 and a pawn trade, White has more pawns on the kingside than Black. That can become a winning edge in an endgame | Plan for Black: use the bishops and aim for quick activity"]
+[Mistakes "Forgetting that the c-pawn weakness only matters in a long game | Opening the center before the pieces are ready | Giving Black easy, quick play"]
+[ClassQuestions "Why does White want the game to last a long time? | Which pawn push opens the center for White? | Why do two bishops like open lines?"]
+
+{After 5.O-O, White has a better pawn shape. Black has doubled pawns on c7 and c6. White plans d4 to open the center. [%cal Gd2d4] [%csl Rc7,Rc6]}
+*
+
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-structure"]
+[Step "find-move"]
+[FEN "r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5"]
+[Hint "Use your king."]
+[Hint "Castle short, so the king goes to g1."]
+
+{White to move. Do not rush. Make your king safe before anything else.}
+5. O-O {Safe first. [%cal Ge1g1]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-grab"]
+[LessonTitle "Do not grab on e5"]
+[Step "explain"]
+[TeacherNotes "A pawn grab can look free but may not be | The black queen fork on d4 hits the knight on e5 and the pawn on e4 | White ends up level on pawns, with the king in the middle | A calm 5.O-O avoids all this"]
+[Mistakes "Taking a pawn before castling | Ignoring the queen's fork | Believing that a capture is always a gain"]
+[ClassQuestions "Which two things does Qd4 attack? | Why is the white king in check at the end? | What is the calm move instead?"]
+
+{A tempting move: take the e5 pawn. But watch what the black queen does. [%cal Gf3e5]}
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. Nxe5 {White grabs a pawn.} 5... Qd4 {The queen attacks the knight on e5 and the pawn on e4. [%cal Rd4e5,Rd4e4]} 6. Nf3 {The knight goes back.} 6... Qxe4+ {Black takes the e4 pawn with check. The pawns are level again and the white king is in check. [%cal Re4e1]} *
+
+[Event "Ruy Lopez for White"]
+[Lesson "exchange-grab"]
+[Step "quiz"]
+[Question "Count the pawns in this position. Who has more?"]
+[Choices "White has more | Black has more | The pawns are level"]
+[Answer "3"]
+[Explanation "White took e5 but Black took e4. Both sides have seven pawns. So 5.Nxe5 did not win a pawn for free. The calm 5.O-O is better."]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. Nxe5 Qd4 6. Nf3 Qxe4+ *
