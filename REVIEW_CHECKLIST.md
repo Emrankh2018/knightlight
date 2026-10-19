@@ -91,3 +91,4 @@ Items needing coach attention:
 - [ ] piece-values find-move (dxe5 taking the queen): Black's rook can take the pawn back on e5. The text says the pawn "wins the queen, worth 9 points".
 - [ ] Piece values 1-3-3-5-9 are taught with a note that they are a guide only.
 - [ ] Omitted - needs coach input: double attacks with the queen, removing the defender, deflection, back-rank tactics (covered in the checkmate course), overloaded pieces, zwischenzug, named opening traps, tactics puzzles from the Lichess puzzle set.
+- [ ] Openings explorer: confirm the ECO volume titles against an ECO source: A Flank openings; B Semi-open games; C Open games and the French Defense; D Closed and semi-closed games; E Indian defences.

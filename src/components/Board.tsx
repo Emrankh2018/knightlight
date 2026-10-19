@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties, type KeyboardEvent, type Ref } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type Ref } from 'react';
 import { Chess, type Move, type PieceSymbol } from 'chess.js';
 import { Chessboard, type Arrow as BoardArrow, type PieceDropHandlerArgs, type SquareHandlerArgs } from 'react-chessboard';
 import { fmt, m } from '../i18n';
@@ -27,6 +27,15 @@ const SELECTED_FILL = 'rgba(242, 165, 65, 0.7)';
 const DOT = 'radial-gradient(circle, rgba(15, 61, 62, 0.45) 22%, transparent 24%)';
 const RING = 'radial-gradient(circle, transparent 60%, rgba(15, 61, 62, 0.45) 62%)';
 const FILES = 'abcdefgh';
+/** Dark ink on every theme square: at least 4.5:1 against all board colors. */
+const NOTATION: CSSProperties = { color: '#111111', fontSize: '0.8rem', fontWeight: 800 };
+
+/** react-chessboard makes every piece and square tabbable; the wrapper must be the only tab stop. */
+function removeInnerTabStops(root: HTMLElement): void {
+  for (const el of root.querySelectorAll<HTMLElement>('[tabindex="0"]')) {
+    if (el !== root) el.tabIndex = -1;
+  }
+}
 
 export interface BoardProps {
   fen: string;
@@ -76,6 +85,7 @@ export default function Board({
   ref,
   ariaLabel,
 }: BoardProps) {
+  const inner = useRef<HTMLDivElement>(null);
   const boardTheme = useSettings((s) => s.boardTheme);
   const colors = BOARD_THEMES[boardTheme];
   const chess = useMemo(() => safeChess(fen), [fen]);
@@ -175,6 +185,15 @@ export default function Board({
     setCursor(next);
   };
 
+  useEffect(() => {
+    const root = inner.current;
+    if (!root) return;
+    removeInnerTabStops(root);
+    const observer = new MutationObserver(() => removeInnerTabStops(root));
+    observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['tabindex'] });
+    return () => observer.disconnect();
+  }, []);
+
   const squareStyles = useMemo(() => {
     const out: Record<string, CSSProperties> = {};
     const add = (sq: string, css: CSSProperties): void => {
@@ -207,6 +226,7 @@ export default function Board({
       className="mx-auto rounded-md focus-visible:outline-offset-4"
       style={{ width: typeof size === 'string' ? size : `min(100%, ${size ? `${size}px` : '85vh'})` }}
     >
+      <div ref={inner}>
       <Chessboard
         options={{
           id: 'kl-board',
@@ -220,6 +240,10 @@ export default function Board({
           lightSquareStyle: { backgroundColor: colors.light },
           darkSquareStyle: { backgroundColor: colors.dark },
           squareStyles,
+          lightSquareNotationStyle: NOTATION,
+          darkSquareNotationStyle: NOTATION,
+          alphaNotationStyle: NOTATION,
+          numericNotationStyle: NOTATION,
           canDragPiece: ({ piece }) => interactive && chess !== null && piece.pieceType.startsWith(chess.turn()),
           onPieceDrag: ({ square }) => {
             if (interactive && square) setSel({ fen, square });
@@ -228,6 +252,7 @@ export default function Board({
           onSquareClick,
         }}
       />
+      </div>
       <div role="status" aria-live="polite" className="sr-only">
         {lastMove?.san ? fmt(m().board.lastMove, { san: lastMove.san }) : ''}
       </div>

@@ -46,7 +46,7 @@ export default function ProfileSwitcher() {
         <span className="rounded-full bg-amber px-2 text-sm font-extrabold text-ink" aria-hidden="true">{fmt(m().profile.level, { level })}</span>
       </button>
       {open ? (
-        <div id={menuId} className="absolute right-0 z-40 mt-2 w-64 rounded-xl border-2 border-line bg-surface p-2 text-fg shadow-xl">
+        <div id={menuId} className="absolute end-0 z-40 mt-2 w-64 rounded-xl border-2 border-line bg-surface p-2 text-fg shadow-xl">
           <p className="px-2 py-1 text-sm font-bold text-muted">{m().profile.switcher}</p>
           <ul>
             {profiles.map((p) => (
@@ -58,7 +58,7 @@ export default function ProfileSwitcher() {
                     switchTo(p.id);
                     setOpen(false);
                   }}
-                  className={`flex min-h-11 w-full items-center gap-2 rounded-lg px-2 text-left text-lg hover:bg-line/60 ${p.id === active.id ? 'font-extrabold' : ''}`}
+                  className={`flex min-h-11 w-full items-center gap-2 rounded-lg px-2 text-start text-lg hover:bg-line/60 ${p.id === active.id ? 'font-extrabold' : ''}`}
                 >
                   <span className="text-2xl" aria-hidden="true">{p.avatar}</span>
                   <span className="truncate">{p.name}</span>

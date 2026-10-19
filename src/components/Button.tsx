@@ -4,7 +4,7 @@ import { Link, type LinkProps } from 'react-router-dom';
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 
 const BASE =
-  'inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl px-5 py-2 text-lg font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-50';
+  'inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl px-5 py-2 text-lg font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:opacity-50';
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: 'bg-amber text-ink hover:brightness-95',

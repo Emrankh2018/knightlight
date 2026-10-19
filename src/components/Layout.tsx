@@ -12,6 +12,7 @@ const allLinks = [
   { to: '/', label: () => m().nav.home, end: true },
   { to: '/courses', label: () => m().nav.library, end: false },
   { to: '/puzzles', label: () => m().nav.puzzles, end: false },
+  { to: '/tactics', label: () => m().nav.tactics, end: false },
   { to: '/teacher', label: () => m().nav.teacher, end: false },
   { to: '/openings', label: () => m().nav.explorer, end: false },
   { to: '/play', label: () => m().nav.play, end: false },
@@ -88,7 +89,7 @@ export default function Layout() {
       <footer className="kl-chrome border-t border-line px-4 py-4 text-center text-sm text-muted">
         <p>
           {m().app.footerCredit}{' '}
-          <a className="underline" href="https://database.lichess.org/">database.lichess.org</a> · {m().app.footerLicense}
+          <a className="inline-block py-3 underline" href="https://database.lichess.org/">database.lichess.org</a> · {m().app.footerLicense}
         </p>
       </footer>
       <Toasts />
