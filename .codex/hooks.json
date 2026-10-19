@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node 'c:\\Users\\welcome\\Desktop\\mychess\\.codex\\hooks\\license-guard.mjs'"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node 'c:\\Users\\welcome\\Desktop\\mychess\\.codex\\hooks\\license-guard.mjs'"
+          },
+          {
+            "type": "command",
+            "command": "node 'c:\\Users\\welcome\\Desktop\\mychess\\.codex\\hooks\\protect-data.mjs'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node 'c:\\Users\\welcome\\Desktop\\mychess\\.codex\\hooks\\lint-edited.mjs'"
+          }
+        ]
+      }
+    ]
+  }
+}
