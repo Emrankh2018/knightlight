@@ -16,7 +16,8 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "data:openings": "tsx scripts/build-openings.ts",
     "data:puzzles": "tsx scripts/build-puzzles.ts",
-    "data:content": "tsx scripts/build-content.ts"
+    "data:content": "tsx scripts/build-content.ts",
+    "deploy:cloudflare": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "chess.js": "1.4.0",
