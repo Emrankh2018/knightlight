@@ -43,13 +43,12 @@ Resumable status. Update after every milestone.
 - Engine: no repetition detection, so the bot may shuffle in won endings at L4–L5.
 - The engine worker and client are unexercised in a browser.
 
-## RESUME HERE (written 2026-10-19, for "continue" after a usage reset)
-User is asleep / away; the live site must stay working. Do the steps in order; commit a checkpoint after each. Stop at 95% usage; checkpoint at 90%.
-1. **In flight when this was written (may be half-done, check `git status`/`git diff` first):**
-   - Puzzle re-levelling: new bands beginner 0-699, intermediate 700-1199, mid-advanced 1200-1599, advanced 1600-1999, master 2000+ (the coach teaches young children; old 0-999 beginner was too hard). Edit `scripts/build-puzzles.ts` LEVELS, regenerate with `npm run data:puzzles` (never hand-edit public/data), update i18n labels/tests/DECISIONS.md.
-   - Sound effects: synthesized Web Audio in `src/lib/sound.ts` (move, capture, check, mate/solved, wrong, hint), mute + volume in the settings store, wired into `src/routes/Puzzles.tsx`, tests in `tests/sound.test.ts`.
-2. When both finish: `node scripts/gates.mjs`, then the `debugger` agent (diagnose-only) over puzzles/sound/levels, route HANDOFFs per AGENTS.md, then `code-reviewer`, then the `release-engineer` commits.
-3. Redeploy with `npm run deploy:cloudflare` (login already done; if expired run `npx wrangler login`). Live: https://knightlight.omrankhammash.workers.dev. Smoke test live afterwards.
-4. Then: `/graphify` was requested by the user (code map); run it after commits (graphify-out/ is gitignored).
-5. Priorities after that (user): puzzles, tactics and openings sections first, courses later. Build Courses/Lesson pages (hidden from nav via `src/lib/ready-routes.ts`; flip entries as pages become real), Openings explorer, Tactics; intermediate courses (Ruy Lopez, Sicilian...) only after that. Every course ships `reviewed:false`, author -> fact-check -> fix.
-6. Known open items: reload mid-puzzle-set restarts the set in a new shuffle; Review page is a placeholder.
+## RESUME HERE (updated 2026-10-19 after redeploy)
+Live and verified: https://knightlight.omrankhammash.workers.dev (deploy with `npm run deploy:cloudflare`; wrangler login already done). Committed: puzzle trainer, re-levelled bands (beginner 0-699, intermediate 700-1199, mid-advanced 1200-1599, advanced 1600-1999, master 2000+), balanced mixed sets, synthesized sounds (mute+volume), Class Mode fit fix + e2e. Stop at 95% usage; checkpoint at 90%.
+Next (user priorities: puzzles, tactics, openings first; courses later):
+1. Tactics hub page (themes with kid-friendly explanations -> puzzles by theme/level).
+2. Openings explorer page (data in public/data/openings, lib/openings.ts), then flip entries in src/lib/ready-routes.ts and nav.
+3. After each: gates, e2e, debugger/code-reviewer, commit, redeploy, live smoke test.
+4. Then Courses/Lesson pages, then intermediate courses (author -> fact-check -> fix; reviewed:false).
+5. /graphify was requested by the user: run when idle (graphify-out/ is gitignored).
+Known: reload mid-set restarts the set; Review page is a placeholder; sound untested on real speakers/iPad.
