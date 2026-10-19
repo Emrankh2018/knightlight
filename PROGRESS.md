@@ -46,8 +46,8 @@ Resumable status. Update after every milestone.
 ## RESUME HERE (updated 2026-10-19 after redeploy)
 Live and verified: https://knightlight.omrankhammash.workers.dev (deploy with `npm run deploy:cloudflare`; wrangler login already done). Committed: puzzle trainer, re-levelled bands (beginner 0-699, intermediate 700-1199, mid-advanced 1200-1599, advanced 1600-1999, master 2000+), balanced mixed sets, synthesized sounds (mute+volume), Class Mode fit fix + e2e. Stop at 95% usage; checkpoint at 90%.
 Next (user priorities: puzzles, tactics, openings first; courses later):
-1. Tactics hub page (themes with kid-friendly explanations -> puzzles by theme/level).
-2. Openings explorer page (data in public/data/openings, lib/openings.ts), then flip entries in src/lib/ready-routes.ts and nav.
+1. DONE and live (2026-10-19): Tactics hub (#/tactics) and Openings explorer (#/openings), board is a single tab stop. Coach to confirm the ECO group titles (REVIEW_CHECKLIST.md).
+2. Next: Courses + Lesson pages (flip /courses in src/lib/ready-routes.ts when real), Review page (puzzles missed go to SRS), Teacher/analysis page, Play vs bot.
 3. After each: gates, e2e, debugger/code-reviewer, commit, redeploy, live smoke test.
 4. Then Courses/Lesson pages, then intermediate courses (author -> fact-check -> fix; reviewed:false).
 5. /graphify was requested by the user: run when idle (graphify-out/ is gitignored).
