@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { useMemo, useState, type CSSProperties, type KeyboardEvent, type Ref } from 'react';
 import { Chess, type Move, type PieceSymbol } from 'chess.js';
 import { Chessboard, type Arrow as BoardArrow, type PieceDropHandlerArgs, type SquareHandlerArgs } from 'react-chessboard';
 import { fmt, m } from '../i18n';
@@ -42,8 +42,10 @@ export interface BoardProps {
   highlights?: readonly Highlight[];
   lastMove?: { from: string; to: string; san?: string };
   interactive?: boolean;
-  /** Maximum width in px. By default the board fills its container (max height about 85vh). */
-  size?: number;
+  /** Board width: a number of px (capped by the container) or a CSS length such as `min(100%, calc(100dvh - 8rem))`. Default: fills the container (max about 85vh). */
+  size?: number | string;
+  /** Ref to the focusable board element, so callers can move focus to it. */
+  ref?: Ref<HTMLDivElement>;
   ariaLabel: string;
 }
 
@@ -71,6 +73,7 @@ export default function Board({
   lastMove,
   interactive = false,
   size,
+  ref,
   ariaLabel,
 }: BoardProps) {
   const boardTheme = useSettings((s) => s.boardTheme);
@@ -78,6 +81,18 @@ export default function Board({
   const chess = useMemo(() => safeChess(fen), [fen]);
   const [sel, setSel] = useState<{ fen: string; square: string } | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
+  /** Where the keyboard cursor starts: the first piece of the side to move, scanning from the player's own back rank. */
+  const startSquare = useMemo(() => {
+    if (!chess) return 'e2';
+    const rows = chess.board();
+    const ordered = orientation === 'white' ? [...rows].reverse() : rows;
+    for (const row of ordered) {
+      for (const cell of row) {
+        if (cell && cell.color === chess.turn()) return cell.square;
+      }
+    }
+    return 'e2';
+  }, [chess, orientation]);
   const selected = sel && sel.fen === fen ? sel.square : null;
 
   const targets = useMemo<Move[]>(() => (chess && selected ? chess.moves({ square: selected as Move['from'], verbose: true }) : []), [chess, selected]);
@@ -129,7 +144,7 @@ export default function Board({
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (!interactive) return;
     const flip = orientation === 'black' ? -1 : 1;
-    const here = cursor ?? (orientation === 'white' ? 'e2' : 'e7');
+    const here = cursor ?? startSquare;
     let next: string;
     switch (e.key) {
       case 'ArrowRight':
@@ -172,7 +187,7 @@ export default function Board({
     for (const h of highlights) add(h.square, { backgroundColor: FILL[h.color] });
     if (selected) add(selected, { backgroundColor: SELECTED_FILL });
     for (const t of targets) add(t.to, { backgroundImage: t.captured ? RING : DOT });
-    if (cursor && interactive) add(cursor, { boxShadow: 'inset 0 0 0 4px #F2A541' });
+    if (cursor && interactive) add(cursor, { boxShadow: 'inset 0 0 0 3px #0F3D3E, inset 0 0 0 6px #FFFFFF' });
     return out;
   }, [lastMove, highlights, selected, targets, cursor, interactive]);
 
@@ -182,13 +197,15 @@ export default function Board({
 
   return (
     <div
+      ref={ref}
+      dir="ltr"
       role="application"
       aria-label={`${ariaLabel}. ${summary}`}
       tabIndex={interactive ? 0 : -1}
       onKeyDown={onKeyDown}
       onBlur={() => setCursor(null)}
       className="mx-auto rounded-md focus-visible:outline-offset-4"
-      style={{ width: `min(100%, ${size ? `${size}px` : '85vh'})` }}
+      style={{ width: typeof size === 'string' ? size : `min(100%, ${size ? `${size}px` : '85vh'})` }}
     >
       <Chessboard
         options={{

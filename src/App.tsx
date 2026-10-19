@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { m } from './i18n';
+import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
 import Home from './routes/Home';
 
@@ -18,6 +19,7 @@ const Assign = lazy(() => import('./routes/Assign'));
 export default function App() {
   return (
     <Suspense fallback={<p className="p-6 text-lg" role="status">{m().common.loading}</p>}>
+      <ErrorBoundary>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -34,6 +36,7 @@ export default function App() {
           <Route path="*" element={<p className="p-6">{m().common.notFound}</p>} />
         </Route>
       </Routes>
+      </ErrorBoundary>
     </Suspense>
   );
 }

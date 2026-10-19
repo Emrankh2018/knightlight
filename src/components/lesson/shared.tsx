@@ -36,7 +36,7 @@ export function StepLayout({ board, panel, footer }: { board: ReactNode; panel: 
   );
 }
 
-export function Feedback({ tone, children }: { tone: 'good' | 'bad' | 'info'; children: ReactNode }) {
+export function Feedback({ tone, large = false, children }: { tone: 'good' | 'bad' | 'info'; large?: boolean; children: ReactNode }) {
   const cls =
     tone === 'good'
       ? 'border-leaf bg-leaf/15'
@@ -44,7 +44,7 @@ export function Feedback({ tone, children }: { tone: 'good' | 'bad' | 'info'; ch
         ? 'border-coral bg-coral/15'
         : 'border-line bg-bg';
   return (
-    <p role="status" className={`rounded-xl border-2 px-4 py-3 text-lg font-bold ${cls}`}>
+    <p role="status" className={`rounded-xl border-2 font-bold ${large ? 'px-6 py-5 text-3xl' : 'px-4 py-3 text-lg'} ${cls}`}>
       {children}
     </p>
   );

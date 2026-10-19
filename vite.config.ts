@@ -13,7 +13,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png'],
+      includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png'],
       manifest: {
         name: 'Knightlight',
         short_name: 'Knightlight',
@@ -25,12 +25,14 @@ export default defineConfig({
         icons: [
           { src: 'icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
           { src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml' },
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
-        // Data chunks are cached as they are first used, so the whole puzzle set never has to download at once.
+        // Puzzle data (about 3 MB) is precached so every level and theme works offline after the first visit.
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2}', 'data/puzzles/**/*.json'],
+        // Courses and openings are cached as they are first used.
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.pathname.includes('/data/'),

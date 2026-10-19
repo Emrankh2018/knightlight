@@ -49,9 +49,24 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-amber);
+  /* Two-tone ring: ink outline (>= 3:1 on light surfaces) with a white inner ring that stays visible on the ink header. */
+  outline: 3px solid var(--color-ink);
   outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fff;
 }
+:root.dark :focus-visible {
+  outline-color: var(--color-amber);
+  box-shadow: none;
+}
+
+/* Class Mode board width: landscape screens use the height, portrait tablets use the full width. */
+:root { --kl-class-board: min(100dvh - 2rem, 60vw); }
+@media (orientation: portrait) {
+  :root { --kl-class-board: min(100vw - 2rem, 70dvh); }
+}
+
+/* Class Mode (projector layout) hides the site chrome. */
+html[data-class-mode] .kl-chrome { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

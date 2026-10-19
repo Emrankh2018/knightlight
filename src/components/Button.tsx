@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes } from 'react';
+import type { ComponentPropsWithRef } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
@@ -15,7 +15,7 @@ const VARIANTS: Record<ButtonVariant, string> = {
 
 export const buttonClass = (variant: ButtonVariant = 'primary', extra = ''): string => `${BASE} ${VARIANTS[variant]} ${extra}`.trim();
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ComponentPropsWithRef<'button'> {
   variant?: ButtonVariant;
 }
 

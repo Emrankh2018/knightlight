@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { m } from '../i18n';
+import { isReady } from '../lib/ready-routes';
 import ProfileSwitcher from './ProfileSwitcher';
 import SearchSlot from './SearchSlot';
 import ThemeToggle from './ThemeToggle';
 import Toasts from './Toasts';
 
-const links = [
+const allLinks = [
   { to: '/', label: () => m().nav.home, end: true },
   { to: '/courses', label: () => m().nav.library, end: false },
   { to: '/puzzles', label: () => m().nav.puzzles, end: false },
@@ -17,21 +18,28 @@ const links = [
   { to: '/students', label: () => m().nav.profiles, end: false },
 ];
 
+const links = allLinks.filter((l) => isReady(l.to));
+
 const MENU_ID = 'kl-main-menu';
 
 export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
   const linkClass = ({ isActive }: { isActive: boolean }): string =>
     `flex min-h-11 items-center rounded-lg px-3 ${isActive ? 'font-extrabold text-amber' : 'hover:text-amber'}`;
 
   return (
     <div className="flex min-h-full flex-col">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-amber focus:px-3 focus:py-2 focus:text-ink">
+      <button
+        type="button"
+        onClick={() => mainRef.current?.focus()}
+        className="kl-chrome sr-only focus:not-sr-only focus:absolute focus:start-2 focus:top-2 focus:z-50 focus:rounded focus:bg-amber focus:px-3 focus:py-2 focus:text-ink"
+      >
         {m().app.skipToContent}
-      </a>
-      <header className="relative bg-ink text-cream">
+      </button>
+      <header className="kl-chrome relative bg-ink text-cream">
         <nav aria-label={m().nav.mainNav} className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-2">
-          <NavLink to="/" className="mr-2 flex min-h-11 items-center gap-2 text-xl font-extrabold">
+          <NavLink to="/" className="me-2 flex min-h-11 items-center gap-2 text-xl font-extrabold">
             <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width={32} height={32} />
             {m().app.name}
           </NavLink>
@@ -44,7 +52,7 @@ export default function Layout() {
               </li>
             ))}
           </ul>
-          <div className="ml-auto flex items-center gap-1 xl:ml-0">
+          <div className="ms-auto flex items-center gap-1 xl:ms-0">
             <SearchSlot />
             <ThemeToggle />
             <ProfileSwitcher />
@@ -72,10 +80,10 @@ export default function Layout() {
           </ul>
         ) : null}
       </header>
-      <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-4 py-6">
+      <main id="main" ref={mainRef} tabIndex={-1} className="mx-auto focus:outline-none w-full max-w-7xl flex-1 px-4 py-6">
         <Outlet />
       </main>
-      <footer className="border-t border-line px-4 py-4 text-center text-sm text-muted">
+      <footer className="kl-chrome border-t border-line px-4 py-4 text-center text-sm text-muted">
         <p>
           {m().app.footerCredit}{' '}
           <a className="underline" href="https://database.lichess.org/">database.lichess.org</a> · {m().app.footerLicense}

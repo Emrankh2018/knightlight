@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { fmt, m } from '../i18n';
 import { ButtonLink } from '../components/Button';
 import Ring from '../components/Ring';
+import { isReady } from '../lib/ready-routes';
 import { diffDays, todayLocal } from '../lib/date';
 import { dueItems } from '../lib/srs';
 import { levelFor } from '../lib/xp';
@@ -48,6 +49,7 @@ export default function Home() {
           <p className="text-muted">{fmt(m().home.bestStreak, { count: data.streak.best })}</p>
         </section>
 
+        {isReady('/review') ? (
         <section className="rounded-2xl border-2 border-line bg-surface p-4">
           <h2 className="text-lg font-bold text-muted">{m().nav.review}</h2>
           <p className="text-xl font-extrabold">{due > 0 ? fmt(m().home.dueReviews, { count: due }) : m().home.noDue}</p>
@@ -57,7 +59,9 @@ export default function Home() {
             </ButtonLink>
           ) : null}
         </section>
+        ) : null}
 
+        {isReady('/courses') ? (
         <section className="rounded-2xl border-2 border-amber bg-surface p-4">
           <h2 className="text-lg font-bold text-muted">{m().home.continue}</h2>
           {last ? (
@@ -71,9 +75,10 @@ export default function Home() {
             <p className="text-lg">{m().home.nothingYet}</p>
           )}
         </section>
+        ) : null}
       </div>
 
-      <ButtonLink to="/courses">{m().home.startCourse}</ButtonLink>
+      <ButtonLink to="/puzzles">{m().home.startPuzzles}</ButtonLink>
     </div>
   );
 }

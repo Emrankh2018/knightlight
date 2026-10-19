@@ -27,7 +27,9 @@ function ToastItem({ toast }: { toast: Toast }) {
 }
 
 export default function Toasts() {
-  const toasts = useUi((s) => s.toasts);
+  const queued = useUi((s) => s.toasts);
+  const suppress = useUi((s) => s.suppressToasts);
+  const toasts = suppress ? [] : queued;
   return (
     <div role="region" aria-label={m().toast.region} aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-4">
       <ul className="pointer-events-auto flex w-full max-w-md flex-col gap-2">
