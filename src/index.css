@@ -35,7 +35,7 @@
   color-scheme: dark;
 }
 
-html { font-size: 16px; }
+html { font-size: 16px; scroll-padding-bottom: 6rem; /* room for the sticky lesson controls */ }
 @media (min-width: 1024px) {
   html { font-size: 18px; }
 }
@@ -70,4 +70,19 @@ html[data-class-mode] .kl-chrome { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Lesson Present mode: like Class Mode, but portrait keeps room under the board for the lesson controls. */
+:root { --kl-lesson-board: min(100dvh - 2rem, 56vw); }
+@media (max-width: 1279px) {
+  :root { --kl-lesson-board: min(100dvh - 2rem, 50vw); }
+}
+@media (orientation: portrait) {
+  :root { --kl-lesson-board: min(100vw - 2rem, 38dvh); }
+}
+
+/* Lesson board outside Present: never taller than 55% of the screen when stacked, and fits below the site header side by side. */
+:root { --kl-normal-board: max(16rem, min(100%, 55dvh)); }
+@media (min-width: 1024px) {
+  :root { --kl-normal-board: max(16rem, min(100%, calc(100dvh - 6rem))); }
 }

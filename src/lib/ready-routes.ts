@@ -3,7 +3,7 @@
  * route back into the nav and onto Home. Direct URLs always resolve, ready or not.
  */
 export const READY_ROUTES: Readonly<Record<string, boolean>> = {
-  '/courses': false,
+  '/courses': true,
   '/puzzles': true,
   '/tactics': true,
   '/teacher': false,

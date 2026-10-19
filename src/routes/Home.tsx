@@ -1,4 +1,7 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useLoad } from '../hooks/useLoad';
+import { loadCourse } from '../lib/data';
+import { findLesson, RESUME_STATE } from '../lib/lesson/nav';
 import { fmt, m } from '../i18n';
 import { ButtonLink } from '../components/Button';
 import Ring from '../components/Ring';
@@ -8,6 +11,37 @@ import { dueItems } from '../lib/srs';
 import { levelFor } from '../lib/xp';
 import { useActiveProfile } from '../store/profiles';
 import { useProgress } from '../store/progress';
+
+/** The Continue card. It only offers a lesson that exists; otherwise it points to the library and never shows a raw slug. */
+function ContinueCard({ last }: { last: { course: string; lesson: string } | undefined }) {
+  const slug = last?.course ?? '';
+  const load = useCallback(() => (slug === '' ? Promise.reject(new Error('no course')) : loadCourse(slug)), [slug]);
+  const state = useLoad(load);
+  const lesson = last && state.status === 'ready' ? findLesson(state.data, last.lesson) : null;
+  return (
+    <section className="rounded-2xl border-2 border-amber bg-surface p-4">
+      <h2 className="text-lg font-bold text-muted">{m().home.continue}</h2>
+      {last && state.status === 'loading' ? <p className="text-lg text-muted">{m().common.loading}</p> : null}
+      {last && state.status === 'ready' && lesson ? (
+        <>
+          <p className="text-xl font-extrabold">{state.data.title}</p>
+          <p className="text-muted">{lesson.lesson.title}</p>
+          <ButtonLink to={`/learn/${encodeURIComponent(last.course)}/${encodeURIComponent(last.lesson)}`} state={RESUME_STATE} className="mt-3">
+            {m().home.continueButton}
+          </ButtonLink>
+        </>
+      ) : null}
+      {!last || state.status === 'error' || (state.status === 'ready' && !lesson) ? (
+        <>
+          <p className="text-lg">{m().home.nothingYet}</p>
+          <ButtonLink to="/courses" variant="secondary" className="mt-3">
+            {m().home.browseCourses}
+          </ButtonLink>
+        </>
+      ) : null}
+    </section>
+  );
+}
 
 export default function Home() {
   const profile = useActiveProfile();
@@ -61,21 +95,7 @@ export default function Home() {
         </section>
         ) : null}
 
-        {isReady('/courses') ? (
-        <section className="rounded-2xl border-2 border-amber bg-surface p-4">
-          <h2 className="text-lg font-bold text-muted">{m().home.continue}</h2>
-          {last ? (
-            <>
-              <p className="text-xl font-extrabold">{last.course}</p>
-              <ButtonLink to={`/learn/${encodeURIComponent(last.course)}/${encodeURIComponent(last.lesson)}`} className="mt-3">
-                {m().home.continueButton}
-              </ButtonLink>
-            </>
-          ) : (
-            <p className="text-lg">{m().home.nothingYet}</p>
-          )}
-        </section>
-        ) : null}
+        {isReady('/courses') ? <ContinueCard last={last} /> : null}
       </div>
 
       <ButtonLink to="/puzzles">{m().home.startPuzzles}</ButtonLink>

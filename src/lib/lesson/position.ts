@@ -1,4 +1,4 @@
-import { Chess } from 'chess.js';
+import { Chess, type Square } from 'chess.js';
 import type { Side } from '../content/types.ts';
 
 /** Lower-cases a UCI string and keeps at most one promotion letter. */
@@ -35,4 +35,13 @@ export function turnOf(fen: string): Side {
 
 export function otherSide(side: Side): Side {
   return side === 'white' ? 'black' : 'white';
+}
+
+/** The piece letter (p, n, b, r, q, k) standing on the from-square of `uci` in `fen`, or null. */
+export function pieceOnFrom(fen: string, uci: string): string | null {
+  try {
+    return new Chess(fen).get(normalizeUci(uci).slice(0, 2) as Square)?.type ?? null;
+  } catch {
+    return null;
+  }
 }
