@@ -20,18 +20,23 @@ export interface SettingsData {
   theme: ThemeSetting;
   boardTheme: BoardThemeId;
   sound: boolean;
+  /** Sound effect volume, 0 to 1. */
+  volume: number;
   presentScale: number;
 }
 
-export const DEFAULT_SETTINGS: SettingsData = { version: 1, theme: 'system', boardTheme: 'cream', sound: false, presentScale: 1 };
+export const DEFAULT_VOLUME = 0.6;
+
+export const DEFAULT_SETTINGS: SettingsData = { version: 1, theme: 'system', boardTheme: 'cream', sound: true, volume: DEFAULT_VOLUME, presentScale: 1 };
 
 export function validateSettings(v: unknown): SettingsData | null {
   if (!isRecord(v) || v.version !== 1) return null;
   if (!isStr(v.theme) || !(THEMES as readonly string[]).includes(v.theme)) return null;
   if (!isStr(v.boardTheme) || !(BOARD_THEME_IDS as readonly string[]).includes(v.boardTheme)) return null;
   if (!isBool(v.sound)) return null;
+  if (v.volume !== undefined && (!isNum(v.volume) || v.volume < 0 || v.volume > 1)) return null;
   if (!isNum(v.presentScale) || v.presentScale < PRESENT_SCALE_MIN || v.presentScale > PRESENT_SCALE_MAX) return null;
-  return { version: 1, theme: v.theme as ThemeSetting, boardTheme: v.boardTheme as BoardThemeId, sound: v.sound, presentScale: v.presentScale };
+  return { version: 1, theme: v.theme as ThemeSetting, boardTheme: v.boardTheme as BoardThemeId, sound: v.volume === undefined ? true : v.sound, volume: v.volume ?? DEFAULT_VOLUME, presentScale: v.presentScale };
 }
 
 function readSettings(): SettingsData {
@@ -42,14 +47,15 @@ interface SettingsState extends SettingsData {
   setTheme: (theme: ThemeSetting) => void;
   setBoardTheme: (id: BoardThemeId) => void;
   setSound: (on: boolean) => void;
+  setVolume: (volume: number) => void;
   setPresentScale: (scale: number) => void;
   reload: () => void;
 }
 
 export const useSettings = create<SettingsState>()((set, get) => {
   const persist = (): void => {
-    const { theme, boardTheme, sound, presentScale } = get();
-    writeRaw(KEYS.settings, JSON.stringify({ version: 1, theme, boardTheme, sound, presentScale } satisfies SettingsData));
+    const { theme, boardTheme, sound, volume, presentScale } = get();
+    writeRaw(KEYS.settings, JSON.stringify({ version: 1, theme, boardTheme, sound, volume, presentScale } satisfies SettingsData));
   };
   return {
     ...readSettings(),
@@ -63,6 +69,11 @@ export const useSettings = create<SettingsState>()((set, get) => {
     },
     setSound: (sound) => {
       set({ sound });
+      persist();
+    },
+    setVolume: (volume) => {
+      if (!Number.isFinite(volume)) return;
+      set({ volume: Math.min(1, Math.max(0, volume)) });
       persist();
     },
     setPresentScale: (scale) => {

@@ -21,14 +21,14 @@ export function exportAll(): string {
   const { profiles, activeId } = useProfiles.getState();
   const progress: Record<string, Progress> = {};
   for (const p of profiles) progress[p.id] = readProgress(p.id);
-  const { theme, boardTheme, sound, presentScale } = useSettings.getState();
+  const { theme, boardTheme, sound, volume, presentScale } = useSettings.getState();
   const file: BackupFile = {
     app: BACKUP_APP,
     version: BACKUP_VERSION,
     exportedAt: new Date().toISOString(),
     profiles: { version: 1, profiles, activeId },
     progress,
-    settings: { version: 1, theme, boardTheme, sound, presentScale },
+    settings: { version: 1, theme, boardTheme, sound, volume, presentScale },
   };
   return JSON.stringify(file, null, 2);
 }
