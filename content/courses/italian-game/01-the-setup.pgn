@@ -1,0 +1,98 @@
+[Event "Italian Game for White"]
+[Lesson "first-moves"]
+[LessonTitle "The first moves"]
+[Step "explain"]
+[TeacherNotes "The idea in one line: grow the center, develop fast and aim at f7 | Say each move out loud with its reason | The bishop on c4 is the signature piece of this opening"]
+[Mistakes "Moving the same piece twice in the opening | Pushing the h-pawn or a-pawn because there is no plan | Forgetting that 3.Bc4 is a choice, not a rule"]
+[ClassQuestions "Why does 1.e4 help our bishop and queen? | What does the knight on f3 attack? | Which black pawn does the bishop on c4 point at?"]
+
+{The idea: take the center, bring out your pieces, and aim your bishop at the weak f7 square. [%cal Ge2e4,Gg1f3,Gf1c4] [%csl Rf7]}
+1. e4 {The pawn takes space in the center and opens lines for the queen and bishop. [%cal Ge2e4]} 1... e5
+2. Nf3 {The knight develops and attacks the e5 pawn. [%cal Gf3e5]} 2... Nc6 {Black guards the pawn.}
+3. Bc4 {This is the Italian Game. The bishop looks straight at f7. [%cal Gc4f7] [%csl Rf7]} *
+
+[Event "Italian Game for White"]
+[Lesson "first-moves"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"]
+[Hint "Use a knight."]
+[Hint "Move the knight from g1 to f3."]
+
+{White to move. Attack the e5 pawn and develop a knight.}
+2. Nf3 {The knight comes out and attacks e5. [%cal Gf3e5]} *
+
+[Event "Italian Game for White"]
+[Lesson "first-moves"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Start with the king's pawn."]
+[Hint "Then bring out the knight."]
+[Hint "Last, the bishop goes to c4."]
+
+{Play the first moves of the Italian Game as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 *
+
+[Event "Italian Game for White"]
+[Lesson "development-goals"]
+[LessonTitle "Your development goals"]
+[Step "explain"]
+[TeacherNotes "Three goals: knights and bishops out, king castled, a pawn in the center | Count pieces developed after each move | Castling keeps the king safe and wakes up a rook"]
+[Mistakes "Bringing the queen out early so it gets chased | Leaving the king in the center for many moves | Making a lot of pawn moves and few piece moves"]
+[ClassQuestions "How many pieces have we developed so far? | Why do we castle before attacking? | Which piece should we develop next?"]
+
+{Here is a calm Italian setup. Count the pieces that are out: a knight and a bishop for White. [%csl Gf3,Gc4]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. d3 {A quiet pawn move. It guards e4 and opens the c1 bishop. [%cal Gd3e4,Gc1g5]} 4... Nf6
+5. O-O {White castles. The king is safe and the rook joins the game. [%cal Ge1g1,Gh1f1]} 5... d6 *
+
+[Event "Italian Game for White"]
+[Lesson "development-goals"]
+[Step "find-move"]
+[FEN "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5"]
+[Hint "Use your king."]
+[Hint "Castle on the kingside: the king goes to g1."]
+
+{White to move. Make your king safe.}
+5. O-O {Castled. The king is tucked away and the rook is ready. [%cal Ge1g1,Gh1f1]} *
+
+[Event "Italian Game for White"]
+[Lesson "development-goals"]
+[Step "quiz"]
+[Question "What is a good goal for your first ten moves?"]
+[Choices "Take many pawns with the queen | Develop your pieces and castle | Move the same knight again and again"]
+[Answer "2"]
+[Explanation "Bring your pieces out, castle, and keep a pawn in the center."]
+
+{Look at the position and think about the goal.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. d3 Nf6 5. O-O d6 *
+
+[Event "Italian Game for White"]
+[Lesson "f7-target"]
+[LessonTitle "The f7 target"]
+[Step "explain"]
+[TeacherNotes "At the start only the king guards f7 | The bishop and knight can both aim at it | Aiming is not the same as winning: build up first"]
+[Mistakes "Capturing on f7 too early with the bishop | Sending the queen out to f7 alone | Defending with ...Qe7, ...Nf6 (blocks the f-file) or ...d5 (blocks the bishop)"]
+[ClassQuestions "Which black piece guards f7 at the start? | Which of our pieces can attack f7? | Why is it better to wait before taking on f7?"]
+
+{The f7 pawn is next to the king and is guarded only by the king. That makes it a target. [%csl Rf7,Ge8]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 {The bishop attacks f7. [%cal Gc4f7]} 3... Nf6 4. Ng5 {A knight can join the bishop. Now two pieces aim at f7. [%cal Gc4f7,Gg5f7] [%csl Rf7]} *
+
+[Event "Italian Game for White"]
+[Lesson "f7-target"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"]
+[Hint "Use your bishop."]
+[Hint "Move the bishop from f1 to c4."]
+
+{White to move. Develop the bishop so it aims at f7.}
+3. Bc4 {The bishop points at f7. [%cal Gc4f7] [%csl Rf7]} *
+
+[Event "Italian Game for White"]
+[Lesson "f7-target"]
+[Step "quiz"]
+[Question "At the start of the game, who guards the f7 pawn?"]
+[Choices "Only the king | The queen | The knight on g8"]
+[Answer "1"]
+[Explanation "Only the king guards f7 at the start. That is why it is a good target."]
+
+{Look at Black's camp.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 *

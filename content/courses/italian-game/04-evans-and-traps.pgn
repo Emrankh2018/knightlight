@@ -1,0 +1,108 @@
+[Event "Italian Game for White"]
+[Lesson "evans-gambit"]
+[LessonTitle "The Evans Gambit in short"]
+[Step "explain"]
+[TeacherNotes "A gambit means giving a pawn for a lead in development | The idea: after b4 and c3, White builds the d4 center with tempo | Teach this as an optional extra, not the main plan | Black can decline the pawn, we only study the accepted line"]
+[Mistakes "Not following up with c3 and d4 after giving the pawn | Forgetting to castle quickly | Playing the gambit and then moving pieces twice"]
+[ClassQuestions "Why does White give up a pawn? | What does c3 attack? | Which two pawns does White want in the center?"]
+
+{In the Evans Gambit White offers a pawn with b4. If Black takes it, White gets time to build a big center with c3 and d4. [%cal Gb2b4,Gc2c3,Gd2d4]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 {The gambit pawn. [%cal Gb2b4]} 4... Bxb4 {Black takes the pawn. Now White kicks the bishop with c3.} 5. c3 {The pawn attacks the bishop and prepares d4. [%cal Gc3b4]} 5... Ba5 6. d4 {The center grows. [%cal Gd2d4]} 6... exd4
+7. O-O {Castle early.} 7... d6 8. cxd4 {Recapture and take the center back. [%csl Gd4,Ge4]} 8... Bb6 9. Nc3 {Another piece joins the game. [%cal Gb1c3]} *
+
+[Event "Italian Game for White"]
+[Lesson "evans-gambit"]
+[Step "find-move"]
+[FEN "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"]
+[Hint "Use a pawn from the side of the board."]
+[Hint "Move the pawn on b2 to b4."]
+
+{White to move. Offer a pawn to gain time with the Evans Gambit.}
+4. b4 {The gambit. If the bishop takes, c3 comes next. [%cal Gb2b4]} *
+
+[Event "Italian Game for White"]
+[Lesson "evans-gambit"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "The first gambit move is a pawn to b4."]
+[Hint "After the bishop takes, play c3, then d4."]
+[Hint "Castle, recapture on d4, then develop a knight."]
+
+{Play the main Evans Gambit line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d6 8. cxd4 Bb6 9. Nc3 *
+
+[Event "Italian Game for White"]
+[Lesson "legal-mate"]
+[LessonTitle "A trap: the Legal mate"]
+[Step "explain"]
+[TeacherNotes "This is a trap for Black, who must not grab the queen | The trap comes from the Philidor Defence (2...d6), but White's bishop is on c4 as in the Italian | The bishop on g4 pins the f3 knight to the queen, but the pin is not absolute: the knight can still move, and that is the trap | Show that giving up the queen can lead to mate | If Black does not take the queen, White simply is a pawn up"]
+[Mistakes "Taking the queen without checking what it allows | Pinning a knight but leaving the king boxed in | Playing the trap again and again against players who know it"]
+[ClassQuestions "Which black move was the mistake? | Why can the king not run away at the end? | Which pieces make the final checkmate?"]
+
+{This trap comes from the Philidor Defence (2...d6), but White's bishop is on c4 as in the Italian. Black's bishop on g4 pins the f3 knight to the queen, but the pin is not absolute, and that is the trap. White offers the queen and wins by checkmate in a few moves. [%csl Rg4,Rd1]}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 g6 5. Nxe5 {The knight takes a pawn. Black may think the queen is free. [%cal Gf3e5]} 5... Bxd1 {Black takes the queen: a mistake.} 6. Bxf7+ {Check from the bishop. [%cal Gc4f7]} 6... Ke7 7. Nd5# {Checkmate! The bishop on f7 and the two knights close every escape. [%cal Gc3d5,Gf7e8,Ge5f7] [%csl Re7]} *
+
+[Event "Italian Game for White"]
+[Lesson "legal-mate"]
+[Step "find-move"]
+[FEN "rn1qkbnr/ppp2p1p/3p2p1/4p3/2B1P1b1/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5"]
+[Hint "Use the knight on f3."]
+[Hint "...even though this lets the bishop take your queen."]
+[Hint "Then check on f7 with the bishop, and finish with a knight move to d5."]
+
+{White to move. Start the trap. Play the whole mating line. Black will take your queen on the way.}
+5. Nxe5 {The knight takes the pawn.} 5... Bxd1 6. Bxf7+ {Check!} 6... Ke7 7. Nd5# {Checkmate. [%csl Re7]} *
+
+[Event "Italian Game for White"]
+[Lesson "shilling-trap"]
+[LessonTitle "A trap: do not grab on f7"]
+[Step "explain"]
+[TeacherNotes "This is a trap against White, so teach what to avoid | After 3...Nd4 good answers are 4.Nxd4 exd4, 4.c3 and 4.O-O; 4.Nxe5 is also fine | The trap comes after 4.Nxe5 Qg5, when 5.Nxf7 is the mistake | The nickname is the Blackburne Shilling Gambit; the Lichess name is Blackburne-Kostić Gambit | Point out the mate on f3: the knight and queen work together"]
+[Mistakes "Taking the e5 pawn without looking at the black queen and knight | Taking again on f7 after 4...Qg5 | Moving the rook to f1 and missing the check on e4 | Missing 7.Qe2, which avoids the mate"]
+[ClassQuestions "Why is 4.Nxe5 tempting? | Which two black pieces make the final mate? | What safe moves can White play on move four?"]
+
+{This trap is for White to avoid. After 3...Nd4 safe moves are 4.Nxd4, 4.c3 and 4.O-O. 4.Nxe5 is fine too, but after 4...Qg5 White must not grab again with 5.Nxf7. [%cal Gf3d4,Rf3e5]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 4. Nxe5 {The knight takes a pawn. This is fine. [%cal Rf3e5]} 4... Qg5 {The queen attacks the knight on e5 and the pawn on g2. [%cal Rg5e5,Rg5g2]} 5. Nxf7 {The mistake. White takes again and attacks the queen and the rook, but forgets g2.} 5... Qxg2 {The queen takes g2 and hits the rook on h1. [%cal Rg2h1,Rg2e4]}
+6. Rf1 {The rook runs.} 6... Qxe4+ {Check!} 7. Be2 {The final blunder. The bishop blocks, but 7.Qe2 would avoid the mate.} 7... Nf3# {Checkmate! The knight checks and the king cannot escape. [%cal Rd4f3,Re4e1] [%csl Re1]} *
+
+[Event "Italian Game for White"]
+[Lesson "shilling-trap"]
+[Step "find-move"]
+[FEN "r1b1kbnr/pppp1Npp/8/6q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5"]
+[Hint "This is Black's turn, to see how the trap works. Use the queen."]
+[Hint "Take the pawn on g2, then check on e4, then play a knight move to f3."]
+
+{Black to move. White grabbed on f7. Find the line that ends in checkmate.}
+5... Qxg2 {The queen takes the pawn and attacks the rook.} 6. Rf1 Qxe4+ {Check!} 7. Be2 Nf3# {Checkmate. [%csl Re1]} *
+
+[Event "Italian Game for White"]
+[Lesson "when-to-play"]
+[LessonTitle "When to choose the Italian"]
+[Step "explain"]
+[TeacherNotes "The Italian suits players who like open, natural play | It teaches the basic rules: develop, castle, fight for the center | Pick the quiet d3 plan for a calm game and the c3 and d4 plan for a sharper game | After 1.e4 e5 the Italian is just one of several good third moves"]
+[Mistakes "Playing the same trap in every game | Learning long lines without knowing the plan | Forgetting that Black can choose other moves than the ones we studied"]
+[ClassQuestions "What are the two main plans for White? | Which plan would you pick against a nervous opponent, and why? | What is the first thing to do if Black plays a move you do not know?"]
+
+{The Italian Game is a good friend for beginners. The rules are simple: grow the center, develop your pieces, castle, then pick a plan. [%cal Ge4e5,Gc4f7] [%csl Gc4]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d3 d6 {Everything is protected and White has a clear setup.} *
+
+[Event "Italian Game for White"]
+[Lesson "when-to-play"]
+[Step "find-move"]
+[FEN "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQK2R w KQkq - 0 6"]
+[Hint "Use your king."]
+[Hint "Castle on the kingside: the king goes to g1."]
+
+{White to move. Finish the quiet setup by making your king safe.}
+6. O-O {Castled. Now plan Re1 and a bishop retreat to b3 if needed. [%cal Ge1g1,Gh1f1]} *
+
+[Event "Italian Game for White"]
+[Lesson "when-to-play"]
+[Step "quiz"]
+[Question "What should you do first if Black plays a move you do not know?"]
+[Choices "Panic and move the queen | Go back to the ideas: develop, castle, protect the center | Give up the bishop"]
+[Answer "2"]
+[Explanation "The basic rules always help. Develop your pieces, castle and keep the center safe."]
+
+{Think about the ideas, not the move list.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 *

@@ -1,0 +1,78 @@
+[Lesson "pin-idea"]
+[LessonTitle "What is a pin?"]
+[Step "explain"]
+[TeacherNotes "Absolute pin: the piece behind is the king, so the pinned piece cannot legally move | Relative pin: the piece behind is something valuable but not the king, so moving is legal but costly | Bishops, rooks and queens make pins because they attack along lines"]
+[Mistakes "Thinking a relative pin means the piece cannot move | Forgetting the square behind the pinned piece must hold the target"]
+[ClassQuestions "Which piece is the pinned piece? | What is hiding behind it?"]
+
+{A pin is when a piece should not move because a more valuable piece is behind it.}
+*
+
+[Lesson "pin-idea"]
+[Step "explain"]
+
+{Watch White pin a knight in a real opening. [%csl Gc1]}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 {The bishop attacks the knight on f6. Behind the knight is the black queen on d8. [%cal Gg5f6,Rf6d8] [%csl Yf6,Rd8]} *
+
+[Lesson "pin-idea"]
+[Step "explain"]
+[FEN "4k3/8/8/8/1b6/2N5/8/4K3 w - - 0 1"]
+
+{This is an absolute pin. The black bishop attacks the knight on c3, and the white king is behind it. [%cal Rb4c3,Rc3e1] [%csl Yc3,Re1]}
+*
+
+[Lesson "pin-idea"]
+[Step "quiz"]
+[FEN "4k3/8/8/8/1b6/2N5/8/4K3 w - - 0 1"]
+[Question "Can the white knight on c3 move?"]
+[Choices "Yes, it can go to any knight square | No, a move would leave the white king in check"]
+[Answer "2"]
+[Explanation "The bishop on b4 attacks along the line to the king. If the knight leaves, the king is in check, so the move is not allowed."]
+
+{Look at the line from the bishop to the king.}
+*
+
+[Lesson "pin-idea"]
+[Step "find-move"]
+[FEN "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4"]
+[Hint "Use your bishop on c1."]
+[Hint "Move it to g5."]
+
+{White to move. Pin the knight on f6 against the queen.}
+4. Bg5 {The knight is pinned to the queen. [%cal Gg5f6,Rf6d8]} *
+
+[Lesson "pin-idea"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Open the game with a pawn in the middle."]
+[Hint "Your last move is the bishop pin on g5."]
+
+{Play the moves that lead to the pin.}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 *
+
+[Lesson "win-a-pinned-piece"]
+[LessonTitle "Attack the pinned piece"]
+[Step "explain"]
+[TeacherNotes "A pinned piece is a target because it cannot run away | Attack it with something smaller than it | Here the pinned knight even attacks the d4 pawn but cannot take it"]
+[Mistakes "Attacking the pinned piece with a big piece that can be captured | Forgetting that the enemy king can step aside and end the pin"]
+[ClassQuestions "Why can the black knight not run away? | What small piece can attack it?"]
+
+{A pinned piece cannot run away, so attack it.}
+*
+
+[Lesson "win-a-pinned-piece"]
+[Step "explain"]
+[FEN "4k3/1p6/2n5/1B6/3P4/8/8/4K3 w - - 0 1"]
+
+{The bishop pins the knight on c6 to the king on e8. [%cal Rb5c6,Rc6e8] [%csl Yc6]}
+1. d5 {The pawn attacks the pinned knight. The knight cannot move. [%cal Gd5c6]} 1... Kd8 {Black unpins it, but there is no time to save the knight.}
+2. dxc6 {White wins a knight for a pawn.} 2... bxc6 *
+
+[Lesson "win-a-pinned-piece"]
+[Step "find-move"]
+[FEN "4k3/8/8/3p4/1b6/2N5/1P6/4K3 b - - 0 1"]
+[Hint "Use a pawn."]
+[Hint "Push the pawn from d5 to d4 to attack the pinned knight."]
+
+{Black to move. The white knight on c3 is pinned. Win it.}
+1... d4 {The pawn attacks the pinned knight. It cannot move away. [%cal Gd4c3]} 2. Ke2 dxc3 {Black wins a knight for a pawn.} *

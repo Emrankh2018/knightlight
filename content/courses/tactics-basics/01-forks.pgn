@@ -1,0 +1,94 @@
+[Lesson "knight-fork"]
+[LessonTitle "The knight fork"]
+[Step "explain"]
+[FEN "r3k3/8/8/3N4/8/8/5PPP/6K1 w - - 0 1"]
+[TeacherNotes "A fork is one move that attacks two things at once | Knights are great at forks because they jump and attack in an odd shape | Ask students to count which squares the knight on d5 can reach"]
+[Mistakes "Forgetting that the forking piece can be captured | Forking two pawns when a bigger fork was there"]
+[ClassQuestions "Why can the black player only fix one problem? | Which squares does a knight on c7 attack?"]
+
+{A fork is one move that attacks two enemy pieces at once.}
+*
+
+[Lesson "knight-fork"]
+[Step "explain"]
+[FEN "r3k3/8/8/3N4/8/8/5PPP/6K1 w - - 0 1"]
+
+{White to move. The knight on d5 can jump to c7. [%csl Gc7,Re8,Ra8] [%cal Gd5c7]}
+1. Nc7+ {The knight gives check to the king. It also attacks the rook. [%cal Gc7e8,Gc7a8]} 1... Kd7 {The king must deal with the check.}
+2. Nxa8 {Now the knight takes the rook for free. [%cal Gc7a8]} *
+
+[Lesson "knight-fork"]
+[Step "quiz"]
+[Question "After 1. Nc7+, which two black pieces does the knight attack?"]
+[Choices "The king and the rook | The king and a pawn | Only the king"]
+[Answer "1"]
+[Explanation "A knight on c7 attacks e8 and a8. The king is on e8 and the rook is on a8."]
+[FEN "r3k3/8/8/3N4/8/8/5PPP/6K1 w - - 0 1"]
+
+{Look at the knight on c7.}
+1. Nc7+ *
+
+[Lesson "knight-fork"]
+[Step "line-drill"]
+[FEN "r3k3/8/8/3N4/8/8/5PPP/6K1 w - - 0 1"]
+[Side "white"]
+[Hint "Jump with your knight to a square next to the king and the rook."]
+[Hint "Play the knight to c7."]
+
+{Play the fork as White. Then win the rook.}
+1. Nc7+ Kd7 2. Nxa8 *
+
+[Lesson "knight-fork-practice"]
+[LessonTitle "Find the knight fork"]
+[Step "explain"]
+[TeacherNotes "Have students name the two targets before they name the move | A check plus an attack is the strongest fork because the king must move"]
+[Mistakes "Moving the knight to a square where a pawn can take it | Looking only at captures and missing quiet knight jumps"]
+[ClassQuestions "What are the two targets? | Can Black take the knight after it lands?"]
+
+{Before you play a fork, name the two pieces you attack.}
+*
+
+[Lesson "knight-fork-practice"]
+[Step "find-move"]
+[FEN "2q3k1/5ppp/8/3N4/8/8/5PPP/6K1 w - - 0 1"]
+[Hint "Use your knight."]
+[Hint "Jump to e7. It gives check and attacks the queen on c8."]
+
+{White to move. Find the fork that wins the queen.}
+1. Ne7+ {Check! The knight also attacks the queen. [%cal Ge7g8,Ge7c8]} 1... Kh8 2. Nxc8 {White wins the queen.} *
+
+[Lesson "knight-fork-practice"]
+[Step "find-move"]
+[FEN "6k1/5ppp/8/8/3n4/8/8/R3K3 b - - 0 1"]
+[Hint "Use your knight."]
+[Hint "Jump to c2. It gives check and attacks the rook on a1."]
+
+{Black to move. Find the fork.}
+1... Nc2+ {Check! The knight also attacks the rook on a1. [%cal Gc2e1,Gc2a1]} 2. Kd2 Nxa1 {Black wins the rook.} *
+
+[Lesson "pawn-fork"]
+[LessonTitle "The pawn fork"]
+[Step "explain"]
+[TeacherNotes "Pawns attack diagonally forward | A pawn fork wins a piece because pawns are worth the least | Check that nothing can capture the pawn after it lands"]
+[Mistakes "Forgetting which way a pawn captures | Pushing the pawn to a square where it can be taken"]
+[ClassQuestions "Which two squares does a pawn on c5 attack? | Why is it hard for Black to stop a pawn fork?"]
+
+{A pawn can fork two pieces too, and pawns are worth the least.}
+*
+
+[Lesson "pawn-fork"]
+[Step "explain"]
+[FEN "6k1/5ppp/1n1n4/8/2PP4/8/5PPP/6K1 w - - 0 1"]
+
+{White to move. Look at the two black knights. [%csl Rb6,Rd6]}
+1. c5 {The pawn steps forward and attacks both knights. [%cal Gc5b6,Gc5d6]} 1... Nb5 {One knight runs away.}
+2. cxb6 {The pawn takes the other knight. White has won a piece.} *
+
+[Lesson "pawn-fork"]
+[Step "find-move"]
+[FEN "6k1/5ppp/8/2pp4/8/1N1N4/8/6K1 b - - 0 1"]
+[Hint "Use a pawn."]
+[Hint "Push the pawn from c5 to c4."]
+
+{Black to move. Find the pawn fork.}
+1... c4 {The pawn attacks both knights. [%cal Gc4b3,Gc4d3]} 2. Nd4 cxd3 {Black wins a knight.} *

@@ -1,0 +1,15 @@
+{
+  "title": "Italian Game for White",
+  "kind": "opening",
+  "side": "white",
+  "level": "beginner",
+  "description": "Learn the Italian Game with the white pieces: the Giuoco Piano plans, the Two Knights Defence, a short look at the Evans Gambit and a few traps to know.",
+  "tags": ["opening", "italian-game", "e4", "giuoco-piano", "white"],
+  "reviewed": false,
+  "chapters": [
+    { "file": "01-the-setup.pgn", "title": "The Italian setup" },
+    { "file": "02-giuoco-piano.pgn", "title": "Giuoco Piano plans" },
+    { "file": "03-two-knights.pgn", "title": "Two Knights Defence" },
+    { "file": "04-evans-and-traps.pgn", "title": "Evans Gambit and traps" }
+  ]
+}

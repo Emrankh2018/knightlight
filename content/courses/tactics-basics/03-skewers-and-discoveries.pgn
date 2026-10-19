@@ -1,0 +1,94 @@
+[Lesson "skewer"]
+[LessonTitle "The skewer"]
+[Step "explain"]
+[TeacherNotes "A skewer is like a pin turned around: the big piece is in front | The front piece must move, then you take the piece behind | Rooks, bishops and queens make skewers"]
+[Mistakes "Mixing up a pin and a skewer | Skewering when the king can step to a square that defends the piece behind"]
+[ClassQuestions "Which piece is in front? | What is the difference between a pin and a skewer?"]
+
+{A skewer attacks a big piece, and when it moves, you take the piece behind it.}
+*
+
+[Lesson "skewer"]
+[Step "explain"]
+[FEN "3r4/8/8/8/3k4/8/8/R5K1 w - - 0 1"]
+
+{White to move. The black king and rook stand on the same file. [%csl Rd4,Rd8]}
+1. Rd1+ {The rook gives check along the d-file. [%cal Gd1d4,Rd4d8]} 1... Ke5 {The king has to move out of the way.}
+2. Rxd8 {The rook behind the king is now attacked and White takes it.} *
+
+[Lesson "skewer"]
+[Step "quiz"]
+[FEN "3r4/8/8/8/3k4/8/8/R5K1 w - - 0 1"]
+[Question "After 1. Rd1+ the king moves. Which black piece will White take?"]
+[Choices "The rook on d8 | A pawn | Nothing"]
+[Answer "1"]
+[Explanation "The rook on d8 is behind the king on the same file. When the king steps aside, the white rook takes it."]
+
+{Black must answer the check.}
+1. Rd1+ *
+
+[Lesson "skewer"]
+[Step "find-move"]
+[FEN "8/8/8/r3k3/8/8/6K1/7R w - - 0 1"]
+[Hint "Use your rook."]
+[Hint "Move it to h5. It gives check along the fifth rank."]
+
+{White to move. Find the skewer.}
+1. Rh5+ {Check! The black rook on a5 is behind the king. [%cal Gh5e5,Ye5a5]} 1... Kd6 2. Rxa5 {White wins the rook.} *
+
+[Lesson "skewer"]
+[Step "line-drill"]
+[FEN "8/8/8/r3k3/8/8/6K1/7R w - - 0 1"]
+[Side "white"]
+[Hint "Give check with your rook along the rank."]
+[Hint "Play the rook to h5, then take the rook on a5."]
+
+{Play the skewer as White.}
+1. Rh5+ Kd6 2. Rxa5 *
+
+[Lesson "discovered-attack"]
+[LessonTitle "The discovered attack"]
+[Step "explain"]
+[TeacherNotes "One piece steps out of the way and uncovers an attack by a piece behind it | The moving piece can make its own threat at the same time | A discovered check is the strongest kind because the king must answer it"]
+[Mistakes "Moving the front piece without checking what the back piece now attacks | Forgetting that the moving piece can be captured afterwards"]
+[ClassQuestions "Which piece is hiding behind the knight? | Why is a check so hard to ignore?"]
+
+{In a discovered attack, one piece moves away and uncovers an attack from the piece behind it.}
+*
+
+[Lesson "discovered-attack"]
+[Step "explain"]
+[FEN "4k3/3q4/8/4N3/8/8/8/4R1K1 w - - 0 1"]
+
+{The knight on e5 blocks the rook on e1. The rook points at the black king. [%cal Ge1e5,Re5e8] [%csl Ye5]}
+1. Nxd7+ {The knight takes the queen. Now the rook on e1 gives check. [%cal Ge1e8]} 1... Kxd7 {Black takes the knight, but White has won a queen for a knight.} *
+
+[Lesson "discovered-attack"]
+[Step "quiz"]
+[FEN "4k3/3q4/8/4N3/8/8/8/4R1K1 w - - 0 1"]
+[Question "What happens to the black king when the knight leaves e5?"]
+[Choices "It is in check from the rook | Nothing happens | The rook is attacked"]
+[Answer "1"]
+[Explanation "The knight was blocking the e-file. When it moves, the rook on e1 attacks the king on e8."]
+
+{The knight is about to move.}
+*
+
+[Lesson "discovered-attack"]
+[Step "find-move"]
+[FEN "4r1k1/8/8/8/4n3/8/3Q4/4K3 b - - 0 1"]
+[Hint "Use your knight."]
+[Hint "Take the queen on d2."]
+
+{Black to move. The rook on e8 is hiding behind the knight. Find the discovered check that wins the queen.}
+1... Nxd2+ {The knight takes the queen and the rook gives check. [%cal Re8e1]} *
+
+[Lesson "discovered-attack"]
+[Step "line-drill"]
+[FEN "4k3/3q4/8/4N3/8/8/8/4R1K1 w - - 0 1"]
+[Side "white"]
+[Hint "Capture the queen with your knight."]
+[Hint "Play the knight to d7."]
+
+{Play the discovered check as White.}
+1. Nxd7+ Kxd7 *

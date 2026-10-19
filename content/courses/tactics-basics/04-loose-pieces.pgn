@@ -1,0 +1,106 @@
+[Lesson "hanging-pieces"]
+[LessonTitle "Hanging pieces"]
+[Step "explain"]
+[TeacherNotes "Hanging means no friendly piece defends it | Always ask: what can the opponent take for free? | Check your own pieces as well as theirs"]
+[Mistakes "Moving a piece and leaving another undefended | Not noticing that an attacked piece also attacks your piece"]
+[ClassQuestions "Which pieces defend this one? | Who moves first, and does that change the answer?"]
+
+{A hanging piece is a piece that nothing defends, so it can be taken for free.}
+*
+
+[Lesson "hanging-pieces"]
+[Step "explain"]
+[FEN "4k3/ppp2ppp/2n5/8/6b1/8/PPP2PPP/3Q2K1 w - - 0 1"]
+
+{The black bishop attacks the white queen. But nothing defends the bishop! [%cal Rg4d1,Gd1g4] [%csl Rg4]}
+1. Qxg4 {It is White's turn, so the queen takes the bishop for free.} *
+
+[Lesson "hanging-pieces"]
+[Step "quiz"]
+[Question "What do we call a piece that no friendly piece defends?"]
+[Choices "A hanging piece | A pinned piece | A forked piece"]
+[Answer "1"]
+[Explanation "A piece with no defender is hanging. The other side can capture it without losing anything back."]
+
+*
+
+[Lesson "hanging-pieces"]
+[Step "find-move"]
+[FEN "6k1/5ppp/8/8/3n4/8/5PPP/3R2K1 w - - 0 1"]
+[Hint "Use your rook."]
+[Hint "Take the knight on d4."]
+
+{White to move. One black piece is hanging. Take it.}
+1. Rxd4 {Nothing defends the knight, so White wins it for free. [%cal Gd1d4]} *
+
+[Lesson "hanging-pieces"]
+[Step "line-drill"]
+[FEN "6k1/5ppp/8/8/3n4/8/5PPP/3R2K1 w - - 0 1"]
+[Side "white"]
+[Hint "Look for a black piece that nothing defends."]
+[Hint "Your rook takes on d4."]
+
+{Take the hanging knight as White.}
+1. Rxd4 Kf8 *
+
+[Lesson "defended-pieces"]
+[LessonTitle "Is it defended?"]
+[Step "explain"]
+[TeacherNotes "Before you capture, count who can take back | A defended piece is not always safe to capture, but a trade of equal value can be fine | A queen should almost never take a defended pawn or minor piece"]
+[Mistakes "Taking a pawn with the queen when a piece guards the pawn | Only looking at the piece you capture and not at what happens next"]
+[ClassQuestions "Who can take back if I capture here? | How many points would I lose?"]
+
+{Before you take a piece, ask: can it take back?}
+*
+
+[Lesson "defended-pieces"]
+[Step "explain"]
+[FEN "4k3/8/2b5/3n4/8/8/8/3QK3 w - - 0 1"]
+
+{The white queen attacks the knight on d5. But the bishop on c6 defends the knight. [%cal Gd1d5,Rc6d5] [%csl Yd5]}
+1. Qxd5 {The queen takes the knight.} 1... Bxd5 {The bishop takes back. White lost a queen for a knight. That is a bad trade.} *
+
+[Lesson "defended-pieces"]
+[Step "quiz"]
+[Question "Can White safely take the pawn on e5 with the queen?"]
+[Choices "Yes, it is a free pawn | No, the knight on c6 defends it"]
+[Answer "2"]
+[Explanation "After Qxe5+ the black knight on c6 takes the queen. White would lose a queen for a pawn."]
+
+{White's queen attacks the pawn on e5.}
+1. e4 e5 2. Qh5 Nc6 *
+
+[Lesson "defended-pieces"]
+[Step "find-move"]
+[FEN "4k3/8/2b5/3n4/6b1/8/8/3QK3 w - - 0 1"]
+[Hint "Use your queen."]
+[Hint "The bishop on g4 has no defender."]
+
+{White to move. One capture is safe and one is a mistake. Find the safe one.}
+1. Qxg4 {The bishop on g4 had no defender. [%cal Gd1g4]} *
+
+[Lesson "safety-check"]
+[LessonTitle "Three questions before you move"]
+[Step "explain"]
+[TeacherNotes "Make the three questions a habit: What does my opponent attack? Is my target defended? Is this trade good for me? | Ask them out loud every move in class | Works for both colors"]
+[Mistakes "Grabbing the first free-looking capture | Forgetting to check what the opponent attacks"]
+[ClassQuestions "What does the white bishop attack? | Is the knight on d4 defended?"]
+
+{Ask three questions: What does my opponent attack? Is my target defended? Is the trade good for me?}
+*
+
+[Lesson "safety-check"]
+[Step "explain"]
+[FEN "3qk3/8/8/6B1/3N4/2B5/8/4K3 b - - 0 1"]
+
+{Black to move. The white bishop on g5 attacks the black queen. [%cal Rg5d8] [%csl Rd8]}
+1... Qxd4 {This takes a knight, but the bishop on c3 defends it.} 2. Bxd4 {Black lost a queen for a knight. The three questions would have stopped this.} *
+
+[Lesson "safety-check"]
+[Step "find-move"]
+[FEN "3qk3/8/8/6B1/3N4/2B5/8/4K3 b - - 0 1"]
+[Hint "Use your queen."]
+[Hint "Take the bishop on g5. Nothing defends it."]
+
+{Black to move. Use the three questions, then find the safe capture.}
+1... Qxg5 {The queen saves itself and wins a bishop. [%cal Gd8g5]} *

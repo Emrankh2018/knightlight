@@ -1,0 +1,14 @@
+{
+  "title": "Checkmate Patterns",
+  "kind": "skills",
+  "level": "beginner",
+  "description": "Learn the classic ways to checkmate: the back rank, rook and queen mates, the smothered mate, and the quick traps called Scholar's mate and Fool's mate. You will also learn how to defend.",
+  "tags": ["checkmate", "tactics", "beginner", "mating patterns"],
+  "reviewed": false,
+  "chapters": [
+    { "file": "01-back-rank.pgn", "title": "The back-rank mate" },
+    { "file": "02-rooks-and-queen.pgn", "title": "Mating with rooks and the queen" },
+    { "file": "03-smothered-mate.pgn", "title": "The smothered mate" },
+    { "file": "04-quick-mates.pgn", "title": "Quick mates and how to stop them" }
+  ]
+}

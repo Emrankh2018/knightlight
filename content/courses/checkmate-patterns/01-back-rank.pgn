@@ -1,0 +1,98 @@
+[Event "Checkmate Patterns"]
+[Lesson "back-rank-mate"]
+[LessonTitle "The back-rank mate"]
+[Step "explain"]
+[FEN "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 1"]
+[TeacherNotes "The back rank is the row where the king starts | The king's own pawns can trap it | A rook or queen on an open file does the job"]
+[Mistakes "Moving all the pawns in front of the king without making an escape square | Forgetting to check whether the file is open"]
+[ClassQuestions "Which black pieces are blocking the king's escape? | Which squares does the rook attack on the eighth rank?"]
+
+{The black king is stuck behind its own pawns. A rook check on the back row can be checkmate. [%csl Rg8,Rf7,Rg7,Rh7] [%cal Ge1e8]}
+1. Re8# {The rook checks the king. The pawns block f7, g7 and h7. The rook also covers f8 and h8. No escape, so it is checkmate. [%cal Ge8f8,Ge8g8,Ge8h8]} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "back-rank-mate"]
+[Step "find-move"]
+[FEN "6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1"]
+[Hint "Use your rook."]
+[Hint "Go to the eighth row, on the d-file."]
+
+{White to move. Find the checkmate.}
+1. Rd8# {The same idea. The pawns trap their own king.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "back-rank-mate"]
+[Step "quiz"]
+[FEN "6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1"]
+[Question "Why can the black king not escape after Rd8?"]
+[Choices "Its own pawns block the squares in front of it | White has a second rook | The king is not allowed to move sideways"]
+[Answer "1"]
+[Explanation "The pawns on f7, g7 and h7 take away the squares in front of the king, and the rook covers the squares beside it."]
+
+{Look at the position after the checkmate.}
+1. Rd8# 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "make-luft"]
+[LessonTitle "Defending: make a window"]
+[Step "explain"]
+[FEN "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1"]
+[TeacherNotes "Luft is a German word for air. It means an escape square for the king | Kids should check their own back rank every few moves | Any one of the f, g or h pawns can make the window"]
+[Mistakes "Waiting until the rook is already on the file | Pushing a pawn that does not open a square next to the king"]
+[ClassQuestions "Which squares could the king use after one pawn moves? | When should you make the window, now or later?"]
+
+{It is Black's move. White threatens Re8 checkmate. Black needs an escape square. [%cal Re1e8] [%csl Re8]}
+1... h6 {A small pawn move. Now the h7 square is empty. [%csl Gh7]} 2. Re8+ {Check, but this time the king has a way out.} 2... Kh7 {The king steps to h7. No checkmate!} *
+
+[Event "Checkmate Patterns"]
+[Lesson "make-luft"]
+[Step "find-move"]
+[FEN "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1"]
+[Hint "Use a pawn."]
+[Hint "Move the h-pawn one step, to h6."]
+
+{Black to move. Push the h-pawn one square to make a window for the king.}
+1... h6 {Now the king can use h7.} *
+
+[Event "Checkmate Patterns"]
+[Lesson "make-luft"]
+[Step "quiz"]
+[FEN "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1"]
+[Question "Black to move. Which idea stops the checkmate?"]
+[Choices "Move a pawn to give the king an escape square | Move the king to h8 | Do nothing"]
+[Answer "1"]
+[Explanation "A pawn move such as h6 gives the king a square. Kh8 still loses to Re8 checkmate."]
+
+*
+
+[Event "Checkmate Patterns"]
+[Lesson "back-rank-trade"]
+[LessonTitle "Trade off the guard"]
+[Step "explain"]
+[FEN "r5k1/5ppp/8/8/8/8/4RPPP/4R1K1 w - - 0 1"]
+[TeacherNotes "Two rooks together are stronger than one guard | Each trade keeps the attacker in charge | Count attackers and defenders of the e8 square"]
+[Mistakes "Checking with only one rook when Black can take it for free | Forgetting that the black rook can take back"]
+[ClassQuestions "How many white pieces attack e8? | How many black pieces guard it?"]
+
+{Black has a rook guarding the back row. White has two rooks on the e-file. [%cal Ge1e8,Ge2e8,Ra8e8]}
+1. Re8+ {White offers a trade. [%csl Re8]} 1... Rxe8 {The black rook has to capture or the king is lost.} 2. Rxe8# {The second rook takes back. It is checkmate again.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "back-rank-trade"]
+[Step "find-move"]
+[FEN "r5k1/5ppp/8/8/8/8/4RPPP/4R1K1 w - - 0 1"]
+[Hint "Use a rook."]
+[Hint "Check on e8 with the rook on e2."]
+
+{White to move. Find the line. Start with the check on e8.}
+1. Re8+ Rxe8 2. Rxe8# {Checkmate.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "back-rank-trade"]
+[Step "line-drill"]
+[FEN "r5k1/5ppp/8/8/8/8/4RPPP/4R1K1 w - - 0 1"]
+[Side "white"]
+[Hint "Offer a trade on the e8 square."]
+
+{Play the whole line as White.}
+1. Re8+ Rxe8 2. Rxe8# *

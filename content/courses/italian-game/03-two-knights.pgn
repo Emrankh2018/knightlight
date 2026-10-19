@@ -1,0 +1,84 @@
+[Event "Italian Game for White"]
+[Lesson "two-knights-idea"]
+[LessonTitle "Meeting the Two Knights Defence"]
+[Step "explain"]
+[TeacherNotes "Black plays 3...Nf6 to hit the e4 pawn and develop | White can choose 4.Ng5 (sharp) or 4.d3 (quiet) | 4.Ng5 attacks f7 but Black has good answers, so teach it as an idea, not a trick"]
+[Mistakes "Playing 4.Ng5 and then moving the same knight again without a reason | Forgetting that after 4.Ng5 d5 Black fights back | Moving the queen out too early"]
+[ClassQuestions "Which black pawn does the knight on f6 attack? | Why does the knight on g5 look at f7? | When would you pick the quiet 4.d3 instead?"]
+
+{Black can answer 3.Bc4 with a knight. This is called the Two Knights Defence. White can play the sharp 4.Ng5 or the quiet 4.d3. [%cal Gf3g5,Gd2d3]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 {Black develops a knight and attacks e4. [%cal Rf6e4]} 4. Ng5 {The knight joins the bishop against f7. [%cal Gg5f7,Gc4f7] [%csl Rf7]} 4... d5 {Black's best idea: hit the bishop and block the diagonal. [%cal Gd7d5]} 5. exd5 {White takes the pawn.} *
+
+[Event "Italian Game for White"]
+[Lesson "two-knights-idea"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"]
+[Hint "Use your knight."]
+[Hint "Jump the knight from f3 to g5, aiming at f7."]
+
+{White to move. Play the sharp move: a knight joins the bishop in the attack on f7.}
+4. Ng5 {Two pieces now aim at f7. [%cal Gg5f7,Gc4f7] [%csl Rf7]} *
+
+[Event "Italian Game for White"]
+[Lesson "two-knights-idea"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Develop the knight and the bishop first."]
+[Hint "After 3...Nf6, jump the knight to g5."]
+[Hint "Take the d5 pawn with the e-pawn."]
+
+{Play the Knight Attack as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 *
+
+[Event "Italian Game for White"]
+[Lesson "fried-liver"]
+[LessonTitle "The Fried Liver idea"]
+[Step "explain"]
+[TeacherNotes "This line is a sharp attack, not a guaranteed win | Black can avoid it with 5...Na5, shown in the next lesson | The point to teach: the black king gets pulled into the center | Do not memorize far, understand why the knight sacrifice is played"]
+[Mistakes "Playing Nxf7 without seeing the follow-up check | Forgetting to bring the queen in with Qf3+ | Trying this idea when Black has already avoided it"]
+[ClassQuestions "Why is ...Kxf7 Black's best answer? | What does the queen check also attack? | What is White giving up, and what does White hope to get?"]
+
+{In this line White gives up a knight for a pawn to drag the black king into the open. Black can answer with care, so it is a sharp fight and not a sure win. [%csl Rf7,Re8]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 {Black takes back with the knight. This is the risky choice.} 6. Nxf7 {The Fried Liver idea: the knight takes f7. [%cal Gg5f7]} 6... Kxf7 {The king takes the knight and steps out of its shelter.}
+7. Qf3+ {A check that also attacks the knight on d5. [%cal Gd1f3,Gf3d5]} 7... Ke6 8. Nc3 {Another piece joins in. The black king is out in the open. [%cal Gb1c3,Gc3d5] [%csl Re6]} *
+
+[Event "Italian Game for White"]
+[Lesson "fried-liver"]
+[Step "find-move"]
+[FEN "r1bqkb1r/ppp2ppp/2n5/3np1N1/2B5/8/PPPP1PPP/RNBQK2R w KQkq - 0 6"]
+[Hint "Use the knight that is already on g5."]
+[Hint "Capture the pawn on f7."]
+
+{White to move. Find the knight move at the heart of the Fried Liver idea.}
+6. Nxf7 {The knight takes the pawn and forks the queen and rook. Black will take it with the king. [%cal Gf7d8,Gf7h8]} *
+
+[Event "Italian Game for White"]
+[Lesson "fried-liver"]
+[Step "find-move"]
+[FEN "r1bq1b1r/ppp2kpp/2n5/3np3/2B5/8/PPPP1PPP/RNBQK2R w KQ - 0 7"]
+[Hint "Use your queen."]
+[Hint "Move the queen to f3. It gives check and also looks at the d5 knight."]
+
+{The black king took on f7. White to move. Find the check that also attacks a knight.}
+7. Qf3+ {Check, and the knight on d5 is attacked too. [%cal Gf3f7,Gf3d5]} *
+
+[Event "Italian Game for White"]
+[Lesson "polerio-na5"]
+[LessonTitle "When Black plays ...Na5"]
+[Step "explain"]
+[TeacherNotes "After 4.Ng5 d5 5.exd5 the better black reply is 5...Na5, hitting the bishop | White answers with a check and stays a pawn up | Black gets quick development in return, so keep developing and castle"]
+[Mistakes "Leaving the bishop to be taken on c4 | Playing Bxf7+ in a hurry | Grabbing more pawns and forgetting to castle"]
+[ClassQuestions "Why does the knight on a5 attack our bishop? | What does the check on b5 do for us? | How many pawns is White ahead?"]
+
+{Black can play 5...Na5 to hit the bishop and avoid the Fried Liver. White answers with a check. [%cal Ra5c4,Gc4b5]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Na5 6. Bb5+ {The bishop moves with check, so it is not lost. [%cal Gc4b5]} 6... c6 7. dxc6 bxc6 8. Be2 {The bishop retreats. White is a pawn up. [%cal Gb5e2]} 8... h6 9. Nf3 {The knight returns, attacking e5. [%cal Gg5f3]} 9... e4 10. Ne5 {The knight lands on a active central square. [%cal Gf3e5]} *
+
+[Event "Italian Game for White"]
+[Lesson "polerio-na5"]
+[Step "find-move"]
+[FEN "r1bqkb1r/ppp2ppp/5n2/n2Pp1N1/2B5/8/PPPP1PPP/RNBQK2R w KQkq - 1 6"]
+[Hint "Use the bishop that is being attacked."]
+[Hint "Move it to b5 with check."]
+
+{Black's knight attacks your bishop. Save it with a check.}
+6. Bb5+ {The bishop escapes with check. [%cal Gc4b5] [%csl Re8]} *

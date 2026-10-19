@@ -1,0 +1,15 @@
+{
+  "title": "Tactics Basics",
+  "kind": "skills",
+  "level": "beginner",
+  "description": "Learn the first tricks every player needs: forks, pins, skewers, discovered attacks, loose pieces and smart trades.",
+  "tags": ["tactics", "fork", "pin", "skewer", "discovered attack", "piece values"],
+  "reviewed": false,
+  "chapters": [
+    { "file": "01-forks.pgn", "title": "Forks" },
+    { "file": "02-pins.pgn", "title": "Pins" },
+    { "file": "03-skewers-and-discoveries.pgn", "title": "Skewers and discovered attacks" },
+    { "file": "04-loose-pieces.pgn", "title": "Hanging and defended pieces" },
+    { "file": "05-piece-values-and-trades.pgn", "title": "Piece values and trading up" }
+  ]
+}

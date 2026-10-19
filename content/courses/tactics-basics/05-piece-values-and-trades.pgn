@@ -1,0 +1,78 @@
+[Lesson "piece-values"]
+[LessonTitle "How much is each piece worth?"]
+[Step "explain"]
+[TeacherNotes "Pawn 1, knight 3, bishop 3, rook 5, queen 9 | The king cannot be traded, so it has no number | The numbers are a guide, not a law: position and attacks matter too"]
+[Mistakes "Trading a rook for a bishop without a reason | Forgetting that the numbers are only a guide"]
+[ClassQuestions "Which is worth more, a bishop or a rook? | How many pawns is a queen worth?"]
+
+{Pieces have points: pawn 1, knight 3, bishop 3, rook 5, queen 9.}
+*
+
+[Lesson "piece-values"]
+[Step "explain"]
+
+{Count the points. Pawn 1. Knight 3. Bishop 3. Rook 5. Queen 9. The king is priceless. [%csl Ga2,Gb1,Gc1,Ra1,Yd1,Be1]}
+*
+
+[Lesson "piece-values"]
+[Step "quiz"]
+[Question "Which trade is best for you?"]
+[Choices "Give a rook (5), get a knight (3) | Give a knight (3), get a rook (5) | Give a pawn (1), get nothing"]
+[Answer "2"]
+[Explanation "Giving 3 points and getting 5 points means you come out 2 points ahead."]
+
+*
+
+[Lesson "piece-values"]
+[Step "find-move"]
+[FEN "4k3/8/8/2r1q3/3P4/8/8/6K1 w - - 0 1"]
+[Hint "Use your pawn."]
+[Hint "Take the biggest piece. Capture on e5."]
+
+{White to move. The pawn can take the rook or the queen. Take the one worth more.}
+1. dxe5 {The rook can take back, but you gave 1 point and won 9. [%cal Gd4e5]} *
+
+[Lesson "trading-up"]
+[LessonTitle "Trading up"]
+[Step "explain"]
+[TeacherNotes "Trading up means giving a smaller piece to win a bigger one | Even if the enemy takes back, you still gain points | Look for captures where your piece is worth less than the target"]
+[Mistakes "Trading down: giving a bigger piece for a smaller one | Trading up into a position where you are checkmated"]
+[ClassQuestions "How many points did we give? | How many points did we get?"]
+
+{Trading up means you give a smaller piece to win a bigger one.}
+*
+
+[Lesson "trading-up"]
+[Step "explain"]
+[FEN "6k1/5r2/8/8/2B5/8/5PPP/6K1 w - - 0 1"]
+
+{The black rook on f7 is defended by the king. But a rook is worth more than a bishop. [%cal Gc4f7,Rg8f7] [%csl Yf7]}
+1. Bxf7+ {White gives a bishop (3).} 1... Kxf7 {White took a rook (5). White gained 2 points in the trade.} *
+
+[Lesson "trading-up"]
+[Step "find-move"]
+[FEN "4k3/8/2np4/4b3/3P4/8/8/6K1 w - - 0 1"]
+[Hint "Use your pawn."]
+[Hint "Take the bishop on e5."]
+
+{White to move. Trade your smallest piece for a bigger one.}
+1. dxe5 {A pawn (1) wins a bishop (3). Even if Black takes back, White gains 2 points in the trade. [%cal Gd4e5]} *
+
+[Lesson "trading-up"]
+[Step "find-move"]
+[FEN "6k1/4ppp1/3r4/8/2N5/8/5PPP/6K1 w - - 0 1"]
+[Hint "Use your knight."]
+[Hint "Take the rook on d6."]
+
+{White to move. The rook is defended by a pawn. Is the trade still good?}
+1. Nxd6 {A knight (3) wins a rook (5). The pawn takes back, but White gains 2 points and the material is now equal. [%cal Gc4d6]} *
+
+[Lesson "trading-up"]
+[Step "line-drill"]
+[FEN "6k1/5r2/8/8/2B5/8/5PPP/6K1 w - - 0 1"]
+[Side "white"]
+[Hint "Look at the bishop and the rook."]
+[Hint "Play the bishop to f7 with check."]
+
+{Play the trade as White.}
+1. Bxf7+ Kxf7 *

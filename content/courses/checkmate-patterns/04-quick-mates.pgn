@@ -1,0 +1,112 @@
+[Event "Checkmate Patterns"]
+[Lesson "fools-mate"]
+[LessonTitle "Fool's mate"]
+[Step "explain"]
+[TeacherNotes "This is the fastest possible checkmate, in two moves | It only happens if White helps by moving the f-pawn and the g-pawn | It shows why the e1 to h4 diagonal needs care"]
+[Mistakes "Moving the f-pawn and g-pawn early without a reason | Not looking at the diagonal that leads to your king"]
+[ClassQuestions "Which two white pawn moves open the diagonal? | Why can no white piece block the check?"]
+
+{This is the quickest checkmate in chess. It only works if White plays two very weak pawn moves. [%cal Rf2f3,Rg2g4]}
+1. f3 {The f-pawn leaves the diagonal open. [%csl Rf2]} 1... e5 2. g4 {Now the g-pawn can never block on g3. [%cal Rh4e1]} 2... Qh4# {The queen checks along the diagonal. No piece can block it or take the queen, and the king cannot move. [%cal Gd8h4,Rh4e1]} 0-1
+
+[Event "Checkmate Patterns"]
+[Lesson "fools-mate"]
+[Step "find-move"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2"]
+[Hint "Use your queen."]
+[Hint "Go to h4."]
+
+{Black to move. White has played two weak pawn moves. Find the checkmate.}
+2... Qh4# {Fool's mate.} 0-1
+
+[Event "Checkmate Patterns"]
+[Lesson "fools-mate"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Push your e-pawn two squares."]
+
+{Play the Fool's mate as Black. White helps you by playing badly.}
+1. f3 e5 2. g4 Qh4# *
+
+[Event "Checkmate Patterns"]
+[Lesson "fools-mate"]
+[Step "quiz"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2"]
+[Question "Why does Fool's mate work against the white king?"]
+[Choices "The f-pawn opened the diagonal, and the g-pawn moved past g3, so nothing can block the check | The black queen can jump | White has no pieces left"]
+[Answer "1"]
+[Explanation "The f-pawn opened the diagonal, and the g-pawn moved past g3, so nothing can block the check from the queen on h4."]
+
+*
+
+[Event "Checkmate Patterns"]
+[Lesson "scholars-mate"]
+[LessonTitle "Scholar's mate"]
+[Step "explain"]
+[TeacherNotes "The queen and bishop both aim at f7 | At the start f7 is guarded only by the king | It works against beginners, but strong players stop it easily | Do not bring the queen out early just to try it"]
+[Mistakes "Defending with a move that does not guard f7 | Playing the trap again and again against players who know the defense"]
+[ClassQuestions "Which two white pieces attack f7? | Which black pieces can guard f7?"]
+
+{Scholar's mate is a four-move trick. White aims the queen and the bishop at the f7 pawn. [%csl Rf7] [%cal Gd1h5,Gf1c4]}
+1. e4 e5 2. Qh5 {The queen comes out. [%cal Gh5f7]} 2... Nc6 3. Bc4 {The bishop joins in. Both pieces attack f7. [%cal Gc4f7,Gh5f7]} 3... Nf6 {This move does not guard f7, so the threat is still there.} 4. Qxf7# {The queen takes f7. The bishop guards her, so the king cannot take. Checkmate.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "scholars-mate"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4"]
+[Hint "Use your queen."]
+[Hint "Capture on the f7 square."]
+
+{White to move. Find the checkmate.}
+4. Qxf7# {Checkmate.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "scholars-mate"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Bring the queen out on move two."]
+
+{Play Scholar's mate as White.}
+1. e4 e5 2. Qh5 Nc6 3. Bc4 Nf6 4. Qxf7# *
+
+[Event "Checkmate Patterns"]
+[Lesson "stop-scholars-mate"]
+[LessonTitle "How to stop Scholar's mate"]
+[Step "explain"]
+[TeacherNotes "Black can attack the queen with a pawn so she must move | Black can also guard f7 with the queen on e7 | Never ignore a threat to f7 | After the defense, develop pieces calmly"]
+[Mistakes "Moving the knight to f6 and forgetting f7 is attacked twice | Panicking and pushing random pawns"]
+[ClassQuestions "Which black move attacks the queen? | Why does the queen have to leave h5?"]
+
+{Black can stop the trick. The pawn on g6 attacks the queen. [%cal Gg7g6,Gg6h5]}
+1. e4 e5 2. Qh5 Nc6 3. Bc4 g6 {The pawn attacks the queen.} 4. Qf3 {The queen moves away but attacks f7 again. Qxf7 checkmate is threatened once more!} 4... Nf6 {The knight steps onto the f-file and blocks the queen, so she cannot reach f7. Black is fine, but keep watching f7. White may try Qb3 next. [%csl Gf6]} *
+
+[Event "Checkmate Patterns"]
+[Lesson "stop-scholars-mate"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 3 3"]
+[Hint "Use a pawn."]
+[Hint "Use the g-pawn."]
+[Hint "Push the g-pawn one step, to g6."]
+
+{Black to move. White threatens Qxf7 checkmate. Push the one pawn that attacks the queen and stops the checkmate.}
+3... g6 {Now the queen must move.} *
+
+[Event "Checkmate Patterns"]
+[Lesson "stop-scholars-mate"]
+[Step "quiz"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 3 3"]
+[Question "Black to move. Which of these moves guards f7 and stops the checkmate?"]
+[Choices "Nf6 | Qe7 | Nb8"]
+[Answer "2"]
+[Explanation "The queen on e7 guards f7. Nf6 does not guard f7, and Qxf7 is checkmate."]
+
+*
+
+[Event "Checkmate Patterns"]
+[Lesson "stop-scholars-mate"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Attack the queen with a pawn on move three."]
+
+{Play the defense as Black.}
+1. e4 e5 2. Qh5 Nc6 3. Bc4 g6 4. Qf3 Nf6 *

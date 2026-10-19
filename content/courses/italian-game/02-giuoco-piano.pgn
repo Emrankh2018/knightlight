@@ -1,0 +1,86 @@
+[Event "Italian Game for White"]
+[Lesson "quiet-d3"]
+[LessonTitle "The quiet plan with d3"]
+[Step "explain"]
+[TeacherNotes "This setup is called Giuoco Pianissimo, the very quiet game | Idea: build slowly, keep everything protected, make a plan later | Typical moves: c3, d3, castle, Re1, Bb3"]
+[Mistakes "Playing d3 and then having no plan | Forgetting to castle | Letting the bishop get trapped: give it the b3 square"]
+[ClassQuestions "What does the d3 pawn protect? | Where can the bishop go if a black pawn attacks it? | Why is a slow plan safe for beginners?"]
+
+{The quiet plan: play c3 and d3, castle, and keep the pieces protected. [%cal Gc2c3,Gd2d3,Ge1g1]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 {This prepares a later d4 and makes a safe home for the pieces. [%cal Gc2c3]} 4... Nf6
+5. d3 {The e4 pawn is now protected. [%cal Gd3e4]} 5... d6 6. O-O {The king is safe.} 6... O-O
+7. Re1 {The rook backs up the e4 pawn. [%cal Gf1e1]} 7... a6 8. Bb3 {If Black threatens the bishop it can retreat to b3 and stay on the same diagonal. [%cal Gc4b3]} 8... Ba7 9. h3 {A small pawn move that stops a pin on the f3 knight. [%cal Gh2h3]} *
+
+[Event "Italian Game for White"]
+[Lesson "quiet-d3"]
+[Step "find-move"]
+[FEN "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 1 5"]
+[Hint "Use a pawn."]
+[Hint "Move the pawn on d2 to d3."]
+
+{White to move. Protect the e4 pawn and open the c1 bishop with a quiet pawn move.}
+5. d3 {The quiet setup. [%cal Gd3e4]} *
+
+[Event "Italian Game for White"]
+[Lesson "quiet-d3"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "After the bishop and knight are out, play the small pawn moves c3 and d3."]
+[Hint "Castle, then put a rook on e1."]
+[Hint "If the bishop is chased, go to b3."]
+
+{Play the quiet Giuoco Pianissimo line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d3 d6 6. O-O O-O 7. Re1 a6 8. Bb3 Ba7 9. h3 *
+
+[Event "Italian Game for White"]
+[Lesson "center-c3-d4"]
+[LessonTitle "The c3 and d4 plan"]
+[Step "explain"]
+[TeacherNotes "Idea: two center pawns on e4 and d4 take space | If Black checks on b4, block and keep developing | This is the sharper plan; the quiet d3 plan is the calm one"]
+[Mistakes "Moving the king after the check instead of blocking | Forgetting to recapture on d4 with the c-pawn | Pushing d4 before c3 is ready"]
+[ClassQuestions "Why do we play c3 before d4? | What does a pawn on d4 control? | How can we answer a check on b4?"]
+
+{The bigger plan: play c3, then d4, to build two strong pawns in the center. [%cal Gc2c3,Gd2d4]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 {The big center push. [%cal Gd2d4]} 5... exd4 6. cxd4 {Recapture so White again has pawns on d4 and e4. [%csl Gd4,Ge4]} 6... Bb4+ {Black checks the king.}
+7. Bd2 {Block the check with the bishop. [%cal Gc1d2]} 7... Bxd2+ 8. Nbxd2 {Recapture with the knight, which develops a piece. [%cal Gb1d2]} 8... d5 9. exd5 Nxd5 *
+
+[Event "Italian Game for White"]
+[Lesson "center-c3-d4"]
+[Step "find-move"]
+[FEN "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 1 5"]
+[Hint "Use a pawn from the middle of your army."]
+[Hint "Move the pawn on d2 two squares to d4."]
+
+{White to move. Build a big center and attack e5 with a pawn.}
+5. d4 {The center push. [%cal Gd2d4]} *
+
+[Event "Italian Game for White"]
+[Lesson "center-c3-d4"]
+[Step "find-move"]
+[FEN "r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/5N2/PP3PPP/RNBQK2R w KQkq - 1 7"]
+[Hint "Use the bishop on c1."]
+[Hint "Move it to d2 to block the check."]
+
+{Black gave check with the bishop. Block it with your bishop.}
+7. Bd2 {A solid block. [%cal Gc1d2]} *
+
+[Event "Italian Game for White"]
+[Lesson "greed-trap"]
+[LessonTitle "Do not rush to take f7"]
+[Step "explain"]
+[TeacherNotes "A bishop is worth more than one pawn | A quick sacrifice needs a clear follow-up | Stay calm: build first, attack later"]
+[Mistakes "Playing Bxf7+ just because the move is a check | Giving up a good bishop for one pawn | Not asking what happens after the king takes"]
+[ClassQuestions "What does White get for the bishop? | Does the king have to run away after Kxf7? | Which solid move would you play instead?"]
+
+{A common beginner mistake: take f7 at once. Here the bishop is lost for only one pawn. [%cal Rc4f7] [%csl Rf7]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. Bxf7+ {Check! But think about the trade.} 4... Kxf7 {The king simply takes the bishop. White gave a bishop for one pawn. [%csl Rf7]} *
+
+[Event "Italian Game for White"]
+[Lesson "greed-trap"]
+[Step "find-move"]
+[FEN "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"]
+[Hint "Use a pawn, not the bishop."]
+[Hint "Move the pawn on c2 to c3."]
+
+{White to move. Do not give the bishop away. Play the solid pawn move that prepares d4.}
+4. c3 {Solid and good. The bishop stays on its fine diagonal. [%cal Gc2c3]} *

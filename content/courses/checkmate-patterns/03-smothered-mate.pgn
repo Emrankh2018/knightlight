@@ -1,0 +1,63 @@
+[Event "Checkmate Patterns"]
+[Lesson "smothered-idea"]
+[LessonTitle "The smothered mate"]
+[Step "explain"]
+[FEN "6rk/6pp/8/4N3/8/8/8/6K1 w - - 0 1"]
+[TeacherNotes "Smothered means the king is blocked by its own pieces | A knight is perfect for this check, because it jumps and cannot be blocked | The corner is where it happens most"]
+[Mistakes "Trying it with a bishop or rook, which can be blocked or taken | Forgetting to check that no black piece can take the knight"]
+[ClassQuestions "Which black pieces smother the king? | Why can a knight check a king that is fully surrounded?"]
+
+{The black king sits in the corner. Its own rook and pawns box it in. [%csl Rg8,Rg7,Rh7,Rh8] [%cal Ge5f7]}
+1. Nf7# {The knight jumps to f7 and checks the king on h8. Nothing can take the knight and the king cannot move. This is a smothered mate. [%cal Gf7h8]} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "smothered-idea"]
+[Step "find-move"]
+[FEN "kr6/pp6/8/3N4/8/8/8/6K1 w - - 0 1"]
+[Hint "Use your knight."]
+[Hint "Jump to c7."]
+
+{White to move. This is the same pattern on the other side. Find the checkmate.}
+1. Nc7# {Smothered mate again.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "smothered-idea"]
+[Step "quiz"]
+[FEN "6rk/6pp/8/4N3/8/8/8/6K1 w - - 0 1"]
+[Question "Why is a knight the best piece to give a smothered mate?"]
+[Choices "It jumps, so nothing can block its check | It is the strongest piece | It can move diagonally"]
+[Answer "1"]
+[Explanation "A knight jumps over pieces. The king cannot hide behind anything."]
+
+{Look at the position before the knight move.}
+*
+
+[Event "Checkmate Patterns"]
+[Lesson "smothered-trap"]
+[LessonTitle "A smothered mate in the opening"]
+[Step "explain"]
+[TeacherNotes "This trap starts when Black plays 3...Nd4 in the Italian Game | White must not be greedy | The trap works because the white king is stuck behind its own pieces | 4.Nxd4 is a simple safe answer"]
+[Mistakes "Grabbing pawns when the opponent's queen can come out with threats | Blocking a check with a piece that leaves the king boxed in"]
+[ClassQuestions "Which white pieces box in their own king at the end? | Which White move was the real mistake?"]
+
+{Black tries an early trap. Watch what happens if White grabs pawns. [%cal Gc6d4]}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 {A tricky move. The knight attacks the knight on f3.} 4. Nxe5 {White grabs a pawn. Not a mistake yet, but White must be careful now.} 4... Qg5 {The queen attacks the knight on e5 and the pawn on g2. [%cal Gg5e5,Gg5g2]} 5. Nxf7 {Too greedy! This is the real mistake.} 5... Qxg2 {Black takes g2 and attacks the rook on h1 too.} 6. Rf1 Qxe4+ {Check.} 7. Be2 {Another mistake. 7.Qe2 would avoid the mate.} 7... Nf3# {A smothered mate. The king is boxed in by its own pieces. The bishop on e2 cannot take the knight, because the queen on e4 pins it to the king. [%csl Re1,Rd1,Rd2,Rf1,Re2,Rf2] [%cal Gd4f3]} 0-1
+
+[Event "Checkmate Patterns"]
+[Lesson "smothered-trap"]
+[Step "find-move"]
+[FEN "r1b1kbnr/pppp1Npp/8/8/3nq3/8/PPPPBP1P/RNBQKR2 b Qkq - 1 7"]
+[Hint "Use your knight."]
+[Hint "Jump to f3."]
+
+{Black to move. The white king is boxed in. Find the checkmate.}
+7... Nf3# {Checkmate. Every square near the king is taken by White's own pieces or covered.} 0-1
+
+[Event "Checkmate Patterns"]
+[Lesson "smothered-trap"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Black plays a knight to d4 on move three."]
+
+{Play the trap as Black. If White grabs pawns, you win.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 4. Nxe5 Qg5 5. Nxf7 Qxg2 6. Rf1 Qxe4+ 7. Be2 Nf3# *

@@ -1,0 +1,77 @@
+[Event "Checkmate Patterns"]
+[Lesson "ladder-mate"]
+[LessonTitle "The ladder mate with two rooks"]
+[Step "explain"]
+[FEN "6k1/8/R7/1R6/8/8/8/6K1 w - - 0 1"]
+[TeacherNotes "Two rooks take turns building a wall that pushes the king to the edge | One rook cuts off a row and the other gives check | Keep the rooks far apart on the board so the king cannot attack them"]
+[Mistakes "Putting the two rooks next to each other where the king can attack them | Giving a check that lets the king run back"]
+[ClassQuestions "Why does the rook on b7 matter? | Which rows can the king not use now?"]
+
+{Two rooks can be a ladder. One rook cuts off a whole row. Then the other rook gives check on the edge. [%cal Gb5b7]}
+1. Rb7 {The rook on b7 covers the whole seventh row. The king may only move along the back row. [%cal Gb7h7]} 1... Kf8 2. Ra8# {The rook on a8 checks along the back row. The rook on b7 guards the row below. Checkmate. [%cal Ga8e8,Gb7e7]} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "ladder-mate"]
+[Step "find-move"]
+[FEN "5k2/1R6/8/8/8/8/8/R5K1 w - - 0 1"]
+[Hint "Use the rook that is not on the seventh row."]
+[Hint "Move it to a8."]
+
+{White to move. The rook on b7 already blocks the seventh row. Find the checkmate.}
+1. Ra8# {The king cannot go down or to the side.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "queen-king-mate"]
+[LessonTitle "Queen and king mate"]
+[Step "explain"]
+[FEN "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1"]
+[TeacherNotes "A lone king can be mated by the king and queen working together | The queen gives check while the king guards the queen | A queen next to the enemy king is only safe when it is guarded (here, by your king)"]
+[Mistakes "Putting the queen next to the king without a guard, so the king captures it | Checking from far away when a closer check is mate"]
+[ClassQuestions "Which white piece guards the queen on g7? | Why can the black king not take the queen?"]
+
+{White's king is close to the black king. The queen can come in and be guarded. [%csl Gf6,Rh8] [%cal Gg1g7]}
+1. Qg7# {The queen checks the king. The white king guards the queen, so the black king cannot take it. Every other square is covered. [%cal Gf6g7]} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "queen-king-mate"]
+[Step "find-move"]
+[FEN "k7/8/2K5/8/8/8/8/1Q6 w - - 0 1"]
+[Hint "Use your queen."]
+[Hint "Go to the b7 square. Your king guards it."]
+
+{White to move. Find the checkmate in the corner.}
+1. Qb7# {The queen is guarded by the king. The black king has no safe square.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "careful-stalemate"]
+[LessonTitle "Be careful: stalemate"]
+[Step "explain"]
+[FEN "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1"]
+[TeacherNotes "Stalemate means the player to move has no legal move and is not in check | It is a draw, not a win | Before a quiet move, always ask what squares the enemy king has left"]
+[Mistakes "Taking away every square from the enemy king without giving check | Playing fast when you are winning"]
+[ClassQuestions "What is the difference between checkmate and stalemate? | What should you count before every move when you are far ahead?"]
+
+{White is winning easily. But one wrong queen move gives a draw. [%csl Rh8]}
+1. Qg6 {Oops! The king is not in check, and every square it could use is covered. Black has no legal move. [%cal Rg6g8,Rg6h7,Rg6g7]} 1/2-1/2
+
+[Event "Checkmate Patterns"]
+[Lesson "careful-stalemate"]
+[Step "find-move"]
+[FEN "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1"]
+[Hint "Use your queen."]
+[Hint "Go to g7, right next to the king, guarded by your own king."]
+
+{Same position. White to move. Find the checkmate instead of the stalemate.}
+1. Qg7# {Checkmate, not stalemate. The king is in check.} 1-0
+
+[Event "Checkmate Patterns"]
+[Lesson "careful-stalemate"]
+[Step "quiz"]
+[FEN "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1"]
+[Question "After Qg6 it is Black's turn. The king is not in check and has no legal move. What is this?"]
+[Choices "Checkmate | Stalemate | Just a check"]
+[Answer "2"]
+[Explanation "The king is not attacked, but it cannot move anywhere safe and Black has no other piece. That is stalemate, and the game is a draw."]
+
+{Look at the position after the queen move.}
+1. Qg6 1/2-1/2
