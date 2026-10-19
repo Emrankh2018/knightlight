@@ -1,0 +1,68 @@
+﻿ M PROGRESS.md
+ M REVIEW_CHECKLIST.md
+ M e2e/lessons.spec.ts
+ M public/data/courses/index.json
+ M src/components/Board.tsx
+ M src/components/Button.tsx
+ M src/components/Layout.tsx
+ M src/components/ProfileSwitcher.tsx
+ M src/components/lesson/LessonPlayer.tsx
+ M src/components/lesson/shared.tsx
+ M src/engine/client.ts
+ M src/engine/levels.ts
+ M src/engine/search.ts
+ M src/engine/worker.ts
+ M src/i18n/en.ts
+ M src/index.css
+ M src/lib/achievements.ts
+ M src/lib/date.ts
+ M src/lib/explorer.ts
+ M src/lib/ready-routes.ts
+ M src/lib/xp.ts
+ M src/routes/Assign.tsx
+ M src/routes/Home.tsx
+ M src/routes/Openings.tsx
+ M src/routes/Play.tsx
+ M src/routes/Students.tsx
+ M src/routes/Teacher.tsx
+ M src/store/backup.ts
+ M src/store/profiles.ts
+ M src/store/progress.ts
+ M tests/lesson-machines.test.ts
+?? .agents/
+?? .codex/
+?? .graphifyignore
+?? .playwright-mcp/
+?? AUDIT_REPORT.md
+?? content/courses/london-system/
+?? content/courses/queens-gambit/
+?? content/courses/ruy-lopez/
+?? content/courses/sicilian-defence/
+?? docs/audits/
+?? e2e/play.spec.ts
+?? e2e/students.spec.ts
+?? e2e/teacher.spec.ts
+?? public/data/courses/london-system.json
+?? public/data/courses/queens-gambit.json
+?? public/data/courses/ruy-lopez.json
+?? public/data/courses/sicilian-defence.json
+?? src/components/LoadBox.tsx
+?? src/components/Modal.tsx
+?? src/components/MoveList.tsx
+?? src/components/play/
+?? src/components/students/
+?? src/engine/level-ids.ts
+?? src/engine/position-key.ts
+?? src/lib/annotations.ts
+?? src/lib/assign.ts
+?? src/lib/leaderboard.ts
+?? src/lib/play.ts
+?? src/lib/students.ts
+?? src/lib/suggest.ts
+?? src/lib/teacher-notes.ts
+?? tests/assign.test.ts
+?? tests/backup-import.test.ts
+?? tests/leaderboard.test.ts
+?? tests/play.test.ts
+?? tests/students-hardening.test.ts
+?? tests/teacher.test.ts

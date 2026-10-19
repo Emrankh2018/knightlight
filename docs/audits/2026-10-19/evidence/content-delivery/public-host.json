@@ -1,0 +1,195 @@
+{
+  "/": {
+    "status": 200,
+    "headers": {
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "cf-cache-status": "HIT",
+      "cf-ray": "a4cf336e880c5720-DOH",
+      "content-encoding": "zstd",
+      "content-type": "text/html",
+      "date": "Mon, 19 Oct 2026 10:46:46 GMT",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=GXLLtDAEqdUYsyC3ZZpBxlMXCIaaZ91P7GPdXHV6rZ6jykrGCXMItygxS0EkiJ71EMmj17gRN0WJifou2Y0cmHi5H2LdREfkm3kb7FyovLdqZqRt9Avt%2BcjZ%2FcB6WdS2VfWo5WyYgKmL%2BDq7NzXu74gmkoRH2D6e\"}]}",
+      "server": "cloudflare"
+    },
+    "body": "<!doctype html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta name=\"theme-color\" content=\"#0F3D3E\" />\n    <meta name=\"description\" content=\"Knightlight: interactive chess lessons, puzzles and a projector-friendly teacher toolkit.\" />\n    <title>Knightlight</title>\n    <script type=\"module\" crossorigin src=\"/assets/index-DTZLymUc.js\"></script>\n    <link rel=\"modulepreload\" crossorigin href=\"/assets/jsx-runtime-z4hwPwYK.js\">\n    <link rel=\"modulepreload\" crossorigin href=\"/assets/data-rtBoUeYH.js\">\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-BIiIPqFG.css\">\n  <link rel=\"manifest\" href=\"/manifest.webmanifest\"><script id=\"vite-plugin-pwa:register-sw\" src=\"/registerSW.js\"></script></head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+  },
+  "/sw.js": {
+    "status": 200,
+    "headers": {
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "cf-cache-status": "HIT",
+      "cf-ray": "a4cf336ec85f5720-DOH",
+      "content-encoding": "zstd",
+      "content-type": "text/javascript",
+      "date": "Mon, 19 Oct 2026 10:46:46 GMT",
+      "etag": "W/\"eb686cc8315a58b03702b4ce78191730\"",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=MwTtDQXK%2FU1n3aFFuEp0vOEJEPDhuCPD0eOcD04SOjf7GxSWINxE5taA1Jdo5oGD%2FN0OIF3LsyGTtDLE9KJ%2FExiAcog%2F1M%2B23z%2F7eQwbuG5XUarGwikE9lAX8Ii04zBzZLn93kwqKA5WOK%2Bx5PwsPw42aJdiTNfo\"}]}",
+      "server": "cloudflare"
+    },
+    "swPuzzleReferences": 76
+  },
+  "/data/courses/index.json": {
+    "status": 200,
+    "headers": {
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "cf-cache-status": "HIT",
+      "cf-ray": "a4cf336ee89a5720-DOH",
+      "content-encoding": "zstd",
+      "content-type": "application/json",
+      "date": "Mon, 19 Oct 2026 10:46:46 GMT",
+      "etag": "W/\"dc8cda5b66961db026ee9581e91ab609\"",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=WvG9gLc7vkpVFp4R%2FHwwhLbnW0HqpjIyBatM0tDpjX9WBXrpcO3rhF4S9XrJPX3Ez7DN7vTUfzNFztpTzSHzvJd1kakDgFTT7mn4BPGO69Fl7RDgUOwYlhGr7eBPA5n4Ng2h2TNipQHJgYHUlxuR%2FgpFz2pn2C6k\"}]}",
+      "server": "cloudflare"
+    },
+    "body": [
+      {
+        "slug": "checkmate-patterns",
+        "title": "Checkmate Patterns",
+        "kind": "skills",
+        "level": "beginner",
+        "description": "Learn the classic ways to checkmate: the back rank, rook and queen mates, the smothered mate, and the quick traps called Scholar's mate and Fool's mate. You will also learn how to defend.",
+        "tags": [
+          "checkmate",
+          "tactics",
+          "beginner",
+          "mating patterns"
+        ],
+        "reviewed": false,
+        "chapters": [
+          {
+            "file": "01-back-rank.pgn",
+            "title": "The back-rank mate"
+          },
+          {
+            "file": "02-rooks-and-queen.pgn",
+            "title": "Mating with rooks and the queen"
+          },
+          {
+            "file": "03-smothered-mate.pgn",
+            "title": "The smothered mate"
+          },
+          {
+            "file": "04-quick-mates.pgn",
+            "title": "Quick mates and how to stop them"
+          }
+        ],
+        "counts": {
+          "chapters": 4,
+          "lessons": 11,
+          "steps": 33
+        }
+      },
+      {
+        "slug": "italian-game",
+        "title": "Italian Game for White",
+        "kind": "opening",
+        "level": "beginner",
+        "description": "Learn the Italian Game with the white pieces: the Giuoco Piano plans, the Two Knights Defence, a short look at the Evans Gambit and a few traps to know.",
+        "tags": [
+          "opening",
+          "italian-game",
+          "e4",
+          "giuoco-piano",
+          "white"
+        ],
+        "reviewed": false,
+        "chapters": [
+          {
+            "file": "01-the-setup.pgn",
+            "title": "The Italian setup"
+          },
+          {
+            "file": "02-giuoco-piano.pgn",
+            "title": "Giuoco Piano plans"
+          },
+          {
+            "file": "03-two-knights.pgn",
+            "title": "Two Knights Defence"
+          },
+          {
+            "file": "04-evans-and-traps.pgn",
+            "title": "Evans Gambit and traps"
+          }
+        ],
+        "side": "white",
+        "counts": {
+          "chapters": 4,
+          "lessons": 13,
+          "steps": 35
+        }
+      },
+      {
+        "slug": "sample-basics",
+        "title": "Sample: Attacking f7",
+        "kind": "skills",
+        "level": "beginner",
+        "description": "A tiny sample course showing every kind of step. It is used to test the app and is not real teaching material.",
+        "tags": [
+          "sample",
+          "tactics"
+        ],
+        "reviewed": false,
+        "chapters": [
+          {
+            "file": "01-weak-f7.pgn",
+            "title": "The weak f7 square"
+          }
+        ],
+        "counts": {
+          "chapters": 1,
+          "lessons": 1,
+          "steps": 4
+        }
+      },
+      {
+        "slug": "tactics-basics",
+        "title": "Tactics Basics",
+        "kind": "skills",
+        "level": "beginner",
+        "description": "Learn the first tricks every player needs: forks, pins, skewers, discovered attacks, loose pieces and smart trades.",
+        "tags": [
+          "tactics",
+          "fork",
+          "pin",
+          "skewer",
+          "discovered attack",
+          "piece values"
+        ],
+        "reviewed": false,
+        "chapters": [
+          {
+            "file": "01-forks.pgn",
+            "title": "Forks"
+          },
+          {
+            "file": "02-pins.pgn",
+            "title": "Pins"
+          },
+          {
+            "file": "03-skewers-and-discoveries.pgn",
+            "title": "Skewers and discovered attacks"
+          },
+          {
+            "file": "04-loose-pieces.pgn",
+            "title": "Hanging and defended pieces"
+          },
+          {
+            "file": "05-piece-values-and-trades.pgn",
+            "title": "Piece values and trading up"
+          }
+        ],
+        "counts": {
+          "chapters": 5,
+          "lessons": 12,
+          "steps": 50
+        }
+      }
+    ]
+  }
+}

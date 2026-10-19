@@ -1,0 +1,125 @@
+{
+  "initial": {
+    "a": "9ac1651d-c7ca-4b8a-8c49-b2007bd166ef",
+    "b": "c1c8dc69-f61b-4bd8-91c2-c3f3cb7326ac",
+    "xp": 0
+  },
+  "sameBoard": true,
+  "sessionTextRetained": true,
+  "before": "1\n2\n3\n4\n5\n6\n7\nh\n8\ng\nf\ne\nd\nc\nb\na\nLast move: R8d7\nBeginner (new to chess): Mate in 2\nClass Mode\nChange level or theme\n\nBlack to move\n\nPuzzle 1 of 150\n\nClean streak: 0\n\nRating 533\n\nHint (H)\nShow solution (S)\nNext puzzle (N)\n🔊\n\nHint: move your rook.\n\nKeys: H hint, S solution, N or Enter next, C class mode, Esc leave class mode",
+  "after": "1\n2\n3\n4\n5\n6\n7\nh\n8\ng\nf\ne\nd\nc\nb\na\nLast move: R8d7\nBeginner (new to chess): Mate in 2\nClass Mode\nChange level or theme\n\nBlack to move\n\nPuzzle 1 of 150\n\nClean streak: 0\n\nRating 533\n\nHint (H)\nShow solution (S)\nNext puzzle (N)\n🔊\n\nHint: move your rook.\n\nKeys: H hint, S solution, N or Enter next, C class mode, Esc leave class mode",
+  "state": {
+    "active": "c1c8dc69-f61b-4bd8-91c2-c3f3cb7326ac",
+    "progressOwner": "c1c8dc69-f61b-4bd8-91c2-c3f3cb7326ac",
+    "current": {
+      "version": 1,
+      "xp": 0,
+      "streak": {
+        "current": 1,
+        "best": 1,
+        "lastDay": "2026-10-19"
+      },
+      "completedSteps": {},
+      "completedLessons": {},
+      "puzzles": {
+        "solved": {},
+        "byLevel": {
+          "beginner": {
+            "solved": 0,
+            "attempted": 1
+          }
+        },
+        "streak": {
+          "current": 0,
+          "best": 0
+        }
+      },
+      "srs": {
+        "puzzle:aC1if": {
+          "id": "puzzle:aC1if",
+          "kind": "puzzle",
+          "ref": "aC1if",
+          "ease": 2.5,
+          "interval": 0,
+          "reps": 0,
+          "due": "2026-10-19",
+          "lapses": 0
+        }
+      },
+      "achievements": [],
+      "botWins": {},
+      "linesDrilled": 0
+    },
+    "all": [
+      {
+        "id": "9ac1651d-c7ca-4b8a-8c49-b2007bd166ef",
+        "name": "Player 1",
+        "progress": {
+          "version": 1,
+          "xp": 0,
+          "streak": {
+            "current": 0,
+            "best": 0
+          },
+          "completedSteps": {},
+          "completedLessons": {},
+          "puzzles": {
+            "solved": {},
+            "byLevel": {},
+            "streak": {
+              "current": 0,
+              "best": 0
+            }
+          },
+          "srs": {},
+          "achievements": [],
+          "botWins": {},
+          "linesDrilled": 0
+        }
+      },
+      {
+        "id": "c1c8dc69-f61b-4bd8-91c2-c3f3cb7326ac",
+        "name": "Audit Student B",
+        "progress": {
+          "version": 1,
+          "xp": 0,
+          "streak": {
+            "current": 1,
+            "best": 1,
+            "lastDay": "2026-10-19"
+          },
+          "completedSteps": {},
+          "completedLessons": {},
+          "puzzles": {
+            "solved": {},
+            "byLevel": {
+              "beginner": {
+                "solved": 0,
+                "attempted": 1
+              }
+            },
+            "streak": {
+              "current": 0,
+              "best": 0
+            }
+          },
+          "srs": {
+            "puzzle:aC1if": {
+              "id": "puzzle:aC1if",
+              "kind": "puzzle",
+              "ref": "aC1if",
+              "ease": 2.5,
+              "interval": 0,
+              "reps": 0,
+              "due": "2026-10-19",
+              "lapses": 0
+            }
+          },
+          "achievements": [],
+          "botWins": {},
+          "linesDrilled": 0
+        }
+      }
+    ]
+  }
+}

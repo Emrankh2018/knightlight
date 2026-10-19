@@ -1,0 +1,2743 @@
+[
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/",
+    "title": "🦊 Welcome back, Player 1!",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/courses",
+    "title": "Courses",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 1719,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/courses/checkmate-patterns",
+    "title": "Checkmate Patterns",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 2168,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/learn/checkmate-patterns/back-rank-mate",
+    "title": "The back-rank mate",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 868,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 81.59375,
+      "y": 94.5,
+      "width": 660,
+      "height": 660,
+      "top": 94.5,
+      "right": 741.59375,
+      "bottom": 754.5,
+      "left": 81.59375
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/puzzles",
+    "title": "Puzzles",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 851,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/puzzles?level=beginner&theme=mateIn1",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/tactics",
+    "title": "Tactics",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 2185,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/teacher",
+    "title": "Teacher analysis board",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 1669,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 123.890625,
+      "y": 189,
+      "width": 570,
+      "height": 570,
+      "top": 189,
+      "right": 693.890625,
+      "bottom": 759,
+      "left": 123.890625
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/openings",
+    "title": "Openings explorer",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 2834,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 123.890625,
+      "y": 189,
+      "width": 570,
+      "height": 570,
+      "top": 189,
+      "right": 693.890625,
+      "bottom": 759,
+      "left": 123.890625
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/play",
+    "title": "Play against the bot",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 1087,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/review",
+    "title": "Review",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/students",
+    "title": "Students",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 1779,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/assign",
+    "title": "Your assignment",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [
+      "This assign link is not valid. It does not say what to practise."
+    ],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "route": "/unknown-audit-route",
+    "documentWidth": 1366,
+    "viewportWidth": 1366,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/",
+    "title": "🦊 Welcome back, Player 1!",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/courses",
+    "title": "Courses",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 2081,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/courses/checkmate-patterns",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/learn/checkmate-patterns/back-rank-mate",
+    "title": "The back-rank mate",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 868,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 18,
+      "y": 94.5,
+      "width": 582,
+      "height": 582,
+      "top": 94.5,
+      "right": 600,
+      "bottom": 676.5,
+      "left": 18
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/puzzles",
+    "title": "Puzzles",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 935,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/puzzles?level=beginner&theme=mateIn1",
+    "title": "Beginner (new to chess): Mate in 1",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 963,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 18,
+      "y": 94.5,
+      "width": 582,
+      "height": 582,
+      "top": 94.5,
+      "right": 600,
+      "bottom": 676.5,
+      "left": 18
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/tactics",
+    "title": "Tactics",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 2816,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/teacher",
+    "title": "Teacher analysis board",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 1912,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 21.296875,
+      "y": 189,
+      "width": 570,
+      "height": 570,
+      "top": 189,
+      "right": 591.296875,
+      "bottom": 759,
+      "left": 21.296875
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/openings",
+    "title": "Openings explorer",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 3162,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 21.296875,
+      "y": 189,
+      "width": 570,
+      "height": 570,
+      "top": 189,
+      "right": 591.296875,
+      "bottom": 759,
+      "left": 21.296875
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/play",
+    "title": "Play against the bot",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 1087,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/review",
+    "title": "Review",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/students",
+    "title": "Students",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 1842,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/assign",
+    "title": "Your assignment",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [
+      "This assign link is not valid. It does not say what to practise."
+    ],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "route": "/unknown-audit-route",
+    "documentWidth": 1024,
+    "viewportWidth": 1024,
+    "documentHeight": 768,
+    "offscreen": [],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/",
+    "title": "🦊 Welcome back, Player 1!",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 977,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/courses",
+    "title": "Courses",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 3253,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/courses/checkmate-patterns",
+    "title": "Checkmate Patterns",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 2449,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/learn/checkmate-patterns/back-rank-mate",
+    "title": "The back-rank mate",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 1321,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 16,
+      "y": 88,
+      "width": 358,
+      "height": 358,
+      "top": 88,
+      "right": 374,
+      "bottom": 446,
+      "left": 16
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/puzzles",
+    "title": "Puzzles",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 1818,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/puzzles?level=beginner&theme=mateIn1",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 844,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/tactics",
+    "title": "Tactics",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 5628,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/teacher",
+    "title": "Teacher analysis board",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 2155,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 16,
+      "y": 200,
+      "width": 358,
+      "height": 358,
+      "top": 200,
+      "right": 374,
+      "bottom": 558,
+      "left": 16
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/openings",
+    "title": "Openings explorer",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 3841,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "board": {
+      "x": 16,
+      "y": 200,
+      "width": 358,
+      "height": 358,
+      "top": 200,
+      "right": 374,
+      "bottom": 558,
+      "left": 16
+    },
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/play",
+    "title": "Play against the bot",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 1205,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      },
+      {
+        "text": "",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/review",
+    "title": "Review",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 844,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/students",
+    "title": "Students",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 2375,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/assign",
+    "title": "Your assignment",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 844,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [
+      "This assign link is not valid. It does not say what to practise."
+    ],
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "route": "/unknown-audit-route",
+    "documentWidth": 498,
+    "viewportWidth": 390,
+    "documentHeight": 844,
+    "offscreen": [
+      {
+        "text": "Student: Player 1, level 1",
+        "r": {
+          "x": 295.859375,
+          "y": 10,
+          "width": 108.765625,
+          "height": 44,
+          "top": 10,
+          "right": 404.625,
+          "bottom": 54,
+          "left": 295.859375
+        }
+      },
+      {
+        "text": "☰Open menu",
+        "r": {
+          "x": 408.625,
+          "y": 8,
+          "width": 89.046875,
+          "height": 48,
+          "top": 8,
+          "right": 497.671875,
+          "bottom": 56,
+          "left": 408.625
+        }
+      }
+    ],
+    "small": [
+      {
+        "text": "Skip to content",
+        "w": 1,
+        "h": 1
+      }
+    ],
+    "alert": [],
+    "errors": []
+  },
+  {
+    "searchClickAndShortcut": {
+      "dialogCount": 0,
+      "inputs": 0,
+      "textChangedAfterShortcut": false
+    }
+  },
+  {
+    "present": "/puzzles?level=beginner&theme=mateIn1",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "scrollHeight": 768,
+    "clientHeight": 768,
+    "scrollWidth": 1366,
+    "clientWidth": 1366,
+    "controls": [
+      {
+        "text": "Class Mode",
+        "r": {
+          "x": 801.5,
+          "y": 146,
+          "width": 215.9375,
+          "height": 72,
+          "top": 146,
+          "right": 1017.4375,
+          "bottom": 218,
+          "left": 801.5
+        }
+      },
+      {
+        "text": "Change level or theme",
+        "r": {
+          "x": 1030.9375,
+          "y": 157.25,
+          "width": 237.109375,
+          "height": 49.5,
+          "top": 157.25,
+          "right": 1268.046875,
+          "bottom": 206.75,
+          "left": 1030.9375
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 1001.078125,
+          "y": 312,
+          "width": 63,
+          "height": 63,
+          "top": 312,
+          "right": 1064.078125,
+          "bottom": 375,
+          "left": 1001.078125
+        }
+      },
+      {
+        "text": "Reveal rating and themes",
+        "r": {
+          "x": 801.5,
+          "y": 393,
+          "width": 397.765625,
+          "height": 72,
+          "top": 393,
+          "right": 1199.265625,
+          "bottom": 465,
+          "left": 801.5
+        }
+      },
+      {
+        "text": "Hint (H)",
+        "r": {
+          "x": 801.5,
+          "y": 483,
+          "width": 179.28125,
+          "height": 72,
+          "top": 483,
+          "right": 980.78125,
+          "bottom": 555,
+          "left": 801.5
+        }
+      },
+      {
+        "text": "Show solution (S)",
+        "r": {
+          "x": 989.78125,
+          "y": 483,
+          "width": 298.8125,
+          "height": 72,
+          "top": 483,
+          "right": 1288.59375,
+          "bottom": 555,
+          "left": 989.78125
+        }
+      },
+      {
+        "text": "Next puzzle (N)",
+        "r": {
+          "x": 801.5,
+          "y": 564,
+          "width": 274.75,
+          "height": 72,
+          "top": 564,
+          "right": 1076.25,
+          "bottom": 636,
+          "left": 801.5
+        }
+      }
+    ]
+  },
+  {
+    "present": "/puzzles?level=beginner&theme=mateIn1",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "scrollHeight": 943,
+    "clientHeight": 768,
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "controls": [
+      {
+        "text": "Class Mode",
+        "r": {
+          "x": 683.890625,
+          "y": 137,
+          "width": 164.953125,
+          "height": 63,
+          "top": 137,
+          "right": 848.84375,
+          "bottom": 200,
+          "left": 683.890625
+        }
+      },
+      {
+        "text": "Change level or theme",
+        "r": {
+          "x": 683.890625,
+          "y": 213.5,
+          "width": 237.109375,
+          "height": 49.5,
+          "top": 213.5,
+          "right": 921,
+          "bottom": 263,
+          "left": 683.890625
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 852.453125,
+          "y": 397.484375,
+          "width": 63,
+          "height": 63,
+          "top": 397.484375,
+          "right": 915.453125,
+          "bottom": 460.484375,
+          "left": 852.453125
+        }
+      },
+      {
+        "text": "Reveal rating and themes",
+        "r": {
+          "x": 683.890625,
+          "y": 478.484375,
+          "width": 297.609375,
+          "height": 85,
+          "top": 478.484375,
+          "right": 981.5,
+          "bottom": 563.484375,
+          "left": 683.890625
+        }
+      },
+      {
+        "text": "Hint (H)",
+        "r": {
+          "x": 683.890625,
+          "y": 581.484375,
+          "width": 135.0625,
+          "height": 63,
+          "top": 581.484375,
+          "right": 818.953125,
+          "bottom": 644.484375,
+          "left": 683.890625
+        }
+      },
+      {
+        "text": "Show solution (S)",
+        "r": {
+          "x": 683.890625,
+          "y": 653.484375,
+          "width": 234.671875,
+          "height": 63,
+          "top": 653.484375,
+          "right": 918.5625,
+          "bottom": 716.484375,
+          "left": 683.890625
+        }
+      },
+      {
+        "text": "Next puzzle (N)",
+        "r": {
+          "x": 683.890625,
+          "y": 725.484375,
+          "width": 214.625,
+          "height": 63,
+          "top": 725.484375,
+          "right": 898.515625,
+          "bottom": 788.484375,
+          "left": 683.890625
+        }
+      }
+    ]
+  },
+  {
+    "present": "/puzzles?level=beginner&theme=mateIn1",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "scrollHeight": 1035,
+    "clientHeight": 1024,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "controls": [
+      {
+        "text": "Class Mode",
+        "r": {
+          "x": 583.375,
+          "y": 625.25,
+          "width": 146.625,
+          "height": 56,
+          "top": 625.25,
+          "right": 730,
+          "bottom": 681.25,
+          "left": 583.375
+        }
+      },
+      {
+        "text": "Change level or theme",
+        "r": {
+          "x": 38,
+          "y": 693.25,
+          "width": 210.765625,
+          "height": 44,
+          "top": 693.25,
+          "right": 248.765625,
+          "bottom": 737.25,
+          "left": 38
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 601.125,
+          "y": 753.25,
+          "width": 56,
+          "height": 56,
+          "top": 753.25,
+          "right": 657.125,
+          "bottom": 809.25,
+          "left": 601.125
+        }
+      },
+      {
+        "text": "Reveal rating and themes",
+        "r": {
+          "x": 38,
+          "y": 825.25,
+          "width": 282.34375,
+          "height": 56,
+          "top": 825.25,
+          "right": 320.34375,
+          "bottom": 881.25,
+          "left": 38
+        }
+      },
+      {
+        "text": "Hint (H)",
+        "r": {
+          "x": 38,
+          "y": 897.25,
+          "width": 120.5,
+          "height": 56,
+          "top": 897.25,
+          "right": 158.5,
+          "bottom": 953.25,
+          "left": 38
+        }
+      },
+      {
+        "text": "Show solution (S)",
+        "r": {
+          "x": 166.5,
+          "y": 897.25,
+          "width": 209.046875,
+          "height": 56,
+          "top": 897.25,
+          "right": 375.546875,
+          "bottom": 953.25,
+          "left": 166.5
+        }
+      },
+      {
+        "text": "Next puzzle (N)",
+        "r": {
+          "x": 383.546875,
+          "y": 897.25,
+          "width": 191.21875,
+          "height": 56,
+          "top": 897.25,
+          "right": 574.765625,
+          "bottom": 953.25,
+          "left": 383.546875
+        }
+      }
+    ]
+  },
+  {
+    "present": "/learn/checkmate-patterns/back-rank-mate",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "scrollHeight": 768,
+    "clientHeight": 768,
+    "scrollWidth": 1366,
+    "clientWidth": 1366,
+    "controls": [
+      {
+        "text": "Present",
+        "r": {
+          "x": 797,
+          "y": 154.5,
+          "width": 116.375,
+          "height": 54,
+          "top": 154.5,
+          "right": 913.375,
+          "bottom": 208.5,
+          "left": 797
+        }
+      },
+      {
+        "text": "Teacher view",
+        "r": {
+          "x": 922.375,
+          "y": 154.5,
+          "width": 171.25,
+          "height": 54,
+          "top": 154.5,
+          "right": 1093.625,
+          "bottom": 208.5,
+          "left": 922.375
+        }
+      },
+      {
+        "text": "Flip board",
+        "r": {
+          "x": 1102.625,
+          "y": 154.5,
+          "width": 145.34375,
+          "height": 54,
+          "top": 154.5,
+          "right": 1247.96875,
+          "bottom": 208.5,
+          "left": 1102.625
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 1256.96875,
+          "y": 150,
+          "width": 63,
+          "height": 63,
+          "top": 150,
+          "right": 1319.96875,
+          "bottom": 213,
+          "left": 1256.96875
+        }
+      },
+      {
+        "text": "Previous move",
+        "r": {
+          "x": 801.5,
+          "y": 414.984375,
+          "width": 204.4375,
+          "height": 63,
+          "top": 414.984375,
+          "right": 1005.9375,
+          "bottom": 477.984375,
+          "left": 801.5
+        }
+      },
+      {
+        "text": "Next move",
+        "r": {
+          "x": 1014.9375,
+          "y": 414.984375,
+          "width": 164.859375,
+          "height": 63,
+          "top": 414.984375,
+          "right": 1179.796875,
+          "bottom": 477.984375,
+          "left": 1014.9375
+        }
+      },
+      {
+        "text": "Previous",
+        "r": {
+          "x": 797,
+          "y": 667,
+          "width": 139.71875,
+          "height": 63,
+          "top": 667,
+          "right": 936.71875,
+          "bottom": 730,
+          "left": 797
+        }
+      },
+      {
+        "text": "Next step",
+        "r": {
+          "x": 945.71875,
+          "y": 667,
+          "width": 151.03125,
+          "height": 63,
+          "top": 667,
+          "right": 1096.75,
+          "bottom": 730,
+          "left": 945.71875
+        }
+      }
+    ]
+  },
+  {
+    "present": "/learn/checkmate-patterns/back-rank-mate",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "scrollHeight": 768,
+    "clientHeight": 768,
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "controls": [
+      {
+        "text": "Present",
+        "r": {
+          "x": 577,
+          "y": 150,
+          "width": 116.375,
+          "height": 54,
+          "top": 150,
+          "right": 693.375,
+          "bottom": 204,
+          "left": 577
+        }
+      },
+      {
+        "text": "Teacher view",
+        "r": {
+          "x": 702.375,
+          "y": 150,
+          "width": 171.25,
+          "height": 54,
+          "top": 150,
+          "right": 873.625,
+          "bottom": 204,
+          "left": 702.375
+        }
+      },
+      {
+        "text": "Flip board",
+        "r": {
+          "x": 577,
+          "y": 217.5,
+          "width": 145.34375,
+          "height": 54,
+          "top": 217.5,
+          "right": 722.34375,
+          "bottom": 271.5,
+          "left": 577
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 731.34375,
+          "y": 213,
+          "width": 63,
+          "height": 63,
+          "top": 213,
+          "right": 794.34375,
+          "bottom": 276,
+          "left": 731.34375
+        }
+      },
+      {
+        "text": "Previous move",
+        "r": {
+          "x": 581.5,
+          "y": 509.484375,
+          "width": 204.4375,
+          "height": 63,
+          "top": 509.484375,
+          "right": 785.9375,
+          "bottom": 572.484375,
+          "left": 581.5
+        }
+      },
+      {
+        "text": "Next move",
+        "r": {
+          "x": 794.9375,
+          "y": 509.484375,
+          "width": 164.859375,
+          "height": 63,
+          "top": 509.484375,
+          "right": 959.796875,
+          "bottom": 572.484375,
+          "left": 794.9375
+        }
+      },
+      {
+        "text": "Previous",
+        "r": {
+          "x": 577,
+          "y": 667,
+          "width": 139.71875,
+          "height": 63,
+          "top": 667,
+          "right": 716.71875,
+          "bottom": 730,
+          "left": 577
+        }
+      },
+      {
+        "text": "Next step",
+        "r": {
+          "x": 725.71875,
+          "y": 667,
+          "width": 151.03125,
+          "height": 63,
+          "top": 667,
+          "right": 876.75,
+          "bottom": 730,
+          "left": 725.71875
+        }
+      }
+    ]
+  },
+  {
+    "present": "/learn/checkmate-patterns/back-rank-mate",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "scrollHeight": 1024,
+    "clientHeight": 1024,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "controls": [
+      {
+        "text": "Present",
+        "r": {
+          "x": 34,
+          "y": 569.5625,
+          "width": 103.453125,
+          "height": 48,
+          "top": 569.5625,
+          "right": 137.453125,
+          "bottom": 617.5625,
+          "left": 34
+        }
+      },
+      {
+        "text": "Teacher view",
+        "r": {
+          "x": 145.453125,
+          "y": 569.5625,
+          "width": 152.671875,
+          "height": 48,
+          "top": 569.5625,
+          "right": 298.125,
+          "bottom": 617.5625,
+          "left": 145.453125
+        }
+      },
+      {
+        "text": "Flip board",
+        "r": {
+          "x": 306.125,
+          "y": 569.5625,
+          "width": 129.640625,
+          "height": 48,
+          "top": 569.5625,
+          "right": 435.765625,
+          "bottom": 617.5625,
+          "left": 306.125
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 443.765625,
+          "y": 565.5625,
+          "width": 56,
+          "height": 56,
+          "top": 565.5625,
+          "right": 499.765625,
+          "bottom": 621.5625,
+          "left": 443.765625
+        }
+      },
+      {
+        "text": "Previous move",
+        "r": {
+          "x": 38,
+          "y": 801.5625,
+          "width": 182.171875,
+          "height": 56,
+          "top": 801.5625,
+          "right": 220.171875,
+          "bottom": 857.5625,
+          "left": 38
+        }
+      },
+      {
+        "text": "Next move",
+        "r": {
+          "x": 228.171875,
+          "y": 801.5625,
+          "width": 146.984375,
+          "height": 56,
+          "top": 801.5625,
+          "right": 375.15625,
+          "bottom": 857.5625,
+          "left": 228.171875
+        }
+      },
+      {
+        "text": "Previous",
+        "r": {
+          "x": 34,
+          "y": 883.5625,
+          "width": 124.640625,
+          "height": 56,
+          "top": 883.5625,
+          "right": 158.640625,
+          "bottom": 939.5625,
+          "left": 34
+        }
+      },
+      {
+        "text": "Next step",
+        "r": {
+          "x": 166.640625,
+          "y": 883.5625,
+          "width": 134.703125,
+          "height": 56,
+          "top": 883.5625,
+          "right": 301.34375,
+          "bottom": 939.5625,
+          "left": 166.640625
+        }
+      }
+    ]
+  },
+  {
+    "present": "/teacher",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "scrollHeight": 768,
+    "clientHeight": 768,
+    "scrollWidth": 1366,
+    "clientWidth": 1366,
+    "controls": [
+      {
+        "text": "Undo",
+        "r": {
+          "x": 797,
+          "y": 147.6875,
+          "width": 100.8125,
+          "height": 54,
+          "top": 147.6875,
+          "right": 897.8125,
+          "bottom": 201.6875,
+          "left": 797
+        }
+      },
+      {
+        "text": "Redo",
+        "r": {
+          "x": 906.8125,
+          "y": 147.6875,
+          "width": 97.59375,
+          "height": 54,
+          "top": 147.6875,
+          "right": 1004.40625,
+          "bottom": 201.6875,
+          "left": 906.8125
+        }
+      },
+      {
+        "text": "Reset",
+        "r": {
+          "x": 1013.40625,
+          "y": 147.6875,
+          "width": 100.421875,
+          "height": 54,
+          "top": 147.6875,
+          "right": 1113.828125,
+          "bottom": 201.6875,
+          "left": 1013.40625
+        }
+      },
+      {
+        "text": "Flip board",
+        "r": {
+          "x": 1122.828125,
+          "y": 147.6875,
+          "width": 145.34375,
+          "height": 54,
+          "top": 147.6875,
+          "right": 1268.171875,
+          "bottom": 201.6875,
+          "left": 1122.828125
+        }
+      },
+      {
+        "text": "Mark mode",
+        "r": {
+          "x": 797,
+          "y": 210.6875,
+          "width": 158.671875,
+          "height": 54,
+          "top": 210.6875,
+          "right": 955.671875,
+          "bottom": 264.6875,
+          "left": 797
+        }
+      },
+      {
+        "text": "Clear drawings",
+        "r": {
+          "x": 964.671875,
+          "y": 210.6875,
+          "width": 189.984375,
+          "height": 54,
+          "top": 210.6875,
+          "right": 1154.65625,
+          "bottom": 264.6875,
+          "left": 964.671875
+        }
+      },
+      {
+        "text": "Computer suggests",
+        "r": {
+          "x": 797,
+          "y": 273.6875,
+          "width": 232.671875,
+          "height": 54,
+          "top": 273.6875,
+          "right": 1029.671875,
+          "bottom": 327.6875,
+          "left": 797
+        }
+      },
+      {
+        "text": "Na3next: Sodium Attack",
+        "r": {
+          "x": 797,
+          "y": 377.1875,
+          "width": 261,
+          "height": 71.5,
+          "top": 377.1875,
+          "right": 1058,
+          "bottom": 448.6875,
+          "left": 797
+        }
+      },
+      {
+        "text": "Nc3next: Van Geet Opening",
+        "r": {
+          "x": 1067,
+          "y": 377.1875,
+          "width": 261,
+          "height": 71.5,
+          "top": 377.1875,
+          "right": 1328,
+          "bottom": 448.6875,
+          "left": 1067
+        }
+      },
+      {
+        "text": "Nh3next: Amar Opening",
+        "r": {
+          "x": 797,
+          "y": 457.6875,
+          "width": 261,
+          "height": 71.5,
+          "top": 457.6875,
+          "right": 1058,
+          "bottom": 529.1875,
+          "left": 797
+        }
+      },
+      {
+        "text": "a3next: Anderssen's Opening",
+        "r": {
+          "x": 1067,
+          "y": 457.6875,
+          "width": 261,
+          "height": 71.5,
+          "top": 457.6875,
+          "right": 1328,
+          "bottom": 529.1875,
+          "left": 1067
+        }
+      },
+      {
+        "text": "Exit Present",
+        "r": {
+          "x": 797,
+          "y": 643.6875,
+          "width": 157.5625,
+          "height": 54,
+          "top": 643.6875,
+          "right": 954.5625,
+          "bottom": 697.6875,
+          "left": 797
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 968.0625,
+          "y": 645.9375,
+          "width": 49.5,
+          "height": 49.5,
+          "top": 645.9375,
+          "right": 1017.5625,
+          "bottom": 695.4375,
+          "left": 968.0625
+        }
+      }
+    ]
+  },
+  {
+    "present": "/teacher",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "scrollHeight": 768,
+    "clientHeight": 768,
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "controls": [
+      {
+        "text": "Undo",
+        "r": {
+          "x": 638.4375,
+          "y": 147.6875,
+          "width": 100.8125,
+          "height": 54,
+          "top": 147.6875,
+          "right": 739.25,
+          "bottom": 201.6875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "Redo",
+        "r": {
+          "x": 748.25,
+          "y": 147.6875,
+          "width": 97.59375,
+          "height": 54,
+          "top": 147.6875,
+          "right": 845.84375,
+          "bottom": 201.6875,
+          "left": 748.25
+        }
+      },
+      {
+        "text": "Reset",
+        "r": {
+          "x": 854.84375,
+          "y": 147.6875,
+          "width": 100.421875,
+          "height": 54,
+          "top": 147.6875,
+          "right": 955.265625,
+          "bottom": 201.6875,
+          "left": 854.84375
+        }
+      },
+      {
+        "text": "Flip board",
+        "r": {
+          "x": 638.4375,
+          "y": 210.6875,
+          "width": 145.34375,
+          "height": 54,
+          "top": 210.6875,
+          "right": 783.78125,
+          "bottom": 264.6875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "Mark mode",
+        "r": {
+          "x": 792.78125,
+          "y": 210.6875,
+          "width": 158.671875,
+          "height": 54,
+          "top": 210.6875,
+          "right": 951.453125,
+          "bottom": 264.6875,
+          "left": 792.78125
+        }
+      },
+      {
+        "text": "Clear drawings",
+        "r": {
+          "x": 638.4375,
+          "y": 273.6875,
+          "width": 189.984375,
+          "height": 54,
+          "top": 273.6875,
+          "right": 828.421875,
+          "bottom": 327.6875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "Computer suggests",
+        "r": {
+          "x": 638.4375,
+          "y": 336.6875,
+          "width": 232.671875,
+          "height": 54,
+          "top": 336.6875,
+          "right": 871.109375,
+          "bottom": 390.6875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "Na3next: Sodium Attack",
+        "r": {
+          "x": 638.4375,
+          "y": 440.1875,
+          "width": 169.28125,
+          "height": 98.5,
+          "top": 440.1875,
+          "right": 807.71875,
+          "bottom": 538.6875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "Nc3next: Van Geet Opening",
+        "r": {
+          "x": 816.71875,
+          "y": 440.1875,
+          "width": 169.28125,
+          "height": 98.5,
+          "top": 440.1875,
+          "right": 986,
+          "bottom": 538.6875,
+          "left": 816.71875
+        }
+      },
+      {
+        "text": "Nh3next: Amar Opening",
+        "r": {
+          "x": 638.4375,
+          "y": 547.6875,
+          "width": 169.28125,
+          "height": 98.5,
+          "top": 547.6875,
+          "right": 807.71875,
+          "bottom": 646.1875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "a3next: Anderssen's Opening",
+        "r": {
+          "x": 816.71875,
+          "y": 547.6875,
+          "width": 169.28125,
+          "height": 98.5,
+          "top": 547.6875,
+          "right": 986,
+          "bottom": 646.1875,
+          "left": 816.71875
+        }
+      },
+      {
+        "text": "Exit Present",
+        "r": {
+          "x": 638.4375,
+          "y": 760.6875,
+          "width": 157.5625,
+          "height": 54,
+          "top": 760.6875,
+          "right": 796,
+          "bottom": 814.6875,
+          "left": 638.4375
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 809.5,
+          "y": 762.9375,
+          "width": 49.5,
+          "height": 49.5,
+          "top": 762.9375,
+          "right": 859,
+          "bottom": 812.4375,
+          "left": 809.5
+        }
+      }
+    ]
+  },
+  {
+    "present": "/teacher",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "scrollHeight": 1140,
+    "clientHeight": 1024,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "controls": [
+      {
+        "text": "Undo",
+        "r": {
+          "x": 34,
+          "y": 688,
+          "width": 90.0625,
+          "height": 48,
+          "top": 688,
+          "right": 124.0625,
+          "bottom": 736,
+          "left": 34
+        }
+      },
+      {
+        "text": "Redo",
+        "r": {
+          "x": 132.0625,
+          "y": 688,
+          "width": 87.203125,
+          "height": 48,
+          "top": 688,
+          "right": 219.265625,
+          "bottom": 736,
+          "left": 132.0625
+        }
+      },
+      {
+        "text": "Reset",
+        "r": {
+          "x": 227.265625,
+          "y": 688,
+          "width": 89.703125,
+          "height": 48,
+          "top": 688,
+          "right": 316.96875,
+          "bottom": 736,
+          "left": 227.265625
+        }
+      },
+      {
+        "text": "Flip board",
+        "r": {
+          "x": 324.96875,
+          "y": 688,
+          "width": 129.640625,
+          "height": 48,
+          "top": 688,
+          "right": 454.609375,
+          "bottom": 736,
+          "left": 324.96875
+        }
+      },
+      {
+        "text": "Mark mode",
+        "r": {
+          "x": 462.609375,
+          "y": 688,
+          "width": 141.484375,
+          "height": 48,
+          "top": 688,
+          "right": 604.09375,
+          "bottom": 736,
+          "left": 462.609375
+        }
+      },
+      {
+        "text": "Clear drawings",
+        "r": {
+          "x": 34,
+          "y": 744,
+          "width": 169.328125,
+          "height": 48,
+          "top": 744,
+          "right": 203.328125,
+          "bottom": 792,
+          "left": 34
+        }
+      },
+      {
+        "text": "Computer suggests",
+        "r": {
+          "x": 211.328125,
+          "y": 744,
+          "width": 207.265625,
+          "height": 48,
+          "top": 744,
+          "right": 418.59375,
+          "bottom": 792,
+          "left": 211.328125
+        }
+      },
+      {
+        "text": "Na3next: Sodium Attack",
+        "r": {
+          "x": 34,
+          "y": 836,
+          "width": 346,
+          "height": 64,
+          "top": 836,
+          "right": 380,
+          "bottom": 900,
+          "left": 34
+        }
+      },
+      {
+        "text": "Nc3next: Van Geet Opening",
+        "r": {
+          "x": 388,
+          "y": 836,
+          "width": 346,
+          "height": 64,
+          "top": 836,
+          "right": 734,
+          "bottom": 900,
+          "left": 388
+        }
+      },
+      {
+        "text": "Nh3next: Amar Opening",
+        "r": {
+          "x": 34,
+          "y": 908,
+          "width": 346,
+          "height": 64,
+          "top": 908,
+          "right": 380,
+          "bottom": 972,
+          "left": 34
+        }
+      },
+      {
+        "text": "a3next: Anderssen's Opening",
+        "r": {
+          "x": 388,
+          "y": 908,
+          "width": 346,
+          "height": 64,
+          "top": 908,
+          "right": 734,
+          "bottom": 972,
+          "left": 388
+        }
+      },
+      {
+        "text": "Exit Present",
+        "r": {
+          "x": 34,
+          "y": 1074,
+          "width": 140.046875,
+          "height": 48,
+          "top": 1074,
+          "right": 174.046875,
+          "bottom": 1122,
+          "left": 34
+        }
+      },
+      {
+        "text": "🔊",
+        "r": {
+          "x": 186.046875,
+          "y": 1076,
+          "width": 44,
+          "height": 44,
+          "top": 1076,
+          "right": 230.046875,
+          "bottom": 1120,
+          "left": 186.046875
+        }
+      }
+    ]
+  }
+]

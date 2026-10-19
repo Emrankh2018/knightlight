@@ -1,0 +1,13 @@
+{
+  "content": {
+    "exit": 0,
+    "removedCourseRemains": true,
+    "stdout": "Wrote 1 course(s) to public/data/courses/\n"
+  },
+  "puzzles": {
+    "exit": 1,
+    "knownGoodRemains": false,
+    "replacementIndexExists": true,
+    "stderr": "Error: Output 558 bytes exceeds the 25 MB limit\n    at main (file:///C:/Users/welcome/Desktop/mychess/.tmp/audit-2026-10-19/content-delivery/fixture-puzzles.mjs:191:15)\n"
+  }
+}

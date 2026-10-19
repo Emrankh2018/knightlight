@@ -1,0 +1,546 @@
+{
+  "sourceIssues": [],
+  "courseCount": 8,
+  "courses": [
+    {
+      "slug": "checkmate-patterns",
+      "reviewed": false,
+      "chapters": 4,
+      "lessons": 11,
+      "steps": 33
+    },
+    {
+      "slug": "italian-game",
+      "reviewed": false,
+      "chapters": 4,
+      "lessons": 13,
+      "steps": 35
+    },
+    {
+      "slug": "london-system",
+      "reviewed": false,
+      "chapters": 4,
+      "lessons": 12,
+      "steps": 33
+    },
+    {
+      "slug": "queens-gambit",
+      "reviewed": false,
+      "chapters": 4,
+      "lessons": 10,
+      "steps": 26
+    },
+    {
+      "slug": "ruy-lopez",
+      "reviewed": false,
+      "chapters": 4,
+      "lessons": 11,
+      "steps": 28
+    },
+    {
+      "slug": "sample-basics",
+      "reviewed": false,
+      "chapters": 1,
+      "lessons": 1,
+      "steps": 4
+    },
+    {
+      "slug": "sicilian-defence",
+      "reviewed": false,
+      "chapters": 4,
+      "lessons": 12,
+      "steps": 37
+    },
+    {
+      "slug": "tactics-basics",
+      "reviewed": false,
+      "chapters": 5,
+      "lessons": 12,
+      "steps": 50
+    }
+  ],
+  "generatedMismatches": [],
+  "replayIssues": [],
+  "matingFindMoves": [
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "back-rank-mate",
+      "id": "01-back-rank/back-rank-mate/1",
+      "moves": [
+        "Rd8#"
+      ],
+      "initialMateInOne": [
+        "Rd8#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "back-rank-trade",
+      "id": "01-back-rank/back-rank-trade/1",
+      "moves": [
+        "Re8+",
+        "Rxe8",
+        "Rxe8#"
+      ],
+      "initialMateInOne": []
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "ladder-mate",
+      "id": "02-rooks-and-queen/ladder-mate/1",
+      "moves": [
+        "Ra8#"
+      ],
+      "initialMateInOne": [
+        "Ra8#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "queen-king-mate",
+      "id": "02-rooks-and-queen/queen-king-mate/1",
+      "moves": [
+        "Qb7#"
+      ],
+      "initialMateInOne": [
+        "Qb7#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "careful-stalemate",
+      "id": "02-rooks-and-queen/careful-stalemate/1",
+      "moves": [
+        "Qg7#"
+      ],
+      "initialMateInOne": [
+        "Qg7#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "smothered-idea",
+      "id": "03-smothered-mate/smothered-idea/1",
+      "moves": [
+        "Nc7#"
+      ],
+      "initialMateInOne": [
+        "Nc7#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "smothered-trap",
+      "id": "03-smothered-mate/smothered-trap/1",
+      "moves": [
+        "Nf3#"
+      ],
+      "initialMateInOne": [
+        "Nf3#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "fools-mate",
+      "id": "04-quick-mates/fools-mate/1",
+      "moves": [
+        "Qh4#"
+      ],
+      "initialMateInOne": [
+        "Qh4#"
+      ]
+    },
+    {
+      "slug": "checkmate-patterns",
+      "lesson": "scholars-mate",
+      "id": "04-quick-mates/scholars-mate/1",
+      "moves": [
+        "Qxf7#"
+      ],
+      "initialMateInOne": [
+        "Qxf7#"
+      ]
+    },
+    {
+      "slug": "italian-game",
+      "lesson": "legal-mate",
+      "id": "04-evans-and-traps/legal-mate/1",
+      "moves": [
+        "Nxe5",
+        "Bxd1",
+        "Bxf7+",
+        "Ke7",
+        "Nd5#"
+      ],
+      "initialMateInOne": []
+    },
+    {
+      "slug": "italian-game",
+      "lesson": "shilling-trap",
+      "id": "04-evans-and-traps/shilling-trap/1",
+      "moves": [
+        "Qxg2",
+        "Rf1",
+        "Qxe4+",
+        "Be2",
+        "Nf3#"
+      ],
+      "initialMateInOne": []
+    },
+    {
+      "slug": "sample-basics",
+      "lesson": "weak-f7",
+      "id": "01-weak-f7/weak-f7/1",
+      "moves": [
+        "Qxf7#"
+      ],
+      "initialMateInOne": [
+        "Qxf7#"
+      ]
+    }
+  ],
+  "puzzles": {
+    "records": 11900,
+    "unique": 11794,
+    "bytes": 2940037,
+    "levels": [
+      {
+        "id": "beginner",
+        "records": 2300,
+        "buckets": [
+          {
+            "theme": "mateIn1",
+            "count": 150
+          },
+          {
+            "theme": "mateIn2",
+            "count": 150
+          },
+          {
+            "theme": "mateIn3",
+            "count": 150
+          },
+          {
+            "theme": "fork",
+            "count": 150
+          },
+          {
+            "theme": "pin",
+            "count": 150
+          },
+          {
+            "theme": "skewer",
+            "count": 150
+          },
+          {
+            "theme": "hangingPiece",
+            "count": 150
+          },
+          {
+            "theme": "discoveredAttack",
+            "count": 150
+          },
+          {
+            "theme": "deflection",
+            "count": 150
+          },
+          {
+            "theme": "attraction",
+            "count": 150
+          },
+          {
+            "theme": "backRankMate",
+            "count": 150
+          },
+          {
+            "theme": "endgame",
+            "count": 150
+          },
+          {
+            "theme": "sacrifice",
+            "count": 150
+          },
+          {
+            "theme": "trappedPiece",
+            "count": 50
+          },
+          {
+            "theme": "mixed",
+            "count": 300
+          }
+        ]
+      },
+      {
+        "id": "intermediate",
+        "records": 2400,
+        "buckets": [
+          {
+            "theme": "mateIn1",
+            "count": 150
+          },
+          {
+            "theme": "mateIn2",
+            "count": 150
+          },
+          {
+            "theme": "mateIn3",
+            "count": 150
+          },
+          {
+            "theme": "fork",
+            "count": 150
+          },
+          {
+            "theme": "pin",
+            "count": 150
+          },
+          {
+            "theme": "skewer",
+            "count": 150
+          },
+          {
+            "theme": "hangingPiece",
+            "count": 150
+          },
+          {
+            "theme": "discoveredAttack",
+            "count": 150
+          },
+          {
+            "theme": "deflection",
+            "count": 150
+          },
+          {
+            "theme": "attraction",
+            "count": 150
+          },
+          {
+            "theme": "backRankMate",
+            "count": 150
+          },
+          {
+            "theme": "endgame",
+            "count": 150
+          },
+          {
+            "theme": "sacrifice",
+            "count": 150
+          },
+          {
+            "theme": "trappedPiece",
+            "count": 150
+          },
+          {
+            "theme": "mixed",
+            "count": 300
+          }
+        ]
+      },
+      {
+        "id": "mid-advanced",
+        "records": 2400,
+        "buckets": [
+          {
+            "theme": "mateIn1",
+            "count": 150
+          },
+          {
+            "theme": "mateIn2",
+            "count": 150
+          },
+          {
+            "theme": "mateIn3",
+            "count": 150
+          },
+          {
+            "theme": "fork",
+            "count": 150
+          },
+          {
+            "theme": "pin",
+            "count": 150
+          },
+          {
+            "theme": "skewer",
+            "count": 150
+          },
+          {
+            "theme": "hangingPiece",
+            "count": 150
+          },
+          {
+            "theme": "discoveredAttack",
+            "count": 150
+          },
+          {
+            "theme": "deflection",
+            "count": 150
+          },
+          {
+            "theme": "attraction",
+            "count": 150
+          },
+          {
+            "theme": "backRankMate",
+            "count": 150
+          },
+          {
+            "theme": "endgame",
+            "count": 150
+          },
+          {
+            "theme": "sacrifice",
+            "count": 150
+          },
+          {
+            "theme": "trappedPiece",
+            "count": 150
+          },
+          {
+            "theme": "mixed",
+            "count": 300
+          }
+        ]
+      },
+      {
+        "id": "advanced",
+        "records": 2400,
+        "buckets": [
+          {
+            "theme": "mateIn1",
+            "count": 150
+          },
+          {
+            "theme": "mateIn2",
+            "count": 150
+          },
+          {
+            "theme": "mateIn3",
+            "count": 150
+          },
+          {
+            "theme": "fork",
+            "count": 150
+          },
+          {
+            "theme": "pin",
+            "count": 150
+          },
+          {
+            "theme": "skewer",
+            "count": 150
+          },
+          {
+            "theme": "hangingPiece",
+            "count": 150
+          },
+          {
+            "theme": "discoveredAttack",
+            "count": 150
+          },
+          {
+            "theme": "deflection",
+            "count": 150
+          },
+          {
+            "theme": "attraction",
+            "count": 150
+          },
+          {
+            "theme": "backRankMate",
+            "count": 150
+          },
+          {
+            "theme": "endgame",
+            "count": 150
+          },
+          {
+            "theme": "sacrifice",
+            "count": 150
+          },
+          {
+            "theme": "trappedPiece",
+            "count": 150
+          },
+          {
+            "theme": "mixed",
+            "count": 300
+          }
+        ]
+      },
+      {
+        "id": "master",
+        "records": 2400,
+        "buckets": [
+          {
+            "theme": "mateIn1",
+            "count": 150
+          },
+          {
+            "theme": "mateIn2",
+            "count": 150
+          },
+          {
+            "theme": "mateIn3",
+            "count": 150
+          },
+          {
+            "theme": "fork",
+            "count": 150
+          },
+          {
+            "theme": "pin",
+            "count": 150
+          },
+          {
+            "theme": "skewer",
+            "count": 150
+          },
+          {
+            "theme": "hangingPiece",
+            "count": 150
+          },
+          {
+            "theme": "discoveredAttack",
+            "count": 150
+          },
+          {
+            "theme": "deflection",
+            "count": 150
+          },
+          {
+            "theme": "attraction",
+            "count": 150
+          },
+          {
+            "theme": "backRankMate",
+            "count": 150
+          },
+          {
+            "theme": "endgame",
+            "count": 150
+          },
+          {
+            "theme": "sacrifice",
+            "count": 150
+          },
+          {
+            "theme": "trappedPiece",
+            "count": 150
+          },
+          {
+            "theme": "mixed",
+            "count": 300
+          }
+        ]
+      }
+    ],
+    "bad": []
+  },
+  "openings": {
+    "count": 3865,
+    "positions": 7983,
+    "transitions": 8192,
+    "issues": []
+  }
+}

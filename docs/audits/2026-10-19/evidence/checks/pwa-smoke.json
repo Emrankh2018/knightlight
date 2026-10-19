@@ -1,0 +1,56 @@
+{
+  "startedAt": "2026-10-19T10:51:58.871Z",
+  "checks": [
+    {
+      "name": "Native production module worker returns a move",
+      "status": "PASS",
+      "detail": {
+        "id": 1,
+        "uci": "f2f4",
+        "san": "f4"
+      }
+    },
+    {
+      "name": "Service worker activates on production preview",
+      "status": "PASS",
+      "detail": {
+        "controller": "http://127.0.0.1:4174/knightlight/sw.js",
+        "cacheNames": [
+          "workbox-precache-v2-http://127.0.0.1:4174/knightlight/"
+        ]
+      }
+    },
+    {
+      "name": "Every indexed puzzle JSON is available offline after first visit",
+      "status": "PASS",
+      "detail": {
+        "levels": 5,
+        "buckets": 75,
+        "rows": 11900
+      }
+    },
+    {
+      "name": "Offline reload restores a previously visited lesson",
+      "status": "PASS",
+      "detail": {
+        "url": "http://127.0.0.1:4174/knightlight/#/learn/italian-game/first-moves"
+      }
+    },
+    {
+      "name": "Offline puzzle route renders board",
+      "status": "PASS",
+      "detail": {
+        "url": "http://127.0.0.1:4174/knightlight/#/puzzles?level=master&theme=mateIn2"
+      }
+    },
+    {
+      "name": "Previously unvisited course offline behavior is recorded",
+      "status": "PASS",
+      "detail": {
+        "text": "This course could not be loaded.\n\nAll courses"
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "finishedAt": "2026-10-19T10:52:04.305Z"
+}

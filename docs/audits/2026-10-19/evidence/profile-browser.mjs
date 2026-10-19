@@ -1,0 +1,33 @@
+import { chromium } from 'playwright';
+import { writeFile } from 'node:fs/promises';
+const browser=await chromium.launch({headless:true});
+const context=await browser.newContext({viewport:{width:1366,height:768}});
+const page=await context.newPage();
+await page.goto('http://127.0.0.1:5174/knightlight/#/puzzles?level=beginner&theme=mateIn2', {waitUntil:'networkidle'});
+const initial=await page.evaluate(async()=>{
+  const {useProfiles}=await import('/knightlight/src/store/profiles.ts');
+  const {useProgress}=await import('/knightlight/src/store/progress.ts');
+  const a=useProfiles.getState().activeId;
+  const b=useProfiles.getState().add('Audit Student B');
+  useProfiles.getState().switchTo(a);
+  return {a,b,xp:useProgress.getState().data.xp};
+});
+const board=page.getByRole('application');
+const fen=await board.getAttribute('aria-label');
+await page.getByRole('button',{name:'Hint (H)',exact:true}).click();
+const before=await page.locator('main').innerText();
+await page.getByRole('button',{name:/Student: Player 1/}).click();
+await page.getByRole('button',{name:'Audit Student B',exact:true}).click();
+const after=await page.locator('main').innerText();
+const sameBoard=fen===await board.getAttribute('aria-label');
+await page.getByRole('button',{name:'Show solution (S)',exact:true}).click();
+await page.getByText('Solution shown.',{exact:false}).first().waitFor({timeout:15000}).catch(()=>{});
+const state=await page.evaluate(async()=>{
+ const {useProfiles}=await import('/knightlight/src/store/profiles.ts');
+ const {useProgress,readProgress}=await import('/knightlight/src/store/progress.ts');
+ return {active:useProfiles.getState().activeId,progressOwner:useProgress.getState().profileId,current:useProgress.getState().data,all:useProfiles.getState().profiles.map(p=>({id:p.id,name:p.name,progress:readProgress(p.id)}))};
+});
+const result={initial,sameBoard,sessionTextRetained:before===after,before,after,state};
+await writeFile('.tmp/audit-2026-10-19/ui/profile-switch.json',JSON.stringify(result,null,2));
+console.log(JSON.stringify({initial,sameBoard,sessionTextRetained:before===after,active:state.active,all:state.all.map(p=>({name:p.name,xp:p.progress.xp,srs:Object.keys(p.progress.srs),attempted:p.progress.puzzles.byLevel}))},null,2));
+await browser.close();

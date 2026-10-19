@@ -1,0 +1,66 @@
+{
+  "startedAt": "2026-10-19T10:52:12.690Z",
+  "checks": [
+    {
+      "name": "Production Play White accepts a move and bot replies using current accessible labels",
+      "status": "PASS",
+      "detail": {
+        "moves": "1.\ne4\nc6",
+        "labels": []
+      },
+      "pageErrors": []
+    },
+    {
+      "name": "Production Play Black lets bot open using current accessible labels",
+      "status": "PASS",
+      "detail": {
+        "moves": "1.\nh4"
+      },
+      "pageErrors": []
+    },
+    {
+      "name": "Production student avatar and reset controls work with current roles and names",
+      "status": "PASS",
+      "detail": {
+        "status": "Progress for Maya was reset."
+      },
+      "pageErrors": []
+    },
+    {
+      "name": "Production bad-version import retains profile and explains rejection",
+      "status": "PASS",
+      "detail": {
+        "alert": "⚠ Error: This backup came from a different version of Knightlight. Nothing was changed."
+      },
+      "pageErrors": []
+    },
+    {
+      "name": "Production puzzle assignment opens expected set using current copy",
+      "status": "PASS",
+      "detail": {
+        "assignmentText": "Your assignment\n\nLoading…",
+        "url": "http://127.0.0.1:4174/knightlight/#/puzzles?level=beginner&theme=fork"
+      },
+      "pageErrors": []
+    },
+    {
+      "name": "Production Teacher Present portrait control geometry",
+      "status": "FAIL",
+      "detail": {
+        "scrollHeight": 1221,
+        "clientHeight": 1180,
+        "exit": {
+          "x": 44,
+          "y": 1155.125,
+          "width": 140.046875,
+          "height": 48
+        },
+        "viewportHeight": 1180,
+        "exitBottom": 1203.125,
+        "fits": false
+      },
+      "pageErrors": []
+    }
+  ],
+  "finishedAt": "2026-10-19T10:52:21.205Z"
+}

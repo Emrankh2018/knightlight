@@ -1,0 +1,65 @@
+{
+  "observedAt": "2026-10-19T10:48:10.580Z",
+  "cases": {
+    "importRollback": {
+      "result": {
+        "ok": false,
+        "error": "Could not save the imported data. Browser storage may be full or blocked."
+      },
+      "storedProfileIds": [
+        "new0",
+        "new1"
+      ],
+      "remainingKeys": [
+        "knightlight:v1:profiles"
+      ]
+    },
+    "hugeXpAcceptedByValidation": true,
+    "hugeXpAcceptedByBackup": true,
+    "hugeXpRender": {
+      "status": null,
+      "error": "ETIMEDOUT",
+      "stdout": "",
+      "stderr": ""
+    },
+    "oversizedSrsAccepted": true,
+    "oversizedSrs": {
+      "reviewed": {
+        "id": "p1",
+        "kind": "puzzle",
+        "ref": "p1",
+        "ease": 2.5,
+        "interval": 2500000000,
+        "reps": 4,
+        "due": "0NaN-NaN-NaN",
+        "lapses": 0
+      },
+      "xpAfterReload": 0
+    },
+    "corruptRecovery": {
+      "backupPresent": false,
+      "originalPresent": false
+    },
+    "unsavedExport": {
+      "visibleXp": 20,
+      "exportedXp": 0
+    },
+    "prototypeHeaders": {
+      "__proto__": "TypeError: list.push is not a function",
+      "constructor": "TypeError: list.push is not a function",
+      "toString": "TypeError: list.push is not a function"
+    },
+    "excessivePgnErrors": "RangeError: Maximum call stack size exceeded"
+  },
+  "sha256": {
+    "src/store/backup.ts": "274244864e8b989dd46b645c97123217e52479bcd197732939d916e8b092e910",
+    "src/store/progress.ts": "8970f7bcf65c822b476321258fdd669f442897281e732922d265650749ff9837",
+    "src/store/profiles.ts": "66c1a11f87ad10b6eb9278bdd5b7e59f4dcf3a541f6747d0784cf5f99d1655d5",
+    "src/lib/xp.ts": "6252dd499674b7ae5dab92bfd8779245a80f983826ba2475aad2c05a8dd4018a",
+    "src/lib/srs.ts": "4e53e48768eed4648f72a9d2ce8f7ff110ccce23c86e25959b23f18c7d011eb8",
+    "src/lib/content/pgn.ts": "675cf6a35f61371ec4483a68d3eef851e408f70a8dd80280b6bd7ee6ebf75536",
+    "src/lib/content/parse.ts": "f02f69c58bbbf141738d50e7e0d42fea2e0741b7623954ecb87121f9f9195ec3",
+    "src/routes/Play.tsx": "a9476ecb0c7f37cfc96722fb032836efbd94f08fa9e8d5bc9ca821ab43b832d3",
+    "src/lib/play.ts": "7b1a7d6ddd449118cc7e215a798046e650b56e50a35b53fac2ac5e75c2e25ccc"
+  }
+}
