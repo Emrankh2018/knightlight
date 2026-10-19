@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { XP_RULES, levelFor, updateStreak, xpFor, xpForLevel } from '../src/lib/xp.ts';
+import { MAX_XP, XP_RULES, levelFor, updateStreak, xpFor, xpForLevel } from '../src/lib/xp.ts';
 
 describe('xpFor', () => {
   it('awards step, puzzle and line XP with hint/mistake reductions', () => {
@@ -19,6 +19,14 @@ describe('xpFor', () => {
 });
 
 describe('levelFor', () => {
+  it('terminates for absurd totals (AUD-02)', () => {
+    for (const v of [1e308, Number.MAX_VALUE, 1e15, Infinity, NaN]) {
+      const r = levelFor(v);
+      expect(Number.isFinite(r.level)).toBe(true);
+    }
+    expect(levelFor(1e308)).toEqual(levelFor(MAX_XP));
+  });
+
   it('has thresholds exactly at 0 / 100 / 300 / 600', () => {
     expect([1, 2, 3, 4].map(xpForLevel)).toEqual([0, 100, 300, 600]);
     expect(levelFor(0)).toEqual({ level: 1, intoLevel: 0, forNext: 100 });

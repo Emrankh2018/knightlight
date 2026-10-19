@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { BACKUP_APP, MAX_IMPORT_BYTES, parseBackup } from '../src/store/backup';
+import { MAX_XP } from '../src/lib/xp';
 import { emptyProgress } from '../src/store/progress';
 
 const profile = { id: 'p1', name: 'Sam', avatar: '🦊', createdAt: 1 };
@@ -55,6 +56,12 @@ describe('parseBackup', () => {
     expect(parse(backup({ progress: { p1: { ...emptyProgress(), xp: -5 } } })).ok).toBe(false);
     expect(parse(backup({ progress: { p1: { ...emptyProgress(), xp: 'lots' } } })).ok).toBe(false);
     expect(parse(backup({ progress: [] })).ok).toBe(false);
+  });
+
+  it('rejects absurd XP before preview (AUD-02)', () => {
+    expect(parse(backup({ progress: { p1: { ...emptyProgress(), xp: 1e308 } } })).ok).toBe(false);
+    expect(parse(backup({ progress: { p1: { ...emptyProgress(), xp: MAX_XP + 1 } } })).ok).toBe(false);
+    expect(parse(backup({ progress: { p1: { ...emptyProgress(), xp: MAX_XP } } })).ok).toBe(true);
   });
 
   it('fails when only one of several students has bad progress', () => {

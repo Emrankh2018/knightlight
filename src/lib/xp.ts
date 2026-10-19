@@ -50,8 +50,11 @@ export interface LevelInfo {
   forNext: number;
 }
 
+/** Upper bound so absurd (imported or corrupt) totals cannot stall the level search. */
+export const MAX_XP = 1e9;
+
 export function levelFor(totalXp: number): LevelInfo {
-  const xp = Number.isFinite(totalXp) ? Math.max(0, Math.floor(totalXp)) : 0;
+  const xp = Number.isFinite(totalXp) ? Math.min(MAX_XP, Math.max(0, Math.floor(totalXp))) : 0;
   let level = Math.max(1, Math.floor((1 + Math.sqrt(1 + xp / 12.5)) / 2));
   while (xpForLevel(level + 1) <= xp) level++;
   while (level > 1 && xpForLevel(level) > xp) level--;

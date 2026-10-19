@@ -112,7 +112,7 @@ describe('profiles from an import', () => {
       const got = r.backup.profiles.profiles[0]?.name ?? '';
       expect(got.length).toBeLessThanOrEqual(30);
       expect(got.startsWith('A b c xxx')).toBe(true);
-      expect(/[\u0000‮]/.test(got)).toBe(false);
+      expect(got.includes('\u0000') || got.includes('‮')).toBe(false);
     }
   });
 

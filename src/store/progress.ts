@@ -4,7 +4,7 @@ import { fmt, m } from '../i18n';
 import { evaluateAchievements, type Stats } from '../lib/achievements';
 import { isRealDay, todayLocal } from '../lib/date';
 import { newItem, review, type SrsGrade, type SrsItem, type SrsKind } from '../lib/srs';
-import { updateStreak, xpFor, type GameResult, type StreakState, type XpEvent } from '../lib/xp';
+import { MAX_XP, updateStreak, xpFor, type GameResult, type StreakState, type XpEvent } from '../lib/xp';
 import { useProfiles } from './profiles';
 import { useUi } from './ui';
 import { DAY_RE, isBool, isCount, isNum, isRecord, isSafeKey, isStr, KEYS, parseJson, readRaw, writeRaw } from './storage';
@@ -73,7 +73,7 @@ function parseStreak(v: unknown): StreakState | null {
 
 /** Strict validation of one progress record. Returns a clean copy, or null if anything is off. */
 export function validateProgress(v: unknown): Progress | null {
-  if (!isRecord(v) || v.version !== 1 || !isCount(v.xp) || !isCount(v.linesDrilled)) return null;
+  if (!isRecord(v) || v.version !== 1 || !isCount(v.xp) || v.xp > MAX_XP || !isCount(v.linesDrilled)) return null;
   const streak = parseStreak(v.streak);
   if (!streak) return null;
   const completedSteps = mapOf(v.completedSteps, (x) => (isRecord(x) && isNum(x.at) && isBool(x.hint) ? { at: x.at, hint: x.hint } : null));
