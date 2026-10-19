@@ -61,6 +61,13 @@ export const en = {
     system: 'System',
     label: 'Theme',
   },
+  sound: {
+    toggle: 'Sound effects',
+    on: 'Sound on',
+    off: 'Sound off',
+    volume: 'Sound volume',
+    volumeValue: '{percent}%',
+  },
   toast: {
     achievementUnlocked: 'Achievement unlocked: {name}',
     dismiss: 'Dismiss',
@@ -211,13 +218,13 @@ export const en = {
     pickLevel: 'Choose a level',
     pickTheme: 'Choose a theme',
     levels: {
-      beginner: 'Beginner',
+      beginner: 'Beginner (new to chess)',
       intermediate: 'Intermediate',
       'mid-advanced': 'Mid-advanced',
       advanced: 'Advanced',
       master: 'Master',
     } as Record<string, string>,
-    ratingRange: 'Rating {min} to {max}',
+    ratingRange: 'Puzzle rating {min} to {max}',
     mixed: 'Mixed',
     themeCount: '{theme}, {count} puzzles',
     themes: {

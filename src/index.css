@@ -62,7 +62,7 @@ body {
 /* Class Mode board width: landscape screens use the height, portrait tablets use the full width. */
 :root { --kl-class-board: min(100dvh - 2rem, 60vw); }
 @media (orientation: portrait) {
-  :root { --kl-class-board: min(100vw - 2rem, 70dvh); }
+  :root { --kl-class-board: min(100vw - 2rem, 55dvh); }
 }
 
 /* Class Mode (projector layout) hides the site chrome. */

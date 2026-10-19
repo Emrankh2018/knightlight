@@ -4,6 +4,7 @@ import { m } from '../i18n';
 import { isReady } from '../lib/ready-routes';
 import ProfileSwitcher from './ProfileSwitcher';
 import SearchSlot from './SearchSlot';
+import SoundToggle from './SoundToggle';
 import ThemeToggle from './ThemeToggle';
 import Toasts from './Toasts';
 
@@ -54,6 +55,7 @@ export default function Layout() {
           </ul>
           <div className="ms-auto flex items-center gap-1 xl:ms-0">
             <SearchSlot />
+            <SoundToggle />
             <ThemeToggle />
             <ProfileSwitcher />
             <button

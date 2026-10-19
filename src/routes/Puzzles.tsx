@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { Link, useSearchParams } from 'react-router-dom';
 import Board, { type PromotionPiece } from '../components/Board';
 import Button from '../components/Button';
+import SoundToggle from '../components/SoundToggle';
 import { Feedback, isButtonTarget, useKeys } from '../components/lesson/shared';
 import { useLoad } from '../hooks/useLoad';
 import { fmt, m } from '../i18n';
@@ -9,6 +10,7 @@ import type { Arrow, Highlight } from '../lib/content/types';
 import { loadPuzzleChunk, loadPuzzleIndex } from '../lib/data';
 import type { Puzzle, PuzzleBucket, PuzzleLevel } from '../lib/puzzle-types';
 import { hint as hintFor, playUci, remainingMoves, shuffle, start, tryMove, type PuzzleState } from '../lib/puzzles';
+import { playMoveSound, playSound } from '../lib/sound';
 import { xpFor } from '../lib/xp';
 import { useProgress } from '../store/progress';
 import { useUi } from '../store/ui';
@@ -298,6 +300,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
     if (res.kind === 'wrong') {
       hadWrong.current = true;
       setNote('wrong');
+      playSound('wrong');
       return false;
     }
     setHintLevel(0);
@@ -306,16 +309,21 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
       setShown({ fen: res.state.fen, lastMove: res.state.lastMove });
       setPhase('solved');
       setNote('none');
+      playSound('solved');
       setXp(onDone({ solved: true, hint: usedHint.current, wrong: hadWrong.current, clean: !hadWrong.current && !usedHint.current }));
       return true;
     }
     const mine = playUci(ps.fen, uci);
-    if (mine) setShown({ fen: mine.fen, lastMove: { from: mine.from, to: mine.to, san: mine.san } });
+    if (mine) {
+      setShown({ fen: mine.fen, lastMove: { from: mine.from, to: mine.to, san: mine.san } });
+      playMoveSound(mine.san);
+    }
     setBusy(true);
     setNote('correct');
     later(() => {
       setPs(res.state);
       setShown({ fen: res.state.fen, lastMove: res.state.lastMove });
+      if (res.state.lastMove) playMoveSound(res.state.lastMove.san);
       setBusy(false);
     }, MOVE_DELAY_MS);
     return true;
@@ -331,6 +339,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
   const showHint = (): void => {
     if (phase !== 'play' || busy) return;
     usedHint.current = true;
+    playSound('hint');
     setNote('none');
     setHintLevel((l) => (l >= 3 ? 3 : ((l + 1) as 1 | 2 | 3)));
   };
@@ -348,7 +357,10 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
       if (!mv) break;
       fen = mv.fen;
       played += 1;
-      later(() => setShown({ fen: mv.fen, lastMove: { from: mv.from, to: mv.to, san: mv.san } }), SOLUTION_DELAY_MS * played);
+      later(() => {
+        setShown({ fen: mv.fen, lastMove: { from: mv.from, to: mv.to, san: mv.san } });
+        playMoveSound(mv.san);
+      }, SOLUTION_DELAY_MS * played);
     }
     later(() => setPhase('shown'), SOLUTION_DELAY_MS * played);
   };
@@ -413,6 +425,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
         </p>
         <p className="font-bold text-muted">{fmt(m().puzzles.progress, { n, total })}</p>
         <p className="font-bold text-muted">{fmt(m().puzzles.sessionStreak, { count: streak })}</p>
+        {classMode ? <SoundToggle compact className="hover:bg-line" /> : null}
       </div>
       {showDetails ? (
         <p className="font-bold text-muted">{fmt(m().puzzles.rating, { rating: puzzle.rating })}</p>
@@ -422,6 +435,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
         </Button>
       )}
       {buttons}
+      {classMode ? null : <SoundToggle volume className="hover:bg-line" />}
       <div aria-live="polite" className="space-y-3">
         {note === 'wrong' ? <Feedback tone="bad" large={classMode}>{m().puzzles.wrong}</Feedback> : null}
         {note === 'correct' && busy ? <Feedback tone="good" large={classMode}>{m().puzzles.correct}</Feedback> : null}
@@ -452,7 +466,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
       }
     >
       <div>{board}</div>
-      <div className={`space-y-4 rounded-2xl border-2 border-line bg-surface ${classMode ? 'p-6' : 'p-4'}`}>
+      <div className={`space-y-4 rounded-2xl border-2 border-line bg-surface ${classMode ? 'p-5' : 'p-4'}`}>
         {header}
         {panel}
       </div>
