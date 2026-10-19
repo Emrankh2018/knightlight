@@ -47,7 +47,7 @@ Resumable status. Update after every milestone.
 Live and verified: https://knightlight.omrankhammash.workers.dev (deploy with `npm run deploy:cloudflare`; wrangler login already done). Committed: puzzle trainer, re-levelled bands (beginner 0-699, intermediate 700-1199, mid-advanced 1200-1599, advanced 1600-1999, master 2000+), balanced mixed sets, synthesized sounds (mute+volume), Class Mode fit fix + e2e. Stop at 95% usage; checkpoint at 90%.
 Next (user priorities: puzzles, tactics, openings first; courses later):
 1. DONE and live (2026-10-19): Tactics hub (#/tactics) and Openings explorer (#/openings), board is a single tab stop. Coach to confirm the ECO group titles (REVIEW_CHECKLIST.md).
-2. DONE and live: Courses library, Course page, Lesson player (4 step types, Present mode, Teacher view). Next: Review page (missed puzzles and drill lines are in SRS but have no page), Teacher/analysis page, Play vs bot, then intermediate courses. Optional hardening: stale-ply on same-task key bursts in src/components/lesson/shared.tsx useControls/useKeys (not user-reachable).
+2. DONE and live: Courses library, Course page, Lesson player (4 step types, Present mode, Teacher view). Review page DONE and live (SRS for missed puzzles and drill lines). Next: Teacher/analysis page, Play vs bot, then intermediate courses. Optional hardening: stale-ply on same-task key bursts in src/components/lesson/shared.tsx useControls/useKeys (not user-reachable).
 3. After each: gates, e2e, debugger/code-reviewer, commit, redeploy, live smoke test.
 4. Then Courses/Lesson pages, then intermediate courses (author -> fact-check -> fix; reviewed:false).
 5. /graphify was requested by the user: run when idle (graphify-out/ is gitignored).

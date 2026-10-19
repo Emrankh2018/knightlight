@@ -9,7 +9,7 @@ export const READY_ROUTES: Readonly<Record<string, boolean>> = {
   '/teacher': false,
   '/openings': true,
   '/play': false,
-  '/review': false,
+  '/review': true,
   '/students': false,
   '/assign': false,
 };

@@ -151,6 +151,7 @@ interface ProgressState {
   recordBotWin: (levelId: BotLevelId) => void;
   addSrs: (id: string, kind: SrsKind, ref: string) => void;
   reviewSrs: (id: string, grade: SrsGrade) => void;
+  removeSrs: (id: string) => void;
   setLastLesson: (course: string, lesson: string, step: number) => void;
 }
 
@@ -226,6 +227,10 @@ export const useProgress = create<ProgressState>()((set, get) => {
         const item = d.srs[id];
         if (item) d.srs[id] = review(item, grade, todayLocal());
       }),
+    removeSrs: (id) =>
+      commit((d) => {
+        delete d.srs[id];
+      }, false),
     setLastLesson: (course, lesson, step) =>
       commit((d) => {
         d.lastLesson = { course, lesson, step };

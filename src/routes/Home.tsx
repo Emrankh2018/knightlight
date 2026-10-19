@@ -7,7 +7,7 @@ import { ButtonLink } from '../components/Button';
 import Ring from '../components/Ring';
 import { isReady } from '../lib/ready-routes';
 import { diffDays, todayLocal } from '../lib/date';
-import { dueItems } from '../lib/srs';
+import { reviewQueue } from '../lib/review';
 import { levelFor } from '../lib/xp';
 import { useActiveProfile } from '../store/profiles';
 import { useProgress } from '../store/progress';
@@ -47,7 +47,7 @@ export default function Home() {
   const profile = useActiveProfile();
   const data = useProgress((s) => s.data);
   const { level, intoLevel, forNext } = levelFor(data.xp);
-  const due = useMemo(() => dueItems(Object.values(data.srs), todayLocal()).length, [data.srs]);
+  const due = useMemo(() => reviewQueue(Object.values(data.srs), todayLocal()).length, [data.srs]);
   const last = data.lastLesson;
   // A streak only counts while the last active day is today or yesterday.
   const lastDay = data.streak.lastDay;

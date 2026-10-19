@@ -1,18 +1,9 @@
+import { DataError, type DataErrorKind } from './data-error.ts';
 import type { Course, CourseMeta } from './content/types.ts';
 import { loadOpeningIndex, type OpeningIndex } from './openings.ts';
 import type { Puzzle, PuzzleIndex } from './puzzle-types.ts';
 
-/** Thrown when a data file cannot be fetched or does not have the expected shape. */
-export class DataError extends Error {
-  readonly url: string;
-  readonly kind: 'network' | 'shape';
-  constructor(kind: 'network' | 'shape', url: string, detail: string) {
-    super(`${kind === 'network' ? 'Could not load' : 'Unexpected data in'} ${url}: ${detail}`);
-    this.name = 'DataError';
-    this.kind = kind;
-    this.url = url;
-  }
-}
+export { DataError, type DataErrorKind };
 
 export interface CatalogCounts {
   chapters: number;
@@ -41,7 +32,7 @@ function cached<T>(url: string, check: (json: unknown) => string | null): Promis
     } catch (err: unknown) {
       throw new DataError('network', url, err instanceof Error ? err.message : 'request failed');
     }
-    if (!res.ok) throw new DataError('network', url, `HTTP ${res.status}`);
+    if (!res.ok) throw new DataError(res.status === 404 ? 'notfound' : 'network', url, `HTTP ${res.status}`, res.status);
     let json: unknown;
     try {
       json = await res.json();
