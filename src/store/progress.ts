@@ -168,7 +168,7 @@ export const useProgress = create<ProgressState>()((set, get) => {
       draft.streak = updateStreak(draft.streak, todayLocal());
       if (draft.streak.current > before && before > 0) events.push({ type: 'streak' });
     }
-    for (const e of events) draft.xp += xpFor(e);
+    for (const e of events) draft.xp = Math.min(MAX_XP, draft.xp + xpFor(e));
     const unlocked = evaluateAchievements(statsOf(draft), draft.achievements);
     if (unlocked.length > 0) draft.achievements = [...draft.achievements, ...unlocked];
     writeRaw(KEYS.progress(profileId), JSON.stringify(draft));

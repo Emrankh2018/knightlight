@@ -102,6 +102,22 @@ describe('a corrupt day already in storage', () => {
   });
 });
 
+describe('XP at the import limit (AUD-02)', () => {
+  it('stays loadable after earning more XP', async () => {
+    const first = await load();
+    const id = first.useProfiles.getState().activeId;
+    const { MAX_XP } = await import('../src/lib/xp.ts');
+    store.set(first.KEYS.progress(id), JSON.stringify({ ...fresh, xp: MAX_XP }));
+
+    const { useProgress, readProgress, KEYS } = await load();
+    expect(useProgress.getState().data.xp).toBe(MAX_XP);
+    useProgress.getState().recordStep('s1', false);
+    expect(useProgress.getState().data.xp).toBe(MAX_XP);
+    expect(readProgress(id).xp).toBe(MAX_XP);
+    expect(store.has(KEYS.progressBackup(id))).toBe(false);
+  });
+});
+
 describe('profiles from an import', () => {
   it('cleans names: control and direction characters go, 30 characters at most', async () => {
     const { parseBackup } = await load();
