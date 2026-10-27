@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import Button from '../Button';
+import { PieceIcon } from '../icons';
 import { LEVEL_IDS, type BotLevelId } from '../../engine/level-ids';
 import { fmt, m } from '../../i18n';
 import type { ColorChoice } from '../../lib/play';
@@ -63,8 +64,20 @@ export default function PlaySetup({ value, onChange, onStart, focusHeading = fal
         <div className="grid gap-2">
           {LEVEL_IDS.map((id, i) => (
             <Choice key={id} name="play-level" value={id} checked={value.level === id} onChange={() => onChange({ ...value, level: id })}>
-              <span className="block">{fmt(t.levelOption, { level: i + 1, name: t.levels[id].name })}</span>
-              <span className="block text-base font-normal text-muted">{t.levels[id].blurb}</span>
+              <span className="flex items-center gap-4">
+                <span aria-hidden="true" className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-ink text-lamp">
+                  <PieceIcon piece={id} width="2rem" height="2rem" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block">{fmt(t.levelOption, { level: i + 1, name: t.levels[id].name })}</span>
+                  <span className="block text-base font-normal text-muted">{t.levels[id].blurb}</span>
+                  <span aria-hidden="true" className="mt-1 flex gap-1">
+                    {LEVEL_IDS.map((_, d) => (
+                      <span key={d} className={`h-1.5 w-6 rounded-full ${d <= i ? 'bg-amber' : 'bg-line'}`} />
+                    ))}
+                  </span>
+                </span>
+              </span>
             </Choice>
           ))}
         </div>

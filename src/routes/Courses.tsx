@@ -1,7 +1,10 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button, { ButtonLink } from '../components/Button';
+import MiniBoard from '../components/MiniBoard';
 import Ring from '../components/Ring';
+import { cardClass } from '../components/Card';
+import { coverFen } from '../lib/cover';
 import { useLoad } from '../hooks/useLoad';
 import { fmt, m } from '../i18n';
 import type { CourseKind, Level } from '../lib/content/types';
@@ -40,12 +43,10 @@ function CourseCard({ entry }: { entry: CatalogEntry }) {
   const titleId = `course-${entry.slug}`;
   return (
     <li>
-      <article aria-labelledby={titleId} className="flex h-full flex-col gap-3 rounded-2xl border-2 border-line bg-surface p-4">
+      <article aria-labelledby={titleId} className={cardClass('interactive', 'flex h-full flex-col gap-3')}>
         <div className="flex items-start gap-4">
-          <Ring value={total > 0 ? done / total : 0} label={m().courses.progress} size={80}>
-            <span className="text-lg">{done}/{total}</span>
-          </Ring>
-          <div className="min-w-0 space-y-1">
+          <MiniBoard fen={coverFen(entry.slug)} size={96} />
+          <div className="min-w-0 flex-1 space-y-1">
             <h2 id={titleId} className="text-xl font-extrabold">
               <Link to={`/courses/${encodeURIComponent(entry.slug)}`} className="inline-flex min-h-11 items-center underline-offset-4 hover:underline">
                 {entry.title}
@@ -55,6 +56,9 @@ function CourseCard({ entry }: { entry: CatalogEntry }) {
               {m().courses.kinds[entry.kind]} · {m().courses.levels[entry.level]}
             </p>
           </div>
+          <Ring value={total > 0 ? done / total : 0} label={m().courses.progress} size={64} stroke={7}>
+            <span className="text-sm">{done}/{total}</span>
+          </Ring>
         </div>
         {entry.reviewed ? null : (
           <p className="self-start rounded-full border-2 border-amber bg-amber/20 px-3 py-0.5 text-base font-bold">{m().courses.checking}</p>

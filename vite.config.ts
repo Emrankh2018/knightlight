@@ -31,8 +31,8 @@ export default defineConfig({
       },
       workbox: {
         // Puzzle data (about 3 MB) is precached so every level and theme works offline after the first visit.
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2}', 'data/puzzles/**/*.json'],
-        // Courses and openings are cached as they are first used.
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2}', 'data/puzzles/**/*.json', 'data/courses/**/*.json'],
+        // Courses (about 0.4 MB) are precached too, so every lesson works offline. Openings are cached as they are first used.
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.pathname.includes('/data/'),

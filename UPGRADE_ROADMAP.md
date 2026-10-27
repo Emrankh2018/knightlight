@@ -143,3 +143,14 @@ Decisions taken from the owner's go-ahead: lamplit direction; piece set and avat
 ### 2026-10-28: Phase 2 first slice (board look, done, see DECISIONS.md)
 - New default palette, ink frame with amber hairline, coral check glow; unit gates pass (537/537). E2E: 44 pass, 11 fail, all in `play.spec.ts` and `students.spec.ts` on stale selectors/copy (for example "Level 1: Sleepy Pawn" now reads "Opponent 1", avatar radios are not buttons); not caused by this change and not fixed here.
 - Still open in Phase 2: piece-set licence or replacement (blocker for release), a board-theme picker UI with a high-contrast projector theme, a dark-mode board variant, and piece animation tuning.
+
+### 2026-10-28: Phases 2 to 6 completed; Phase 7 partly
+Done and verified (typecheck, lint, 549 unit tests, content validator, 55/55 e2e, production build):
+- **Phase 2:** piece licence resolved with a caveat (`THIRD_PARTY.md`); board theme button in the header (Parchment, Projector, Sunset, Slate); `dusk` board used automatically in dark mode (reacts to OS theme changes); per-theme notation colours with a contrast unit test.
+- **Phase 3:** Home hero with a live board and a compact stats row; nav active indicator (underline, not only colour); skeleton loader for lazy routes.
+- **Phase 4:** course cards with board thumbnails from well-known opening lines (no new chess data; the back-rank cover is a test-verified mate in one); Play opponents with piece badges and a difficulty scale; Teacher toolbar grouped with a visible Mark-mode state; puzzle theme cards on the shared card style.
+- **Phase 5:** pop and nudge feedback for correct and wrong answers and toasts, animated progress ring; all disabled by the existing reduced-motion rule. No page transitions (a keyed remount would reset lesson state).
+- **Phase 6:** no horizontal overflow at 390 px on Home, Courses, Play, Puzzles and Teacher; Home hero stacks on phones; RTL smoke shows the layout mirrors correctly. Not done: a coach walkthrough at projector distance.
+- **Phase 7 (done):** all courses are now precached for offline use (+360 KB). The 11 stale e2e tests were updated to current copy (including the intended rule that giving up earns no XP).
+
+**Phase 7, not done (each needs its own spec or owner input, not started):** coach review workflow (needs a decision on where "reviewed" lives in a no-backend app), assignment due dates and QR handouts, per-student coach summaries, new courses (must go through the content author and fact-checker, never invented), daily review session, Arabic translation (needs a native review), original SVG avatars, a custom or alternative piece set, puzzle theme icons.

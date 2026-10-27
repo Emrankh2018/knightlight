@@ -5,7 +5,7 @@ import { fmt, m } from '../i18n';
 import { toneOfModifiers } from '../lib/annotations';
 import { describePosition } from '../lib/describe';
 import type { Arrow, Highlight } from '../lib/content/types';
-import { BOARD_THEMES, useSettings } from '../store/settings';
+import { BOARD_THEMES, effectiveBoardTheme, useIsDark, useSettings } from '../store/settings';
 
 export type PromotionPiece = Exclude<PieceSymbol, 'p' | 'k'>;
 type Tone = Arrow['color'];
@@ -29,8 +29,8 @@ const DOT = 'radial-gradient(circle, rgba(15, 61, 62, 0.45) 22%, transparent 24%
 const RING = 'radial-gradient(circle, transparent 60%, rgba(15, 61, 62, 0.45) 62%)';
 const CHECK_GLOW = 'radial-gradient(circle, rgba(228, 87, 46, 0.95) 0%, rgba(228, 87, 46, 0.55) 45%, rgba(228, 87, 46, 0) 72%)';
 const FILES = 'abcdefgh';
-/** Dark ink on every theme square: at least 4.5:1 against all board colors. */
-const NOTATION: CSSProperties = { color: '#111111', fontSize: '0.8rem', fontWeight: 800 };
+/** Size and weight only: the colour comes from the palette (at least 4.5:1 on each square colour). */
+const NOTATION: CSSProperties = { fontSize: '0.8rem', fontWeight: 800 };
 
 /** react-chessboard makes every piece and square tabbable; the wrapper must be the only tab stop. */
 function removeInnerTabStops(root: HTMLElement): void {
@@ -99,7 +99,8 @@ export default function Board({
 }: BoardProps) {
   const inner = useRef<HTMLDivElement>(null);
   const boardTheme = useSettings((s) => s.boardTheme);
-  const colors = BOARD_THEMES[boardTheme];
+  const dark = useIsDark();
+  const colors = BOARD_THEMES[effectiveBoardTheme(boardTheme, dark)];
   const chess = useMemo(() => safeChess(fen), [fen]);
   const [sel, setSel] = useState<{ fen: string; square: string } | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
@@ -301,8 +302,8 @@ export default function Board({
           lightSquareStyle: { backgroundColor: colors.light },
           darkSquareStyle: { backgroundColor: colors.dark },
           squareStyles,
-          lightSquareNotationStyle: NOTATION,
-          darkSquareNotationStyle: NOTATION,
+          lightSquareNotationStyle: { ...NOTATION, color: colors.onLight },
+          darkSquareNotationStyle: { ...NOTATION, color: colors.onDark },
           alphaNotationStyle: NOTATION,
           numericNotationStyle: NOTATION,
           canDragPiece: ({ piece }) => canMove && chess !== null && piece.pieceType.startsWith(chess.turn()),

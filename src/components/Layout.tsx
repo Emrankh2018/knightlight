@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { m } from '../i18n';
 import { isReady } from '../lib/ready-routes';
 import { CloseIcon, MenuIcon } from './icons';
+import BoardThemeToggle from './BoardThemeToggle';
 import ProfileSwitcher from './ProfileSwitcher';
 import SoundToggle from './SoundToggle';
 import ThemeToggle from './ThemeToggle';
@@ -27,7 +28,7 @@ export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
   const linkClass = ({ isActive }: { isActive: boolean }): string =>
-    `flex min-h-11 items-center rounded-lg px-3 ${isActive ? 'font-extrabold text-amber' : 'hover:text-amber'}`;
+    `flex min-h-11 items-center rounded-lg px-3 ${isActive ? 'font-extrabold text-lamp shadow-[inset_0_-3px_0_0_var(--color-amber)]' : 'hover:text-lamp'}`;
 
   return (
     <div className="flex min-h-full flex-col">
@@ -55,6 +56,7 @@ export default function Layout() {
           </ul>
           <div className="ms-auto flex min-w-0 items-center gap-0.5 sm:gap-1 xl:ms-0">
             <SoundToggle />
+            <BoardThemeToggle />
             <ThemeToggle />
             <ProfileSwitcher />
             <button

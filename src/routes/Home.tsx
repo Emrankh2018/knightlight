@@ -6,6 +6,8 @@ import { fmt, m } from '../i18n';
 import Avatar from '../components/Avatar';
 import { ButtonLink } from '../components/Button';
 import Card from '../components/Card';
+import MiniBoard from '../components/MiniBoard';
+import { coverFen } from '../lib/cover';
 import { FlameIcon } from '../components/icons';
 import Ring from '../components/Ring';
 import { isReady } from '../lib/ready-routes';
@@ -22,7 +24,9 @@ function ContinueCard({ last }: { last: { course: string; lesson: string } | und
   const state = useLoad(load);
   const lesson = last && state.status === 'ready' ? findLesson(state.data, last.lesson) : null;
   return (
-    <Card variant="hero">
+    <Card variant="hero" className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+      <MiniBoard fen={coverFen(slug)} size={176} />
+      <div className="min-w-0 flex-1">
       <h2 className="text-lg font-bold text-muted">{m().home.continue}</h2>
       {last && state.status === 'loading' ? <p className="text-lg text-muted">{m().common.loading}</p> : null}
       {last && state.status === 'ready' && lesson ? (
@@ -42,6 +46,7 @@ function ContinueCard({ last }: { last: { course: string; lesson: string } | und
           </ButtonLink>
         </>
       ) : null}
+      </div>
     </Card>
   );
 }
@@ -67,7 +72,9 @@ export default function Home() {
         <p className="mt-1 text-lg text-muted">{m().app.tagline}</p>
       </header>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {isReady('/courses') ? <ContinueCard last={last} /> : null}
+
+      <div className="grid gap-4 md:grid-cols-3">
         <Card variant="stat" className="flex items-center gap-4" aria-label={m().home.levelRing}>
           <Ring value={forNext > 0 ? intoLevel / forNext : 0} label={m().home.levelRing} size={96}>
             <span className="text-2xl">{level}</span>
@@ -99,7 +106,6 @@ export default function Home() {
         </Card>
         ) : null}
 
-        {isReady('/courses') ? <ContinueCard last={last} /> : null}
       </div>
 
       <ButtonLink to="/puzzles">{m().home.startPuzzles}</ButtonLink>

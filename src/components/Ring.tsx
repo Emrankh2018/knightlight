@@ -30,6 +30,7 @@ export default function Ring({ value, label, size = 96, stroke = 10, children }:
           strokeDasharray={c}
           strokeDashoffset={c * (1 - v)}
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
+          style={{ transition: 'stroke-dashoffset 0.7s ease-out' }}
         />
       </svg>
       {children ? (

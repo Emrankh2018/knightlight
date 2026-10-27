@@ -19,7 +19,7 @@ test('add a student, reject a duplicate, then switch between students', async ({
   const add = page.getByRole('button', { name: 'Add a student' });
   await add.click();
   await expect(dialog(page).getByLabel('Name')).toBeFocused();
-  await dialog(page).getByRole('button', { name: 'Choose avatar 🐼' }).click();
+  await dialog(page).getByRole('radio', { name: 'Choose avatar 🐼' }).click();
   await dialog(page).getByLabel('Name').fill('  Maya   Lee ');
   await dialog(page).getByRole('button', { name: 'Save' }).click();
   await expect(dialog(page)).toBeHidden();
@@ -31,7 +31,7 @@ test('add a student, reject a duplicate, then switch between students', async ({
   await add.click();
   await dialog(page).getByLabel('Name').fill('maya lee');
   await dialog(page).getByRole('button', { name: 'Save' }).click();
-  await expect(dialog(page).getByRole('alert')).toHaveText('Another student already has that name.');
+  await expect(dialog(page).getByRole('alert')).toContainText('Another student already has that name.');
   await dialog(page).getByRole('button', { name: 'Cancel' }).click();
   await expect(dialog(page)).toBeHidden();
 
@@ -106,7 +106,7 @@ test('reset progress asks first and zeroes XP', async ({ page }) => {
   await expect(card.getByText('120', { exact: true })).toBeVisible();
 
   await page.getByRole('button', { name: 'Reset progress for Player 1' }).click();
-  await dialog(page).getByRole('button', { name: 'Reset progress' }).click();
+  await dialog(page).getByRole('button', { name: "Yes, reset Player 1's progress" }).click();
   await expect(dialog(page)).toBeHidden();
   await expect(card.getByText('120', { exact: true })).toHaveCount(0);
   await expect(page.getByRole('status').first()).toContainText('Progress for Player 1 was reset.');
@@ -155,7 +155,7 @@ test('a bad import changes nothing and says why', async ({ page }) => {
   await expect(alert).toContainText('not valid JSON');
 
   await input.setInputFiles({ name: 'v9.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ app: 'knightlight', version: 9 })) });
-  await expect(alert).toContainText('Unsupported backup version');
+  await expect(alert).toContainText('different version of Knightlight');
 
   await input.setInputFiles({ name: 'big.json', mimeType: 'application/json', buffer: Buffer.alloc(5 * 1024 * 1024 + 10, 32) });
   await expect(alert).toContainText('too large');
@@ -183,7 +183,7 @@ test('leaderboard sorts and the projector view hides the site chrome', async ({ 
 
 test('an assign link opens the right puzzle set', async ({ page }) => {
   await page.goto('#/assign?type=puzzles&level=beginner&theme=fork');
-  await expect(page.getByText('Solve Beginner (new to chess) puzzles about: Fork.')).toBeVisible();
+  await expect(page.getByText('Solve Beginner puzzles about: Fork.')).toBeVisible();
   const start = page.getByRole('link', { name: 'Start the puzzles' });
   await expect(start).toBeFocused();
   await start.click();

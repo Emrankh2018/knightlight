@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { m } from './i18n';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
+import PageSkeleton from './components/PageSkeleton';
 import Home from './routes/Home';
 
 const Courses = lazy(() => import('./routes/Courses'));
@@ -18,7 +19,7 @@ const Assign = lazy(() => import('./routes/Assign'));
 
 export default function App() {
   return (
-    <Suspense fallback={<p className="p-6 text-lg" role="status">{m().common.loading}</p>}>
+    <Suspense fallback={<PageSkeleton />}>
       <ErrorBoundary>
       <Routes>
         <Route element={<Layout />}>

@@ -11,7 +11,7 @@ function ToastItem({ toast }: { toast: Toast }) {
     return () => window.clearTimeout(t);
   }, [toast.id, dismiss]);
   return (
-    <li className="flex items-center gap-3 rounded-xl border-2 border-amber bg-surface px-4 py-3 text-lg font-bold text-fg shadow-lg">
+    <li className="kl-pop flex items-center gap-3 rounded-xl border-2 border-amber bg-surface px-4 py-3 text-lg font-bold text-fg shadow-lg">
       <span aria-hidden="true">🏆</span>
       <span className="flex-1">{toast.message}</span>
       <button

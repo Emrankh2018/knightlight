@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/Button';
+import { cardClass } from '../components/Card';
 import { Round, themeLabel, type Outcome } from '../components/PuzzleRound';
 import { Feedback, isButtonTarget, useKeys } from '../components/lesson/shared';
 import { useLoad } from '../hooks/useLoad';
@@ -72,7 +73,7 @@ function Picker({ levels, initialLevel, unknown, onPick }: { levels: PuzzleLevel
                 type="button"
                 aria-label={fmt(m().puzzles.themeCount, { theme: themeLabel(b.theme), count: b.count })}
                 onClick={() => onPick(chosen, b.theme)}
-                className="flex min-h-14 w-full items-center justify-between rounded-2xl border-2 border-ink/60 bg-surface px-4 py-3 text-start text-lg font-bold hover:border-ink dark:border-amber/60 dark:hover:border-amber"
+                className={cardClass('interactive', 'flex min-h-14 w-full items-center justify-between py-3 text-start text-lg font-bold')}
               >
                 <span>{themeLabel(b.theme)}</span>
                 <span className="rounded-full bg-line/60 px-3 py-1 text-base text-muted">{b.count}</span>

@@ -192,13 +192,19 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
 
   const btn = present ? 'min-h-11 px-3 text-base' : '';
   const buttons = (
-    <div className="flex flex-wrap gap-2">
-      <Button variant="secondary" className={btn} onClick={undo} aria-disabled={line.cursor === 0}>{o.undo}</Button>
-      <Button variant="secondary" className={btn} onClick={redo} aria-disabled={line.cursor >= plies.length}>{o.redo}</Button>
-      <Button variant="secondary" className={btn} onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{o.reset}</Button>
-      <Button variant="secondary" className={btn} onClick={() => setFlipped((f) => !f)}>{o.flip}</Button>
-      <Button variant="secondary" className={btn} aria-pressed={marking} onClick={() => setMarking((v) => !v)}>{t.markMode}</Button>
-      <Button variant="secondary" className={btn} onClick={() => setMarks(NO_MARKS)} aria-disabled={!hasDrawings}>{t.clearDrawings}</Button>
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+      <div className="flex flex-wrap gap-2">
+        <Button variant="secondary" className={btn} onClick={undo} aria-disabled={line.cursor === 0}>{o.undo}</Button>
+        <Button variant="secondary" className={btn} onClick={redo} aria-disabled={line.cursor >= plies.length}>{o.redo}</Button>
+        <Button variant="secondary" className={btn} onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{o.reset}</Button>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Button variant="secondary" className={btn} onClick={() => setFlipped((f) => !f)}>{o.flip}</Button>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Button variant={marking ? 'primary' : 'secondary'} className={btn} aria-pressed={marking} onClick={() => setMarking((v) => !v)}>{t.markMode}</Button>
+        <Button variant="secondary" className={btn} onClick={() => setMarks(NO_MARKS)} aria-disabled={!hasDrawings}>{t.clearDrawings}</Button>
+      </div>
     </div>
   );
 

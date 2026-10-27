@@ -1,16 +1,32 @@
+import { useSyncExternalStore } from 'react';
 import { create } from 'zustand';
 import { isBool, isNum, isRecord, isStr, KEYS, parseJson, readRaw, writeRaw } from './storage';
 
 export type ThemeSetting = 'light' | 'dark' | 'system';
 export const THEMES: readonly ThemeSetting[] = ['light', 'dark', 'system'];
 
+export interface BoardPalette {
+  light: string;
+  dark: string;
+  /** Notation colour on light and dark squares (each at least 4.5:1). */
+  onLight: string;
+  onDark: string;
+}
+const INK = '#111111';
+const PAPER = '#F4EEE2';
 export const BOARD_THEMES = {
-  /** Default: parchment and soft sage. Dark ink notation stays at least 4.5:1 on both. */
-  cream: { light: '#F6EDD6', dark: '#4F877D' },
-  sunset: { light: '#FBE3C2', dark: '#C97B5A' },
-  slate: { light: '#DDE3E8', dark: '#6B7F94' },
-} as const;
+  /** Default: parchment and soft sage. */
+  cream: { light: '#F6EDD6', dark: '#4F877D', onLight: INK, onDark: INK },
+  /** Used instead of `cream` when the app is in dark mode: dimmer squares, less glare on a dark page. */
+  dusk: { light: '#CDBF9F', dark: '#2F5F5A', onLight: INK, onDark: PAPER },
+  /** Projector: white and mid teal, the strongest square contrast that keeps notation readable. */
+  projector: { light: '#FFFFFF', dark: '#4F877D', onLight: INK, onDark: INK },
+  sunset: { light: '#FBE3C2', dark: '#C97B5A', onLight: INK, onDark: INK },
+  slate: { light: '#DDE3E8', dark: '#6B7F94', onLight: INK, onDark: INK },
+} as const satisfies Record<string, BoardPalette>;
 export type BoardThemeId = keyof typeof BOARD_THEMES;
+/** Themes a person can pick. `dusk` is applied automatically to `cream` in dark mode. */
+export const PICKABLE_BOARD_THEMES: readonly BoardThemeId[] = ['cream', 'projector', 'sunset', 'slate'];
 export const BOARD_THEME_IDS = Object.keys(BOARD_THEMES) as BoardThemeId[];
 
 export const PRESENT_SCALE_MIN = 1;
@@ -93,10 +109,36 @@ function systemPrefersDark(): boolean {
   }
 }
 
+export function isDarkTheme(theme: ThemeSetting): boolean {
+  return theme === 'dark' || (theme === 'system' && systemPrefersDark());
+}
+
+function subscribeSystemTheme(onChange: () => void): () => void {
+  try {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  } catch {
+    return () => undefined;
+  }
+}
+
+/** True while the app is drawn dark. Re-renders when the setting or the system preference changes. */
+export function useIsDark(): boolean {
+  const theme = useSettings((s) => s.theme);
+  const system = useSyncExternalStore(subscribeSystemTheme, systemPrefersDark, () => false);
+  return theme === 'dark' || (theme === 'system' && system);
+}
+
+/** The palette actually drawn: `cream` becomes `dusk` in dark mode. */
+export function effectiveBoardTheme(id: BoardThemeId, dark: boolean): BoardThemeId {
+  return id === 'cream' && dark ? 'dusk' : id;
+}
+
 function applyDom(): void {
   if (typeof document === 'undefined') return;
   const { theme, presentScale } = useSettings.getState();
-  const dark = theme === 'dark' || (theme === 'system' && systemPrefersDark());
+  const dark = isDarkTheme(theme);
   document.documentElement.classList.toggle('dark', dark);
   document.documentElement.style.setProperty('--kl-present-scale', String(presentScale));
 }

@@ -119,9 +119,9 @@ export function StepLayout({ board, header, panel, notes, footer, classMode }: {
 export function Feedback({ tone, large = false, live = true, children }: { tone: 'good' | 'bad' | 'info'; large?: boolean; live?: boolean; children: ReactNode }) {
   const cls =
     tone === 'good'
-      ? 'border-leaf bg-leaf/15'
+      ? 'kl-pop border-leaf bg-leaf/15'
       : tone === 'bad'
-        ? 'border-coral bg-coral/15'
+        ? 'kl-nudge border-coral bg-coral/15'
         : 'border-line bg-bg';
   return (
     <p role={live ? 'status' : undefined} className={`rounded-xl border-2 font-bold ${large ? 'px-4 py-2 text-xl 2xl:text-2xl' : 'px-4 py-3 text-lg'} ${cls}`}>

@@ -9,7 +9,7 @@ export const en = {
     tagline: 'Learn chess by playing the moves.',
     skipToContent: 'Skip to content',
     footerCredit: 'Puzzles and opening names from the Lichess open database (CC0).',
-    footerLicense: 'Code under MIT license.',
+    footerLicense: 'Code under MIT license. Chess pieces by Cburnett (BSD).',
   },
   nav: {
     home: 'Home',
@@ -112,6 +112,15 @@ export const en = {
     playAgain: 'Play again',
     changeLevel: 'Change opponent',
     shortcuts: 'Select a piece, then a square, or drag it. On the board, use the arrow keys and Enter.',
+  },
+  boardTheme: {
+    label: 'Board colours',
+    switch: 'Change board colours ({name})',
+    cream: 'Parchment',
+    dusk: 'Dusk',
+    projector: 'Projector',
+    sunset: 'Sunset',
+    slate: 'Slate',
   },
   board: {
     label: 'Chessboard. {summary}',
