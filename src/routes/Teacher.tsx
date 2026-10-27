@@ -8,23 +8,16 @@ import { usePresentEffects } from '../components/lesson/shared';
 import SoundToggle from '../components/SoundToggle';
 import { useLoad } from '../hooks/useLoad';
 import { fmt, m } from '../i18n';
-import { toggleArrow, toggleHighlight } from '../lib/annotations';
-import type { Arrow, Highlight } from '../lib/content/types';
 import { getOpeningIndex } from '../lib/data';
 import { buildPgn, findOpening, isTypingTarget, playOnLine, replay, START_FEN, type LineState, type MoveInput } from '../lib/explorer';
 import type { OpeningIndex } from '../lib/openings';
 import { playMoveSound } from '../lib/sound';
 import { loadNotes, MAX_NOTES_CHARS, saveNotes } from '../lib/teacher-notes';
 
-const NORMAL_BOARD = 'max(16rem, min(100%, calc(100dvh - 11rem)))';
+const NORMAL_BOARD = 'var(--kl-normal-board)';
 const PRESENT_BOARD = 'var(--kl-teacher-board)';
 const MAX_BOOK_MOVES_PRESENT = 4;
 
-interface Marks {
-  arrows: Arrow[];
-  highlights: Highlight[];
-}
-const NO_MARKS: Marks = { arrows: [], highlights: [] };
 
 type Copy = 'fen' | 'pgn' | 'failed' | null;
 
@@ -38,8 +31,6 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
   const o = m().openings;
   const [line, setLine] = useState<LineState>({ startFen: START_FEN, sans: [], cursor: 0 });
   const [flipped, setFlipped] = useState(false);
-  const [marking, setMarking] = useState(false);
-  const [marks, setMarks] = useState<Marks>(NO_MARKS);
   const [copied, setCopied] = useState<Copy>(null);
   const [notes, setNotes] = useState(loadNotes);
   const [present, setPresent] = useState(false);
@@ -61,12 +52,11 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
     wasPresent.current = present;
   }, [present]);
 
-  /** Every change of position goes through here: drawings belong to the old position. */
+  /** Every change of position goes through here. */
   const commit = useCallback((next: LineState) => {
     setLine(next);
-    setMarks(NO_MARKS);
     setCopied(null);
-  }, [setLine, setMarks, setCopied]);
+  }, [setLine, setCopied]);
 
   const playMove = (move: MoveInput): boolean => {
     const res = playOnLine(line, fen, move);
@@ -121,13 +111,6 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
     }
   };
 
-  const annotate = {
-    marking,
-    onArrow: (from: string, to: string, color: Arrow['color']): void => setMarks((cur) => ({ ...cur, arrows: toggleArrow(cur.arrows, { from, to, color }) })),
-    onSquare: (square: string, color: Highlight['color']): void => setMarks((cur) => ({ ...cur, highlights: toggleHighlight(cur.highlights, { square, color }) })),
-  };
-
-  const hasDrawings = marks.arrows.length > 0 || marks.highlights.length > 0;
   const big = present;
 
   const board = (
@@ -135,12 +118,10 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
       fen={fen}
       orientation={flipped ? 'black' : 'white'}
       interactive
-      annotate={annotate}
+      keyMarks
       size={present ? PRESENT_BOARD : NORMAL_BOARD}
       onMove={onBoardMove}
       lastMove={last ? { from: last.from, to: last.to, san: last.san } : undefined}
-      arrows={marks.arrows}
-      highlights={marks.highlights}
       ariaLabel={t.boardLabel}
     />
   );
@@ -148,8 +129,8 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
   const openingName = found?.opening?.name;
   const openingInfo = (
     <section aria-labelledby="an-opening">
-      <h2 id="an-opening" className="text-sm font-bold uppercase tracking-wide text-muted">{o.currentOpening}</h2>
-      <p role="status" aria-live="polite" className={`${big ? 'text-3xl' : 'text-2xl'} font-extrabold leading-tight`}>
+      <h2 id="an-opening" className="sr-only">{o.currentOpening}</h2>
+      <p role="status" aria-live="polite" className={`${big ? 'text-3xl' : 'text-xl'} font-extrabold leading-tight`}>
         {openingName ?? (shown.length === 0 ? o.startPosition : o.noOpening)}
       </p>
       {found?.opening ? (
@@ -164,11 +145,11 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
 
   const bookMoves = (
     <section aria-labelledby="an-next">
-      <h2 id="an-next" className="text-xl font-bold">{o.nextMoves}</h2>
+      <h2 id="an-next" className="text-lg font-bold">{o.nextMoves}</h2>
       {continuations.length === 0 ? (
         <p className="mt-1 text-lg">{o.noContinuations}</p>
       ) : (
-        <ul className="mt-2 grid gap-2 sm:grid-cols-2">
+        <ul className="mt-2 flex flex-wrap gap-1.5">
           {(present ? continuations.slice(0, MAX_BOOK_MOVES_PRESENT) : continuations).map((c) => {
             const result = c.name ? fmt(o.leadsTo, { name: c.name }) : o.noName;
             return (
@@ -177,10 +158,10 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
                   type="button"
                   aria-label={fmt(o.continuationLabel, { san: c.san, result })}
                   onClick={() => playMove({ from: c.uci.slice(0, 2), to: c.uci.slice(2, 4), promotion: c.uci.slice(4, 5) || undefined })}
-                  className="flex min-h-12 w-full flex-col items-start rounded-xl border-2 border-line bg-bg px-3 py-1 text-start hover:border-amber"
+                  title={result}
+                  className="min-h-10 min-w-11 rounded-control border-2 border-line bg-bg px-2 text-base font-extrabold hover:border-amber"
                 >
-                  <span className="text-xl font-extrabold">{c.san}</span>
-                  <span className="text-base text-muted">{result}</span>
+                  {c.san}
                 </button>
               </li>
             );
@@ -190,38 +171,24 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
     </section>
   );
 
-  const btn = present ? 'min-h-11 px-3 text-base' : '';
+  const btn = 'min-h-10 px-3 text-base';
   const buttons = (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-      <div className="flex flex-wrap gap-2">
-        <Button variant="secondary" className={btn} onClick={undo} aria-disabled={line.cursor === 0}>{o.undo}</Button>
-        <Button variant="secondary" className={btn} onClick={redo} aria-disabled={line.cursor >= plies.length}>{o.redo}</Button>
-        <Button variant="secondary" className={btn} onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{o.reset}</Button>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <Button variant="secondary" className={btn} onClick={() => setFlipped((f) => !f)}>{o.flip}</Button>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <Button variant={marking ? 'primary' : 'secondary'} className={btn} aria-pressed={marking} onClick={() => setMarking((v) => !v)}>{t.markMode}</Button>
-        <Button variant="secondary" className={btn} onClick={() => setMarks(NO_MARKS)} aria-disabled={!hasDrawings}>{t.clearDrawings}</Button>
-      </div>
-    </div>
-  );
-
-  const status = (
-    <p role="status" aria-live="polite" className={`${present ? '' : 'min-h-6'} text-base font-bold`}>
-      {marking ? t.markModeOn : ''}
-    </p>
+    <>
+      <Button variant="secondary" className={btn} onClick={undo} aria-disabled={line.cursor === 0}>{o.undo}</Button>
+      <Button variant="secondary" className={btn} onClick={redo} aria-disabled={line.cursor >= plies.length}>{o.redo}</Button>
+      <Button variant="secondary" className={btn} onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{o.reset}</Button>
+      <Button variant="secondary" className={btn} onClick={() => setFlipped((f) => !f)}>{o.flip}</Button>
+    </>
   );
 
   const notesBox = (
     <section aria-labelledby="an-notes">
       <h2 id="an-notes" className={present ? 'sr-only' : 'text-xl font-bold'}>{t.notesTitle}</h2>
-      <label htmlFor="an-notes-text" className={present ? 'sr-only' : 'block text-base font-bold'}>{t.notesLabel}</label>
+      <label htmlFor="an-notes-text" className="sr-only">{t.notesLabel}</label>
       <textarea
         id="an-notes-text"
         value={notes}
-        rows={present ? 2 : 5}
+        rows={present ? 2 : 3}
         maxLength={MAX_NOTES_CHARS}
         placeholder={t.notesPlaceholder}
         onChange={(e) => {
@@ -230,7 +197,6 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
         }}
         className="mt-1 w-full rounded-lg border-2 border-line bg-bg p-2 text-lg"
       />
-      {present ? null : <p className="text-sm text-muted">{t.notesHelp}</p>}
     </section>
   );
 
@@ -256,8 +222,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
             <p className="text-base text-muted">{t.presentHelp}</p>
           </div>
           {openingInfo}
-          {buttons}
-          {status}
+          <div className="flex flex-wrap gap-2">{buttons}</div>
           {bookMoves}
           {notesBox}
         </div>
@@ -266,46 +231,38 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
   }
 
   return (
-    <div className="space-y-4">
-      <header>
-        <h1 ref={heading} tabIndex={-1} className="text-3xl font-extrabold focus:outline-none">{t.title}</h1>
-        <p className="mt-1 text-lg text-muted">{t.intro}</p>
-      </header>
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start">
+    <div className="h-full min-h-0">
+      <div className="grid h-full min-h-0 gap-4 lg:grid-cols-[min(var(--kl-main-h),46%)_minmax(0,1fr)] xl:grid-cols-[min(var(--kl-main-h),52%)_minmax(0,1fr)] lg:items-start">
         <div>{board}</div>
-        <div className="space-y-4 rounded-2xl border-2 border-line bg-surface p-4">
-          {openingInfo}
-          <section aria-labelledby="an-moves">
-            <h2 id="an-moves" className="text-xl font-bold">{o.movesHeading}</h2>
-            <MoveList plies={plies} cursor={line.cursor} onJump={(cursor) => commit({ ...line, cursor })} />
-          </section>
-          {buttons}
-          {status}
-          {bookMoves}
-          <div className="flex flex-wrap gap-2">
-            <Button variant="secondary" onClick={() => void copy('fen')}>{t.copyFen}</Button>
-            <Button variant="secondary" onClick={() => void copy('pgn')} disabled={line.cursor === 0 && line.startFen === START_FEN}>{t.copyPgn}</Button>
-            {presentToggle}
+        <div className="flex min-h-0 flex-col gap-2 rounded-2xl border-2 border-line bg-surface p-3 lg:max-h-full lg:overflow-hidden">
+          <div className="flex flex-wrap items-baseline gap-x-4">
+            <h1 ref={heading} tabIndex={-1} className="text-2xl font-bold focus:outline-none">{t.title}</h1>
+            {openingInfo}
           </div>
-          <p role="status" className="min-h-6 text-base font-bold">
-            {copied === 'fen' ? t.copiedFen : copied === 'pgn' ? t.copiedPgn : copied === 'failed' ? t.copyFailed : ''}
-          </p>
-          <Fen fen={fen} />
-          {notesBox}
-          <LoadBox showShareNote={false} onLoad={(startFen, sans) => commit({ startFen, sans, cursor: sans.length })} />
-          <p className="text-base text-muted">{t.drawHelp}</p>
-          <p className="text-base text-muted">{t.keyboardHelp}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            {buttons}
+            <Button variant="secondary" className={btn} onClick={() => void copy('fen')}>{t.copyFen}</Button>
+            <Button variant="secondary" className={btn} onClick={() => void copy('pgn')} disabled={line.cursor === 0 && line.startFen === START_FEN}>{t.copyPgn}</Button>
+            {presentToggle}
+            <span role="status" className="text-sm font-bold">
+              {copied === 'fen' ? t.copiedFen : copied === 'pgn' ? t.copiedPgn : copied === 'failed' ? t.copyFailed : ''}
+            </span>
+          </div>
+          <div className="grid min-h-0 gap-3 lg:grid-cols-2">
+            <div className="min-w-0 space-y-2">
+              <section aria-labelledby="an-moves">
+                <h2 id="an-moves" className="sr-only">{o.movesHeading}</h2>
+                <MoveList plies={plies} cursor={line.cursor} onJump={(cursor) => commit({ ...line, cursor })} />
+              </section>
+              {notesBox}
+            </div>
+            <div className="min-w-0 space-y-2">
+              {bookMoves}
+              <LoadBox showShareNote={false} onLoad={(startFen, sans) => commit({ startFen, sans, cursor: sans.length })} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  );
-}
-
-function Fen({ fen }: { fen: string }) {
-  return (
-    <p className="break-all font-mono text-sm text-muted">
-      <span className="sr-only">{m().analysis.fenLabel}: </span>
-      {fen}
-    </p>
   );
 }

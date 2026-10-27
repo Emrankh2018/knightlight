@@ -141,8 +141,14 @@ html[data-class-mode] .kl-chrome { display: none; }
 
 /* Lesson board outside Present: never taller than 55% of the screen when stacked, and fits below the site header side by side. */
 :root { --kl-normal-board: max(16rem, min(100%, 55dvh)); }
+/* Fit-to-screen shell (laptop and larger): header, page and footer share exactly one screen height, so nothing scrolls. */
+:root {
+  --kl-header-h: 3.75rem;
+  --kl-footer-h: 1.75rem;
+  --kl-main-h: calc(100dvh - var(--kl-header-h) - var(--kl-footer-h) - 1.5rem);
+}
 @media (min-width: 1024px) {
-  :root { --kl-normal-board: max(16rem, min(100%, calc(100dvh - 6rem))); }
+  :root { --kl-normal-board: max(16rem, min(100%, var(--kl-main-h))); }
 }
 
 /* Board frame: ink rim and an amber hairline drawn with box-shadow, so it adds no layout size (Present sizing stays exact). */

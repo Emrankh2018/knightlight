@@ -5,7 +5,7 @@
 [Mistakes "Mixing up a pin and a skewer | Skewering when the king can step to a square that defends the piece behind"]
 [ClassQuestions "Which piece is in front? | What is the difference between a pin and a skewer?"]
 
-{A skewer attacks a big piece, and when it moves, you take the piece behind it.}
+{The rook on d8 is behind the king on the same file. When the king steps aside, the white rook takes it.}
 *
 
 [Lesson "skewer"]
@@ -17,12 +17,8 @@
 2. Rxd8 {The rook behind the king is now attacked and White takes it.} *
 
 [Lesson "skewer"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "3r4/8/8/8/3k4/8/8/R5K1 w - - 0 1"]
-[Question "After 1. Rd1+ the king moves. Which black piece will White take?"]
-[Choices "The rook on d8 | A pawn | Nothing"]
-[Answer "1"]
-[Explanation "The rook on d8 is behind the king on the same file. When the king steps aside, the white rook takes it."]
 
 {Black must answer the check.}
 1. Rd1+ *
@@ -64,12 +60,8 @@
 1. Nxd7+ {The knight takes the queen. Now the rook on e1 gives check. [%cal Ge1e8]} 1... Kxd7 {Black takes the knight, but White has won a queen for a knight.} *
 
 [Lesson "discovered-attack"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "4k3/3q4/8/4N3/8/8/8/4R1K1 w - - 0 1"]
-[Question "What happens to the black king when the knight leaves e5?"]
-[Choices "It is in check from the rook | Nothing happens | The rook is attacked"]
-[Answer "1"]
-[Explanation "The knight was blocking the e-file. When it moves, the rook on e1 attacks the king on e8."]
 
 {The knight is about to move.}
 *

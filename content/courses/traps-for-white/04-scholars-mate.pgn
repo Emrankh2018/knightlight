@@ -53,11 +53,7 @@
 
 [Event "Opening Traps for White"]
 [Lesson "scholars-defence"]
-[Step "quiz"]
-[Question "White's queen is on h5. Which black move stops Scholar's mate and attacks the queen?"]
-[Choices "3...Nf6 | 3...g6 | 3...a6"]
-[Answer "2"]
-[Explanation "3...g6 attacks the queen and blocks the h5-f7 diagonal. 3...Nf6 allows 4.Qxf7# and 3...a6 does nothing about f7."]
+[Step "explain"]
 
-{Black to move. The queen on h5 and the bishop on c4 both aim at f7.}
+{3...g6 attacks the queen and blocks the h5-f7 diagonal. 3...Nf6 allows 4.Qxf7# and 3...a6 does nothing about f7.}
 1. e4 e5 2. Bc4 Nc6 3. Qh5 *

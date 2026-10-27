@@ -31,32 +31,27 @@ async function play(page: Page, from: string, to: string): Promise<void> {
   await square(page, to).click();
 }
 
-test('Courses library hides the sample course and shows the friendly review badge', async ({ page }) => {
+test('Courses library lists every course as one card, with no filters and no review badge', async ({ page }) => {
   expect(hidden.length).toBeGreaterThan(0);
   await page.goto('#/courses');
-  const cards = page.getByRole('heading', { level: 2 });
-  await expect(cards).toHaveCount(listed.length);
-  for (const c of listed) await expect(page.getByRole('heading', { level: 2, name: c.title })).toBeVisible();
+  const main = page.getByRole('main');
+  await expect(main.getByRole('link')).toHaveCount(listed.length);
+  for (const c of listed) await expect(main.getByRole('link', { name: new RegExp(c.title.replace(/[()']/g, '.')) })).toBeVisible();
   for (const c of hidden) await expect(page.getByText(c.title)).toHaveCount(0);
   await expect(page.getByText('Sample: Attacking f7')).toHaveCount(0);
-  await expect(page.getByText('Coach is still checking this course')).toHaveCount(listed.filter((c) => !(c as CatalogEntry & { reviewed?: boolean }).reviewed).length);
+  await expect(page.getByText('Coach is still checking this course')).toHaveCount(0);
   await expect(page.getByText('Not yet reviewed by the coach')).toHaveCount(0);
-  const openings = listed.filter((c) => c.kind === 'opening');
-  const skills = listed.filter((c) => c.kind === 'skills');
-  await page.getByRole('button', { name: 'Openings', exact: true }).click();
-  await expect(cards).toHaveCount(openings.length);
-  await expect(page.getByRole('heading', { level: 2, name: 'Italian Game for White' })).toBeVisible();
-  await page.getByRole('button', { name: 'Skills', exact: true }).click();
-  await expect(cards).toHaveCount(skills.length);
-  await expect(page.getByText('Italian Game for White')).toHaveCount(0);
+  await expect(main.getByRole('button')).toHaveCount(0);
+  const scrolls = await page.evaluate(() => document.documentElement.scrollHeight > document.documentElement.clientHeight);
+  expect(scrolls).toBe(false);
 });
 
 test('open italian-game, solve a find-move step and finish a lesson', async ({ page }) => {
   await page.goto('#/courses');
-  await page.getByRole('link', { name: /^Start Italian Game for White/ }).click();
+  await page.getByRole('link', { name: /Italian Game for White/ }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Italian Game for White' })).toBeVisible();
   await expect(page.getByText('Key points')).toHaveCount(0);
-  await page.getByRole('link', { name: /^Start The first moves/ }).click();
+  await page.getByRole('link', { name: /^The first moves/ }).click();
 
   // Explain step: step through the five moves with the keyboard.
   await expect(page.getByText('Step 1 of 3')).toBeVisible();
@@ -158,63 +153,16 @@ test('a lesson finished only by showing the answer earns no lesson bonus', async
   await expect(page.getByText(/XP earned/)).toHaveCount(0);
   await expect(page.getByRole('link', { name: /^Next lesson:/ })).toBeVisible();
   await page.goto('#/courses/italian-game');
-  const row = page.getByRole('listitem').filter({ has: page.getByRole('heading', { level: 3, name: 'Do not rush to take f7' }) }).last();
-  await expect(row.getByText('Not completed yet')).toBeVisible();
+  await expect(page.getByRole('link', { name: /Do not rush to take f7.*Not completed yet/ })).toBeVisible();
 });
 
-test('opening a lesson from a plain link starts at step 1; Restart lesson goes back', async ({ page }) => {
+test('opening a lesson from a plain link starts at step 1 and Next step moves on', async ({ page }) => {
   await openLesson(page, LESSON);
+  await expect(page.getByText('Step 1 of 3')).toBeVisible();
   await stepMoves(page, 5);
   await page.getByRole('button', { name: 'Next step' }).click();
   await expect(page.getByText('Step 2 of 3')).toBeVisible();
-  await page.getByRole('button', { name: 'Restart lesson' }).click();
-  await expect(page.getByText('Step 1 of 3')).toBeVisible();
 });
-
-const QUIZ_LESSON = '#/learn/italian-game/development-goals';
-
-async function openQuizPresent(page: Page): Promise<void> {
-  await openLesson(page, QUIZ_LESSON);
-  await stepMoves(page, 10);
-  await page.getByRole('button', { name: 'Next step' }).click();
-  await play(page, 'e1', 'g1');
-  await expect(page.getByText('Solved!')).toBeVisible();
-  await page.getByRole('button', { name: 'Next step' }).click();
-  await expect(page.getByText('Step 3 of 3')).toBeVisible();
-  await page.getByRole('button', { name: 'Present', exact: true }).click();
-  await expect(page.locator('.fixed.inset-0')).toBeVisible();
-}
-
-for (const size of [
-  { width: 1366, height: 768 },
-  { width: 1024, height: 768 },
-]) {
-  test(`Present quiz is fully visible and not covered at ${size.width}x${size.height}`, async ({ page }) => {
-    await page.setViewportSize(size);
-    await openQuizPresent(page);
-    const choices = page.getByRole('button', { name: /^Answer \d/ });
-    const count = await choices.count();
-    expect(count).toBeGreaterThanOrEqual(3);
-    // Answer wrongly first, then correctly, so the banners and explanation are on screen too.
-    await choices.first().click();
-    await page.keyboard.press('2');
-    const result = page.getByText('Correct!');
-    await expect(result).toBeVisible();
-    const targets = [choices.nth(count - 1), result, page.getByText('Why:'), page.getByRole('button', { name: 'Finish lesson' })];
-    for (const target of targets) {
-      const box = await target.boundingBox();
-      if (!box) throw new Error('target not rendered');
-      expect(box.y).toBeGreaterThanOrEqual(0);
-      expect(box.y + box.height).toBeLessThanOrEqual(size.height);
-      const covered = await target.evaluate((el) => {
-        const r = el.getBoundingClientRect();
-        const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
-        return hit === null || !(el === hit || el.contains(hit));
-      });
-      expect(covered).toBe(false);
-    }
-  });
-}
 
 for (const size of [
   { width: 1366, height: 768 },

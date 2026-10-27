@@ -65,10 +65,7 @@
 
 [Event "Ruy Lopez for White"]
 [Lesson "noahs-ark"]
-[Step "quiz"]
-[Question "In this position, where can the white bishop on b3 go to be safe?"]
-[Choices "To a4 | Taking on c4 | To c2 | Nowhere safe"]
-[Answer "4"]
-[Explanation "The a4 square is guarded by the b5 pawn. The c4 pawn is guarded by the b5 pawn. The c2 square holds a white pawn. So the bishop is lost for a pawn or two. Playing c3 first would have given it room."]
+[Step "explain"]
 
+{The a4 square is guarded by the b5 pawn. The c4 pawn is guarded by the b5 pawn. The c2 square holds a white pawn. So the bishop is lost for a pawn or two. Playing c3 first would have given it room.}
 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 d6 6. d4 Nxd4 7. Nxd4 exd4 8. Qxd4 c5 9. Qd5 Be6 10. Qc6+ Bd7 11. Qd5 c4 *

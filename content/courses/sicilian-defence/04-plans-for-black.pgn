@@ -21,13 +21,9 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "d5-break"]
-[Step "quiz"]
-[Question "Before you push ...d5, what is a good thing to check first?"]
-[Choices "That your pieces are developed and your king is safe | That you have not castled yet | That your queen is on d8"]
-[Answer "1"]
-[Explanation "A break works best when your pieces are ready to help. If the king is still in the center, the open lines can be dangerous."]
+[Step "explain"]
 
-{Think about readiness before a break.}
+{A break works best when your pieces are ready to help. If the king is still in the center, the open lines can be dangerous.}
 1. e4 c5 2. c3 d5 *
 
 [Event "Sicilian Defence for Black"]
@@ -53,13 +49,9 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "c-file-plan"]
-[Step "quiz"]
-[Question "Why does Black have a half-open c-file in the Open Sicilian?"]
-[Choices "Black traded the c-pawn on d4 | Black never played a c-pawn move | White castled first"]
-[Answer "1"]
-[Explanation "The pawn on c5 took on d4 and was traded off. With no black pawn on the c-file, a black rook has a half-open file to use."]
+[Step "explain"]
 
-{The c-pawn is gone.}
+{The pawn on c5 took on d4 and was traded off. With no black pawn on the c-file, a black rook has a half-open file to use.}
 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 *
 
 [Event "Sicilian Defence for Black"]
@@ -85,13 +77,9 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "habits"]
-[Step "quiz"]
-[Question "Which is a good habit in the opening?"]
-[Choices "Develop pieces and castle before starting big plans | Move one piece many times | Take every pawn with the queen"]
-[Answer "1"]
-[Explanation "Developed pieces and a safe king come first. Plans work best when all your pieces can help."]
+[Step "explain"]
 
-{Think about the basic opening rules.}
+{Developed pieces and a safe king come first. Plans work best when all your pieces can help.}
 1. e4 c5 2. Nf3 d6 *
 
 [Event "Sicilian Defence for Black"]
@@ -107,11 +95,7 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "when-to-play-sicilian"]
-[Step "quiz"]
-[Question "What is a good first step if you want to learn the Sicilian?"]
-[Choices "Learn one simple setup and its plans | Memorize every line to move 20 | Never castle"]
-[Answer "1"]
-[Explanation "A small setup you understand is better than long lines you only half remember."]
+[Step "explain"]
 
-{Pick a simple setup.}
+{A small setup you understand is better than long lines you only half remember.}
 1. e4 c5 *

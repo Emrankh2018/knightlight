@@ -27,7 +27,7 @@ function Choice({ name, value, checked, onChange, children }: ChoiceProps) {
   return (
     <label className="block cursor-pointer">
       <input type="radio" name={name} value={value} checked={checked} onChange={onChange} className="peer sr-only" />
-      <span className="block rounded-xl border-2 border-edge bg-surface px-4 py-3 text-lg font-bold peer-checked:border-ink peer-checked:bg-amber/30 peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ink dark:peer-checked:border-amber dark:peer-focus-visible:outline-amber">
+      <span className="block h-full rounded-control border-2 border-edge bg-surface px-3 py-2 text-lg font-bold peer-checked:border-ink peer-checked:bg-amber/30 peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ink dark:peer-checked:border-amber dark:peer-focus-visible:outline-amber">
         {children}
       </span>
     </label>
@@ -54,24 +54,21 @@ export default function PlaySetup({ value, onChange, onStart, focusHeading = fal
     { id: 'random', label: t.random },
   ];
   return (
-    <section className="mx-auto max-w-3xl space-y-6">
-      <header className="space-y-1">
-        <h1 ref={heading} tabIndex={-1} className="text-3xl font-extrabold focus:outline-none">{t.title}</h1>
-        <p className="text-lg text-muted">{t.intro}</p>
-      </header>
+    <section className="mx-auto max-w-6xl space-y-3">
+      <h1 ref={heading} tabIndex={-1} className="text-3xl font-bold focus:outline-none">{t.title}</h1>
       <fieldset className="space-y-2">
-        <legend className="mb-2 text-xl font-extrabold">{t.levelLegend}</legend>
-        <div className="grid gap-2">
+        <legend className="mb-1 text-lg font-extrabold">{t.levelLegend}</legend>
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
           {LEVEL_IDS.map((id, i) => (
             <Choice key={id} name="play-level" value={id} checked={value.level === id} onChange={() => onChange({ ...value, level: id })}>
-              <span className="flex items-center gap-4">
-                <span aria-hidden="true" className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-ink text-lamp">
+              <span className="flex flex-col items-center gap-2 text-center">
+                <span aria-hidden="true" className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-lamp">
                   <PieceIcon piece={id} width="2rem" height="2rem" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block">{fmt(t.levelOption, { level: i + 1, name: t.levels[id].name })}</span>
-                  <span className="block text-base font-normal text-muted">{t.levels[id].blurb}</span>
-                  <span aria-hidden="true" className="mt-1 flex gap-1">
+                  <span className="block text-base">{fmt(t.levelOption, { level: i + 1, name: t.levels[id].name })}</span>
+                  <span className="block text-sm font-normal leading-snug text-muted">{t.levels[id].blurb}</span>
+                  <span aria-hidden="true" className="mt-1 flex justify-center gap-1">
                     {LEVEL_IDS.map((_, d) => (
                       <span key={d} className={`h-1.5 w-6 rounded-full ${d <= i ? 'bg-amber' : 'bg-line'}`} />
                     ))}
@@ -82,9 +79,9 @@ export default function PlaySetup({ value, onChange, onStart, focusHeading = fal
           ))}
         </div>
       </fieldset>
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <fieldset className="space-y-2">
-          <legend className="mb-2 text-xl font-extrabold">{t.colorLegend}</legend>
+          <legend className="mb-1 text-lg font-extrabold">{t.colorLegend}</legend>
           <div className="grid grid-cols-3 gap-2">
             {colors.map((c) => (
               <Choice key={c.id} name="play-color" value={c.id} checked={value.color === c.id} onChange={() => onChange({ ...value, color: c.id })}>
@@ -94,7 +91,7 @@ export default function PlaySetup({ value, onChange, onStart, focusHeading = fal
           </div>
         </fieldset>
         <fieldset className="space-y-2">
-          <legend className="mb-2 text-xl font-extrabold">{t.clockLegend}</legend>
+          <legend className="mb-1 text-lg font-extrabold">{t.clockLegend}</legend>
           <div className="grid grid-cols-3 gap-2">
             {CLOCK_CHOICES.map((n) => (
               <Choice key={n} name="play-clock" value={String(n)} checked={value.clock === n} onChange={() => onChange({ ...value, clock: n })}>
@@ -104,7 +101,7 @@ export default function PlaySetup({ value, onChange, onStart, focusHeading = fal
           </div>
         </fieldset>
       </div>
-      <Button className="min-h-14 px-8 text-xl" onClick={onStart}>
+      <Button className="min-h-12 px-8 text-xl" onClick={onStart}>
         {t.start}
       </Button>
     </section>

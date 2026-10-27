@@ -53,22 +53,14 @@
 
 [Event "Opening Traps for White"]
 [Lesson "fried-liver-avoid"]
-[Step "quiz"]
-[Question "After 5.exd5 which Black move avoids the Fried Liver?"]
-[Choices "5...Nxd5 | 5...Na5"]
-[Answer "2"]
-[Explanation "5...Na5 does not put a knight on d5, so there is no sacrifice on f7. 5...Nxd5 is the move White hopes for."]
+[Step "explain"]
 
-{White has just taken on d5. Black to move.}
+{5...Na5 does not put a knight on d5, so there is no sacrifice on f7. 5...Nxd5 is the move White hopes for.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 *
 
 [Event "Opening Traps for White"]
 [Lesson "fried-liver-avoid"]
-[Step "quiz"]
-[Question "Black played 5...Nxd5. Which statement is right?"]
-[Choices "White must play 6.Nxf7 or lose | White can sacrifice on f7, but it is risky and White must play carefully | White is already winning"]
-[Answer "2"]
-[Explanation "6.Nxf7 gives up a knight for a pawn. White gets an attack, but it needs accurate play. Never count on it."]
+[Step "explain"]
 
-{Be honest about the sacrifice.}
+{6.Nxf7 gives up a knight for a pawn. White gets an attack, but it needs accurate play. Never count on it.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 *

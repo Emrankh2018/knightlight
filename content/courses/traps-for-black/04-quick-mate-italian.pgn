@@ -33,11 +33,7 @@
 
 [Event "Opening Traps for Black"]
 [Lesson "quick-knight-mate"]
-[Step "quiz"]
-[Question "After 3...Nd4, which White plan walks into the trap?"]
-[Choices "Nxd4 (trade the knight) | Nxe5, then Nxf7 (grab pawns twice)"]
-[Answer "2"]
-[Explanation "4.Nxd4 exd4 is a calm trade and the trap is gone. The trap works only if White grabs on e5 and again on f7, and then blocks with the bishop."]
+[Step "explain"]
 
-{Think about which plan leaves the king forgotten.}
+{4.Nxd4 exd4 is a calm trade and the trap is gone. The trap works only if White grabs on e5 and again on f7, and then blocks with the bishop.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 *

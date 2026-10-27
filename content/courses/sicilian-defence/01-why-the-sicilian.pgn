@@ -21,13 +21,9 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "why-sicilian"]
-[Step "quiz"]
-[Question "Which square does the black pawn on c5 watch?"]
-[Choices "d4 | e5 | f4"]
-[Answer "1"]
-[Explanation "A black pawn on c5 attacks the squares b4 and d4. It stops White from simply putting a pawn on d4."]
+[Step "explain"]
 
-{Look at the black pawn on c5. [%csl Gd4]}
+{A black pawn on c5 attacks the squares b4 and d4. It stops White from simply putting a pawn on d4.}
 1. e4 c5 *
 
 [Event "Sicilian Defence for Black"]
@@ -53,11 +49,7 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "c-vs-e-pawn"]
-[Step "quiz"]
-[Question "After 4.Nxd4, which file is half-open for Black (no black pawn on it)?"]
-[Choices "The c-file | The e-file | The h-file"]
-[Answer "1"]
-[Explanation "The black c-pawn was traded on d4. Black has no c-pawn, so a black rook on the c-file can look down the file as far as White's pawn on c2."]
+[Step "explain"]
 
-{Black has traded the c-pawn. Which file is half-open now?}
+{The black c-pawn was traded on d4. Black has no c-pawn, so a black rook on the c-file can look down the file as far as White's pawn on c2.}
 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 *

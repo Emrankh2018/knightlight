@@ -5,7 +5,7 @@
   "level": "beginner",
   "description": "Learn the Queen's Gambit with the white pieces: why White offers a pawn, how to win it back if Black takes it, the calm Declined line with the pin on f6, and a short look at the Slav.",
   "tags": ["opening", "queens-gambit", "d4", "gambit", "white"],
-  "reviewed": false,
+  "reviewed": true,
   "chapters": [
     { "file": "01-the-idea.pgn", "title": "The big idea" },
     { "file": "02-accepted.pgn", "title": "Queen's Gambit Accepted" },

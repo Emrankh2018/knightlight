@@ -50,36 +50,23 @@ test('a loaded FEN sets the position and names it', async ({ page }) => {
   await expect(page.getByRole('alert')).toContainText('could not read');
 });
 
-test('right-drag draws an arrow, right-click marks a square, a move or Clear removes them', async ({ page }) => {
-  const clear = page.getByRole('button', { name: 'Clear drawings' });
-  await expect(clear).toHaveAttribute('aria-disabled', 'true');
+test('right-drag draws an arrow, right-click marks a square, any left click clears them', async ({ page }) => {
+  expect(await page.getByRole('button', { name: 'Mark mode' }).count()).toBe(0);
   const a = await center(page, 'g1');
   const b = await center(page, 'f3');
   await page.mouse.move(a.x, a.y);
   await page.mouse.down({ button: 'right' });
   await page.mouse.move(b.x, b.y, { steps: 4 });
   await page.mouse.up({ button: 'right' });
-  await expect(clear).toHaveAttribute('aria-disabled', 'false');
   await sq(page, 'd5').click({ button: 'right' });
   await expect(sq(page, 'd5').locator('> div')).toHaveCSS('background-color', /rgba\(59, 178, 115/);
-  await clear.click();
-  await expect(clear).toHaveAttribute('aria-disabled', 'true');
+  await sq(page, 'a3').click();
   await expect(sq(page, 'd5').locator('> div')).not.toHaveCSS('background-color', /rgba\(59, 178, 115/);
 
   await sq(page, 'd5').click({ button: 'right' });
-  await expect(clear).toHaveAttribute('aria-disabled', 'false');
+  await expect(sq(page, 'd5').locator('> div')).toHaveCSS('background-color', /rgba\(59, 178, 115/);
   await playByClick(page, 'e2', 'e4');
-  await expect(clear).toHaveAttribute('aria-disabled', 'true');
-});
-
-test('mark mode marks squares with the left button and does not move pieces', async ({ page }) => {
-  await page.getByRole('button', { name: 'Mark mode' }).click();
-  await sq(page, 'e2').click();
-  await sq(page, 'e4').click();
-  await expect(page.getByRole('button', { name: /^Move 1:/ })).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Clear drawings' })).toHaveAttribute('aria-disabled', 'false');
-  await page.getByRole('button', { name: 'Mark mode' }).click();
-  await playByClick(page, 'e2', 'e4');
+  await expect(sq(page, 'd5').locator('> div')).not.toHaveCSS('background-color', /rgba\(59, 178, 115/);
   await expect(page.getByRole('button', { name: 'Move 1: e4' })).toBeVisible();
 });
 

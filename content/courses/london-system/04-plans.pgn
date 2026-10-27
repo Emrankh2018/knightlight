@@ -64,13 +64,9 @@
 
 [Event "London System for White"]
 [Lesson "when-to-play"]
-[Step "quiz"]
-[Question "You play 1.d4 and Black replies 1...d5. Which is a London System move?"]
-[Choices "2.Bf4 | 2.h4 | 2.a4"]
-[Answer "1"]
-[Explanation "2.Bf4 brings out the London bishop before e3."]
+[Step "explain"]
 
-{Think about the London bishop.}
+{2.Bf4 brings out the London bishop before e3.}
 1. d4 d5 *
 
 [Event "London System for White"]

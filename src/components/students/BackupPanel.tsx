@@ -75,7 +75,7 @@ export default function BackupPanel() {
 
   return (
     <section aria-labelledby="backup-title" className="space-y-3">
-      <h2 id="backup-title" className="text-2xl font-extrabold">{t.title}</h2>
+      <h2 id="backup-title" className="sr-only">{t.title}</h2>
       <p className="text-lg">{t.intro}</p>
       <div className="flex flex-wrap items-center gap-3">
         <Button onClick={onExport}>{t.exportLabel}</Button>

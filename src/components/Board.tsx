@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type Keyboard
 import { Chess, type Move, type PieceSymbol } from 'chess.js';
 import { Chessboard, type Arrow as BoardArrow, type PieceDropHandlerArgs, type SquareHandlerArgs } from 'react-chessboard';
 import { fmt, m } from '../i18n';
-import { toneOfModifiers } from '../lib/annotations';
+import { toggleArrow, toggleHighlight, toneOfModifiers } from '../lib/annotations';
 import { describePosition } from '../lib/describe';
 import type { Arrow, Highlight } from '../lib/content/types';
 import { BOARD_THEMES, effectiveBoardTheme, useIsDark, useSettings } from '../store/settings';
@@ -39,13 +39,8 @@ function removeInnerTabStops(root: HTMLElement): void {
   }
 }
 
-/** Coach drawing tools: right-drag draws an arrow, right-click marks a square; in marking mode the left button does the same. Keys: H marks the cursor square, A starts and finishes an arrow. */
-export interface BoardAnnotate {
-  /** Marking mode: clicks and drags mark the board instead of moving pieces. */
-  marking: boolean;
-  onArrow: (from: string, to: string, tone: Tone) => void;
-  onSquare: (square: string, tone: Tone) => void;
-}
+type UserMarks = { arrows: Arrow[]; highlights: Highlight[] };
+const NO_USER_MARKS: UserMarks = { arrows: [], highlights: [] };
 
 export interface BoardProps {
   fen: string;
@@ -61,7 +56,8 @@ export interface BoardProps {
   highlights?: readonly Highlight[];
   lastMove?: { from: string; to: string; san?: string };
   interactive?: boolean;
-  annotate?: BoardAnnotate;
+  /** Keyboard marking (H marks the cursor square, A starts and ends an arrow). Off by default because lessons and puzzles use H for hints. */
+  keyMarks?: boolean;
   /** Board width: a number of px (capped by the container) or a CSS length such as `min(100%, calc(100dvh - 8rem))`. Default: fills the container (max about 85vh). */
   size?: number | string;
   /** Ref to the focusable board element, so callers can move focus to it. */
@@ -92,7 +88,7 @@ export default function Board({
   highlights = [],
   lastMove,
   interactive = false,
-  annotate,
+  keyMarks = false,
   size,
   ref,
   ariaLabel,
@@ -105,9 +101,16 @@ export default function Board({
   const [sel, setSel] = useState<{ fen: string; square: string } | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
   const [arrowFrom, setArrowFrom] = useState<string | null>(null);
-  const drag = useRef<{ square: string; button: number } | null>(null);
-  /** Pieces can be moved unless the board is in marking mode. */
-  const canMove = interactive && !annotate?.marking;
+  const drag = useRef<string | null>(null);
+  /** Marks the viewer draws themselves (right-click and right-drag, or the H and A keys). They belong to one position and vanish when it changes or on any left click. */
+  const [drawn, setDrawn] = useState<UserMarks & { fen: string }>({ fen, ...NO_USER_MARKS });
+  const mine: UserMarks = drawn.fen === fen ? drawn : NO_USER_MARKS;
+  const markSquare = (square: string, tone: Tone): void => setDrawn({ fen, arrows: mine.arrows, highlights: toggleHighlight(mine.highlights, { square, color: tone }) });
+  const markArrow = (from: string, to: string, tone: Tone): void => setDrawn({ fen, arrows: toggleArrow(mine.arrows, { from, to, color: tone }), highlights: mine.highlights });
+  const clearMarks = (): void => {
+    if (mine.arrows.length > 0 || mine.highlights.length > 0) setDrawn({ fen, ...NO_USER_MARKS });
+  };
+  const canMove = interactive;
   /** Where the keyboard cursor starts: the first piece of the side to move, scanning from the player's own back rank. */
   const startSquare = useMemo(() => {
     if (!chess) return 'e2';
@@ -190,24 +193,23 @@ export default function Board({
       case ' ':
         e.preventDefault();
         setCursor(here);
-        if (annotate?.marking) annotate.onSquare(here, 'G');
-        else clickSquare(here, ownPieceAt(here));
+        clickSquare(here, ownPieceAt(here));
         return;
       case 'h':
       case 'H':
-        if (!annotate || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (!keyMarks || e.ctrlKey || e.metaKey || e.altKey) return;
         e.preventDefault();
         setCursor(here);
-        annotate.onSquare(here, e.shiftKey ? 'R' : 'G');
+        markSquare(here, e.shiftKey ? 'R' : 'G');
         return;
       case 'a':
       case 'A':
-        if (!annotate || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (!keyMarks || e.ctrlKey || e.metaKey || e.altKey) return;
         e.preventDefault();
         setCursor(here);
         if (arrowFrom === null) setArrowFrom(here);
         else {
-          if (arrowFrom !== here) annotate.onArrow(arrowFrom, here, e.shiftKey ? 'R' : 'G');
+          if (arrowFrom !== here) markArrow(arrowFrom, here, e.shiftKey ? 'R' : 'G');
           setArrowFrom(null);
         }
         return;
@@ -247,28 +249,32 @@ export default function Board({
       add(lastMove.from, { backgroundColor: LAST_MOVE_FILL });
       add(lastMove.to, { backgroundColor: LAST_MOVE_FILL });
     }
-    for (const h of highlights) add(h.square, { backgroundColor: FILL[h.color] });
+    for (const h of [...highlights, ...mine.highlights]) add(h.square, { backgroundColor: FILL[h.color] });
     if (selected) add(selected, { backgroundColor: SELECTED_FILL });
     for (const t of targets) add(t.to, { backgroundImage: t.captured ? RING : DOT });
     if (arrowFrom) add(arrowFrom, { boxShadow: 'inset 0 0 0 4px #3BB273' });
     if (cursor && interactive) add(cursor, { boxShadow: 'inset 0 0 0 3px #0F3D3E, inset 0 0 0 6px #FFFFFF' });
     return out;
-  }, [chess, lastMove, highlights, selected, targets, cursor, interactive, arrowFrom]);
+  }, [chess, lastMove, highlights, mine.highlights, selected, targets, cursor, interactive, arrowFrom]);
 
   const onSquareMouseDown = ({ square }: SquareHandlerArgs, e: MouseEvent): void => {
-    drag.current = annotate && (e.button === 2 || (annotate.marking && e.button === 0)) ? { square, button: e.button } : null;
+    if (e.button === 2) drag.current = square;
+    else {
+      drag.current = null;
+      if (e.button === 0) clearMarks();
+    }
   };
 
   const onSquareMouseUp = ({ square }: SquareHandlerArgs, e: MouseEvent): void => {
     const start = drag.current;
     drag.current = null;
-    if (!annotate || !start || start.button !== e.button) return;
+    if (start === null || e.button !== 2) return;
     const tone = toneOfModifiers(e);
-    if (start.square === square) annotate.onSquare(square, tone);
-    else annotate.onArrow(start.square, square, tone);
+    if (start === square) markSquare(square, tone);
+    else markArrow(start, square, tone);
   };
 
-  const boardArrows: BoardArrow[] = arrows.map((a) => ({ startSquare: a.from, endSquare: a.to, color: TONES[a.color] }));
+  const boardArrows: BoardArrow[] = [...arrows, ...mine.arrows].map((a) => ({ startSquare: a.from, endSquare: a.to, color: TONES[a.color] }));
   const summary = useMemo(() => describePosition(fen), [fen]);
   const reduceMotion = typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -284,7 +290,7 @@ export default function Board({
         setCursor(null);
         setArrowFrom(null);
       }}
-      onContextMenu={annotate ? (e) => e.preventDefault() : undefined}
+      onContextMenu={(e) => e.preventDefault()}
       className="mx-auto rounded-md focus-visible:outline-offset-[14px]"
       style={{ width: typeof size === 'string' ? size : `min(100%, ${size ? `${size}px` : '85vh'})` }}
     >

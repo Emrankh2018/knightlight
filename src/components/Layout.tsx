@@ -31,7 +31,7 @@ export default function Layout() {
     `flex min-h-11 items-center rounded-lg px-3 ${isActive ? 'font-extrabold text-lamp shadow-[inset_0_-3px_0_0_var(--color-amber)]' : 'hover:text-lamp'}`;
 
   return (
-    <div className="flex min-h-full flex-col">
+    <div className="flex min-h-full flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
       <button
         type="button"
         onClick={() => mainRef.current?.focus()}
@@ -39,7 +39,7 @@ export default function Layout() {
       >
         {m().app.skipToContent}
       </button>
-      <header className="kl-chrome relative border-b-2 border-amber/70 bg-gradient-to-b from-ink-deep to-ink text-cream shadow-lift">
+      <header className="kl-chrome relative shrink-0 border-b-2 lg:h-[var(--kl-header-h)] border-amber/70 bg-gradient-to-b from-ink-deep to-ink text-cream shadow-lift">
         <nav aria-label={m().nav.mainNav} className="mx-auto flex min-w-0 max-w-7xl items-center gap-1 px-2 py-2 sm:gap-2 sm:px-4">
           <NavLink to="/" aria-label={m().app.name} className="me-1 flex min-h-11 shrink-0 items-center gap-2 text-xl font-extrabold sm:me-2">
             <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width={32} height={32} />
@@ -83,13 +83,13 @@ export default function Layout() {
           </ul>
         ) : null}
       </header>
-      <main id="main" ref={mainRef} tabIndex={-1} className="mx-auto focus:outline-none w-full max-w-7xl flex-1 px-4 py-6">
+      <main id="main" ref={mainRef} tabIndex={-1} className="mx-auto w-full max-w-7xl flex-1 px-4 py-4 focus:outline-none lg:min-h-0 lg:overflow-hidden lg:py-3">
         <Outlet />
       </main>
-      <footer className="kl-chrome border-t border-line px-4 py-4 text-center text-sm text-muted">
+      <footer className="kl-chrome shrink-0 border-t border-line px-4 py-3 text-center text-sm text-muted lg:flex lg:h-[var(--kl-footer-h)] lg:items-center lg:justify-center lg:py-0 lg:text-xs">
         <p>
           {m().app.footerCredit}{' '}
-          <a className="inline-block py-3 underline" href="https://database.lichess.org/">database.lichess.org</a> · {m().app.footerLicense}
+          <a className="underline" href="https://database.lichess.org/">database.lichess.org</a> · {m().app.footerLicense}
         </p>
       </footer>
       <Toasts />

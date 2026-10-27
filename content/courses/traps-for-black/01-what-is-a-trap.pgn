@@ -21,13 +21,9 @@
 
 [Event "Opening Traps for Black"]
 [Lesson "what-is-a-trap"]
-[Step "quiz"]
-[Question "When does a trap work?"]
-[Choices "Always, if the move looks clever | Only when the opponent takes the bait | Only when you play it on move three"]
-[Answer "2"]
-[Explanation "A trap needs the opponent to take the bait. If your opponent plays well, you still need a good position."]
+[Step "explain"]
 
-{Think about what the trap needs.}
+{A trap needs the opponent to take the bait. If your opponent plays well, you still need a good position.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 *
 
 [Event "Opening Traps for Black"]
@@ -53,11 +49,7 @@
 
 [Event "Opening Traps for Black"]
 [Lesson "golden-rule"]
-[Step "quiz"]
-[Question "What should you check BEFORE you set a trap?"]
-[Choices "What my opponent threatens and whether my move is safe | How many pieces I can give away | Whether my opponent looks nervous"]
-[Answer "1"]
-[Explanation "Look at your opponent's threats first, and only play moves that are safe even if the trap fails."]
+[Step "explain"]
 
-{Remember the three questions.}
+{Look at your opponent's threats first, and only play moves that are safe even if the trap fails.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 *

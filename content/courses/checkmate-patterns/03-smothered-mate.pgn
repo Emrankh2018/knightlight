@@ -22,14 +22,10 @@
 
 [Event "Checkmate Patterns"]
 [Lesson "smothered-idea"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "6rk/6pp/8/4N3/8/8/8/6K1 w - - 0 1"]
-[Question "Why is a knight the best piece to give a smothered mate?"]
-[Choices "It jumps, so nothing can block its check | It is the strongest piece | It can move diagonally"]
-[Answer "1"]
-[Explanation "A knight jumps over pieces. The king cannot hide behind anything."]
 
-{Look at the position before the knight move.}
+{A knight jumps over pieces. The king cannot hide behind anything.}
 *
 
 [Event "Checkmate Patterns"]

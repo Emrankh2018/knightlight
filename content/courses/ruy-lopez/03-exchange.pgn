@@ -65,10 +65,7 @@
 
 [Event "Ruy Lopez for White"]
 [Lesson "exchange-grab"]
-[Step "quiz"]
-[Question "Count the pawns in this position. Who has more?"]
-[Choices "White has more | Black has more | The pawns are level"]
-[Answer "3"]
-[Explanation "White took e5 but Black took e4. Both sides have seven pawns. So 5.Nxe5 did not win a pawn for free. The calm 5.O-O is better."]
+[Step "explain"]
 
+{White took e5 but Black took e4. Both sides have seven pawns. So 5.Nxe5 did not win a pawn for free. The calm 5.O-O is better.}
 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. Nxe5 Qd4 6. Nf3 Qxe4+ *

@@ -37,7 +37,7 @@ export default function LessonPlayer({ course, current, next, resume }: Props) {
   const [flipped, setFlipped] = useState(false);
   const [classMode, setClassMode] = useState(false);
   const [finished, setFinished] = useState<{ xp: number; perfect: boolean; credited: boolean } | null>(null);
-  const [attempt, setAttempt] = useState(0);
+  const attempt = 0;
   const teacherView = useUi((s) => s.teacherView);
   const setTeacherView = useUi((s) => s.setTeacherView);
   const completedSteps = useProgress((s) => s.data.completedSteps);
@@ -56,16 +56,6 @@ export default function LessonPlayer({ course, current, next, resume }: Props) {
   const setPresent = (on: boolean): void => {
     if (on) setTeacherView(false);
     setClassMode(on);
-  };
-
-  const restart = (): void => {
-    results.current = [];
-    startXp.current = useProgress.getState().data.xp;
-    controls.current = {};
-    setDoneSteps([]);
-    setFinished(null);
-    setStepIndex(0);
-    setAttempt((n) => n + 1);
   };
 
   useEffect(() => {
@@ -147,7 +137,7 @@ export default function LessonPlayer({ course, current, next, resume }: Props) {
   });
 
   const btn = bigButton(classMode);
-  const small = 'min-h-11 px-3 text-base';
+  const small = 'min-h-10 px-3 text-base';
   const titleSize = classMode ? 'text-xl 2xl:text-3xl' : 'text-2xl';
 
   const toggles = (
@@ -163,11 +153,6 @@ export default function LessonPlayer({ course, current, next, resume }: Props) {
           {m().lesson.flip}
         </Button>
       )}
-      {!classMode && (finished || stepIndex > 0 || doneSteps.length > 0) ? (
-        <Button variant="secondary" className={small} onClick={restart}>
-          {m().lesson.restart}
-        </Button>
-      ) : null}
       {classMode ? <SoundToggle compact className="hover:bg-line" /> : null}
     </div>
   );
@@ -188,14 +173,13 @@ export default function LessonPlayer({ course, current, next, resume }: Props) {
     <div className="space-y-1">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
         {classMode ? null : (
-          <Link to={`/courses/${encodeURIComponent(slug)}`} className="inline-flex min-h-11 items-center font-bold underline">
+          <Link to={`/courses/${encodeURIComponent(slug)}`} className="inline-flex min-h-9 items-center font-bold underline">
             {m().lesson.backToCourse}
           </Link>
         )}
-        {classMode ? <h1 className={`font-extrabold ${titleSize}`}>{lesson.title}</h1> : null}
         {reviewBadge}
       </div>
-      {classMode ? null : <h1 className={`font-extrabold ${titleSize}`}>{lesson.title}</h1>}
+      <h1 className={`font-extrabold ${titleSize}`}>{lesson.title}</h1>
       <div className="flex items-center gap-3">
         <p ref={titleRef} tabIndex={-1} className="shrink-0 font-bold text-muted focus:outline-none">
           {stepText}
@@ -223,7 +207,6 @@ export default function LessonPlayer({ course, current, next, resume }: Props) {
   const notes: ReactNode = (
     <>
       {teacherView ? <TeacherPanel notes={lesson.teacherNotes} classMode={classMode} /> : null}
-      {classMode ? null : <p className="text-sm text-muted">{m().lesson.keyboardHelp}</p>}
     </>
   );
   const footer: ReactNode = (

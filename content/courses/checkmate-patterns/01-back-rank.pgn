@@ -22,14 +22,10 @@
 
 [Event "Checkmate Patterns"]
 [Lesson "back-rank-mate"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1"]
-[Question "Why can the black king not escape after Rd8?"]
-[Choices "Its own pawns block the squares in front of it | White has a second rook | The king is not allowed to move sideways"]
-[Answer "1"]
-[Explanation "The pawns on f7, g7 and h7 take away the squares in front of the king, and the rook covers the squares beside it."]
 
-{Look at the position after the checkmate.}
+{The pawns on f7, g7 and h7 take away the squares in front of the king, and the rook covers the squares beside it.}
 1. Rd8# 1-0
 
 [Event "Checkmate Patterns"]
@@ -56,13 +52,10 @@
 
 [Event "Checkmate Patterns"]
 [Lesson "make-luft"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1"]
-[Question "Black to move. Which idea stops the checkmate?"]
-[Choices "Move a pawn to give the king an escape square | Move the king to h8 | Do nothing"]
-[Answer "1"]
-[Explanation "A pawn move such as h6 gives the king a square. Kh8 still loses to Re8 checkmate."]
 
+{A pawn move such as h6 gives the king a square. Kh8 still loses to Re8 checkmate.}
 *
 
 [Event "Checkmate Patterns"]

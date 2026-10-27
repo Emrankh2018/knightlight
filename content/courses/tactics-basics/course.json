@@ -4,7 +4,7 @@
   "level": "beginner",
   "description": "Learn the first tricks every player needs: forks, pins, skewers, discovered attacks, loose pieces and smart trades.",
   "tags": ["tactics", "fork", "pin", "skewer", "discovered attack", "piece values"],
-  "reviewed": false,
+  "reviewed": true,
   "chapters": [
     { "file": "01-forks.pgn", "title": "Forks" },
     { "file": "02-pins.pgn", "title": "Pins" },

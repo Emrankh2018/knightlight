@@ -42,22 +42,14 @@
 
 [Event "Opening Traps for Black"]
 [Lesson "pinned-knight-trick"]
-[Step "quiz"]
-[Question "White to move here. Which move does NOT fall into the trap?"]
-[Choices "Nxd5 (take the pawn with the knight) | e3 (support the center and develop)"]
-[Answer "2"]
-[Explanation "6.e3 is a calm move that does not fall for the trap. The trap only works after 6.Nxd5. If White does not fall for it, Black just plays on."]
+[Step "explain"]
 
-{Think about the position, not just the free pawn.}
+{6.e3 is a calm move that does not fall for the trap. The trap only works after 6.Nxd5. If White does not fall for it, Black just plays on.}
 1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 *
 
 [Event "Opening Traps for Black"]
 [Lesson "pinned-knight-trick"]
-[Step "quiz"]
-[Question "Why can the knight on f6 take on d5 even though the white bishop attacks the queen behind it?"]
-[Choices "The knight is pinned to the king, but it can still move | The knight is only pinned to the queen, and Black wins more than he loses | Knights are never pinned"]
-[Answer "2"]
-[Explanation "The pin is against the queen, not the king, so the knight may move. Giving up the queen is fine here because Black wins it back with check."]
+[Step "explain"]
 
-{Remember what is behind the knight.}
+{The pin is against the queen, not the king, so the knight may move. Giving up the queen is fine here because Black wins it back with check.}
 1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 6. Nxd5 *

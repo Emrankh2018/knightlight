@@ -32,11 +32,7 @@
 
 [Event "Sample basics"]
 [Lesson "weak-f7"]
-[Step "quiz"]
-[Question "Which black pawn is attacked twice and guarded only by the king?"]
-[Choices "The pawn on f7 | The pawn on e5 | The pawn on a7"]
-[Answer "1"]
-[Explanation "The queen and the bishop both attack f7, and only the king guards it."]
+[Step "explain"]
 
-{Look at the final position.}
+{The queen and the bishop both attack f7, and only the king guards it.}
 1. e4 e5 2. Qh5 Nc6 3. Bc4 Nf6 *

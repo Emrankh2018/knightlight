@@ -48,10 +48,10 @@ function Picker({ levels, initialLevel, unknown, onPick }: { levels: PuzzleLevel
   const level = levels.find((l) => l.id === chosen);
   const buckets = level ? [...level.buckets].sort((a, b) => (a.theme === 'mixed' ? -1 : b.theme === 'mixed' ? 1 : 0)) : [];
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-extrabold">{m().puzzles.title}</h1>
+    <div className="space-y-3">
+      <h1 className="text-3xl font-bold">{m().puzzles.title}</h1>
       {unknown ? <Feedback tone="bad">{m().puzzles.unknownSet}</Feedback> : null}
-      <section aria-labelledby="pz-levels" className="space-y-3">
+      <section aria-labelledby="pz-levels" className="space-y-2">
         <h2 id="pz-levels" className="text-xl font-bold">{m().puzzles.pickLevel}</h2>
         <div className="flex flex-wrap gap-3">
           {levels.map((l) => (
@@ -64,16 +64,16 @@ function Picker({ levels, initialLevel, unknown, onPick }: { levels: PuzzleLevel
           ))}
         </div>
       </section>
-      <section aria-labelledby="pz-themes" className="space-y-3">
+      <section aria-labelledby="pz-themes" className="space-y-2">
         <h2 id="pz-themes" className="text-xl font-bold">{m().puzzles.pickTheme}</h2>
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-2 sm:grid-cols-3 lg:grid-cols-5">
           {buckets.map((b) => (
             <li key={b.file}>
               <button
                 type="button"
                 aria-label={fmt(m().puzzles.themeCount, { theme: themeLabel(b.theme), count: b.count })}
                 onClick={() => onPick(chosen, b.theme)}
-                className={cardClass('interactive', 'flex min-h-14 w-full items-center justify-between py-3 text-start text-lg font-bold')}
+                className={cardClass('interactive', 'flex min-h-12 w-full items-center justify-between gap-2 px-3 py-2 text-start text-base font-bold')}
               >
                 <span>{themeLabel(b.theme)}</span>
                 <span className="rounded-full bg-line/60 px-3 py-1 text-base text-muted">{b.count}</span>

@@ -66,12 +66,8 @@
 
 [Event "Checkmate Patterns"]
 [Lesson "careful-stalemate"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1"]
-[Question "After Qg6 it is Black's turn. The king is not in check and has no legal move. What is this?"]
-[Choices "Checkmate | Stalemate | Just a check"]
-[Answer "2"]
-[Explanation "The king is not attacked, but it cannot move anywhere safe and Black has no other piece. That is stalemate, and the game is a draw."]
 
-{Look at the position after the queen move.}
+{The king is not attacked, but it cannot move anywhere safe and Black has no other piece. That is stalemate, and the game is a draw.}
 1. Qg6 1/2-1/2

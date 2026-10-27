@@ -73,11 +73,7 @@
 
 [Event "London System for White"]
 [Lesson "qb6-b2"]
-[Step "quiz"]
-[Question "Why was the b2 pawn left unguarded when Black's queen went to b6?"]
-[Choices "The bishop left c1 so nothing guards b2 | The knight on f3 left b2 | The pawn on b2 is too small"]
-[Answer "1"]
-[Explanation "The c1 bishop used to guard b2. When it went to f4, the pawn lost its guard."]
+[Step "explain"]
 
-{Think about which piece used to guard b2.}
+{The c1 bishop used to guard b2. When it went to f4, the pawn lost its guard.}
 1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 4. e3 Qb6 *

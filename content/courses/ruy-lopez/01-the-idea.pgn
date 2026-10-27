@@ -21,12 +21,9 @@
 
 [Event "Ruy Lopez for White"]
 [Lesson "spanish-idea"]
-[Step "quiz"]
-[Question "After 3. Bb5, which black piece is the bishop pointing at?"]
-[Choices "The knight on c6 | The queen on d8 | The pawn on f7"]
-[Answer "1"]
-[Explanation "The bishop on b5 looks along a diagonal at the knight on c6. That knight guards the e5 pawn."]
+[Step "explain"]
 
+{The bishop on b5 looks along a diagonal at the knight on c6. That knight guards the e5 pawn.}
 1. e4 e5 2. Nf3 Nc6 3. Bb5 *
 
 [Event "Ruy Lopez for White"]

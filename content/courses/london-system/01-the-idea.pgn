@@ -62,13 +62,9 @@
 
 [Event "London System for White"]
 [Lesson "bishop-first"]
-[Step "quiz"]
-[Question "Which order is better for the London System?"]
-[Choices "Pawn to e3, then bishop to f4 | Bishop to f4, then pawn to e3"]
-[Answer "2"]
-[Explanation "After e3 the c1 bishop cannot reach f4. So the bishop goes first."]
+[Step "explain"]
 
-{Think about the bishop on c1.}
+{After e3 the c1 bishop cannot reach f4. So the bishop goes first.}
 1. d4 d5 2. Nf3 Nf6 3. Bf4 *
 
 [Event "London System for White"]

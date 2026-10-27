@@ -6,7 +6,7 @@
 [Mistakes "Forgetting that the forking piece can be captured | Forking two pawns when a bigger fork was there"]
 [ClassQuestions "Why can the black player only fix one problem? | Which squares does a knight on c7 attack?"]
 
-{A fork is one move that attacks two enemy pieces at once.}
+{A knight on c7 attacks e8 and a8. The king is on e8 and the rook is on a8.}
 *
 
 [Lesson "knight-fork"]
@@ -18,11 +18,7 @@
 2. Nxa8 {Now the knight takes the rook for free. [%cal Gc7a8]} *
 
 [Lesson "knight-fork"]
-[Step "quiz"]
-[Question "After 1. Nc7+, which two black pieces does the knight attack?"]
-[Choices "The king and the rook | The king and a pawn | Only the king"]
-[Answer "1"]
-[Explanation "A knight on c7 attacks e8 and a8. The king is on e8 and the rook is on a8."]
+[Step "explain"]
 [FEN "r3k3/8/8/3N4/8/8/5PPP/6K1 w - - 0 1"]
 
 {Look at the knight on c7.}

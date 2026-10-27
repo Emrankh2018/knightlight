@@ -44,22 +44,14 @@
 
 [Event "Opening Traps for Black"]
 [Lesson "trapped-bishop"]
-[Step "quiz"]
-[Question "White to move. Which move falls into the trap?"]
-[Choices "Qxd4 (take the pawn with the queen) | c3 (offer a pawn to open lines)"]
-[Answer "1"]
-[Explanation "8.Qxd4 walks into ...c5 and the trapped bishop. A different move such as 8.c3 (a pawn offer) does not fall into this trap."]
+[Step "explain"]
 
-{Think about what the queen would face after taking the pawn.}
+{8.Qxd4 walks into ...c5 and the trapped bishop. A different move such as 8.c3 (a pawn offer) does not fall into this trap.}
 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 d6 6. d4 Nxd4 7. Nxd4 exd4 *
 
 [Event "Opening Traps for Black"]
 [Lesson "trapped-bishop"]
-[Step "quiz"]
-[Question "Why does the white bishop on b3 have no escape after ...c4?"]
-[Choices "Its own pawns and Black's pawns block its squares | Bishops cannot move backwards | Black's queen guards every square"]
-[Answer "1"]
-[Explanation "The pawn on b5 covers a4, and White's own pawns block a2 and c2. If the bishop takes c4, the b5 pawn takes it."]
+[Step "explain"]
 
-{Look at the squares around the bishop.}
+{The pawn on b5 covers a4, and White's own pawns block a2 and c2. If the bishop takes c4, the b5 pawn takes it.}
 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 d6 6. d4 Nxd4 7. Nxd4 exd4 8. Qxd4 c5 9. Qd5 Be6 10. Qc6+ Bd7 11. Qd5 c4 *

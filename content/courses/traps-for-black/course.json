@@ -5,7 +5,7 @@
   "level": "beginner",
   "description": "Learn what a chess trap is and the golden rule for setting one. Then study three traps Black can set: a pinned knight trick in the Queen's Gambit, a trapped bishop in the Ruy Lopez, and a quick knight mate in the Italian Game.",
   "tags": ["opening", "traps", "tricks", "black", "beginner", "tactics"],
-  "reviewed": false,
+  "reviewed": true,
   "chapters": [
     { "file": "01-what-is-a-trap.pgn", "title": "What a trap is and the golden rule" },
     { "file": "02-pin-trick-queens-gambit.pgn", "title": "Trap 1: the pinned knight trick" },

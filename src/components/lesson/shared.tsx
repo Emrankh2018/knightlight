@@ -78,7 +78,7 @@ export function PresentShell({ classMode, center = false, children }: { classMod
           ? `fixed inset-0 z-40 grid gap-6 overflow-auto bg-bg p-4 ${
               center ? 'grid-cols-1 place-content-center justify-items-center' : 'grid-cols-[auto_minmax(0,1fr)] items-start portrait:grid-cols-1 portrait:justify-items-center'
             }`
-          : 'grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start'
+          : 'grid gap-4 lg:h-full lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:grid-rows-[minmax(0,1fr)] lg:items-start'
       }
     >
       {children}
@@ -93,9 +93,9 @@ export function SidePanel({ classMode, tall = false, children }: { classMode: bo
       ? 'h-[calc(100dvh-2rem)] w-full portrait:h-auto'
       : 'max-w-3xl'
     : tall
-      ? 'lg:max-h-[calc(100dvh-6rem)]'
+      ? 'lg:h-full'
       : '';
-  return <div className={`flex min-h-0 flex-col gap-3 rounded-2xl border-2 border-line bg-surface p-4 ${size}`}>{children}</div>;
+  return <div className={`flex min-h-0 flex-col gap-3 rounded-2xl border-2 border-line bg-surface ${classMode ? 'p-4' : 'p-3'} ${size}`}>{children}</div>;
 }
 
 /** Board on the left, side panel on the right; stacked on narrow screens. */
@@ -105,7 +105,7 @@ export function StepLayout({ board, header, panel, notes, footer, classMode }: {
       <div>{board}</div>
       <SidePanel classMode={classMode} tall>
         <div className="shrink-0">{header}</div>
-        <div className={`min-h-0 flex-1 space-y-3 overflow-y-auto p-1 portrait:overflow-visible ${classMode ? 'text-xl 2xl:text-2xl' : 'text-lg'}`}>
+        <div className={`min-h-0 flex-1 space-y-2 overflow-y-auto p-1 portrait:overflow-visible ${classMode ? 'text-xl 2xl:text-2xl' : 'text-base'}`}>
           {panel}
           {notes}
         </div>
@@ -134,7 +134,7 @@ export function Feedback({ tone, large = false, live = true, children }: { tone:
 export function TurnPill({ side, classMode }: { side: Side; classMode: boolean }) {
   const white = side === 'white';
   return (
-    <p className={`inline-flex items-center gap-3 rounded-xl border-2 border-ink px-4 ${classMode ? 'py-1 text-2xl' : 'py-2 text-xl'} font-extrabold dark:border-amber`}>
+    <p className={`inline-flex items-center gap-3 rounded-xl border-2 border-ink px-3 ${classMode ? 'py-1 text-2xl' : 'py-1 text-lg'} font-extrabold dark:border-amber`}>
       <span aria-hidden="true" className={`inline-block size-6 rounded-full border-2 border-ink ${white ? 'bg-white' : 'bg-ink'}`} />
       {white ? m().lesson.whiteToMove : m().lesson.blackToMove}
     </p>
@@ -186,7 +186,7 @@ export function isButtonTarget(e: KeyboardEvent): boolean {
 export const ARIA_OFF =
   'aria-disabled:cursor-not-allowed aria-disabled:opacity-100 aria-disabled:border-2 aria-disabled:border-dashed aria-disabled:border-muted aria-disabled:bg-surface aria-disabled:text-muted aria-disabled:hover:bg-surface aria-disabled:hover:text-muted dark:aria-disabled:hover:bg-surface dark:aria-disabled:hover:text-muted';
 
-export const bigButton = (classMode: boolean): string => (classMode ? 'min-h-14 px-5 text-xl 2xl:min-h-16 2xl:px-8 2xl:text-2xl' : '');
+export const bigButton = (classMode: boolean): string => (classMode ? 'min-h-14 px-5 text-xl 2xl:min-h-16 2xl:px-8 2xl:text-2xl' : 'min-h-10 px-4 text-base');
 
 /** Schedules callbacks that are cancelled when the component unmounts. */
 export function useLater(): (fn: () => void, ms: number) => void {

@@ -22,13 +22,10 @@
 
 [Event "Queen's Gambit for White"]
 [Lesson "gambit-idea"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"]
-[Question "After 2. c4, which black pawn does the c4 pawn attack?"]
-[Choices "The pawn on d5 | The pawn on e7 | The pawn on c7"]
-[Answer "1"]
-[Explanation "A pawn attacks one square diagonally forward. From c4 that is d5 (and b5)."]
 
+{A pawn attacks one square diagonally forward. From c4 that is d5 (and b5).}
 2. c4 {Look at where the c4 pawn points. [%cal Gc4d5]} *
 
 [Event "Queen's Gambit for White"]

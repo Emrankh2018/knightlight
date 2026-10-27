@@ -5,7 +5,7 @@
   "level": "beginner",
   "description": "A simple, solid setup for White. Learn the London System moves, why the bishop comes out before e3, how to meet Black's common replies, and two easy plans.",
   "tags": ["opening", "london-system", "d4", "white", "queens-pawn"],
-  "reviewed": false,
+  "reviewed": true,
   "chapters": [
     { "file": "01-the-idea.pgn", "title": "The London idea" },
     { "file": "02-the-setup.pgn", "title": "The usual setup" },

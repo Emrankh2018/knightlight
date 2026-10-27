@@ -11,7 +11,6 @@ import { getOpeningIndex } from '../lib/data';
 import {
   buildPgn,
   buildSearchIndex,
-  filterByName,
   findOpening,
   isTypingTarget,
   type LineState,
@@ -29,9 +28,8 @@ import {
 import type { Opening, OpeningIndex } from '../lib/openings';
 import { playMoveSound } from '../lib/sound';
 
-const BOARD_WIDTH = 'max(16rem, min(100%, calc(100dvh - 11rem)))';
-const PAGE = 40;
-const ECO_LETTERS = ['A', 'B', 'C', 'D', 'E'] as const;
+const BOARD_WIDTH = 'var(--kl-normal-board)';
+const MAX_SEARCH_RESULTS = 5;
 
 export default function Openings() {
   const data = useLoad(getOpeningIndex);
@@ -145,53 +143,64 @@ function Explorer({ index }: { index: OpeningIndex }) {
   const turn = new Chess(fen).turn();
   const openingName = found.opening?.name;
 
+  const book = continuations;
+  const btn = 'min-h-10 px-3 text-base';
+
   return (
-    <div className="space-y-4">
-      <header>
-        <h1 className="text-3xl font-extrabold">{t.title}</h1>
-        <p className="mt-1 text-lg text-muted">{t.intro}</p>
-      </header>
+    <div className="grid h-full min-h-0 gap-4 lg:grid-cols-[min(var(--kl-main-h),46%)_minmax(0,1fr)] xl:grid-cols-[min(var(--kl-main-h),52%)_minmax(0,1fr)] lg:items-start">
+      <div ref={boardWrap}>
+        <Board
+          fen={fen}
+          orientation={flipped ? 'black' : 'white'}
+          interactive
+          size={BOARD_WIDTH}
+          onMove={onBoardMove}
+          lastMove={last ? { from: last.from, to: last.to, san: last.san } : undefined}
+          ariaLabel={t.boardLabel}
+        />
+      </div>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start">
-        <div ref={boardWrap}>
-          <Board
-            fen={fen}
-            orientation={flipped ? 'black' : 'white'}
-            interactive
-            size={BOARD_WIDTH}
-            onMove={onBoardMove}
-            lastMove={last ? { from: last.from, to: last.to, san: last.san } : undefined}
-            ariaLabel={t.boardLabel}
-          />
-        </div>
-
-        <div className="space-y-4 rounded-2xl border-2 border-line bg-surface p-4">
+      <div className="grid min-h-0 content-start gap-3 rounded-2xl border-2 border-line bg-surface p-3 lg:max-h-full lg:overflow-hidden lg:grid-cols-2">
+        <div className="min-w-0 space-y-2">
+          <h1 className="text-2xl font-bold">{t.title}</h1>
           <section aria-labelledby="op-current">
-            <h2 id="op-current" className="text-sm font-bold uppercase tracking-wide text-muted">{t.currentOpening}</h2>
-            <p role="status" aria-live="polite" className="text-3xl font-extrabold leading-tight">{openingName ?? (shown.length === 0 ? t.startPosition : t.noOpening)}</p>
-            {found.opening ? (
-              <p className="mt-1 text-xl font-bold text-fg">
-                {found.ply < line.cursor
-                  ? fmt(t.ecoNamedAt, { eco: found.opening.eco, n: Math.ceil(found.ply / 2) })
-                  : fmt(t.ecoCode, { eco: found.opening.eco })}
-              </p>
-            ) : null}
-            <p className="mt-1 text-xl font-bold text-fg">{turn === 'w' ? t.whiteToMove : t.blackToMove}</p>
+            <h2 id="op-current" className="sr-only">{t.currentOpening}</h2>
+            <p role="status" aria-live="polite" className="text-2xl font-extrabold leading-tight">{openingName ?? (shown.length === 0 ? t.startPosition : t.noOpening)}</p>
+            <p className="text-lg font-bold text-fg">
+              {found.opening
+                ? `${found.ply < line.cursor ? fmt(t.ecoNamedAt, { eco: found.opening.eco, n: Math.ceil(found.ply / 2) }) : fmt(t.ecoCode, { eco: found.opening.eco })} · `
+                : ''}
+              {turn === 'w' ? t.whiteToMove : t.blackToMove}
+            </p>
           </section>
 
           <section aria-labelledby="op-moves">
-            <h2 id="op-moves" className="text-xl font-bold">{t.movesHeading}</h2>
+            <h2 id="op-moves" className="sr-only">{t.movesHeading}</h2>
             <MoveList plies={plies} cursor={line.cursor} onJump={(cursor) => commit({ ...line, cursor })} />
           </section>
 
+          <div className="flex flex-wrap gap-2">
+            <Button variant="secondary" className={btn} onClick={undo} aria-disabled={line.cursor === 0}>{t.undo}</Button>
+            <Button variant="secondary" className={btn} onClick={redo} aria-disabled={line.cursor >= plies.length}>{t.redo}</Button>
+            <Button variant="secondary" className={btn} onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{t.reset}</Button>
+            <Button variant="secondary" className={btn} onClick={() => setFlipped((f) => !f)}>{t.flip}</Button>
+            <Button variant="secondary" className={btn} onClick={() => void copyPgn()} disabled={line.cursor === 0 && standard}>{t.copyPgn}</Button>
+          </div>
+          <p role="status" className="min-h-5 text-sm font-bold">
+            {copyState === 'copied' ? t.copied : copyState === 'failed' ? t.copyFailed : ''}
+          </p>
+          {line.cursor > MAX_PLIES ? <p className="text-sm text-muted">{fmt(t.linkTrimmed, { max: MAX_PLIES })}</p> : null}
+          <FindSection searchIndex={searchIndex} onPick={(o) => loadSans(sansOfPgn(o.pgn))} />
+        </div>
+
+        <div className="min-w-0 space-y-2">
           <section aria-labelledby="op-next">
-            <h2 id="op-next" ref={nextHeading} tabIndex={-1} className="text-xl font-bold focus:outline-none">{t.nextMoves}</h2>
-            <p className="text-base text-muted">{t.nextMovesHelp}</p>
-            {continuations.length === 0 ? (
-              <p className="mt-2 text-lg">{t.noContinuations}</p>
+            <h2 id="op-next" ref={nextHeading} tabIndex={-1} className="text-lg font-bold focus:outline-none">{t.nextMoves}</h2>
+            {book.length === 0 ? (
+              <p className="mt-1 text-base">{t.noContinuations}</p>
             ) : (
-              <ul className="mt-2 grid gap-2 sm:grid-cols-2">
-                {continuations.map((c) => {
+              <ul className="mt-1 flex flex-wrap gap-2">
+                {book.map((c) => {
                   const result = c.name ? fmt(t.leadsTo, { name: c.name }) : t.noName;
                   return (
                     <li key={c.uci}>
@@ -202,10 +211,10 @@ function Explorer({ index }: { index: OpeningIndex }) {
                           playMove({ from: c.uci.slice(0, 2), to: c.uci.slice(2, 4), promotion: c.uci.slice(4, 5) || undefined });
                           nextHeading.current?.focus();
                         }}
-                        className="flex min-h-12 w-full flex-col items-start rounded-xl border-2 border-line bg-bg px-3 py-2 text-start hover:border-amber"
+                        title={result}
+                        className="min-h-10 min-w-11 rounded-control border-2 border-line bg-bg px-2 text-base font-extrabold hover:border-amber"
                       >
-                        <span className="text-xl font-extrabold">{c.san}</span>
-                        <span className="text-base text-muted">{result}</span>
+                        {c.san}
                       </button>
                     </li>
                   );
@@ -213,138 +222,54 @@ function Explorer({ index }: { index: OpeningIndex }) {
               </ul>
             )}
           </section>
-
-          <div className="flex flex-wrap gap-2">
-            <Button variant="secondary" onClick={undo} aria-disabled={line.cursor === 0}>{t.undo}</Button>
-            <Button variant="secondary" onClick={redo} aria-disabled={line.cursor >= plies.length}>{t.redo}</Button>
-            <Button variant="secondary" onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{t.reset}</Button>
-            <Button variant="secondary" onClick={() => setFlipped((f) => !f)}>{t.flip}</Button>
-            <Button variant="secondary" onClick={() => void copyPgn()} disabled={line.cursor === 0 && standard}>{t.copyPgn}</Button>
-          </div>
-          <p role="status" className="min-h-6 text-base font-bold">
-            {copyState === 'copied' ? t.copied : copyState === 'failed' ? t.copyFailed : ''}
-          </p>
-          {line.cursor > MAX_PLIES ? <p className="text-base text-muted">{fmt(t.linkTrimmed, { max: MAX_PLIES })}</p> : null}
-          <p className="text-base text-muted">{t.keyboardHelp}</p>
-
-          <LoadBox
-            onLoad={(startFen, sans) => commit({ startFen, sans, cursor: sans.length })}
-          />
+          <LoadBox onLoad={(startFen, sans) => commit({ startFen, sans, cursor: sans.length })} />
         </div>
-      </div>
-
-      <div className="pt-4">
-        <FindSection searchIndex={searchIndex} onPick={(o) => loadSans(sansOfPgn(o.pgn))} />
       </div>
     </div>
   );
 }
 
+/** Search by name: shows only the best few matches, so the page never needs a long list. */
 function FindSection({ searchIndex, onPick }: { searchIndex: SearchIndex; onPick: (o: Opening) => void }) {
   const t = m().openings;
   const [query, setQuery] = useState('');
-  const [filter, setFilter] = useState('');
   const deferred = useDeferredValue(query);
-  const results = useMemo(() => searchOpenings(searchIndex, deferred), [searchIndex, deferred]);
-  const groups = useMemo(
-    () => ECO_LETTERS.map((letter) => ({ letter, items: searchIndex.openings.filter((o) => o.eco.startsWith(letter)) })),
-    [searchIndex],
-  );
+  const results = useMemo(() => searchOpenings(searchIndex, deferred).slice(0, MAX_SEARCH_RESULTS), [searchIndex, deferred]);
   return (
-    <div className="space-y-8">
-      <section aria-labelledby="op-find" className="space-y-3">
-        <h2 id="op-find" className="text-2xl font-extrabold">{t.findTitle}</h2>
-        <label htmlFor="op-search" className="block text-lg font-bold">{t.searchLabel}</label>
-        <input
-          id="op-search"
-          type="search"
-          value={query}
-          placeholder={t.searchPlaceholder}
-          autoComplete="off"
-          onChange={(e) => setQuery(e.target.value)}
-          className="min-h-12 w-full max-w-xl rounded-xl border-2 border-line bg-surface px-4 text-lg"
-        />
-        {deferred.trim() !== '' ? (
-          <div>
-            <p role="status" className="mb-2 text-lg font-bold">
-              {results.length === 0 ? t.noResults : fmt(t.resultsCount, { count: results.length })}
-            </p>
-            <OpeningRows key={deferred} items={results} onPick={onPick} />
-          </div>
-        ) : null}
-      </section>
-
-      <section aria-labelledby="op-browse" className="space-y-3">
-        <h2 id="op-browse" className="text-2xl font-extrabold">{t.browseTitle}</h2>
-        <label htmlFor="op-filter" className="block text-lg font-bold">{t.filterLabel}</label>
-        <input
-          id="op-filter"
-          type="search"
-          value={filter}
-          autoComplete="off"
-          onChange={(e) => setFilter(e.target.value)}
-          className="min-h-12 w-full max-w-xl rounded-xl border-2 border-line bg-surface px-4 text-lg"
-        />
-        <div className="space-y-2">
-          {groups.map((g) => (
-            <EcoGroup key={g.letter} letter={g.letter} items={g.items} filter={filter} onPick={onPick} />
-          ))}
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function EcoGroup({ letter, items, filter, onPick }: { letter: string; items: Opening[]; filter: string; onPick: (o: Opening) => void }) {
-  const t = m().openings;
-  const [open, setOpen] = useState(false);
-  const filtered = useMemo(() => (open ? filterByName(items, filter) : []), [open, items, filter]);
-  return (
-    <details
-      className="rounded-xl border-2 border-line bg-surface px-3 py-2"
-      onToggle={(e) => setOpen(e.currentTarget.open)}
-    >
-      <summary className="min-h-12 cursor-pointer py-3 text-xl font-bold">
-        {t.ecoGroups[letter] ?? letter}
-        <span className="ms-2 text-base font-normal text-muted">{fmt(t.openingsCount, { count: items.length })}</span>
-      </summary>
-      {open ? (
-        <div className="pt-2">
-          {filtered.length === 0 ? <p className="text-lg">{t.emptyGroup}</p> : <OpeningRows key={filter} items={filtered} onPick={onPick} />}
+    <section aria-labelledby="op-find" className="space-y-1">
+      <h2 id="op-find" className="sr-only">{t.findTitle}</h2>
+      <label htmlFor="op-search" className="block text-base font-bold">{t.searchLabel}</label>
+      <input
+        id="op-search"
+        type="search"
+        value={query}
+        placeholder={t.searchPlaceholder}
+        autoComplete="off"
+        onChange={(e) => setQuery(e.target.value)}
+        className="min-h-10 w-full rounded-control border-2 border-line bg-bg px-3 text-base"
+      />
+      {deferred.trim() !== '' ? (
+        <div>
+          <p role="status" className="text-sm font-bold">
+            {results.length === 0 ? t.noResults : t.findTitle}
+          </p>
+          <ul className="divide-y divide-line">
+            {results.map((o) => (
+              <li key={`${o.eco}-${o.uci}`}>
+                <button
+                  type="button"
+                  aria-label={fmt(t.loadLine, { name: o.name })}
+                  onClick={() => onPick(o)}
+                  className="flex min-h-10 w-full items-baseline gap-2 px-2 py-1 text-start hover:bg-line/60"
+                >
+                  <span className="rounded bg-ink px-1.5 text-sm font-bold text-cream">{o.eco}</span>
+                  <span className="text-base font-bold">{o.name}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       ) : null}
-    </details>
-  );
-}
-
-/** Paginated list: renders PAGE rows at a time so 3,865 openings stay fast. */
-function OpeningRows({ items, onPick }: { items: readonly Opening[]; onPick: (o: Opening) => void }) {
-  const t = m().openings;
-  const [limit, setLimit] = useState(PAGE);
-  const visible = items.slice(0, limit);
-  return (
-    <div>
-      <ul className="divide-y divide-line">
-        {visible.map((o) => (
-          <li key={`${o.eco}-${o.uci}`}>
-            <button
-              type="button"
-              aria-label={fmt(t.loadLine, { name: o.name })}
-              onClick={() => onPick(o)}
-              className="flex min-h-12 w-full flex-wrap items-baseline gap-x-3 px-2 py-2 text-start hover:bg-line/60"
-            >
-              <span className="rounded bg-ink px-2 text-base font-bold text-cream">{o.eco}</span>
-              <span className="text-lg font-bold">{o.name}</span>
-              <span className="text-base text-muted">{o.pgn}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-      {items.length > limit ? (
-        <Button variant="ghost" className="mt-2" onClick={() => setLimit((l) => l + PAGE)}>
-          {fmt(t.showMoreLeft, { count: items.length - limit })}
-        </Button>
-      ) : null}
-    </div>
+    </section>
   );
 }

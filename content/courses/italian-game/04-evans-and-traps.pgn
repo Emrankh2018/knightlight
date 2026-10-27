@@ -98,11 +98,7 @@
 
 [Event "Italian Game for White"]
 [Lesson "when-to-play"]
-[Step "quiz"]
-[Question "What should you do first if Black plays a move you do not know?"]
-[Choices "Panic and move the queen | Go back to the ideas: develop, castle, protect the center | Give up the bishop"]
-[Answer "2"]
-[Explanation "The basic rules always help. Develop your pieces, castle and keep the center safe."]
+[Step "explain"]
 
-{Think about the ideas, not the move list.}
+{The basic rules always help. Develop your pieces, castle and keep the center safe.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 *

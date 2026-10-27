@@ -62,13 +62,9 @@
 
 [Event "Sicilian Defence for Black"]
 [Lesson "najdorf-intro"]
-[Step "quiz"]
-[Question "What is the main idea of 5...a6 in the Najdorf?"]
-[Choices "To win the e4 pawn at once | To control the b5 square | To castle faster"]
-[Answer "2"]
-[Explanation "The pawn on a6 attacks b5, so White cannot easily put a knight or a bishop there. It also prepares later pawn pushes."]
+[Step "explain"]
 
-{Think about which square the pawn on a6 attacks. [%csl Gb5]}
+{The pawn on a6 attacks b5, so White cannot easily put a knight or a bishop there. It also prepares later pawn pushes.}
 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 *
 
 [Event "Sicilian Defence for Black"]

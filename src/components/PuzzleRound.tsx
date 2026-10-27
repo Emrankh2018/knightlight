@@ -14,7 +14,7 @@ const SOLUTION_DELAY_MS = 900;
 
 /** Board widths. Class Mode: sized by --kl-class-board (landscape: as tall as the screen allows, at most 60% of its width; portrait: full width). Normal: fits the viewport below the site header. */
 const CLASS_BOARD = 'var(--kl-class-board)';
-const NORMAL_BOARD = 'max(16rem, min(100%, calc(100dvh - 8rem)))';
+const NORMAL_BOARD = 'var(--kl-normal-board)';
 
 export function themeLabel(theme: string): string {
   if (theme === 'mixed') return m().puzzles.mixed;
@@ -231,7 +231,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
   );
 
   const panel = (
-    <div className={`space-y-4 ${text}`}>
+    <div className={`space-y-3 ${text}`}>
       <div className="flex flex-wrap items-center gap-3">
         <p className={`inline-flex items-center gap-3 rounded-xl border-2 border-ink px-4 py-2 font-extrabold dark:border-amber ${classMode ? 'text-2xl xl:text-3xl' : 'text-xl'}`}>
           <span aria-hidden="true" className={`inline-block size-6 rounded-full border-2 border-ink ${white ? 'bg-white' : 'bg-ink'}`} />
@@ -249,7 +249,6 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
         </Button>
       )}
       {buttons}
-      {classMode ? null : <SoundToggle volume className="hover:bg-line" />}
       <div aria-live="polite" className="space-y-3">
         {note === 'wrong' ? <Feedback tone="bad" large={classMode}>{m().puzzles.wrong}</Feedback> : null}
         {note === 'correct' && busy ? <Feedback tone="good" large={classMode}>{m().puzzles.correct}</Feedback> : null}
@@ -267,7 +266,7 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
         ) : null}
       </div>
       {finished && showDetails ? <p>{fmt(m().puzzles.themesLine, { themes: listOf(puzzle.themes.filter((t) => !HIDDEN_THEMES.has(t)).map(themeLabel)) })}</p> : null}
-      <p className={classMode ? 'text-lg text-muted' : 'text-sm text-muted'}>{m().puzzles.shortcuts}</p>
+      {classMode ? <p className="text-lg text-muted">{m().puzzles.shortcuts}</p> : null}
     </div>
   );
 
@@ -276,11 +275,11 @@ function RoundBody({ puzzle, n, total, streak, classMode, header, focusBoard, on
       className={
         classMode
           ? 'fixed inset-0 z-40 grid grid-cols-[auto_minmax(0,1fr)] items-start gap-6 overflow-auto bg-bg p-4 portrait:grid-cols-1 portrait:justify-items-center'
-          : 'grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start'
+          : 'grid gap-4 lg:h-full lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:grid-rows-[minmax(0,1fr)] lg:items-start'
       }
     >
       <div>{board}</div>
-      <div className={`space-y-4 rounded-2xl border-2 border-line bg-surface ${classMode ? 'p-5' : 'p-4'}`}>
+      <div className={`space-y-3 rounded-2xl border-2 border-line bg-surface ${classMode ? 'p-5' : 'p-4 lg:max-h-full lg:overflow-hidden'}`}>
         {header}
         {panel}
       </div>

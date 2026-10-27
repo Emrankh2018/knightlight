@@ -25,7 +25,7 @@ function ContinueCard({ last }: { last: { course: string; lesson: string } | und
   const lesson = last && state.status === 'ready' ? findLesson(state.data, last.lesson) : null;
   return (
     <Card variant="hero" className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-      <MiniBoard fen={coverFen(slug)} size={176} />
+      <MiniBoard fen={coverFen(slug)} size={144} />
       <div className="min-w-0 flex-1">
       <h2 className="text-lg font-bold text-muted">{m().home.continue}</h2>
       {last && state.status === 'loading' ? <p className="text-lg text-muted">{m().common.loading}</p> : null}
@@ -63,10 +63,10 @@ export default function Home() {
   const streak = lastDay !== undefined && (gap === null || gap > 1) ? 0 : data.streak.current;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <header>
-        <h1 className="text-4xl font-bold">
-          <Avatar value={profile.avatar} size="lg" className="me-3 align-middle" />
+        <h1 className="text-3xl font-bold">
+          <Avatar value={profile.avatar} size="md" className="me-3 align-middle" />
           {fmt(m().home.welcome, { name: profile.name || m().home.defaultName })}
         </h1>
         <p className="mt-1 text-lg text-muted">{m().app.tagline}</p>

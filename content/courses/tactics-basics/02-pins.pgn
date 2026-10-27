@@ -5,7 +5,7 @@
 [Mistakes "Thinking a relative pin means the piece cannot move | Forgetting the square behind the pinned piece must hold the target"]
 [ClassQuestions "Which piece is the pinned piece? | What is hiding behind it?"]
 
-{A pin is when a piece should not move because a more valuable piece is behind it.}
+{The bishop on b4 attacks along the line to the king. If the knight leaves, the king is in check, so the move is not allowed.}
 *
 
 [Lesson "pin-idea"]
@@ -22,12 +22,8 @@
 *
 
 [Lesson "pin-idea"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "4k3/8/8/8/1b6/2N5/8/4K3 w - - 0 1"]
-[Question "Can the white knight on c3 move?"]
-[Choices "Yes, it can go to any knight square | No, a move would leave the white king in check"]
-[Answer "2"]
-[Explanation "The bishop on b4 attacks along the line to the king. If the knight leaves, the king is in check, so the move is not allowed."]
 
 {Look at the line from the bishop to the king.}
 *

@@ -44,11 +44,8 @@
 
 [Event "Queen's Gambit for White"]
 [Lesson "when-to-play"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"]
-[Question "Black has taken on c4. What is a good plan for White?"]
-[Choices "Develop a knight and win the pawn back with the bishop | Bring the queen out and chase the pawn | Move the same pawn again"]
-[Answer "1"]
-[Explanation "Develop first. The bishop on f1 can take the pawn back on c4 soon."]
 
+{Develop first. The bishop on f1 can take the pawn back on c4 soon.}
 *

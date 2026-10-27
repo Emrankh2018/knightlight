@@ -44,13 +44,10 @@
 
 [Event "Queen's Gambit for White"]
 [Lesson "qgd-pin"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "rnbqkb1r/ppp2ppp/4pn2/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR b KQkq - 3 4"]
-[Question "Which piece is pinned in this position?"]
-[Choices "The knight on f6 | The pawn on d5 | The pawn on e6"]
-[Answer "1"]
-[Explanation "The bishop on g5 attacks the knight on f6, and the queen on d8 stands behind it."]
 
+{The bishop on g5 attacks the knight on f6, and the queen on d8 stands behind it.}
 *
 
 [Event "Queen's Gambit for White"]

@@ -5,7 +5,7 @@
 [Mistakes "Moving a piece and leaving another undefended | Not noticing that an attacked piece also attacks your piece"]
 [ClassQuestions "Which pieces defend this one? | Who moves first, and does that change the answer?"]
 
-{A hanging piece is a piece that nothing defends, so it can be taken for free.}
+{A piece with no defender is hanging. The other side can capture it without losing anything back.}
 *
 
 [Lesson "hanging-pieces"]
@@ -16,11 +16,7 @@
 1. Qxg4 {It is White's turn, so the queen takes the bishop for free.} *
 
 [Lesson "hanging-pieces"]
-[Step "quiz"]
-[Question "What do we call a piece that no friendly piece defends?"]
-[Choices "A hanging piece | A pinned piece | A forked piece"]
-[Answer "1"]
-[Explanation "A piece with no defender is hanging. The other side can capture it without losing anything back."]
+[Step "explain"]
 
 *
 
@@ -61,11 +57,7 @@
 1. Qxd5 {The queen takes the knight.} 1... Bxd5 {The bishop takes back. White lost a queen for a knight. That is a bad trade.} *
 
 [Lesson "defended-pieces"]
-[Step "quiz"]
-[Question "Can White safely take the pawn on e5 with the queen?"]
-[Choices "Yes, it is a free pawn | No, the knight on c6 defends it"]
-[Answer "2"]
-[Explanation "After Qxe5+ the black knight on c6 takes the queen. White would lose a queen for a pawn."]
+[Step "explain"]
 
 {White's queen attacks the pawn on e5.}
 1. e4 e5 2. Qh5 Nc6 *

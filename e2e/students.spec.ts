@@ -3,6 +3,10 @@ import { expect, test, type Page } from '@playwright/test';
 
 const dialog = (page: Page) => page.getByRole('dialog');
 
+async function openPanels(page: Page): Promise<void> {
+  for (const name of ['Back up and restore', 'Make an assign link']) await page.getByText(name, { exact: true }).first().click();
+}
+
 async function addStudent(page: Page, name: string): Promise<void> {
   await page.getByRole('button', { name: 'Add a student' }).click();
   await expect(dialog(page)).toBeVisible();
@@ -114,6 +118,7 @@ test('reset progress asks first and zeroes XP', async ({ page }) => {
 
 test('export then import restores a deleted student after a preview and confirm', async ({ page }) => {
   await page.goto('#/students');
+  await openPanels(page);
   await addStudent(page, 'Maya');
 
   const downloadPromise = page.waitForEvent('download');
@@ -147,6 +152,7 @@ test('export then import restores a deleted student after a preview and confirm'
 
 test('a bad import changes nothing and says why', async ({ page }) => {
   await page.goto('#/students');
+  await openPanels(page);
   await addStudent(page, 'Maya');
   const input = page.locator('input[type="file"]');
   const alert = page.getByRole('alert').filter({ hasText: 'Nothing was changed' });
@@ -209,6 +215,7 @@ test('bad assign links explain the problem', async ({ page }) => {
 
 test('the assign link helper builds a link that opens the assignment', async ({ page }) => {
   await page.goto('#/students');
+  await openPanels(page);
   await page.getByLabel('Level', { exact: true }).selectOption('beginner');
   await page.getByLabel('Theme', { exact: true }).selectOption('fork');
   await expect(page.getByRole('textbox', { name: 'Assign link' })).toHaveValue(/#\/assign\?type=puzzles&level=beginner&theme=fork$/);
@@ -226,6 +233,7 @@ test('the assign link helper builds a link that opens the assignment', async ({ 
 test('Students has no horizontal overflow at 820x1180', async ({ page }) => {
   await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto('#/students');
+  await openPanels(page);
   await addStudent(page, 'A very long student name here');
   await expect(page.getByRole('heading', { level: 2, name: 'Make an assign link' })).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

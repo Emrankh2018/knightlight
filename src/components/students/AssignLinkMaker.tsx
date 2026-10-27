@@ -139,7 +139,7 @@ export default function AssignLinkMaker() {
   const [kind, setKind] = useState<'puzzles' | 'lesson'>('puzzles');
   return (
     <section aria-labelledby="link-title" className="space-y-4">
-      <h2 id="link-title" className="text-2xl font-extrabold">{t.title}</h2>
+      <h2 id="link-title" className="sr-only">{t.title}</h2>
       <p className="text-lg">{t.intro}</p>
       <div role="group" aria-label={t.kind} className="flex flex-wrap gap-2">
         <Button variant={kind === 'puzzles' ? 'primary' : 'secondary'} aria-pressed={kind === 'puzzles'} onClick={() => setKind('puzzles')}>{t.puzzles}</Button>

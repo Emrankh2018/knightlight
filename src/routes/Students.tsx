@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import AssignLinkMaker from '../components/students/AssignLinkMaker';
 import BackupPanel from '../components/students/BackupPanel';
+import Avatar from '../components/Avatar';
 import Button from '../components/Button';
 import ConfirmDialog from '../components/students/ConfirmDialog';
 import Leaderboard from '../components/students/Leaderboard';
@@ -76,13 +77,10 @@ export default function Students() {
   }
 
   return (
-    <div className="space-y-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-extrabold">{t.title}</h1>
-        <p className="rounded-xl border-2 border-line bg-surface px-4 py-3 text-lg">
-          <span aria-hidden="true">🔒 </span>
-          {t.privacy}
-        </p>
+    <div className="flex h-full min-h-0 flex-col gap-3">
+      <header className="flex flex-wrap items-baseline gap-x-4">
+        <h1 className="text-3xl font-bold">{t.title}</h1>
+        <p className="text-sm text-muted">{t.privacy}</p>
       </header>
 
       <p
@@ -94,7 +92,9 @@ export default function Students() {
         {status}
       </p>
 
-      <section aria-labelledby="roster-title" className="space-y-4">
+      <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-2">
+      <div className="min-h-0 space-y-3 lg:overflow-y-auto lg:pe-1">
+      <section aria-labelledby="roster-title" className="space-y-3">
         <div className="flex flex-wrap items-center gap-3">
           <h2 id="roster-title" className="me-auto text-2xl font-extrabold">{t.listTitle}</h2>
           <span className="text-lg text-muted">{fmt(t.count, { count: profiles.length })}</span>
@@ -107,20 +107,20 @@ export default function Students() {
             {t.add}
           </Button>
         </div>
-        <ul className="grid gap-4 md:grid-cols-2">
+        <ul className="grid gap-3 xl:grid-cols-2">
           {rows.map((r) => {
             const isActive = r.id === activeId;
             const only = profiles.length <= 1;
             return (
-              <li key={r.id} className={`space-y-3 rounded-2xl border-2 bg-surface p-4 ${isActive ? 'border-ink dark:border-amber' : 'border-line'}`}>
+              <li key={r.id} className={`space-y-2 rounded-card border-2 bg-surface p-3 ${isActive ? 'border-ink dark:border-amber' : 'border-line'}`}>
                 <div className="flex items-center gap-3">
-                  <span aria-hidden="true" className="text-5xl">{r.avatar}</span>
+                  <Avatar value={r.avatar} size="md" />
                   <div className="min-w-0 flex-1">
-                    <h3 className="break-words text-2xl font-extrabold">{r.name}</h3>
+                    <h3 className="break-words text-xl font-extrabold">{r.name}</h3>
                     {isActive ? <span className="inline-block rounded-full bg-amber px-3 py-0.5 text-base font-extrabold text-ink">{t.active}</span> : null}
                   </div>
                 </div>
-                <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-lg sm:grid-cols-3">
+                <dl className="grid grid-cols-3 gap-x-3 gap-y-1 text-base">
                   {(
                     [
                       [t.stats.level, r.level],
@@ -132,7 +132,7 @@ export default function Students() {
                     ] as const
                   ).map(([label, value]) => (
                     <div key={label}>
-                      <dt className="text-base text-muted">{label}</dt>
+                      <dt className="text-sm text-muted">{label}</dt>
                       <dd className="font-extrabold tabular-nums">{value}</dd>
                     </div>
                   ))}
@@ -171,11 +171,20 @@ export default function Students() {
         {profiles.length <= 1 ? <p id="delete-last-note" className="text-base text-muted">{t.deleteLast}</p> : null}
       </section>
 
+      <details>
+        <summary className="min-h-11 cursor-pointer text-xl font-bold">{m().students.backup.title}</summary>
+        <BackupPanel />
+      </details>
+      </div>
+      <div className="min-h-0 space-y-3 lg:overflow-y-auto lg:pe-1">
       <Leaderboard rows={rows} sort={sort} onSort={setSort} big={false} onToggleBig={() => setBig(true)} toggleRef={projectorRef} />
 
-      <BackupPanel />
-
-      <AssignLinkMaker />
+      <details>
+        <summary className="min-h-11 cursor-pointer text-xl font-bold">{m().students.link.title}</summary>
+        <AssignLinkMaker />
+      </details>
+      </div>
+      </div>
 
       {dialog?.kind === 'add' ? (
         <StudentForm

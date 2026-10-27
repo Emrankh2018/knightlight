@@ -30,13 +30,10 @@
 
 [Event "Checkmate Patterns"]
 [Lesson "fools-mate"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2"]
-[Question "Why does Fool's mate work against the white king?"]
-[Choices "The f-pawn opened the diagonal, and the g-pawn moved past g3, so nothing can block the check | The black queen can jump | White has no pieces left"]
-[Answer "1"]
-[Explanation "The f-pawn opened the diagonal, and the g-pawn moved past g3, so nothing can block the check from the queen on h4."]
 
+{The f-pawn opened the diagonal, and the g-pawn moved past g3, so nothing can block the check from the queen on h4.}
 *
 
 [Event "Checkmate Patterns"]
@@ -93,13 +90,10 @@
 
 [Event "Checkmate Patterns"]
 [Lesson "stop-scholars-mate"]
-[Step "quiz"]
+[Step "explain"]
 [FEN "r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 3 3"]
-[Question "Black to move. Which of these moves guards f7 and stops the checkmate?"]
-[Choices "Nf6 | Qe7 | Nb8"]
-[Answer "2"]
-[Explanation "The queen on e7 guards f7. Nf6 does not guard f7, and Qxf7 is checkmate."]
 
+{The queen on e7 guards f7. Nf6 does not guard f7, and Qxf7 is checkmate.}
 *
 
 [Event "Checkmate Patterns"]

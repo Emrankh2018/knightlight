@@ -21,13 +21,9 @@
 
 [Event "Opening Traps for White"]
 [Lesson "what-is-a-trap"]
-[Step "quiz"]
-[Question "What must happen for a trap to work?"]
-[Choices "The opponent makes a mistake | The opponent has to follow your plan | You play faster than the opponent"]
-[Answer "1"]
-[Explanation "A trap only works when the other player goes wrong. A good opponent will not."]
+[Step "explain"]
 
-{Think about who has to make the mistake.}
+{A trap only works when the other player goes wrong. A good opponent will not.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 *
 
 [Event "Opening Traps for White"]
@@ -53,13 +49,9 @@
 
 [Event "Opening Traps for White"]
 [Lesson "golden-rule"]
-[Step "quiz"]
-[Question "Black's queen is on g5. What does it attack?"]
-[Choices "Only the pawn on g2 | Only the knight on e5 | The knight on e5 and the pawn on g2"]
-[Answer "3"]
-[Explanation "From g5 the queen sees along the fifth rank to e5 and down the g-file to g2. (It also eyes d2, but d2 is well guarded.) Always check what the last move attacks."]
+[Step "explain"]
 
-{Look at the black queen.}
+{From g5 the queen sees along the fifth rank to e5 and down the g-file to g2. (It also eyes d2, but d2 is well guarded.) Always check what the last move attacks.}
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 4. Nxe5 Qg5 *
 
 [Event "Opening Traps for White"]

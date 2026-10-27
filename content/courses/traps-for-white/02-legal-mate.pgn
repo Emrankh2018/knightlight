@@ -51,22 +51,14 @@
 
 [Event "Opening Traps for White"]
 [Lesson "legal-not-work"]
-[Step "quiz"]
-[Question "Black has played 4...Nf6 and the trap is off. What is the best idea for White?"]
-[Choices "Play 5.Nxe5 anyway | A calm move like 5.d3 | Give up the queen at once"]
-[Answer "2"]
-[Explanation "Without the mate, giving up the queen is just a blunder. A calm developing move like 5.d3 keeps everything safe."]
+[Step "explain"]
 
-{Black's knight guards the d5 square now.}
+{Without the mate, giving up the queen is just a blunder. A calm developing move like 5.d3 keeps everything safe.}
 1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 Nf6 *
 
 [Event "Opening Traps for White"]
 [Lesson "legal-not-work"]
-[Step "quiz"]
-[Question "Which move by Black lets the trap work?"]
-[Choices "4...Nf6 | 4...g6"]
-[Answer "2"]
-[Explanation "The trap works because Black played 4...g6 instead of 4...Nf6, so no knight guards d5. 4...Nf6 guards d5 and spoils the trap."]
+[Step "explain"]
 
-{This is the position after 4.Nc3. Think about the square d5.}
+{The trap works because Black played 4...g6 instead of 4...Nf6, so no knight guards d5. 4...Nf6 guards d5 and spoils the trap.}
 1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 *

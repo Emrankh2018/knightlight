@@ -66,10 +66,7 @@
 
 [Event "Ruy Lopez for White"]
 [Lesson "closed-plans"]
-[Step "quiz"]
-[Question "In the Closed Spanish, what is the job of the pawn move c3?"]
-[Choices "It prepares the push d4 | It attacks the black queen | It wins the e5 pawn"]
-[Answer "1"]
-[Explanation "The c3 pawn supports a later d4. It also gives the bishop room to retreat."]
+[Step "explain"]
 
+{The c3 pawn supports a later d4. It also gives the bishop room to retreat.}
 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 *

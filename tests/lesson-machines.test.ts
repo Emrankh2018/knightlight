@@ -321,7 +321,8 @@ describe('every shipped course is solvable by its own solution', () => {
     }
     expect(counts['find-move']).toBeGreaterThan(0);
     expect(counts['line-drill']).toBeGreaterThan(0);
-    expect(counts.quiz).toBeGreaterThan(0);
+    // The owner replaced quiz questions with explanatory notes in every shipped course (the quiz step type itself is still supported and covered by the tests above).
+    expect(counts.quiz ?? 0).toBe(0);
     expect(counts.explain).toBeGreaterThan(0);
     expect(rejected).toEqual([]);
   });

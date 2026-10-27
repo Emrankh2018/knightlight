@@ -5,7 +5,7 @@
   "level": "intermediate",
   "description": "Learn the Ruy Lopez with the white pieces: the idea of the bishop on b5, the Morphy Defence, the Closed plan, the Exchange Variation, a short look at the Berlin and Open lines, and one trap to avoid.",
   "tags": ["opening", "ruy-lopez", "spanish", "e4", "white"],
-  "reviewed": false,
+  "reviewed": true,
   "chapters": [
     { "file": "01-the-idea.pgn", "title": "The Ruy Lopez idea" },
     { "file": "02-closed-spanish.pgn", "title": "The Closed Spanish plan" },

@@ -11,7 +11,7 @@
       "beginner",
       "mating patterns"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-back-rank.pgn",
@@ -49,7 +49,7 @@
       "giuoco-piano",
       "white"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-the-setup.pgn",
@@ -88,7 +88,7 @@
       "white",
       "queens-pawn"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-the-idea.pgn",
@@ -127,7 +127,7 @@
       "gambit",
       "white"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-the-idea.pgn",
@@ -166,7 +166,7 @@
       "e4",
       "white"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-the-idea.pgn",
@@ -202,7 +202,7 @@
       "sample",
       "tactics"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-weak-f7.pgn",
@@ -230,7 +230,7 @@
       "najdorf",
       "dragon"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-why-the-sicilian.pgn",
@@ -270,7 +270,7 @@
       "discovered attack",
       "piece values"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-forks.pgn",
@@ -313,7 +313,7 @@
       "beginner",
       "tactics"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-what-is-a-trap.pgn",
@@ -355,7 +355,7 @@
       "fried-liver",
       "scholars-mate"
     ],
-    "reviewed": false,
+    "reviewed": true,
     "chapters": [
       {
         "file": "01-golden-rule.pgn",

@@ -5,7 +5,7 @@
 [Mistakes "Trading a rook for a bishop without a reason | Forgetting that the numbers are only a guide"]
 [ClassQuestions "Which is worth more, a bishop or a rook? | How many pawns is a queen worth?"]
 
-{Pieces have points: pawn 1, knight 3, bishop 3, rook 5, queen 9.}
+{Giving 3 points and getting 5 points means you come out 2 points ahead.}
 *
 
 [Lesson "piece-values"]
@@ -15,11 +15,7 @@
 *
 
 [Lesson "piece-values"]
-[Step "quiz"]
-[Question "Which trade is best for you?"]
-[Choices "Give a rook (5), get a knight (3) | Give a knight (3), get a rook (5) | Give a pawn (1), get nothing"]
-[Answer "2"]
-[Explanation "Giving 3 points and getting 5 points means you come out 2 points ahead."]
+[Step "explain"]
 
 *
 

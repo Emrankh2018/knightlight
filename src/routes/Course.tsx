@@ -1,15 +1,12 @@
 import { useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ButtonLink } from '../components/Button';
-import Button from '../components/Button';
-import Ring from '../components/Ring';
-import TeacherPanel from '../components/lesson/TeacherPanel';
+import { cardClass } from '../components/Card';
 import { useLoad } from '../hooks/useLoad';
 import { fmt, m } from '../i18n';
 import { loadCourse } from '../lib/data';
 import { completedCount, flatLessons, lessonKey, nextUp, RESUME_STATE } from '../lib/lesson/nav';
 import { useProgress } from '../store/progress';
-import { useUi } from '../store/ui';
 
 export default function Course() {
   const { slug = '' } = useParams();
@@ -17,8 +14,6 @@ export default function Course() {
   const state = useLoad(load);
   const completed = useProgress((s) => s.data.completedLessons);
   const last = useProgress((s) => s.data.lastLesson);
-  const teacherView = useUi((s) => s.teacherView);
-  const setTeacherView = useUi((s) => s.setTeacherView);
 
   const back = (
     <Link to="/courses" className="inline-flex min-h-11 items-center font-bold underline">
@@ -44,70 +39,51 @@ export default function Course() {
   const started = done > 0 || resume !== undefined;
 
   return (
-    <div className="space-y-6">
-      {back}
-      <header className="flex flex-wrap items-start gap-5">
-        <Ring value={total > 0 ? done / total : 0} label={m().courses.progress} size={96}>
-          <span className="text-xl">{done}/{total}</span>
-        </Ring>
-        <div className="min-w-0 flex-1 space-y-2">
-          <h1 className="text-3xl font-extrabold">{course.title}</h1>
-          <p className="text-sm font-bold text-muted">
-            {m().courses.kinds[course.kind]} · {m().courses.levels[course.level]}
-            {course.side ? ` · ${fmt(m().course.opening, { side: course.side === 'white' ? m().course.white : m().course.black })}` : ''}
-          </p>
-          <p className="text-lg">{course.description}</p>
-          {course.reviewed ? null : (
-            <p className="inline-block rounded-full border-2 border-coral bg-coral/15 px-3 py-0.5 text-base font-bold">{m().courses.unreviewed}</p>
-          )}
-          <div className="flex flex-wrap items-center gap-3">
-            {target ? (
-              <ButtonLink to={`/learn/${encodeURIComponent(course.slug)}/${encodeURIComponent(target.lesson.id)}`} state={resume ? RESUME_STATE : undefined}>
-                {finished ? m().course.startAgain : started ? m().course.continue : m().course.start}
-              </ButtonLink>
-            ) : null}
-            <Button variant={teacherView ? 'primary' : 'secondary'} aria-pressed={teacherView} onClick={() => setTeacherView(!teacherView)}>
-              {m().lesson.teacherView}
-            </Button>
-          </div>
-        </div>
+    <div className="flex h-full min-h-0 flex-col gap-3">
+      <header className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        {back}
+        <h1 className="text-3xl font-bold">{course.title}</h1>
+        <p className="text-sm font-bold text-muted">
+          {m().courses.kinds[course.kind]} · {m().courses.levels[course.level]}
+          {course.side ? ` · ${fmt(m().course.opening, { side: course.side === 'white' ? m().course.white : m().course.black })}` : ''}
+          {' · '}
+          {fmt(m().courses.lessonsDone, { done, total })}
+        </p>
+        {target ? (
+          <ButtonLink to={`/learn/${encodeURIComponent(course.slug)}/${encodeURIComponent(target.lesson.id)}`} state={resume ? RESUME_STATE : undefined} className="ms-auto">
+            {finished ? m().course.startAgain : started ? m().course.continue : m().course.start}
+          </ButtonLink>
+        ) : null}
       </header>
+      <p className="max-w-4xl text-base text-muted">{course.description}</p>
 
-      <ol className="space-y-6">
+      <ol className="grid min-h-0 flex-1 content-start gap-3 md:grid-cols-2 lg:grid-cols-4">
         {course.chapterList.map((chapter, ci) => (
           <li key={chapter.id}>
-            <section aria-labelledby={`ch-${chapter.id}`} className="space-y-3">
-              <h2 id={`ch-${chapter.id}`} className="text-2xl font-extrabold">
+            <section aria-labelledby={`ch-${chapter.id}`} className={cardClass('plain', 'h-full space-y-1')}>
+              <h2 id={`ch-${chapter.id}`} className="text-lg font-extrabold leading-tight">
                 {fmt(m().course.chapter, { n: ci + 1, title: chapter.title })}
               </h2>
-              <ul className="space-y-3">
+              <ul>
                 {chapter.lessons.map((lesson) => {
                   const isDone = completed[lessonKey(course.slug, lesson.id)] !== undefined;
                   return (
-                    <li key={lesson.id} className="space-y-2 rounded-2xl border-2 border-line bg-surface p-4">
-                      <div className="flex flex-wrap items-center gap-3">
+                    <li key={lesson.id}>
+                      <Link
+                        to={`/learn/${encodeURIComponent(course.slug)}/${encodeURIComponent(lesson.id)}`}
+                        className="flex min-h-11 items-center gap-2 rounded-control px-1 text-base font-bold underline-offset-4 hover:bg-line/50 hover:underline"
+                      >
                         <span
                           aria-hidden="true"
-                          className={`inline-flex size-9 items-center justify-center rounded-full border-2 text-lg font-extrabold ${isDone ? 'border-leaf bg-leaf text-white' : 'border-line'}`}
+                          className={`inline-flex size-6 shrink-0 items-center justify-center rounded-full border-2 text-sm ${isDone ? 'border-leaf bg-leaf text-white' : 'border-line'}`}
                         >
                           {isDone ? '✓' : ''}
                         </span>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="text-lg font-extrabold">
-                            <Link to={`/learn/${encodeURIComponent(course.slug)}/${encodeURIComponent(lesson.id)}`} className="inline-flex min-h-11 items-center underline-offset-4 hover:underline">
-                              {lesson.title}
-                            </Link>
-                          </h3>
-                          <p className="text-sm font-bold text-muted">
-                            {fmt(m().course.steps, { count: lesson.steps.length })} · {isDone ? m().course.done : m().course.notDone}
-                          </p>
-                        </div>
-                        <ButtonLink to={`/learn/${encodeURIComponent(course.slug)}/${encodeURIComponent(lesson.id)}`} variant={isDone ? 'secondary' : 'primary'}>
-                          {isDone ? m().course.review : m().course.start}
-                          <span className="sr-only"> {lesson.title}</span>
-                        </ButtonLink>
-                      </div>
-                      {teacherView ? <TeacherPanel notes={lesson.teacherNotes} /> : null}
+                        <span className="min-w-0">
+                          {lesson.title}
+                          <span className="sr-only"> {isDone ? m().course.done : m().course.notDone}</span>
+                        </span>
+                      </Link>
                     </li>
                   );
                 })}
