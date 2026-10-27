@@ -9,6 +9,9 @@ const COVER_LINE: Record<string, string> = {
   'queens-gambit': 'd4 d5 c4',
   'ruy-lopez': 'e4 e5 Nf3 Nc6 Bb5',
   'sicilian-defence': 'e4 c5',
+  // The moment before each trap springs (Legal's mate idea; the Elephant Trap).
+  'traps-for-white': 'e4 e5 Nf3 d6 Bc4 Bg4 Nc3 g6 Nxe5',
+  'traps-for-black': 'd4 d5 c4 e6 Nc3 Nf6 Bg5 Nbd7 cxd5 exd5',
 };
 
 /** Back-rank mate in one (Ra8#): a standard textbook position. */

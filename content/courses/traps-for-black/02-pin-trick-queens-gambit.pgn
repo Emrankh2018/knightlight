@@ -1,0 +1,63 @@
+[Event "Opening Traps for Black"]
+[Lesson "pinned-knight-trick"]
+[LessonTitle "The pinned knight trick"]
+[Step "explain"]
+[TeacherNotes "This trap is often called the Elephant Trap; that name is not in the Lichess openings list used by this app, so it appears only here | The trap comes from the Queen's Gambit Declined after 4.Bg5 Nbd7 5.cxd5 exd5 | The mistake is 6.Nxd5 | The knight on f6 is pinned to the queen, not the king, so it can still capture | After 7.Bxd8 Bb4+ White must block with the queen and loses it | Black ends a piece up for a pawn | If White plays a calm move instead, Black simply plays on"]
+[Mistakes "Moving the f6 knight away so the queen drops to the bishop for nothing | Forgetting the check Bb4+ | Recapturing on d8 in a different order | Falling for it when playing White"]
+[ClassQuestions "Why can the knight on f6 still capture on d5? | Why must White answer the check on b4 with the queen? | Who ends up with more material?"]
+
+{In this lesson White will take the pawn on d5 with the knight. It looks free, but it is the mistake. The d5 pawn is the bait.}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 6. Nxd5 {White takes a pawn. It looks free, but it is the mistake. Now Black strikes back. [%cal Rc3d5] [%csl Rd5]} 6... Nxd5 {The knight takes the knight. The bishop now attacks the queen, but the trap is on. [%cal Gf6d5,Rg5d8]} 7. Bxd8 {White takes the queen.} 7... Bb4+ {Check! The bishop from f8 slides out. [%cal Gf8b4,Rb4e1] [%csl Re1]} 8. Qd2 {The queen has to block the check.} 8... Bxd2+ {Black takes White's queen with check. [%cal Gb4d2]} 9. Kxd2 {The king takes back.} 9... Kxd8 {Black takes the bishop. Black has won a piece for a pawn. [%csl Gd8]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "pinned-knight-trick"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppn1ppp/5n2/3N2B1/3P4/8/PP2PPPP/R2QKBNR b KQkq - 0 6"]
+[Hint "Use the knight on f6."]
+[Hint "Take the knight on d5."]
+
+{White took the d5 pawn with the knight. Black to move. Find the key move, then the whole trap.}
+6... Nxd5 {Even though the bishop attacks your queen, this is the trap.} 7. Bxd8 Bb4+ {The surprise check.} 8. Qd2 Bxd2+ {Black wins White's queen.} *
+
+[Event "Opening Traps for Black"]
+[Lesson "pinned-knight-trick"]
+[Step "find-move"]
+[FEN "r1bBkb1r/pppn1ppp/8/3n4/3P4/8/PP2PPPP/R2QKBNR b KQkq - 0 7"]
+[Hint "Use the bishop."]
+[Hint "The bishop on f8 goes to b4."]
+
+{White took your queen with the bishop. Now play the check that makes the trap work.}
+7... Bb4+ {Check. White has to block with the queen. [%cal Gf8b4,Rb4e1]} 8. Qd2 Bxd2+ {Black takes the queen with check.} 9. Kxd2 Kxd8 {Black takes the bishop. Black is a piece up for a pawn.} *
+
+[Event "Opening Traps for Black"]
+[Lesson "pinned-knight-trick"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Black fights for the center with pawns, then develops the knights."]
+[Hint "When White's knight takes the pawn on d5, take it back with the knight from f6."]
+[Hint "After the bishop takes the queen, check with the bishop from f8."]
+
+{Play the whole trap as Black. It only works if White takes on d5.}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 6. Nxd5 Nxd5 7. Bxd8 Bb4+ 8. Qd2 Bxd2+ 9. Kxd2 Kxd8 *
+
+[Event "Opening Traps for Black"]
+[Lesson "pinned-knight-trick"]
+[Step "quiz"]
+[Question "White to move here. Which move does NOT fall into the trap?"]
+[Choices "Nxd5 (take the pawn with the knight) | e3 (support the center and develop)"]
+[Answer "2"]
+[Explanation "6.e3 is a calm move that does not fall for the trap. The trap only works after 6.Nxd5. If White does not fall for it, Black just plays on."]
+
+{Think about the position, not just the free pawn.}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 *
+
+[Event "Opening Traps for Black"]
+[Lesson "pinned-knight-trick"]
+[Step "quiz"]
+[Question "Why can the knight on f6 take on d5 even though the white bishop attacks the queen behind it?"]
+[Choices "The knight is pinned to the king, but it can still move | The knight is only pinned to the queen, and Black wins more than he loses | Knights are never pinned"]
+[Answer "2"]
+[Explanation "The pin is against the queen, not the king, so the knight may move. Giving up the queen is fine here because Black wins it back with check."]
+
+{Remember what is behind the knight.}
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. cxd5 exd5 6. Nxd5 *

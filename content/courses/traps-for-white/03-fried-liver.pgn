@@ -1,0 +1,74 @@
+[Event "Opening Traps for White"]
+[Lesson "fried-liver"]
+[LessonTitle "The Fried Liver attack"]
+[Step "explain"]
+[TeacherNotes "This is a sacrifice, not a sure win: White gives a knight for a pawn and hopes to attack the exposed king | It only appears if Black plays 5...Nxd5, which is a natural but risky move | The knight takes f7 and pulls the king out. Then Qf3+ and the bishop on c4 both attack the knight on d5, which is pinned to the king | 6.d4 is a well-known strong alternative, so do not present Nxf7 as the only good move | After 7.Qf3+ Ke6 8.Nc3 White has a strong attack, but Black has more material, so White must play accurately | Do not promise a win"]
+[Mistakes "Playing 6.Nxf7 without checking how Black can defend | Moving the same piece again and again | Forgetting that White is down a knight until the attack succeeds"]
+[ClassQuestions "Which two white pieces attack f7? | Why must the black king come out to f7? | Is White ahead in material after 6...Kxf7?"]
+
+{In this lesson White aims at the f7 pawn and then makes a bold knight sacrifice. Watch the moves.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 {The knight joins the bishop in the attack on f7. [%cal Gg5f7,Gc4f7] [%csl Rf7]} 4... d5 {Black counter-attacks in the center.} 5. exd5 {White takes the pawn. [%cal Ge4d5]} 5... Nxd5 {Black takes back with the knight. Now f7 is only guarded by the king. [%csl Rf7]} 6. Nxf7 {The knight takes the pawn. It attacks the queen and the rook. [%cal Gf7d8,Gf7h8]} 6... Kxf7 {The king takes the knight. This is Black's natural reply. [%csl Rf7]} 7. Qf3+ {Check! The queen also attacks the knight on d5. [%cal Gf3f7,Gf3d5]} 7... Ke6 {The king steps forward.} 8. Nc3 {Another piece joins the attack. The black king is far from safety. [%cal Gb1c3] [%csl Re6]} *
+
+[Event "Opening Traps for White"]
+[Lesson "fried-liver"]
+[Step "find-move"]
+[FEN "r1bqkb1r/ppp2ppp/2n5/3np1N1/2B5/8/PPPP1PPP/RNBQK2R w KQkq - 0 6"]
+[Hint "Use the knight on g5."]
+[Hint "Capture the pawn on f7."]
+
+{White to move. The knight on g5 can take f7. Begin the sacrifice.}
+6. Nxf7 {The knight forks the queen and the rook, but it can be captured by the king. [%cal Gf7d8,Gf7h8]} *
+
+[Event "Opening Traps for White"]
+[Lesson "fried-liver"]
+[Step "find-move"]
+[FEN "r1bq1b1r/ppp2kpp/2n5/3np3/2B5/8/PPPP1PPP/RNBQK2R w KQ - 0 7"]
+[Hint "Use your queen."]
+[Hint "Move the queen to f3."]
+
+{White to move. The black king has come to f7. Give a check that also attacks the knight on d5.}
+7. Qf3+ {Check, and the knight on d5 is attacked too. [%cal Gf3f7,Gf3d5]} *
+
+[Event "Opening Traps for White"]
+[Lesson "fried-liver"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "King pawn, knight, bishop."]
+[Hint "The knight jumps to g5, then you take on d5."]
+[Hint "Take f7 with the knight, then check with the queen, then develop the other knight."]
+
+{Play the Fried Liver line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7 Kxf7 7. Qf3+ Ke6 8. Nc3 *
+
+[Event "Opening Traps for White"]
+[Lesson "fried-liver-avoid"]
+[LessonTitle "When the Fried Liver does not work"]
+[Step "explain"]
+[TeacherNotes "The Fried Liver needs Black to recapture with 5...Nxd5 | The line 5...Na5 is a known good reply that moves the knight away from the bishop and gets ready for ...c6 | After 6.Bb5+ c6 7.dxc6 bxc6 8.Be2 White has an extra pawn, but Black has quick development, so there is no trap and no big win | The Lichess index lists this as the Polerio Defense of the Two Knights Defense | The lesson: do not be sad when the trap does not come, just play on with the extra pawn"]
+[Mistakes "Expecting Black to fall for it | Sacrificing on f7 when 5...Na5 has been played | Not noticing that the black knight left the center"]
+[ClassQuestions "Why is 5...Na5 safer than 5...Nxd5? | Does White still have an extra pawn after 8.Be2? | What is White's plan if the trap does not work?"]
+
+{In this lesson Black tries a calmer fifth move: 5...Na5. Instead of taking back on d5, the knight attacks the bishop on c4. Black gives up a pawn to gain time, and Nxf7 is no longer a good idea.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Na5 {The knight attacks the bishop. [%cal Gc6a5,Ga5c4] [%csl Ga5]} 6. Bb5+ {White checks and keeps the bishop. [%cal Gc4b5]} 6... c6 {Black blocks.} 7. dxc6 {White takes on c6, and Black takes back.} 7... bxc6 8. Be2 {The bishop retreats. White has an extra pawn, but Black has quick development. [%cal Gb5e2]} *
+
+[Event "Opening Traps for White"]
+[Lesson "fried-liver-avoid"]
+[Step "quiz"]
+[Question "After 5.exd5 which Black move avoids the Fried Liver?"]
+[Choices "5...Nxd5 | 5...Na5"]
+[Answer "2"]
+[Explanation "5...Na5 does not put a knight on d5, so there is no sacrifice on f7. 5...Nxd5 is the move White hopes for."]
+
+{White has just taken on d5. Black to move.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 *
+
+[Event "Opening Traps for White"]
+[Lesson "fried-liver-avoid"]
+[Step "quiz"]
+[Question "Black played 5...Nxd5. Which statement is right?"]
+[Choices "White must play 6.Nxf7 or lose | White can sacrifice on f7, but it is risky and White must play carefully | White is already winning"]
+[Answer "2"]
+[Explanation "6.Nxf7 gives up a knight for a pawn. White gets an attack, but it needs accurate play. Never count on it."]
+
+{Be honest about the sacrifice.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 *

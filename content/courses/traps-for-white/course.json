@@ -1,0 +1,15 @@
+{
+  "title": "Opening Traps for White",
+  "kind": "opening",
+  "side": "white",
+  "level": "beginner",
+  "description": "Learn what an opening trap is and the golden rule for setting one. Then study three traps White can set: Légal's mate, the Fried Liver attack and Scholar's mate. For each one you also learn what Black should play to avoid it.",
+  "tags": ["opening", "traps", "e4", "white", "italian-game", "legal-mate", "fried-liver", "scholars-mate"],
+  "reviewed": false,
+  "chapters": [
+    { "file": "01-golden-rule.pgn", "title": "What a trap is and the golden rule" },
+    { "file": "02-legal-mate.pgn", "title": "Trap 1: Légal's mate" },
+    { "file": "03-fried-liver.pgn", "title": "Trap 2: The Fried Liver attack" },
+    { "file": "04-scholars-mate.pgn", "title": "Trap 3: Scholar's mate" }
+  ]
+}

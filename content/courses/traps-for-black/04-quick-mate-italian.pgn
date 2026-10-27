@@ -1,0 +1,43 @@
+[Event "Opening Traps for Black"]
+[Lesson "quick-knight-mate"]
+[LessonTitle "The quick knight mate (a risky trap)"]
+[Step "explain"]
+[TeacherNotes "The Lichess name for 3...Nd4 is the Blackburne-Kostić Gambit; this course does not use any other nickname | This is a risky trap, so it is an example of breaking the golden rule | The trap needs White to play 4.Nxe5 and then 5.Nxf7 | 4.Nxe5 wins a pawn for White, and 4.Nxd4 is a calm reply | The mate: the queen checks on e4 and the knight jumps to f3 | 7.Qe2 avoids the mate but loses the queen to 7...Nxe2; White's real mistake was 5.Nxf7 | Teach it as a lesson in greed: White grabbed pawns and forgot the king"]
+[Mistakes "Setting this trap against strong players, who win a pawn with 4.Nxe5 and then avoid 5.Nxf7 | Missing the check on e4 | Using it as your main opening"]
+[ClassQuestions "Why did White's greedy knight moves go wrong? | Which two black pieces give the final mate? | What could White have played on move four instead?"]
+
+{Black will play 3...Nd4, a risky move that lets White win a pawn. If White grabs pawns and forgets about the king, Black can win with a very short mate.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 {The knight jumps to d4. [%cal Gc6d4]} 4. Nxe5 {White wins a pawn. [%cal Rf3e5]} 4... Qg5 {The queen attacks the knight on e5 and the pawn on g2. [%cal Gg5e5,Gg5g2]} 5. Nxf7 {White takes again and attacks the queen and the rook. This is the mistake. [%cal Rf7g5,Rf7h8]} 5... Qxg2 {The queen takes g2 and attacks the rook on h1. [%cal Gg2h1,Gg2e4]} 6. Rf1 {The rook runs.} 6... Qxe4+ {Check! [%cal Ge4e1]} 7. Be2 {The bishop blocks. This is a blunder.} 7... Nf3# {Checkmate! The knight and queen work together and the king cannot escape. [%cal Gd4f3,Ge4e1] [%csl Re1]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "quick-knight-mate"]
+[Step "find-move"]
+[FEN "r1b1kbnr/pppp1Npp/8/6q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5"]
+[Hint "Use the queen."]
+[Hint "The queen takes a pawn on g2."]
+[Hint "Play the queen to g2, then check on e4, then jump with the knight."]
+
+{White took on f7. Black to move. Find the attack. If White blocks the check with the bishop, it ends in checkmate.}
+5... Qxg2 {The queen takes the pawn and attacks the rook.} 6. Rf1 Qxe4+ {Check!} 7. Be2 Nf3# {Checkmate. [%csl Re1]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "quick-knight-mate"]
+[Step "line-drill"]
+[Side "black"]
+[Hint "Black plays knight, then offers the pawn with the knight to d4."]
+[Hint "Black's queen goes to g5, then takes on g2."]
+[Hint "Check with the queen on e4, then finish with a knight jump."]
+
+{Play the whole trap as Black. It works only if White grabs twice and blocks with the bishop.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 4. Nxe5 Qg5 5. Nxf7 Qxg2 6. Rf1 Qxe4+ 7. Be2 Nf3# *
+
+[Event "Opening Traps for Black"]
+[Lesson "quick-knight-mate"]
+[Step "quiz"]
+[Question "After 3...Nd4, which White plan walks into the trap?"]
+[Choices "Nxd4 (trade the knight) | Nxe5, then Nxf7 (grab pawns twice)"]
+[Answer "2"]
+[Explanation "4.Nxd4 exd4 is a calm trade and the trap is gone. The trap works only if White grabs on e5 and again on f7, and then blocks with the bishop."]
+
+{Think about which plan leaves the king forgotten.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 *

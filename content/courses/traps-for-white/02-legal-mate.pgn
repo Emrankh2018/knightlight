@@ -1,0 +1,72 @@
+[Event "Opening Traps for White"]
+[Lesson "legal-mate"]
+[LessonTitle "Légal's mate"]
+[Step "explain"]
+[TeacherNotes "Black's bishop on g4 pins the f3 knight to the queen, so Black thinks the knight is stuck | White moves the knight anyway and offers the queen | After Bxd1 the bishop on c4 and the two knights deliver mate | Count the pieces: Bf7, Ne5 and Nd5 all help | The trap works because Black played 4...g6 instead of 4...Nf6, so no knight guards d5"]
+[Mistakes "Taking the queen without checking what it allows | Playing Nxe5 when Black has put a knight on f6 | Forgetting that the check Bxf7+ comes first"]
+[ClassQuestions "Which black move was the mistake? | Why can the black king not run away at the end? | Which three white pieces help at the end?"]
+
+{In this lesson Black will pin the knight on f3 to the queen. Then White offers the queen on purpose.}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 {The bishop pins the knight on f3 to the queen. [%cal Rg4f3,Rf3d1] [%csl Rg4]} 4. Nc3 g6 5. Nxe5 {The knight takes a pawn and offers the queen. [%cal Gf3e5]} 5... Bxd1 {Black takes the queen. This is the mistake. [%csl Rd1]} 6. Bxf7+ {Check! The bishop is protected by the knight on e5. [%cal Gc4f7,Ge5f7]} 6... Ke7 {The king has only one square. [%csl Re7]} 7. Nd5# {Checkmate! The bishop covers e6 and e8. The knight on e5 covers d7 and guards the bishop. The knight on d5 gives check and covers f6. [%cal Gc3d5,Gf7e8,Ge5d7,Gd5e7] [%csl Re7]} *
+
+[Event "Opening Traps for White"]
+[Lesson "legal-mate"]
+[Step "explain"]
+
+{Why does White not lose by giving up the queen? Because after Bxd1 White will check first and mate in two moves. Watch the idea once more, step by step.}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 g6 5. Nxe5 {Step one: the knight opens the way. [%cal Gf3e5]} 5... Bxd1 6. Bxf7+ {Step two: check with the bishop. [%cal Gc4f7]} 6... Ke7 7. Nd5# {Step three: the second knight finishes. [%csl Re7]} *
+
+[Event "Opening Traps for White"]
+[Lesson "legal-mate"]
+[Step "find-move"]
+[FEN "rn1qkbnr/ppp2p1p/3p2p1/4p3/2B1P1b1/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5"]
+[Hint "Use the knight on f3."]
+[Hint "Take the pawn on e5 with that knight."]
+[Hint "After Black takes your queen, check on f7 with the bishop, then play a knight move to d5."]
+
+{White to move. Start the trap. Play the whole line. Black will take your queen on the way.}
+5. Nxe5 {The knight takes the pawn.} 5... Bxd1 6. Bxf7+ {Check!} 6... Ke7 7. Nd5# {Checkmate. [%csl Re7]} *
+
+[Event "Opening Traps for White"]
+[Lesson "legal-mate"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Open with the king pawn, then the kingside knight."]
+[Hint "Bishop to c4, then knight to c3."]
+[Hint "Take on e5, check on f7, mate on d5."]
+
+{Play the whole trap as White.}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 g6 5. Nxe5 Bxd1 6. Bxf7+ Ke7 7. Nd5# *
+
+[Event "Opening Traps for White"]
+[Lesson "legal-not-work"]
+[LessonTitle "When Légal's mate does not work"]
+[Step "explain"]
+[TeacherNotes "The trap needs the f6 square to be empty | If Black plays 4...Nf6 the knight guards d5 and the mate is gone | Then 5.Nxe5 would just lose the queen, so do not play it | Without the trap, White simply keeps developing | If Black does not take the queen after 5.Nxe5, White is only a pawn up, so check the position before relying on it"]
+[Mistakes "Playing Nxe5 on autopilot | Forgetting to check which black pieces guard d5 | Being upset when the trap fails instead of playing a good move"]
+[ClassQuestions "Which black piece guards d5? | What should White play instead? | How can you tell the trap will not work?"]
+
+{In this line Black will have a knight on f6. The same moves no longer work. The knight will be able to take on d5, so there is no mate.}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 Nf6 {This knight guards d5. [%cal Gf6d5] [%csl Gf6,Rd5]} 5. Nxe5 {A mistake here. [%cal Gf3e5]} 5... Bxd1 6. Bxf7+ Ke7 7. Nd5+ {Check, but Black can take the knight.} 7... Nxd5 {The king is safe. White gave up the queen and has no mate. [%cal Gf6d5]} *
+
+[Event "Opening Traps for White"]
+[Lesson "legal-not-work"]
+[Step "quiz"]
+[Question "Black has played 4...Nf6 and the trap is off. What is the best idea for White?"]
+[Choices "Play 5.Nxe5 anyway | A calm move like 5.d3 | Give up the queen at once"]
+[Answer "2"]
+[Explanation "Without the mate, giving up the queen is just a blunder. A calm developing move like 5.d3 keeps everything safe."]
+
+{Black's knight guards the d5 square now.}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 Nf6 *
+
+[Event "Opening Traps for White"]
+[Lesson "legal-not-work"]
+[Step "quiz"]
+[Question "Which move by Black lets the trap work?"]
+[Choices "4...Nf6 | 4...g6"]
+[Answer "2"]
+[Explanation "The trap works because Black played 4...g6 instead of 4...Nf6, so no knight guards d5. 4...Nf6 guards d5 and spoils the trap."]
+
+{This is the position after 4.Nc3. Think about the square d5.}
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 *

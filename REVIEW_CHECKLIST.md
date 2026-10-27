@@ -203,3 +203,49 @@ Items needing coach attention:
 - [ ] General claims (the a6 pawn controls b5, the Dragon bishop uses the long diagonal, White often castles long in the Yugoslav, the c-file is half-open after ...cxd4) are standard ideas, not engine-checked.
 - [ ] The Alapin line 5.Nf3 comment suggests ...Bg4 as a normal development; check it fits the level.
 - [ ] Omitted - needs coach input: classic traps for White (no trap could be confirmed by machine here), ...Qb6 ideas and the poisoned pawn, Scheveningen and Sveshnikov set-ups, Taimanov and Kan, the Smith-Morra Gambit (1.e4 c5 2.d4), the Rossolimo (3.Bb5), the Moscow 3.Bb5+, the English Attack against the Najdorf, the Yugoslav h4 pawn storm, ...d5 breaks in specific lines.
+
+## Opening Traps for Black (traps-for-black) - beginner, reviewed: false
+
+Chapters and lessons (validated for legality only, awaiting coach review):
+
+- [ ] 01-what-is-a-trap
+  - [ ] what-is-a-trap
+  - [ ] golden-rule
+- [ ] 02-pin-trick-queens-gambit
+  - [ ] pinned-knight-trick
+- [ ] 03-trapped-bishop-ruy-lopez
+  - [ ] trapped-bishop
+- [ ] 04-quick-mate-italian
+  - [ ] quick-knight-mate
+
+Items needing coach attention:
+
+- [ ] Pinned knight trick: 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 Nbd7 5.cxd5 exd5 6.Nxd5 Nxd5 7.Bxd8 Bb4+ 8.Qd2 Bxd2+ 9.Kxd2 Kxd8. Replays legally; Black ends a piece up for a pawn (material counted by script). The nickname "Elephant Trap" is not in the Lichess index, so it appears only in teacher notes. Quiz claim that 6.e3 is a calm, safe reply is a standard idea, not engine-checked.
+- [ ] Trapped bishop: line is the dataset's Ruy Lopez: Noah's Ark Trap order (4.Ba4 b5 5.Bb3 d6 6.d4 Nxd4 7.Nxd4 exd4 8.Qxd4 c5), continued 9.Qd5 Be6 10.Qc6+ Bd7 11.Qd5 c4. The continuation after 8...c5 is not in the dataset; legality checked, and after 12.Bxc4 bxc4 13.Qxc4 Black is a bishop for two pawns up (script count). Quiz asks which move falls into the trap (8.Qxd4 versus 8.c3); coach to confirm 8.c3 is a fair quiet alternative. 6.c3 is no longer mentioned.
+- [ ] Quick knight mate: 3...Nd4 4.Nxe5 Qg5 5.Nxf7 Qxg2 6.Rf1 Qxe4+ 7.Be2 Nf3#. Same line as the Italian Game course. Lichess calls 3...Nd4 the Blackburne-Kostić Gambit. The course presents it as breaking the golden rule (4.Nxe5 wins a pawn for White) and as risky. Only 4.Nxe5 winning a pawn and 4.Nxd4 being a calm reply are claimed; 4.c3 was dropped as unchecked. 7.Qe2 avoiding the mate is carried over from the Italian course. Please confirm.
+- [ ] Chapter 1: golden-rule uses 3...Nd4 4.Nxe5 explicitly as a counter-example (a move that breaks the rule), and its find-move is now the developing move 3...Nf6 (attacks e4); engine strength not checked. The find-move 4...d5 (after 4.Ng5) is described as a good blocking move; also not engine-checked.
+- [ ] Omitted - needs coach input: Lasker Trap (Albin Countergambit) and other well-known traps, because the lines could not be fully confirmed here. Also omitted: names such as "Blackburne Shilling Gambit" (see the Italian Game entry).
+
+## Opening Traps for White (traps-for-white) - beginner, reviewed: false
+
+- [ ] 01 What a trap is and the golden rule
+  - [ ] what-is-a-trap
+  - [ ] golden-rule
+- [ ] 02 Trap 1: Légal's mate
+  - [ ] legal-mate
+  - [ ] legal-not-work
+- [ ] 03 Trap 2: The Fried Liver attack
+  - [ ] fried-liver
+  - [ ] fried-liver-avoid
+- [ ] 04 Trap 3: Scholar's mate
+  - [ ] scholars-mate
+  - [ ] scholars-defence
+
+Items needing coach attention:
+
+- [ ] Lines used: Légal 1.e4 e5 2.Nf3 d6 3.Bc4 Bg4 4.Nc3 g6 5.Nxe5 Bxd1 6.Bxf7+ Ke7 7.Nd5# (mate machine-checked); the 4...Nf6 5.Nxe5 Bxd1 6.Bxf7+ Ke7 7.Nd5+ Nxd5 line (not mate, machine-checked). Fried Liver 1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 Nxd5 6.Nxf7 Kxf7 7.Qf3+ Ke6 8.Nc3 (name matches the Lichess index); Polerio line 5...Na5 6.Bb5+ c6 7.dxc6 bxc6 8.Be2 (in the index). Scholar's mate 1.e4 e5 2.Bc4 Nc6 3.Qh5 Nf6 4.Qxf7# (mate machine-checked); defence 3...g6 4.Qf3 Nf6 (legal; Scholar's mate name is not in the Lichess index, it is a well-known nickname).
+- [ ] The Fried Liver is taught as a risky sacrifice, not a sure win. The comments "strong attack" and "White has an extra pawn but Black develops quickly" are judgement, not engine-checked. Coach to confirm the wording.
+- [ ] The 5.d3 suggestion after 4...Nf6 in the Légal chapter is a calm move, flagged engine-unchecked.
+- [ ] Fried Liver teacher notes mention 6.d4 as a well-known strong alternative to 6.Nxf7 (from the fact-check, not engine-checked here).
+- [ ] The golden-rule lesson stops after 4.Nxe5 Qg5 and says White needs care; it does not claim 5.Nxf7 is a blunder. Coach may add that line.
+- [ ] Omitted - needs coach input: the Englund Gambit queen trap (1.d4 e5 2.dxe5 Nc6 3.Nf3 Qe7 4.Bf4 Qb4+ 5.Bd2 Qxb2 6.Bc3). A machine check showed the queen on b2 could still reach b5 or b6 after 6.Bc3, so "the queen is trapped" was not confirmed; known follow-ups (6...Bb4 7.Qd2 Bxc3 8.Nxc3) need a coach to confirm. Also omitted: deeper Fried Liver theory beyond 8.Nc3 (8...Nb4 and later), Traxler and other Two Knights sidelines, and any trap based on engine claims.

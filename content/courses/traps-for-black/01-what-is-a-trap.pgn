@@ -1,0 +1,63 @@
+[Event "Opening Traps for Black"]
+[Lesson "what-is-a-trap"]
+[LessonTitle "What is a trap?"]
+[Step "explain"]
+[TeacherNotes "A trap is a move that tempts your opponent into a mistake. It only works if they take the bait | Ask the class how a trap is different from a threat | Stress that a trap is a bonus, not a plan"]
+[Mistakes "Thinking a trap always works | Playing a bad move just because it sets a trap | Forgetting that the opponent can also be setting a trap"]
+[ClassQuestions "Why does a trap need the opponent to take the bait? | Have you ever fallen for a trap? What happened? | Is a trap a plan or a bonus?"]
+
+{A trap is a move that tempts your opponent into a mistake. It only works if they take the bait. In this example White will play Ng5. That is a real threat, not a trap.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 {The bishop and the knight both aim at f7. Black must check what White wants. [%cal Gg5f7,Gc4f7] [%csl Rf7]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "what-is-a-trap"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppp1ppp/2n2n2/4p1N1/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 5 4"]
+[Hint "Use a pawn."]
+[Hint "Play the pawn from d7 to d5."]
+
+{Black to move. White's bishop and knight both attack f7. Find a good move that blocks the bishop's path.}
+4... d5 {The pawn blocks the bishop's diagonal and takes space in the center. [%cal Gd7d5,Rc4f7]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "what-is-a-trap"]
+[Step "quiz"]
+[Question "When does a trap work?"]
+[Choices "Always, if the move looks clever | Only when the opponent takes the bait | Only when you play it on move three"]
+[Answer "2"]
+[Explanation "A trap needs the opponent to take the bait. If your opponent plays well, you still need a good position."]
+
+{Think about what the trap needs.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 *
+
+[Event "Opening Traps for Black"]
+[Lesson "golden-rule"]
+[LessonTitle "The golden rule of traps"]
+[Step "explain"]
+[TeacherNotes "Golden rule: only set a trap with a move that is still fine if the opponent finds the best reply | Before every move ask: what does my opponent threaten? | Then ask: what if they do not fall for it? | The example 3...Nd4 is a counter-example: it breaks the golden rule, because after 4.Nxe5 Black has just lost a pawn. We study it as a risky trap in the last chapter. The find-move shows a sound developing move instead | Remind students that good habits beat tricks"]
+[Mistakes "Setting a trap that leaves a piece hanging | Not checking what the opponent threatens | Only looking at your own idea"]
+[ClassQuestions "What are the three questions to ask before a move? | What if the opponent plays the best reply? | Is it okay to lose a piece to set a trap?"]
+
+{The golden rule: make a move that is still safe even if your opponent does NOT fall for the trap. Before you move, ask three things. What does my opponent threaten? Is my move safe? What if they find the best reply? Here is a counter-example, a move that breaks the rule.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 {This move breaks the golden rule: after 4.Nxe5 Black has just lost a pawn. We will meet it again as a risky trap. [%cal Gc6d4]} 4. Nxe5 {White wins a pawn. Black now needs White to go wrong. [%cal Rf3e5] [%csl Re5]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "golden-rule"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"]
+[Hint "Use a knight."]
+[Hint "Move the knight from g8 to f6."]
+
+{Black to move. Find a safe developing move that also attacks the pawn on e4.}
+3... Nf6 {The knight develops and attacks e4. Nothing is left hanging. [%cal Gg8f6,Gf6e4]} *
+
+[Event "Opening Traps for Black"]
+[Lesson "golden-rule"]
+[Step "quiz"]
+[Question "What should you check BEFORE you set a trap?"]
+[Choices "What my opponent threatens and whether my move is safe | How many pieces I can give away | Whether my opponent looks nervous"]
+[Answer "1"]
+[Explanation "Look at your opponent's threats first, and only play moves that are safe even if the trap fails."]
+
+{Remember the three questions.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 *

@@ -1,0 +1,74 @@
+[Event "Opening Traps for White"]
+[Lesson "what-is-a-trap"]
+[LessonTitle "What is a trap?"]
+[Step "explain"]
+[TeacherNotes "A trap is a setup where the opponent can go wrong | A trap only works if the opponent makes a mistake | If the opponent plays the best move, you must still be fine | Ask the class if they have ever fallen into a trap"]
+[Mistakes "Thinking a trap always works | Playing a trap move that is really just bad | Forgetting that the opponent also moves"]
+[ClassQuestions "Does a trap work against every opponent? | What happens if the opponent sees the trap? | Have you ever fallen into a trap?"]
+
+{A trap is a setup where the other player can go wrong. It only works if they make a mistake.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 {This is a normal, healthy move. It develops a piece and eyes f7. Many traps start with moves like this. [%cal Gc4f7] [%csl Gf7]} *
+
+[Event "Opening Traps for White"]
+[Lesson "what-is-a-trap"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"]
+[Hint "Use a bishop."]
+[Hint "Move the bishop from f1 to c4."]
+
+{White to move. Play a healthy developing move that also looks at f7.}
+3. Bc4 {Good. This move is sound by itself. A trap move should always be like this. [%cal Gf1c4]} *
+
+[Event "Opening Traps for White"]
+[Lesson "what-is-a-trap"]
+[Step "quiz"]
+[Question "What must happen for a trap to work?"]
+[Choices "The opponent makes a mistake | The opponent has to follow your plan | You play faster than the opponent"]
+[Answer "1"]
+[Explanation "A trap only works when the other player goes wrong. A good opponent will not."]
+
+{Think about who has to make the mistake.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 *
+
+[Event "Opening Traps for White"]
+[Lesson "golden-rule"]
+[LessonTitle "The golden rule: stay safe"]
+[Step "explain"]
+[TeacherNotes "Rule one: only set a trap with a sound move, a move that is fine even if the opponent plays the best reply | Rule two: before every move ask what the opponent threatens | Here after 3...Nd4 4.Nxe5 the black queen goes to g5 and hits both e5 and g2 | A calm 4.Nxd4 exd4 5.O-O is safe | Do not say that 4.Nxe5 is bad, only that White must check the threats"]
+[Mistakes "Looking only at your own plan | Grabbing a pawn without checking the reply | Playing for a trap and ignoring the opponent's threats"]
+[ClassQuestions "What is the first question to ask before every move? | Which two things did the black queen attack on g5? | Why is 4.Nxd4 a safe choice?"]
+
+{The golden rule: a trap move must also be a sound move. Always ask, what does my opponent threaten? In this lesson Black will jump a knight into d4.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 {The knight jumped from c6 to d4 and attacks the knight on f3. [%cal Gc6d4,Rd4f3] [%csl Rd4]} 4. Nxe5 {Winning a pawn looks nice. But check the reply first. [%cal Gf3e5]} 4... Qg5 {Look! The queen attacks the knight on e5 and the pawn on g2 at the same time. White needs care now. [%cal Rg5e5,Rg5g2] [%csl Re5,Rg2]} *
+
+[Event "Opening Traps for White"]
+[Lesson "golden-rule"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"]
+[Hint "Use your knight."]
+[Hint "Capture the black knight on d4."]
+
+{White to move. Choose the calm, safe move that removes the jumping knight.}
+4. Nxd4 {Safe and simple. The knight takes the knight. [%cal Gf3d4]} *
+
+[Event "Opening Traps for White"]
+[Lesson "golden-rule"]
+[Step "quiz"]
+[Question "Black's queen is on g5. What does it attack?"]
+[Choices "Only the pawn on g2 | Only the knight on e5 | The knight on e5 and the pawn on g2"]
+[Answer "3"]
+[Explanation "From g5 the queen sees along the fifth rank to e5 and down the g-file to g2. (It also eyes d2, but d2 is well guarded.) Always check what the last move attacks."]
+
+{Look at the black queen.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 4. Nxe5 Qg5 *
+
+[Event "Opening Traps for White"]
+[Lesson "golden-rule"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Start with the king pawn."]
+[Hint "Develop the knight, then the bishop."]
+[Hint "When the black knight jumps in, take it."]
+
+{Play the safe line as White.}
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4 4. Nxd4 exd4 5. O-O *

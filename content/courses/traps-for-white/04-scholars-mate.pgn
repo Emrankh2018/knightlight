@@ -1,0 +1,63 @@
+[Event "Opening Traps for White"]
+[Lesson "scholars-mate"]
+[LessonTitle "Scholar's mate"]
+[Step "explain"]
+[TeacherNotes "The fastest well-known trap: checkmate in four moves | It only works if Black ignores the threat on f7 | The queen and the bishop both aim at f7, which is guarded only by the king | Black can stop it easily, so do not rely on it | Use it to teach: protect f7 and look at what each move attacks"]
+[Mistakes "Playing it against everyone and learning nothing else | Not looking at what Black can do to the queen | Taking out the queen early without a plan"]
+[ClassQuestions "Which two white pieces attack f7? | What guards f7 for Black at the start? | Which black move on move three allows mate?"]
+
+{In this lesson the queen and the bishop will both aim at the f7 pawn. If Black ignores this, the game ends fast.}
+1. e4 e5 2. Bc4 {The bishop looks at f7. [%cal Gc4f7]} 2... Nc6 3. Qh5 {The queen joins the attack and also hits the pawn on e5. [%cal Gh5f7,Gh5e5]} 3... Nf6 {Black attacks the queen but forgets f7. This is the mistake. [%cal Gf6h5] [%csl Rf7]} 4. Qxf7# {Checkmate! The queen is protected by the bishop and the king has no square. [%cal Gh5f7,Gc4f7] [%csl Re8]} *
+
+[Event "Opening Traps for White"]
+[Lesson "scholars-mate"]
+[Step "find-move"]
+[FEN "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 2 3"]
+[Hint "Use your queen."]
+[Hint "Move the queen to h5."]
+
+{White to move. Bring the queen to a square where it attacks both f7 and e5.}
+3. Qh5 {The queen attacks the pawns on e5 and f7. [%cal Gh5e5,Gh5f7]} *
+
+[Event "Opening Traps for White"]
+[Lesson "scholars-mate"]
+[Step "find-move"]
+[FEN "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4"]
+[Hint "Use your queen."]
+[Hint "Take the pawn on f7."]
+
+{White to move. Find the checkmate.}
+4. Qxf7# {Checkmate. The bishop protects the queen. [%csl Re8]} 1-0
+
+[Event "Opening Traps for White"]
+[Lesson "scholars-mate"]
+[Step "line-drill"]
+[Side "white"]
+[Hint "Pawn, bishop, queen."]
+[Hint "After the bishop move, bring the queen to h5."]
+[Hint "Take on f7 and give mate."]
+
+{Play Scholar's mate as White.}
+1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7# *
+
+[Event "Opening Traps for White"]
+[Lesson "scholars-defence"]
+[LessonTitle "How Black stops Scholar's mate"]
+[Step "explain"]
+[TeacherNotes "A simple defence is 3...g6, which attacks the queen and blocks the diagonal to f7 | After 4.Qf3 the queen still eyes f7 together with the bishop, so Black must stay alert; 4...Nf6 is fine because the knight blocks the f-file | The point for White: an early queen sortie wins nothing against a careful opponent | Better habits: develop knights, castle, fight for the center | Teach Black's side too, because kids will meet this trap"]
+[Mistakes "Moving the queen out again and again | Forgetting to develop the knights | Ignoring that Black can attack the queen with tempo"]
+[ClassQuestions "Which black move attacked the queen? | Why is Nf6 fine on move four in this line but a mistake on move three? | What should White play on move three instead of Qh5?"]
+
+{In this lesson Black answers with 3...g6. The pawn attacks the queen and blocks the diagonal to f7, so the trap fails.}
+1. e4 e5 2. Bc4 Nc6 3. Qh5 g6 {The pawn attacks the queen and blocks the diagonal. [%cal Gg6h5] [%csl Rh5]} 4. Qf3 {The queen steps back and still watches f7. [%cal Gf3f7,Gc4f7]} 4... Nf6 {Black develops. The knight blocks the f-file, so there is no mate. White's early queen move has gained nothing. [%cal Gf6f7]} *
+
+[Event "Opening Traps for White"]
+[Lesson "scholars-defence"]
+[Step "quiz"]
+[Question "White's queen is on h5. Which black move stops Scholar's mate and attacks the queen?"]
+[Choices "3...Nf6 | 3...g6 | 3...a6"]
+[Answer "2"]
+[Explanation "3...g6 attacks the queen and blocks the h5-f7 diagonal. 3...Nf6 allows 4.Qxf7# and 3...a6 does nothing about f7."]
+
+{Black to move. The queen on h5 and the bishop on c4 both aim at f7.}
+1. e4 e5 2. Bc4 Nc6 3. Qh5 *
