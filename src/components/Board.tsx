@@ -27,6 +27,7 @@ const LAST_MOVE_FILL = 'rgba(242, 165, 65, 0.4)';
 const SELECTED_FILL = 'rgba(242, 165, 65, 0.7)';
 const DOT = 'radial-gradient(circle, rgba(15, 61, 62, 0.45) 22%, transparent 24%)';
 const RING = 'radial-gradient(circle, transparent 60%, rgba(15, 61, 62, 0.45) 62%)';
+const CHECK_GLOW = 'radial-gradient(circle, rgba(228, 87, 46, 0.95) 0%, rgba(228, 87, 46, 0.55) 45%, rgba(228, 87, 46, 0) 72%)';
 const FILES = 'abcdefgh';
 /** Dark ink on every theme square: at least 4.5:1 against all board colors. */
 const NOTATION: CSSProperties = { color: '#111111', fontSize: '0.8rem', fontWeight: 800 };
@@ -234,6 +235,13 @@ export default function Board({
     const add = (sq: string, css: CSSProperties): void => {
       out[sq] = { ...out[sq], ...css };
     };
+    if (chess?.inCheck()) {
+      for (const row of chess.board()) {
+        for (const cell of row) {
+          if (cell && cell.type === 'k' && cell.color === chess.turn()) add(cell.square, { backgroundImage: CHECK_GLOW });
+        }
+      }
+    }
     if (lastMove) {
       add(lastMove.from, { backgroundColor: LAST_MOVE_FILL });
       add(lastMove.to, { backgroundColor: LAST_MOVE_FILL });
@@ -244,7 +252,7 @@ export default function Board({
     if (arrowFrom) add(arrowFrom, { boxShadow: 'inset 0 0 0 4px #3BB273' });
     if (cursor && interactive) add(cursor, { boxShadow: 'inset 0 0 0 3px #0F3D3E, inset 0 0 0 6px #FFFFFF' });
     return out;
-  }, [lastMove, highlights, selected, targets, cursor, interactive, arrowFrom]);
+  }, [chess, lastMove, highlights, selected, targets, cursor, interactive, arrowFrom]);
 
   const onSquareMouseDown = ({ square }: SquareHandlerArgs, e: MouseEvent): void => {
     drag.current = annotate && (e.button === 2 || (annotate.marking && e.button === 0)) ? { square, button: e.button } : null;
@@ -276,10 +284,10 @@ export default function Board({
         setArrowFrom(null);
       }}
       onContextMenu={annotate ? (e) => e.preventDefault() : undefined}
-      className="mx-auto rounded-md focus-visible:outline-offset-4"
+      className="mx-auto rounded-md focus-visible:outline-offset-[14px]"
       style={{ width: typeof size === 'string' ? size : `min(100%, ${size ? `${size}px` : '85vh'})` }}
     >
-      <div ref={inner}>
+      <div ref={inner} className="kl-board-frame">
       <Chessboard
         options={{
           id: 'kl-board',

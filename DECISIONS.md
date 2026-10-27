@@ -52,3 +52,9 @@ Dated log (Asia/Qatar). Newest last.
 - **Icons:** original stroke SVGs in `src/components/icons.tsx` replace the emoji in the header and the streak flame.
 - **Avatars keep the stored emoji value** (profiles, backups and leaderboards validate against `AVATARS`), rendered through `src/components/Avatar.tsx` in a consistent badge. Original SVG avatar art is deferred; swap it inside `Avatar` without changing saved data.
 - **Piece set:** deferred to Phase 2. Must be original or licence-verified permissive; record the licence here first.
+
+## 2026-10-28 (Phase 2: board, first slice)
+- **Default board palette changed in place** (`cream` id kept so saved settings stay valid): light `#F6EDD6`, dark `#4F877D`. Notation (dark ink) is 4.58:1 on the dark square; light/dark square contrast is 3.4 (old teal 3.5). Do not lighten the dark square further: notation falls under 4.5.
+- **Frame and check glow:** ink rim plus amber hairline via `box-shadow` on `.kl-board-frame` (no layout size added, so Present sizing is unchanged); the king in check gets a coral glow. Keyboard focus outline offset raised to clear the frame.
+- **OPEN, piece licence:** the board still uses react-chessboard's default pieces, which look like the cburnett set. I could not confirm in the package how they are licensed. Before release either confirm a permissive licence (cburnett is offered under BSD among others; record attribution) or replace with an original set. Not resolved.
+- **Board themes** `sunset` and `slate` exist in the store, but `setBoardTheme` has no UI yet, so users cannot choose one.

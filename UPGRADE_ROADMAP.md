@@ -139,3 +139,7 @@ Decisions taken from the owner's go-ahead: lamplit direction; piece set and avat
 - Gates: typecheck, lint, 537/537 unit tests, content validator, puzzle size all pass; build passes. Existing e2e suite not re-run, and it has known stale selectors (AUDIT_REPORT.md).
 
 **Not done, still open from Phase 1:** the nav active-state indicator (moved to Phase 3), original SVG avatars, applying `Card` variants beyond Home (Courses, Puzzles, Play in Phases 3 and 4), RTL font fallback for Arabic (Nunito has no Arabic glyphs).
+
+### 2026-10-28: Phase 2 first slice (board look, done, see DECISIONS.md)
+- New default palette, ink frame with amber hairline, coral check glow; unit gates pass (537/537). E2E: 44 pass, 11 fail, all in `play.spec.ts` and `students.spec.ts` on stale selectors/copy (for example "Level 1: Sleepy Pawn" now reads "Opponent 1", avatar radios are not buttons); not caused by this change and not fixed here.
+- Still open in Phase 2: piece-set licence or replacement (blocker for release), a board-theme picker UI with a high-contrast projector theme, a dark-mode board variant, and piece animation tuning.

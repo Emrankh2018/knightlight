@@ -144,3 +144,12 @@ html[data-class-mode] .kl-chrome { display: none; }
 @media (min-width: 1024px) {
   :root { --kl-normal-board: max(16rem, min(100%, calc(100dvh - 6rem))); }
 }
+
+/* Board frame: ink rim and an amber hairline drawn with box-shadow, so it adds no layout size (Present sizing stays exact). */
+.kl-board-frame {
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px var(--color-ink-deep), 0 0 0 8px rgb(242 165 65 / 0.6), var(--shadow-lift);
+}
+:root.dark .kl-board-frame {
+  box-shadow: 0 0 0 6px var(--color-ink-deep), 0 0 0 8px rgb(242 165 65 / 0.6), 0 0 56px rgb(242 165 65 / 0.18);
+}

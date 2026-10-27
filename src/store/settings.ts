@@ -5,7 +5,8 @@ export type ThemeSetting = 'light' | 'dark' | 'system';
 export const THEMES: readonly ThemeSetting[] = ['light', 'dark', 'system'];
 
 export const BOARD_THEMES = {
-  cream: { light: '#F3E9D2', dark: '#3F8587' },
+  /** Default: parchment and soft sage. Dark ink notation stays at least 4.5:1 on both. */
+  cream: { light: '#F6EDD6', dark: '#4F877D' },
   sunset: { light: '#FBE3C2', dark: '#C97B5A' },
   slate: { light: '#DDE3E8', dark: '#6B7F94' },
 } as const;
