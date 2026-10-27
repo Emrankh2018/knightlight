@@ -4,10 +4,10 @@ import { Link, type LinkProps } from 'react-router-dom';
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 
 const BASE =
-  'inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl px-5 py-2 text-lg font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:opacity-50';
+  'inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-control px-5 py-2 text-lg font-bold shadow-card transition duration-150 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:opacity-50';
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary: 'bg-amber text-ink hover:brightness-95',
+  primary: 'bg-amber text-ink hover:bg-lamp hover:shadow-glow',
   secondary: 'border-2 border-ink bg-surface text-ink hover:bg-ink hover:text-cream aria-pressed:bg-ink aria-pressed:text-cream dark:border-amber dark:text-amber dark:hover:bg-amber dark:hover:text-ink dark:aria-pressed:bg-amber dark:aria-pressed:text-ink',
   ghost: 'text-fg hover:bg-line/60',
   danger: 'bg-danger text-white hover:brightness-95',

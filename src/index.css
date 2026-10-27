@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+/* Self-hosted OFL fonts (latin subset only) so the PWA works offline. Fraunces = display, Nunito = text. */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url("../node_modules/@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2") format("woff2-variations");
+}
+
 /* Brand tokens. Light is default; .dark on <html> switches; .present boosts contrast for projectors. */
 @theme {
   --color-ink: #0F3D3E;
@@ -17,7 +33,19 @@
   --color-ok-text: var(--kl-ok);
   --color-edge: var(--kl-edge);
   --color-danger: #C2410C;
+  /* Lamplit study: a deeper ink for chrome and a pale lamp tone for glows. */
+  --color-ink-deep: #082A2B;
+  --color-lamp: #FFD68A;
   --font-sans: "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  /* Radius scale: controls < cards < hero panels. */
+  --radius-control: 0.75rem;
+  --radius-card: 1rem;
+  --radius-hero: 1.75rem;
+  /* Elevation: warm shadows, never pure black. */
+  --shadow-card: 0 1px 2px rgb(16 42 43 / 0.06), 0 4px 14px rgb(16 42 43 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(16 42 43 / 0.08), 0 12px 28px rgb(16 42 43 / 0.12);
+  --shadow-glow: 0 0 0 1px rgb(242 165 65 / 0.55), 0 8px 32px rgb(242 165 65 / 0.22);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -31,14 +59,17 @@
   --kl-error: #B8391A;
   --kl-ok: #1E7A4B;
   --kl-edge: #8A8070;
+  /* Page backdrop: a faint lamp glow at the top edge. */
+  --kl-glow: radial-gradient(70rem 26rem at 50% -8rem, rgb(255 214 138 / 0.35), transparent 70%);
   color-scheme: light;
 }
 :root.dark {
-  --kl-bg: #0B2324;
-  --kl-surface: #123536;
+  --kl-bg: #0A2021;
+  --kl-surface: #112F30;
   --kl-fg: #F4EEE2;
   --kl-muted: #B5C7C4;
-  --kl-line: #255253;
+  --kl-line: #245352;
+  --kl-glow: radial-gradient(70rem 28rem at 50% -9rem, rgb(242 165 65 / 0.16), transparent 70%);
   --kl-error: #FF8A66;
   --kl-ok: #3BB273;
   --kl-edge: #4F8082;
@@ -53,9 +84,17 @@ html, body, #root { height: 100%; }
 body {
   margin: 0;
   background: var(--kl-bg);
+  background-image: var(--kl-glow);
+  background-repeat: no-repeat;
   color: var(--kl-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+/* Page titles use the display face; card labels and body text stay in the text face. */
+h1, .kl-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
 }
 
 :focus-visible {

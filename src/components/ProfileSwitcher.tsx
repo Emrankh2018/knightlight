@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fmt, m } from '../i18n';
+import Avatar from './Avatar';
 import { levelFor } from '../lib/xp';
 import { useProfiles, useActiveProfile } from '../store/profiles';
 import { useProgress } from '../store/progress';
@@ -41,7 +42,7 @@ export default function ProfileSwitcher() {
         onClick={() => setOpen((o) => !o)}
         className="flex min-h-11 items-center gap-2 rounded-lg px-2 hover:bg-ink-soft"
       >
-        <span className="text-2xl" aria-hidden="true">{active.avatar}</span>
+        <Avatar value={active.avatar} size="sm" />
         <span className="hidden max-w-[9rem] truncate font-bold sm:inline" title={active.name} aria-hidden="true">{active.name}</span>
         <span className="whitespace-nowrap rounded-full bg-amber px-2 text-sm font-extrabold text-ink" aria-hidden="true">{fmt(m().profile.level, { level })}</span>
       </button>
@@ -60,7 +61,7 @@ export default function ProfileSwitcher() {
                   }}
                   className={`flex min-h-11 w-full items-center gap-2 rounded-lg px-2 text-start text-lg hover:bg-line/60 ${p.id === active.id ? 'font-extrabold' : ''}`}
                 >
-                  <span className="text-2xl" aria-hidden="true">{p.avatar}</span>
+                  <Avatar value={p.avatar} size="sm" />
                   <span className="truncate">{p.name}</span>
                 </button>
               </li>

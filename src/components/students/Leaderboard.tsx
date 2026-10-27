@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type Ref } from 'react';
 import { fmt, m } from '../../i18n';
 import { rankStudents, SORT_KEYS, type Ranked, type SortKey, type StudentStats } from '../../lib/leaderboard';
+import Avatar from '../Avatar';
 import Button from '../Button';
 
 interface Props {
@@ -112,7 +113,7 @@ export default function Leaderboard({ rows, sort, onSort, big, onToggleBig, togg
                   {showRank ? <th scope="row" className={`${pad} ${nowrap} text-start font-extrabold tabular-nums`}>{r.rank}</th> : null}
                   <td className={`${pad} ${big ? 'w-full max-w-0' : ''}`}>
                     <span className="flex items-center gap-3">
-                      <span aria-hidden="true" className={big ? 'text-4xl xl:text-5xl' : 'text-3xl'}>{r.avatar}</span>
+                      <Avatar value={r.avatar} size={big ? 'xl' : 'lg'} />
                       <span className={`font-bold ${big ? 'min-w-0 truncate whitespace-nowrap' : 'break-words'}`}>{r.name}</span>
                     </span>
                   </td>

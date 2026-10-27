@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { m } from '../i18n';
 import { isReady } from '../lib/ready-routes';
+import { CloseIcon, MenuIcon } from './icons';
 import ProfileSwitcher from './ProfileSwitcher';
 import SoundToggle from './SoundToggle';
 import ThemeToggle from './ThemeToggle';
@@ -37,7 +38,7 @@ export default function Layout() {
       >
         {m().app.skipToContent}
       </button>
-      <header className="kl-chrome relative bg-ink text-cream">
+      <header className="kl-chrome relative border-b-2 border-amber/70 bg-gradient-to-b from-ink-deep to-ink text-cream shadow-lift">
         <nav aria-label={m().nav.mainNav} className="mx-auto flex min-w-0 max-w-7xl items-center gap-1 px-2 py-2 sm:gap-2 sm:px-4">
           <NavLink to="/" aria-label={m().app.name} className="me-1 flex min-h-11 shrink-0 items-center gap-2 text-xl font-extrabold sm:me-2">
             <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width={32} height={32} />
@@ -63,7 +64,7 @@ export default function Layout() {
               onClick={() => setMenuOpen((o) => !o)}
               className="flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-2 rounded-lg px-2 text-xl font-bold hover:bg-ink-soft sm:px-3 sm:text-base xl:hidden"
             >
-              <span aria-hidden="true">{menuOpen ? '✕' : '☰'}</span>
+              {menuOpen ? <CloseIcon /> : <MenuIcon />}
               <span className="sr-only sm:not-sr-only">{menuOpen ? m().nav.closeMenu : m().nav.openMenu}</span>
             </button>
           </div>

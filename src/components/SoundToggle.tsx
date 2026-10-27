@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { fmt, m } from '../i18n';
+import { VolumeIcon, VolumeOffIcon } from './icons';
 import { playSound, unlockAudio } from '../lib/sound';
 import { useSettings } from '../store/settings';
 
@@ -29,7 +30,7 @@ export default function SoundToggle({ volume = false, compact = false, className
         onClick={toggle}
         className={`flex items-center justify-center rounded-lg text-xl ${compact ? 'min-h-14 min-w-14 border-2 border-line bg-surface text-2xl' : 'min-h-11 min-w-11'} ${className}`}
       >
-        <span aria-hidden="true">{on ? '🔊' : '🔇'}</span>
+        {on ? <VolumeIcon /> : <VolumeOffIcon />}
       </button>
       {volume && !compact ? (
         <input

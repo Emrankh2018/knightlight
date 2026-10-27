@@ -3,7 +3,10 @@ import { useLoad } from '../hooks/useLoad';
 import { loadCourse } from '../lib/data';
 import { findLesson, RESUME_STATE } from '../lib/lesson/nav';
 import { fmt, m } from '../i18n';
+import Avatar from '../components/Avatar';
 import { ButtonLink } from '../components/Button';
+import Card from '../components/Card';
+import { FlameIcon } from '../components/icons';
 import Ring from '../components/Ring';
 import { isReady } from '../lib/ready-routes';
 import { safeDiffDays, todayLocal } from '../lib/date';
@@ -19,7 +22,7 @@ function ContinueCard({ last }: { last: { course: string; lesson: string } | und
   const state = useLoad(load);
   const lesson = last && state.status === 'ready' ? findLesson(state.data, last.lesson) : null;
   return (
-    <section className="rounded-2xl border-2 border-amber bg-surface p-4">
+    <Card variant="hero">
       <h2 className="text-lg font-bold text-muted">{m().home.continue}</h2>
       {last && state.status === 'loading' ? <p className="text-lg text-muted">{m().common.loading}</p> : null}
       {last && state.status === 'ready' && lesson ? (
@@ -39,7 +42,7 @@ function ContinueCard({ last }: { last: { course: string; lesson: string } | und
           </ButtonLink>
         </>
       ) : null}
-    </section>
+    </Card>
   );
 }
 
@@ -57,15 +60,15 @@ export default function Home() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-extrabold">
-          <span aria-hidden="true">{profile.avatar} </span>
+        <h1 className="text-4xl font-bold">
+          <Avatar value={profile.avatar} size="lg" className="me-3 align-middle" />
           {fmt(m().home.welcome, { name: profile.name || m().home.defaultName })}
         </h1>
         <p className="mt-1 text-lg text-muted">{m().app.tagline}</p>
       </header>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <section className="flex items-center gap-4 rounded-2xl border-2 border-line bg-surface p-4" aria-label={m().home.levelRing}>
+        <Card variant="stat" className="flex items-center gap-4" aria-label={m().home.levelRing}>
           <Ring value={forNext > 0 ? intoLevel / forNext : 0} label={m().home.levelRing} size={96}>
             <span className="text-2xl">{level}</span>
           </Ring>
@@ -73,19 +76,19 @@ export default function Home() {
             <p className="text-xl font-extrabold">{fmt(m().home.level, { level })}</p>
             <p className="text-muted">{fmt(m().home.xpProgress, { into: intoLevel, total: forNext })}</p>
           </div>
-        </section>
+        </Card>
 
-        <section className="rounded-2xl border-2 border-line bg-surface p-4">
+        <Card variant="stat">
           <h2 className="text-lg font-bold text-muted">{m().home.streak}</h2>
-          <p className="text-3xl font-extrabold">
-            <span aria-hidden="true">🔥 </span>
+          <p className="flex items-center gap-2 text-3xl font-extrabold">
+            <FlameIcon className="text-amber" width="1.75rem" height="1.75rem" />
             {fmt(m().home.streakDays, { count: streak })}
           </p>
           <p className="text-muted">{fmt(m().home.bestStreak, { count: data.streak.best })}</p>
-        </section>
+        </Card>
 
         {isReady('/review') ? (
-        <section className="rounded-2xl border-2 border-line bg-surface p-4">
+        <Card variant="stat">
           <h2 className="text-lg font-bold text-muted">{m().nav.review}</h2>
           <p className="text-xl font-extrabold">{due > 0 ? fmt(m().home.dueReviews, { count: due }) : m().home.noDue}</p>
           {due > 0 ? (
@@ -93,7 +96,7 @@ export default function Home() {
               {m().home.reviewNow}
             </ButtonLink>
           ) : null}
-        </section>
+        </Card>
         ) : null}
 
         {isReady('/courses') ? <ContinueCard last={last} /> : null}

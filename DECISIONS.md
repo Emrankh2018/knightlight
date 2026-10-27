@@ -44,3 +44,11 @@ Dated log (Asia/Qatar). Newest last.
 ## 2026-10-19 (puzzle mixed buckets)
 - **Mixed buckets are now interleaved across themes.** Before, one reservoir fed `<level>/mixed`, so beginner mixed was ~88% mate puzzles (mateIn1 alone 60%), which is dull for children. Now `scripts/build-puzzles.ts` keeps one mixed reservoir per main theme (plus "other" for puzzles with none), each capped at 25% of `PER_MIXED_LEVEL` (75); because puzzles carry several tags (endgame co-occurs with many mates), the interleave also skips a puzzle once any main tag already appears in 35% of the bucket. Each puzzle joins the least-filled matching theme's reservoir, and the final 300 are taken round-robin across the reservoirs. Same seed, deterministic.
 - **`index.json` `filters.beginner`** now records the beginner level's effective filters (60 / 100 / 110) next to the strict defaults (90 / 500 / 90). `PuzzleIndex` in `src/lib/puzzle-types.ts` gained the field. Tests assert each mixed bucket has >= 250 puzzles and no main theme above 40%.
+
+## 2026-10-27 (lamplit study visual direction)
+- **Direction: "lamplit study"** (owner approved): warm dark ink-teal with an amber glow; cream paper in light mode. Roadmap and audit in `UPGRADE_ROADMAP.md`.
+- **Fonts self-hosted (OFL):** Fraunces (display, h1 and `.kl-display`) and Nunito (text), latin subset only, via `@fontsource-variable/*` files referenced from `src/index.css`. Before this the CSS named Nunito but never loaded it. Cost: about +81 KiB precache (3,541 to 3,623 KiB).
+- **Tokens:** radius scale (`rounded-control/card/hero`), warm shadow scale (`shadow-card/lift/glow`), `ink-deep` and `lamp` colours, a page-top lamp glow. Amber stays the primary-action colour; amber text is never used on cream (1.94:1).
+- **Icons:** original stroke SVGs in `src/components/icons.tsx` replace the emoji in the header and the streak flame.
+- **Avatars keep the stored emoji value** (profiles, backups and leaderboards validate against `AVATARS`), rendered through `src/components/Avatar.tsx` in a consistent badge. Original SVG avatar art is deferred; swap it inside `Avatar` without changing saved data.
+- **Piece set:** deferred to Phase 2. Must be original or licence-verified permissive; record the licence here first.

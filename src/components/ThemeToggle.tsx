@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react';
 import { m } from '../i18n';
+import { MonitorIcon, MoonIcon, SunIcon } from './icons';
 import { useSettings, type ThemeSetting } from '../store/settings';
 
 const ORDER: ThemeSetting[] = ['light', 'dark', 'system'];
-const ICON: Record<ThemeSetting, string> = { light: '☀️', dark: '🌙', system: '💻' };
+const ICON: Record<ThemeSetting, ReactNode> = { light: <SunIcon />, dark: <MoonIcon />, system: <MonitorIcon /> };
 
 /** Cycles light, dark, system. */
 export default function ThemeToggle() {
@@ -18,7 +20,7 @@ export default function ThemeToggle() {
       title={`${m().theme.label}: ${name}`}
       className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-xl hover:bg-ink-soft"
     >
-      <span aria-hidden="true">{ICON[theme]}</span>
+      {ICON[theme]}
     </button>
   );
 }
