@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync, writeFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 
 const dialog = (page: Page) => page.getByRole('dialog');
@@ -150,7 +150,7 @@ test('export then import restores a deleted student after a preview and confirm'
   await expect(page.getByText('Backup imported. 2 students restored.')).toBeVisible();
 });
 
-test('a bad import changes nothing and says why', async ({ page }) => {
+test('a bad import changes nothing and says why', async ({ page }, testInfo) => {
   await page.goto('#/students');
   await openPanels(page);
   await addStudent(page, 'Maya');
@@ -163,7 +163,10 @@ test('a bad import changes nothing and says why', async ({ page }) => {
   await input.setInputFiles({ name: 'v9.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ app: 'knightlight', version: 9 })) });
   await expect(alert).toContainText('different version of Knightlight');
 
-  await input.setInputFiles({ name: 'big.json', mimeType: 'application/json', buffer: Buffer.alloc(5 * 1024 * 1024 + 10, 32) });
+  const oversized = testInfo.outputPath('big.json');
+  writeFileSync(oversized, Buffer.alloc(5 * 1024 * 1024 + 10, 32));
+  expect(statSync(oversized).size).toBe(5 * 1024 * 1024 + 10);
+  await input.setInputFiles(oversized);
   await expect(alert).toContainText('too large');
 
   await expect(dialog(page)).toBeHidden();

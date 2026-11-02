@@ -8,13 +8,14 @@ interface ModalProps {
   initialFocus?: RefObject<HTMLElement | null>;
   onClose: () => void;
   children: ReactNode;
+  wide?: boolean;
 }
 
 /**
  * Modal dialog on the native `<dialog>`: the browser traps focus, makes the page inert and closes on Escape.
  * Focus goes back to the opener on close, or to the page content when the opener no longer exists.
  */
-export default function Modal({ title, description, initialFocus, onClose, children }: ModalProps) {
+export default function Modal({ title, description, initialFocus, onClose, children, wide = false }: ModalProps) {
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   const descId = useId();
@@ -42,7 +43,7 @@ export default function Modal({ title, description, initialFocus, onClose, child
         e.preventDefault();
         onClose();
       }}
-      className="m-auto w-[min(32rem,calc(100vw-2rem))] rounded-2xl border-2 border-ink bg-surface p-6 text-fg shadow-2xl backdrop:bg-black/60 dark:border-amber"
+      className={`m-auto rounded-2xl border-2 border-ink bg-surface text-fg shadow-2xl backdrop:bg-black/60 dark:border-amber ${wide ? 'max-h-[calc(100dvh-1.5rem)] w-[min(58rem,calc(100vw-1.5rem))] overflow-y-auto p-4' : 'w-[min(32rem,calc(100vw-2rem))] p-6'}`}
     >
       <h2 id={titleId} className="text-2xl font-extrabold">{title}</h2>
       {description ? <p id={descId} className="mt-2 text-lg">{description}</p> : null}

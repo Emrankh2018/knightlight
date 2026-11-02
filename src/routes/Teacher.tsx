@@ -4,6 +4,7 @@ import Board, { type PromotionPiece } from '../components/Board';
 import Button from '../components/Button';
 import LoadBox from '../components/LoadBox';
 import MoveList from '../components/MoveList';
+import PositionEditor from '../components/PositionEditor';
 import { usePresentEffects } from '../components/lesson/shared';
 import SoundToggle from '../components/SoundToggle';
 import { useLoad } from '../hooks/useLoad';
@@ -34,6 +35,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
   const [copied, setCopied] = useState<Copy>(null);
   const [notes, setNotes] = useState(loadNotes);
   const [present, setPresent] = useState(false);
+  const [editing, setEditing] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const wasPresent = useRef(false);
 
@@ -81,6 +83,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent): void => {
+      if (editing) return;
       if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === 'Escape') {
         if (present) setPresent(false);
@@ -100,7 +103,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [undo, redo, present]);
+  }, [undo, redo, present, editing]);
 
   const copy = async (kind: 'fen' | 'pgn'): Promise<void> => {
     try {
@@ -176,8 +179,9 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
     <>
       <Button variant="secondary" className={btn} onClick={undo} aria-disabled={line.cursor === 0}>{o.undo}</Button>
       <Button variant="secondary" className={btn} onClick={redo} aria-disabled={line.cursor >= plies.length}>{o.redo}</Button>
-      <Button variant="secondary" className={btn} onClick={() => commit({ startFen: START_FEN, sans: [], cursor: 0 })}>{o.reset}</Button>
+      <Button variant="secondary" className={btn} onClick={() => commit({ startFen: line.startFen, sans: [], cursor: 0 })}>{o.reset}</Button>
       <Button variant="secondary" className={btn} onClick={() => setFlipped((f) => !f)}>{o.flip}</Button>
+      <Button variant="secondary" className={btn} onClick={() => setEditing(true)}>{m().positionEditor.title}</Button>
     </>
   );
 
@@ -206,6 +210,8 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
     </Button>
   );
 
+  const editor = editing ? <PositionEditor fen={fen} orientation={flipped ? 'black' : 'white'} onClose={() => setEditing(false)} onApply={(startFen) => { commit({ startFen, sans: [], cursor: 0 }); setEditing(false); }} /> : null;
+
   if (present) {
     return (
       <div
@@ -226,6 +232,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
           {bookMoves}
           {notesBox}
         </div>
+        {editor}
       </div>
     );
   }
@@ -252,7 +259,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
             <div className="min-w-0 space-y-2">
               <section aria-labelledby="an-moves">
                 <h2 id="an-moves" className="sr-only">{o.movesHeading}</h2>
-                <MoveList plies={plies} cursor={line.cursor} onJump={(cursor) => commit({ ...line, cursor })} />
+                <MoveList plies={plies} cursor={line.cursor} startFen={line.startFen} onJump={(cursor) => commit({ ...line, cursor })} />
               </section>
               {notesBox}
             </div>
@@ -263,6 +270,7 @@ function Analysis({ index, openingsFailed }: { index: OpeningIndex | null; openi
           </div>
         </div>
       </div>
+      {editor}
     </div>
   );
 }

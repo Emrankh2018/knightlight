@@ -68,3 +68,14 @@ Known: reload mid-set restarts the set; Review page is a placeholder; sound unte
 1. Read `AUDIT_REPORT.md`, current instructions and the source fingerprint before selecting work. Reproduce AUD-01/AUD-02 and fix via the owner/test/review workflow.
 2. Follow the report's prioritized backlog; preserve generated-data and coach-review rules. Resolve the Play credit contract before changing assertions.
 3. Run complete gates/build/E2E and affected production checks after repairs. A future release needs authorization and separate live-artifact verification.
+
+## 2026-11-02: Teacher position editor (implementation and QA complete)
+
+- The owner rejected the earlier five-upgrade proposal and selected direct board setup on Teacher instead. Commit, GitHub push and Cloudflare deployment are authorized after verification.
+- Teacher now offers **Set up position**: clear/start board, all 12 pieces, direct placement/removal, unrestricted desktop dragging, side to move, castling rights, board flip and keyboard editing. Drafts remain separate until **Use this position**; Cancel/Escape preserve the analysis and notes.
+- Apply validates kings, pawns, king separation and check state before creating a new analysis root. Reset returns to that setup; Black-to-move move numbering is correct. Existing pieces/themes are reused; no dependency or generated-content change.
+- Regression fixes: opening the editor no longer scrolls past the board on phones; keyboard focus uses a contrasting color on each square. Both failures were demonstrated before their fixes and passed afterward.
+- Verification: 567 unit tests; full gates; root-path production build; 68/68 production-preview E2E with one worker, zero retries and unchanged timeouts. Network-mock tests block service workers, matching development behavior. Main separately verified the real service worker, offline reload/placement/Apply/Present, custom castling and responsive layouts. Code and classroom reviews: ship.
+- E2E fixture repair: the existing oversized import test now loads the identical 5,242,890-byte file from disk rather than sending its buffer through browser automation; all original rejection/data-preservation assertions remain. Development runs encountered traced resource-loading failures; the complete compiled-artifact run passed.
+- Audit: zero production dependency advisories; the full dependency scan reports 22 existing development/build findings (19 moderate, 3 low; no high/critical). Dependency versions are unchanged. Physical projector/iPad testing and exhaustive service-worker upgrade scenarios remain unverified.
+- This entry records pre-release verification. The release must still verify the deployed artifact and changed live flow. Existing untracked `docs/design/before/` is excluded from this change.
