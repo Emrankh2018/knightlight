@@ -3,6 +3,7 @@ import { LEVEL_IDS, type BotLevelId } from '../engine/level-ids';
 import { fmt, m } from '../i18n';
 import { evaluateAchievements, type Stats } from '../lib/achievements';
 import { isRealDay, todayLocal } from '../lib/date';
+import { GAME_IDS, isMiniGameStage, type GameId, type GameStars, type MiniGameProgress } from '../lib/games';
 import { newItem, review, type SrsGrade, type SrsItem, type SrsKind } from '../lib/srs';
 import { MAX_XP, updateStreak, xpFor, type GameResult, type StreakState, type XpEvent } from '../lib/xp';
 import { useProfiles } from './profiles';
@@ -25,6 +26,7 @@ export interface Progress {
   achievements: string[];
   botWins: Record<string, number>;
   linesDrilled: number;
+  games?: MiniGameProgress;
 }
 
 export function emptyProgress(): Progress {
@@ -39,6 +41,7 @@ export function emptyProgress(): Progress {
     achievements: [],
     botWins: {},
     linesDrilled: 0,
+    games: {},
   };
 }
 
@@ -69,6 +72,24 @@ function parseStreak(v: unknown): StreakState | null {
   if (v.lastDay === undefined) return { current: v.current, best: v.best };
   if (!isStr(v.lastDay) || !DAY_RE.test(v.lastDay) || !isRealDay(v.lastDay)) return null;
   return { current: v.current, best: v.best, lastDay: v.lastDay };
+}
+
+function parseGames(value: unknown): MiniGameProgress | null {
+  if (!isRecord(value)) return null;
+  const games: MiniGameProgress = {};
+  for (const [key, stages] of Object.entries(value)) {
+    if (!(GAME_IDS as readonly string[]).includes(key) || !isRecord(stages)) return null;
+    const game = key as GameId;
+    const entries: NonNullable<MiniGameProgress[GameId]> = {};
+    for (const [id, entry] of Object.entries(stages)) {
+      if (!isMiniGameStage(game, id) || !isRecord(entry)) return null;
+      if (entry.stars !== 1 && entry.stars !== 2 && entry.stars !== 3) return null;
+      if (!isCount(entry.at) || !Number.isSafeInteger(entry.at)) return null;
+      entries[id] = { stars: entry.stars, at: entry.at };
+    }
+    games[game] = entries;
+  }
+  return games;
 }
 
 /** Strict validation of one progress record. Returns a clean copy, or null if anything is off. */
@@ -108,6 +129,11 @@ export function validateProgress(v: unknown): Progress | null {
     linesDrilled: v.linesDrilled,
   };
   if (lastLesson) out.lastLesson = lastLesson;
+  if (v.games !== undefined) {
+    const games = parseGames(v.games);
+    if (!games) return null;
+    out.games = games;
+  }
   return out;
 }
 
@@ -155,6 +181,8 @@ interface ProgressState {
   reviewSrs: (id: string, grade: SrsGrade) => void;
   removeSrs: (id: string) => void;
   setLastLesson: (course: string, lesson: string, step: number) => void;
+  /** Saves best stars once per stage. The captured profile ID guards late callbacks after a switch. */
+  recordMiniGame: (game: GameId, stageId: string, stars: GameStars, expectedProfileId?: string) => boolean;
 }
 
 export const useProgress = create<ProgressState>()((set, get) => {
@@ -242,6 +270,23 @@ export const useProgress = create<ProgressState>()((set, get) => {
       commit((d) => {
         d.lastLesson = { course, lesson, step };
       }, false),
+    recordMiniGame: (game, stageId, stars, expectedProfileId) => {
+      const { profileId, data } = get();
+      if (expectedProfileId !== undefined && expectedProfileId !== profileId) return false;
+      if (!(GAME_IDS as readonly string[]).includes(game) || !isMiniGameStage(game, stageId)) return false;
+      if (stars !== 1 && stars !== 2 && stars !== 3) return false;
+      const draft = structuredClone(data);
+      const previous = draft.games?.[game]?.[stageId];
+      draft.games ??= {};
+      draft.games[game] ??= {};
+      const stages = draft.games[game];
+      if (!stages) return false;
+      stages[stageId] = { stars: Math.max(previous?.stars ?? 0, stars) as GameStars, at: previous?.at ?? Date.now() };
+      draft.streak = updateStreak(draft.streak, todayLocal());
+      if (!writeRaw(KEYS.progress(profileId), JSON.stringify(draft))) return false;
+      set({ data: draft });
+      return true;
+    },
   };
 });
 

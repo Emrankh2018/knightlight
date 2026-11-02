@@ -13,6 +13,7 @@ const allLinks = [
   { to: '/', label: () => m().nav.home, end: true },
   { to: '/courses', label: () => m().nav.library, end: false },
   { to: '/puzzles', label: () => m().nav.puzzles, end: false },
+  { to: '/games', label: () => m().nav.games, end: false },
   { to: '/teacher', label: () => m().nav.teacher, end: false },
   { to: '/openings', label: () => m().nav.explorer, end: false },
   { to: '/play', label: () => m().nav.play, end: false },
@@ -28,7 +29,7 @@ export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
   const linkClass = ({ isActive }: { isActive: boolean }): string =>
-    `flex min-h-11 items-center rounded-lg px-3 ${isActive ? 'font-extrabold text-lamp shadow-[inset_0_-3px_0_0_var(--color-amber)]' : 'hover:text-lamp'}`;
+    `flex min-h-11 items-center rounded-lg px-2 xl:text-sm 2xl:text-base ${isActive ? 'font-extrabold text-lamp shadow-[inset_0_-3px_0_0_var(--color-amber)]' : 'hover:text-lamp'}`;
 
   return (
     <div className="flex min-h-full flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">

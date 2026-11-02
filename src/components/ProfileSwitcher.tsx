@@ -43,7 +43,7 @@ export default function ProfileSwitcher() {
         className="flex min-h-11 items-center gap-2 rounded-lg px-2 hover:bg-ink-soft"
       >
         <Avatar value={active.avatar} size="sm" />
-        <span className="hidden max-w-[9rem] truncate font-bold sm:inline" title={active.name} aria-hidden="true">{active.name}</span>
+        <span className="hidden max-w-[9rem] truncate font-bold sm:inline xl:max-w-[4.5rem] min-[1366px]:max-w-[9rem]" title={active.name} aria-hidden="true">{active.name}</span>
         <span className="whitespace-nowrap rounded-full bg-amber px-2 text-sm font-extrabold text-ink" aria-hidden="true">{fmt(m().profile.level, { level })}</span>
       </button>
       {open ? (

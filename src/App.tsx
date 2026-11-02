@@ -10,6 +10,7 @@ const Courses = lazy(() => import('./routes/Courses'));
 const Course = lazy(() => import('./routes/Course'));
 const Lesson = lazy(() => import('./routes/Lesson'));
 const Puzzles = lazy(() => import('./routes/Puzzles'));
+const Games = lazy(() => import('./routes/Games'));
 const Teacher = lazy(() => import('./routes/Teacher'));
 const Openings = lazy(() => import('./routes/Openings'));
 const Play = lazy(() => import('./routes/Play'));
@@ -28,6 +29,8 @@ export default function App() {
           <Route path="courses/:slug" element={<Course />} />
           <Route path="learn/:slug/:lessonId" element={<Lesson />} />
           <Route path="puzzles" element={<Puzzles />} />
+          <Route path="games" element={<Games />} />
+          <Route path="games/:game" element={<Games />} />
           <Route path="tactics" element={<Navigate to="/puzzles" replace />} />
           <Route path="teacher" element={<Teacher />} />
           <Route path="openings" element={<Openings />} />
