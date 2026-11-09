@@ -90,4 +90,10 @@ Known: reload mid-set restarts the set; Review page is a placeholder; sound unte
 - Main-session final gates PASS: **587 unit tests**, typecheck, lint, content validator (10 courses / 95 lessons / 295 steps / zero issues), and puzzle size 2.80 MB. Production dependency audit: zero findings.
 - Root-path production build PASS; **90/90 production E2E PASS** (22 Games cases plus 68 existing), one worker, zero retries, unchanged timeouts. Main independently completed an offline reload, a knight trail, a Detective capture and all five Castle rooms with a real activated service worker and zero JavaScript errors.
 - Evidence and release receipt: `E:/AI-HQ/Projects/Knightlight-Games/2026-11-02/`. The 122-file tested artifact has a SHA-256 inventory for exact deployment. Commit, push and Cloudflare release are authorized and pending release execution; deployed assets and live games must be verified afterward.
+
+## 2026-11-09: Retire the original Games tab
+
+- The owner rejected Castle Quest, Knight Treasure Trail and Chess Detective. Removed the three games, their tab and Home shortcut. Bookmarks for the retired Games pages now open Home. Valid old scores remain readable in v1 student progress and backups.
+- New games require owner approval. The standard board and pieces rule in `AGENTS.md` applies to all replacements, with coordinates only at the edges and game information beside the board.
+- Gates passed with 572 unit tests. The production build passed all 71 browser tests. The preview passed a real service-worker offline reload and all four retired link redirects. Independent code and classroom UI reviews approved the removal.
 - Physical projector/iPad/audio and exhaustive service-worker upgrade scenarios remain unverified. Existing untracked `docs/design/before/` is preserved and excluded.

@@ -25,6 +25,7 @@ Knightlight is a static chess-teaching PWA for a coach (projected in class) and 
 - Every course ships with `"reviewed": false` until the coach reviews it.
 - `.cache/`, `node_modules/`, `dist/` and `.tmp/` are never committed.
 - UI strings live only in `src/i18n/en.ts`.
+- Games use Knightlight's default 8×8 chessboard and standard pieces. Show A–H and 1–8 only at the board edges. Keep empty squares clear and put game objectives and scores beside the board.
 - Shipped puzzle data under `public/data/puzzles/` stays under 25 MB.
 - Lichess data (CC0) is credited in the footer and README.
 

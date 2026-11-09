@@ -13,7 +13,6 @@ const allLinks = [
   { to: '/', label: () => m().nav.home, end: true },
   { to: '/courses', label: () => m().nav.library, end: false },
   { to: '/puzzles', label: () => m().nav.puzzles, end: false },
-  { to: '/games', label: () => m().nav.games, end: false },
   { to: '/teacher', label: () => m().nav.teacher, end: false },
   { to: '/openings', label: () => m().nav.explorer, end: false },
   { to: '/play', label: () => m().nav.play, end: false },

@@ -108,7 +108,7 @@ export default function Home() {
 
       </div>
 
-      <div className="flex flex-wrap gap-3"><ButtonLink to="/puzzles">{m().home.startPuzzles}</ButtonLink><ButtonLink to="/games" variant="secondary">{m().games.home}</ButtonLink></div>
+      <ButtonLink to="/puzzles">{m().home.startPuzzles}</ButtonLink>
     </div>
   );
 }

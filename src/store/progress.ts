@@ -3,12 +3,20 @@ import { LEVEL_IDS, type BotLevelId } from '../engine/level-ids';
 import { fmt, m } from '../i18n';
 import { evaluateAchievements, type Stats } from '../lib/achievements';
 import { isRealDay, todayLocal } from '../lib/date';
-import { GAME_IDS, isMiniGameStage, type GameId, type GameStars, type MiniGameProgress } from '../lib/games';
 import { newItem, review, type SrsGrade, type SrsItem, type SrsKind } from '../lib/srs';
 import { MAX_XP, updateStreak, xpFor, type GameResult, type StreakState, type XpEvent } from '../lib/xp';
 import { useProfiles } from './profiles';
 import { useUi } from './ui';
 import { DAY_RE, isBool, isCount, isNum, isRecord, isSafeKey, isStr, KEYS, parseJson, readRaw, writeRaw } from './storage';
+
+// Keep retired game scores readable in existing v1 progress and backups.
+const LEGACY_GAME_STAGES = {
+  castle: ['captures', 'mates', 'forks'],
+  knight: ['trail-1', 'trail-2', 'trail-3', 'trail-4', 'trail-5', 'trail-6', 'trail-7', 'trail-8', 'trail-9'],
+  detective: ['case-1', 'case-2', 'case-3', 'case-4', 'case-5', 'case-6', 'case-7', 'case-8', 'case-9'],
+};
+type LegacyGameId = keyof typeof LEGACY_GAME_STAGES;
+type LegacyGameProgress = Partial<Record<LegacyGameId, Record<string, { stars: 1 | 2 | 3; at: number }>>>;
 
 export interface Progress {
   version: 1;
@@ -26,7 +34,7 @@ export interface Progress {
   achievements: string[];
   botWins: Record<string, number>;
   linesDrilled: number;
-  games?: MiniGameProgress;
+  games?: LegacyGameProgress;
 }
 
 export function emptyProgress(): Progress {
@@ -41,7 +49,6 @@ export function emptyProgress(): Progress {
     achievements: [],
     botWins: {},
     linesDrilled: 0,
-    games: {},
   };
 }
 
@@ -74,15 +81,15 @@ function parseStreak(v: unknown): StreakState | null {
   return { current: v.current, best: v.best, lastDay: v.lastDay };
 }
 
-function parseGames(value: unknown): MiniGameProgress | null {
+function parseLegacyGames(value: unknown): LegacyGameProgress | null {
   if (!isRecord(value)) return null;
-  const games: MiniGameProgress = {};
+  const games: LegacyGameProgress = {};
   for (const [key, stages] of Object.entries(value)) {
-    if (!(GAME_IDS as readonly string[]).includes(key) || !isRecord(stages)) return null;
-    const game = key as GameId;
-    const entries: NonNullable<MiniGameProgress[GameId]> = {};
+    if (!Object.hasOwn(LEGACY_GAME_STAGES, key) || !isRecord(stages)) return null;
+    const game = key as LegacyGameId;
+    const entries: NonNullable<LegacyGameProgress[LegacyGameId]> = {};
     for (const [id, entry] of Object.entries(stages)) {
-      if (!isMiniGameStage(game, id) || !isRecord(entry)) return null;
+      if (!LEGACY_GAME_STAGES[game].includes(id) || !isRecord(entry)) return null;
       if (entry.stars !== 1 && entry.stars !== 2 && entry.stars !== 3) return null;
       if (!isCount(entry.at) || !Number.isSafeInteger(entry.at)) return null;
       entries[id] = { stars: entry.stars, at: entry.at };
@@ -130,7 +137,7 @@ export function validateProgress(v: unknown): Progress | null {
   };
   if (lastLesson) out.lastLesson = lastLesson;
   if (v.games !== undefined) {
-    const games = parseGames(v.games);
+    const games = parseLegacyGames(v.games);
     if (!games) return null;
     out.games = games;
   }
@@ -181,8 +188,6 @@ interface ProgressState {
   reviewSrs: (id: string, grade: SrsGrade) => void;
   removeSrs: (id: string) => void;
   setLastLesson: (course: string, lesson: string, step: number) => void;
-  /** Saves best stars once per stage. The captured profile ID guards late callbacks after a switch. */
-  recordMiniGame: (game: GameId, stageId: string, stars: GameStars, expectedProfileId?: string) => boolean;
 }
 
 export const useProgress = create<ProgressState>()((set, get) => {
@@ -270,23 +275,6 @@ export const useProgress = create<ProgressState>()((set, get) => {
       commit((d) => {
         d.lastLesson = { course, lesson, step };
       }, false),
-    recordMiniGame: (game, stageId, stars, expectedProfileId) => {
-      const { profileId, data } = get();
-      if (expectedProfileId !== undefined && expectedProfileId !== profileId) return false;
-      if (!(GAME_IDS as readonly string[]).includes(game) || !isMiniGameStage(game, stageId)) return false;
-      if (stars !== 1 && stars !== 2 && stars !== 3) return false;
-      const draft = structuredClone(data);
-      const previous = draft.games?.[game]?.[stageId];
-      draft.games ??= {};
-      draft.games[game] ??= {};
-      const stages = draft.games[game];
-      if (!stages) return false;
-      stages[stageId] = { stars: Math.max(previous?.stars ?? 0, stars) as GameStars, at: previous?.at ?? Date.now() };
-      draft.streak = updateStreak(draft.streak, todayLocal());
-      if (!writeRaw(KEYS.progress(profileId), JSON.stringify(draft))) return false;
-      set({ data: draft });
-      return true;
-    },
   };
 });
 
