@@ -5,6 +5,7 @@
 export const READY_ROUTES: Readonly<Record<string, boolean>> = {
   '/courses': true,
   '/puzzles': true,
+  '/games': true,
   '/teacher': true,
   '/openings': true,
   '/play': true,

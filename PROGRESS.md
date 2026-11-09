@@ -97,3 +97,10 @@ Known: reload mid-set restarts the set; Review page is a placeholder; sound unte
 - New games require owner approval. The standard board and pieces rule in `AGENTS.md` applies to all replacements, with coordinates only at the edges and game information beside the board.
 - Gates passed with 572 unit tests. The production build passed all 71 browser tests. The preview passed a real service-worker offline reload and all four retired link redirects. Independent code and classroom UI reviews approved the removal.
 - Physical projector/iPad/audio and exhaustive service-worker upgrade scenarios remain unverified. Existing untracked `docs/design/before/` is preserved and excluded.
+
+## 2026-11-09: Three new Games
+
+- The owner approved Boss Battle, Combo Chess and Build Your Own Army. The Games tab and Home entry now launch the new games. Retired Castle, Knight and Detective bookmarks still open Home.
+- Boss Battle uses a three-life queen and two final-life pawn guards. Combo Chess allows up to three captures in a turn with the same piece and ends at five captures. Build Your Own Army uses a private nine-point draft before standard chess play from custom setups.
+- All three support pass-and-play and offline computer opponents. They use the standard Knightlight board and pieces, with coordinates at the edges and game information beside the board.
+- Gates passed with 579 unit tests. The root build passed all 79 production-preview browser tests and a real service-worker offline reply in each game. Independent code and classroom reviews approved the build. Physical classroom devices and player enjoyment still need owner playtesting.

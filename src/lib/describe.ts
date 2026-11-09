@@ -4,10 +4,10 @@ const NAMES: Record<PieceSymbol, string> = { k: 'King', q: 'Queen', r: 'Rook', b
 const ORDER: PieceSymbol[] = ['k', 'q', 'r', 'b', 'n', 'p'];
 
 /** Short text summary of a position for screen readers. */
-export function describePosition(fen: string): string {
+export function describePosition(fen: string, kingless = false): string {
   let chess: Chess;
   try {
-    chess = new Chess(fen);
+    chess = new Chess(fen, { skipValidation: kingless });
   } catch {
     return 'Invalid position.';
   }

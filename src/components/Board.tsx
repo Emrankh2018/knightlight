@@ -56,6 +56,12 @@ export interface BoardProps {
   highlights?: readonly Highlight[];
   lastMove?: { from: string; to: string; san?: string };
   interactive?: boolean;
+  /** Kingless positions are used by the capture-based mini-games. */
+  kingless?: boolean;
+  /** Restrict legal chess moves further, for example during a capture chain. */
+  moveFilter?: (move: Move) => boolean;
+  /** Keep game squares clear apart from selection, keyboard focus and check feedback. */
+  cleanSquares?: boolean;
   /** Keyboard marking (H marks the cursor square, A starts and ends an arrow). Off by default because lessons and puzzles use H for hints. */
   keyMarks?: boolean;
   /** Board width: a number of px (capped by the container) or a CSS length such as `min(100%, calc(100dvh - 8rem))`. Default: fills the container (max about 85vh). */
@@ -65,9 +71,9 @@ export interface BoardProps {
   ariaLabel: string;
 }
 
-function safeChess(fen: string): Chess | null {
+function safeChess(fen: string, kingless: boolean): Chess | null {
   try {
-    return new Chess(fen);
+    return new Chess(fen, { skipValidation: kingless });
   } catch {
     return null;
   }
@@ -88,6 +94,9 @@ export default function Board({
   highlights = [],
   lastMove,
   interactive = false,
+  kingless = false,
+  moveFilter,
+  cleanSquares = false,
   keyMarks = false,
   size,
   ref,
@@ -97,7 +106,7 @@ export default function Board({
   const boardTheme = useSettings((s) => s.boardTheme);
   const dark = useIsDark();
   const colors = BOARD_THEMES[effectiveBoardTheme(boardTheme, dark)];
-  const chess = useMemo(() => safeChess(fen), [fen]);
+  const chess = useMemo(() => safeChess(fen, kingless), [fen, kingless]);
   const [sel, setSel] = useState<{ fen: string; square: string } | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
   const [arrowFrom, setArrowFrom] = useState<string | null>(null);
@@ -125,11 +134,16 @@ export default function Board({
   }, [chess, orientation]);
   const selected = sel && sel.fen === fen ? sel.square : null;
 
-  const targets = useMemo<Move[]>(() => (chess && selected ? chess.moves({ square: selected as Move['from'], verbose: true }) : []), [chess, selected]);
+  const targets = useMemo<Move[]>(() => {
+    if (!chess || !selected) return [];
+    const moves = chess.moves({ square: selected as Move['from'], verbose: true });
+    return moveFilter ? moves.filter(moveFilter) : moves;
+  }, [chess, selected, moveFilter]);
 
   const tryMove = (from: string, to: string): boolean => {
     if (!chess || !onMove) return false;
-    const candidates = chess.moves({ square: from as Move['from'], verbose: true }).filter((mv) => mv.to === to);
+    const candidates = chess.moves({ square: from as Move['from'], verbose: true })
+      .filter((mv) => mv.to === to && (!moveFilter || moveFilter(mv)));
     if (candidates.length === 0) return false;
     const needsPromotion = candidates.some((mv) => mv.promotion !== undefined);
     if (!needsPromotion) return onMove(from, to);
@@ -197,14 +211,14 @@ export default function Board({
         return;
       case 'h':
       case 'H':
-        if (!keyMarks || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (cleanSquares || !keyMarks || e.ctrlKey || e.metaKey || e.altKey) return;
         e.preventDefault();
         setCursor(here);
         markSquare(here, e.shiftKey ? 'R' : 'G');
         return;
       case 'a':
       case 'A':
-        if (!keyMarks || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (cleanSquares || !keyMarks || e.ctrlKey || e.metaKey || e.altKey) return;
         e.preventDefault();
         setCursor(here);
         if (arrowFrom === null) setArrowFrom(here);
@@ -245,19 +259,22 @@ export default function Board({
         }
       }
     }
-    if (lastMove) {
+    if (lastMove && !cleanSquares) {
       add(lastMove.from, { backgroundColor: LAST_MOVE_FILL });
       add(lastMove.to, { backgroundColor: LAST_MOVE_FILL });
     }
     for (const h of [...highlights, ...mine.highlights]) add(h.square, { backgroundColor: FILL[h.color] });
     if (selected) add(selected, { backgroundColor: SELECTED_FILL });
-    for (const t of targets) add(t.to, { backgroundImage: t.captured ? RING : DOT });
+    if (!cleanSquares) {
+      for (const t of targets) add(t.to, { backgroundImage: t.captured ? RING : DOT });
+    }
     if (arrowFrom) add(arrowFrom, { boxShadow: 'inset 0 0 0 4px #3BB273' });
     if (cursor && interactive) add(cursor, { boxShadow: 'inset 0 0 0 3px #0F3D3E, inset 0 0 0 6px #FFFFFF' });
     return out;
-  }, [chess, lastMove, highlights, mine.highlights, selected, targets, cursor, interactive, arrowFrom]);
+  }, [chess, lastMove, highlights, mine.highlights, selected, targets, cursor, interactive, arrowFrom, cleanSquares]);
 
   const onSquareMouseDown = ({ square }: SquareHandlerArgs, e: MouseEvent): void => {
+    if (cleanSquares) return;
     if (e.button === 2) drag.current = square;
     else {
       drag.current = null;
@@ -275,7 +292,7 @@ export default function Board({
   };
 
   const boardArrows: BoardArrow[] = [...arrows, ...mine.arrows].map((a) => ({ startSquare: a.from, endSquare: a.to, color: TONES[a.color] }));
-  const summary = useMemo(() => describePosition(fen), [fen]);
+  const summary = useMemo(() => describePosition(fen, kingless), [fen, kingless]);
   const reduceMotion = typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
